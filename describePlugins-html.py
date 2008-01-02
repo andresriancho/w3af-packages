@@ -67,7 +67,7 @@ class htmlFile:
         return res
     
     def startPluginType( self, type ):
-        self._stream += '<h1 class="pluginType" id="#'+type+'">'+type+'</h1><br/>\n'
+        self._stream += '<h1 class="pluginType" id="'+type+'">'+type+'</h1><br/>\n'
         
     def stopPluginType( self ):
         self._stream += '<br/><br/>\n\n'
