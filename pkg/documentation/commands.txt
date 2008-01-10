@@ -1,0 +1,17 @@
+# Local commands:
+epydoc2.4 --config epydoc.conf
+tar -zcpvf epydoc.tgz epydoc/
+scp epydoc.tgz andresriancho@shell1.sf.net:/home/groups/w/w3/w3af/htdocs/documentation/
+
+# Remote commands:
+ssh -l andresriancho shell1.sf.net
+cd /home/groups/w/w3/w3af/htdocs/documentation/
+rm -rf epydoc/
+tar -zxpvf epydoc.tgz
+cd epydoc
+rm index.html
+ln -s module-tree.html index.html
+
+
+# Copy the users guide
+scp ../../w3af/readme/*.pdf andresriancho@shell1.sf.net:/home/groups/w/w3/w3af/htdocs/documentation/user/
