@@ -139,10 +139,10 @@ ${MementoSection} !"w3af" SectionW3af
 	
 	SetOutPath "$INSTDIR\"
 	; BETA 6
-	;File /r  /x "extras" /x "*.pyc" "..\tags\beta6-release\*"
+	;File /r  /x "extras" /x "*.pyc" "..\..\tags\beta6-release\*"
 	
 	; SVN TRUNK
-	File /r /x "extras" /x "*.pyc" "..\trunk\*"
+	File /r /x "extras" /x "*.pyc" "..\..\trunk\*"
 	File "w3af_gui_icon.ico"
 	
 	; Instalando extensiones que vienen con w3af
