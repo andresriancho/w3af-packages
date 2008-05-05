@@ -30,6 +30,24 @@ rm -rf w3af/extlib/pygoogle/
 rm -rf w3af/extlib/pywordnet/
 rm -rf w3af/plugins/discovery/wordnet.py
 
+# And remove the things that are already inside debian as packages
+# python-scapy
+rm -rf w3af/extlib/scapy/
+# Created by Luciano Bello for w3af
+# python-pypdf
+rm -rf w3af/extlib/pyPdf/
+# python-beautifulsoup
+rm -rf w3af/extlib/BeautifulSoup.py
+# python-json
+rm -rf w3af/extlib/jsonpy/
+# python-fpconst
+rm -rf w3af/extlib/fpconst-0.7.2/
+# python-soappy
+rm -rf w3af/extlib/SOAPpy/
+# python-buzhug
+echo 'TODO: python-buzhug'
+rm -rf w3af/extlib/buzhug/
+
 # End!
 echo 'The w3af directory inside "." contains all you need to create the .deb package.'
 
