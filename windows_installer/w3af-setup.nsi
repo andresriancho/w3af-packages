@@ -2,7 +2,7 @@
 
 ; Define your application name
 !define APPNAME "w3af"
-!define APPNAMEANDVERSION "w3af beta 6"
+!define APPNAMEANDVERSION "w3af beta 7"
 
 ; Main Install settings
 Name "${APPNAMEANDVERSION}"
@@ -43,8 +43,8 @@ RequestExecutionLevel admin
 !insertmacro MUI_PAGE_COMPONENTS
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_INSTFILES
-!define MUI_FINISHPAGE_RUN "$SMPROGRAMS\w3af\w3af GUI.lnk"
-!define MUI_FINISHPAGE_SHOWREADME "$SMPROGRAMS\w3af\w3af Users Guide.lnk"
+;!define MUI_FINISHPAGE_RUN "$SMPROGRAMS\w3af\w3af GUI.lnk"
+!define MUI_FINISHPAGE_SHOWREADME "$SMPROGRAMS\w3af\w3af Users Guide (HTML).lnk"
 ;!define MUI_FINISHPAGE_RUN_NOTCHECKED
 !define MUI_FINISHPAGE_NOAUTOCLOSE
 !insertmacro MUI_PAGE_FINISH
@@ -139,10 +139,10 @@ ${MementoSection} !"w3af" SectionW3af
 	
 	SetOutPath "$INSTDIR\"
 	; BETA 6
-	;File /r  /x "extras" /x "*.pyc" "..\..\tags\beta6-release\*"
+	;File /r /x "*.pyc" "..\..\tags\beta6-release\*"
 	
 	; SVN TRUNK
-	File /r /x "extras" /x "*.pyc" "..\..\trunk\*"
+	File /r /x "*.pyc" "..\..\trunk\*"
 	File "w3af_gui_icon.ico"
 	
 	; Instalando extensiones que vienen con w3af
