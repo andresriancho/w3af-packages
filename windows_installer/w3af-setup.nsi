@@ -30,18 +30,39 @@ RequestExecutionLevel admin
 !include "LogicLib.nsh"
 !include "Memento.nsh"
 
+;--------------------------------
+;Variables
+
+Var StartMenuFolder
+
+
+;--------------------------------
+;Interface Settings
+
 !define MUI_ABORTWARNING
 !define MUI_ICON "w3af_gui_icon.ico"
 
-;Installer header
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_BITMAP "header_image.bmp"
 !define MUI_WELCOMEFINISHPAGE_BITMAP "splash_installer.bmp"
 
+!define MUI_STARTMENUPAGE_REGISTRY_ROOT "HKCU"
+!define MUI_STARTMENUPAGE_REGISTRY_KEY "Software\${APPNAME}"
+!define MUI_STARTMENUPAGE_REGISTRY_VALUENAME "Start Menu Folder"
+
+# MEMENTO
+!define MEMENTO_REGISTRY_ROOT ${MUI_STARTMENUPAGE_REGISTRY_ROOT}
+!define MEMENTO_REGISTRY_KEY ${MUI_STARTMENUPAGE_REGISTRY_KEY}
+
+;--------------------------------
+;Pages
+
+; Install Pages
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_LICENSE "GPL.txt"
 !insertmacro MUI_PAGE_COMPONENTS
 !insertmacro MUI_PAGE_DIRECTORY
+!insertmacro MUI_PAGE_STARTMENU Application $StartMenuFolder
 !insertmacro MUI_PAGE_INSTFILES
 ;!define MUI_FINISHPAGE_RUN "$SMPROGRAMS\w3af\w3af GUI.lnk"
 !define MUI_FINISHPAGE_SHOWREADME "$SMPROGRAMS\w3af\w3af Users Guide (HTML).lnk"
@@ -49,8 +70,11 @@ RequestExecutionLevel admin
 !define MUI_FINISHPAGE_NOAUTOCLOSE
 !insertmacro MUI_PAGE_FINISH
 
+; Uninstall Pages
+!insertmacro MUI_UNPAGE_WELCOME
 !insertmacro MUI_UNPAGE_CONFIRM
 !insertmacro MUI_UNPAGE_INSTFILES
+!insertmacro MUI_UNPAGE_FINISH 
 
 ; Set languages (first is default language)
 !insertmacro MUI_LANGUAGE "English"
@@ -61,16 +85,13 @@ RequestExecutionLevel admin
 ;---------------------;
 ; Original Installers ;
 ;---------------------;-------------------------------
-;This files should be on the same directory than the script	
+;This files should be on the same directory than the script
 !define PYGTK_INSTALLER "pygtk-2.12.1-2.win32-py2.5.exe" ; http://ftp.gnome.org/pub/GNOME/binaries/win32/pygtk/
 !define PYCAIRO_INSTALLER "pycairo-1.4.12-1.win32-py2.5.exe" ; http://ftp.gnome.org/pub/GNOME/binaries/win32/pycairo/
 !define PYGOBJECT_INSTALLER "pygobject-2.14.1-1.win32-py2.5.exe" ; http://ftp.gnome.org/pub/GNOME/binaries/win32/pygobject/
 !define PYOPENSSL_INSTALLER "pyOpenSSL-0.7a2-py2.5.exe" ; http://pyopenssl.sourceforge.net/
 
 
-# settings
-!define MEMENTO_REGISTRY_ROOT HKCU
-!define MEMENTO_REGISTRY_KEY "Software\${APPNAME}"
 
 
 Function .onInit
@@ -81,8 +102,7 @@ Function .onInit
 	;can follow in order to download python and exit.
 
 
-;Begin Detect Python
-
+	;Begin Detect Python
 	Var /GLOBAL PYTHON_DIR
 	StrCpy $PYTHON_DIR ""
 
@@ -159,18 +179,24 @@ ${MementoSection} !"w3af" SectionW3af
 	SetOutPath "$INSTDIR\extlib\SOAPpy\"
 	nsExec::ExecToLog '"$PYTHON_DIR\python.exe" "$INSTDIR\extlib\SOAPpy\setup.py" install' ;http://pywebsvcs.sourceforge.net/
 	
-	SetShellVarContext current
-	SetOutPath "$INSTDIR\"
-	CreateShortCut "$DESKTOP\w3af Console.lnk" "$PYTHON_DIR\python.exe" "w3af"
-	CreateShortCut "$DESKTOP\w3af GUI.lnk" "$PYTHON_DIR\python.exe" "w3af -g" "$INSTDIR\w3af_gui_icon.ico" 0 SW_SHOWNORMAL
 	
-	CreateDirectory "$SMPROGRAMS\w3af"
-	CreateShortCut "$SMPROGRAMS\w3af\w3af Console.lnk" "$PYTHON_DIR\python.exe" "w3af"
-	CreateShortCut "$SMPROGRAMS\w3af\w3af GUI.lnk" "$PYTHON_DIR\python.exe" "w3af -g" "$INSTDIR\w3af_gui_icon.ico" 0 SW_SHOWNORMAL
-	CreateShortCut "$SMPROGRAMS\w3af\w3af Update.lnk" "$INSTDIR\w3af_update.bat"
-	CreateShortCut "$SMPROGRAMS\w3af\w3af Users Guide (PDF).lnk" "$INSTDIR\readme\w3afUsersGuide.pdf"
-	CreateShortCut "$SMPROGRAMS\w3af\w3af Users Guide (HTML).lnk" "$INSTDIR\readme\w3afUsersGuide.html"
-	CreateShortCut "$SMPROGRAMS\w3af\Uninstall.lnk" "$INSTDIR\uninstall.exe"
+  !insertmacro MUI_STARTMENU_WRITE_BEGIN Application  
+		SetShellVarContext current
+		
+		;Create shortcuts
+		SetOutPath "$INSTDIR\"
+		CreateShortCut "$DESKTOP\w3af Console.lnk" "$PYTHON_DIR\python.exe" "w3af"
+		CreateShortCut "$DESKTOP\w3af GUI.lnk" "$PYTHON_DIR\python.exe" "w3af -g" "$INSTDIR\w3af_gui_icon.ico" 0 SW_SHOWNORMAL
+		
+		CreateDirectory "$SMPROGRAMS\w3af"
+		CreateShortCut "$SMPROGRAMS\w3af\w3af Console.lnk" "$PYTHON_DIR\python.exe" "w3af"
+		CreateShortCut "$SMPROGRAMS\w3af\w3af GUI.lnk" "$PYTHON_DIR\python.exe" "w3af -g" "$INSTDIR\w3af_gui_icon.ico" 0 SW_SHOWNORMAL
+		CreateShortCut "$SMPROGRAMS\w3af\w3af Update.lnk" "$INSTDIR\w3af_update.bat"
+		CreateShortCut "$SMPROGRAMS\w3af\w3af Users Guide (PDF).lnk" "$INSTDIR\readme\w3afUsersGuide.pdf"
+		CreateShortCut "$SMPROGRAMS\w3af\w3af Users Guide (HTML).lnk" "$INSTDIR\readme\w3afUsersGuide.html"
+		CreateShortCut "$SMPROGRAMS\w3af\Uninstall.lnk" "$INSTDIR\uninstall.exe"
+	
+	!insertmacro MUI_STARTMENU_WRITE_END
 	
 ${MementoSectionEnd}
 
@@ -303,29 +329,34 @@ Section Uninstall
 
 	;Remove from registry...
 	DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}"
-	DeleteRegKey HKLM "SOFTWARE\${APPNAME}"
-	DeleteRegKey HKCU "SOFTWARE\${APPNAME}"
+	DeleteRegKey HKLM "Software\${APPNAME}"
+	DeleteRegKey HKCU "Software\${APPNAME}"
 
 	; Delete self
 	Delete "$INSTDIR\uninstall.exe"
 
+	; Clean up w3af
+	; No borrar 
+	;Delete "$INSTDIR\*"
+	
+
+	!insertmacro MUI_STARTMENU_GETFOLDER Application $StartMenuFolder
+	
 	; Delete Shortcuts
 	Delete "$DESKTOP\w3af Console.lnk"
 	Delete "$DESKTOP\w3af GUI.lnk"
-	Delete "$SMPROGRAMS\w3af\w3af Console.lnk"
-	Delete "$SMPROGRAMS\w3af\w3af GUI.lnk"
-	Delete "$SMPROGRAMS\w3af\w3af Users Guide (PDF).lnk"
-	Delete "$SMPROGRAMS\w3af\w3af Users Guide (HTML).lnk"
-	Delete "$SMPROGRAMS\w3af\w3af Update.lnk"
-	Delete "$SMPROGRAMS\w3af\Uninstall.lnk"	
+	Delete "$SMPROGRAMS\$StartMenuFolder\w3af Console.lnk"
+	Delete "$SMPROGRAMS\$StartMenuFolder\w3af GUI.lnk"
+	Delete "$SMPROGRAMS\$StartMenuFolder\w3af Users Guide (PDF).lnk"
+	Delete "$SMPROGRAMS\$StartMenuFolder\w3af Users Guide (HTML).lnk"
+	Delete "$SMPROGRAMS\$StartMenuFolder\w3af Update.lnk"
+	Delete "$SMPROGRAMS\$StartMenuFolder\Uninstall.lnk"	
 	
-	; Clean up w3af
-	Delete "$INSTDIR\*"
-	
-	; Remove remaining directories
-	RMDir "$SMPROGRAMS\w3af"
-	RMDir /r "$INSTDIR\"
 
+	; Remove remaining directories
+	RMDir "$SMPROGRAMS\$StartMenuFolder"
+	RMDir /r "$INSTDIR\"
+	
 SectionEnd
 
 
