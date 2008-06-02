@@ -1,39 +1,49 @@
 ; Script to generate installer w3af
 
+;General
+!define /date RELEASE_VERSION "%d/%m/%Y"
+
 ; Define your application name
 !define APPNAME "w3af"
-!define APPNAMEANDVERSION "w3af beta 7"
+!define APPNAMEANDVERSION "w3af svn rev. 1243"
 
 ; Main Install settings
 Name "${APPNAMEANDVERSION}"
 InstallDir "$PROGRAMFILES\w3af"
-
 InstallDirRegKey HKLM "Software\${APPNAME}" ""
 OutFile "w3af-svn-setup.exe"
 
 ; Use compression
-SetCompressor BZip2
+SetCompressor /SOLID LZMA
+SetDatablockOptimize on
 
 CRCCheck on
-
 SetDateSave on
+XPStyle off ; NO habilitar porque tiene problemas con la funcion SetCtlColors
+ShowInstDetails hide
 
-XPStyle on
 
-ShowInstDetails show
-
-;Request application privileges for Windows Vista
+; Request application privileges for Windows Vista
 RequestExecutionLevel admin
 
-; Modern interface settings
-!include "MUI2.nsh"
+
+;--------------------------------
+;Include
+
+!include "MUI2.nsh" ; Docs: http://nsis.sourceforge.net/Docs/Modern%20UI%202/Readme.html
 !include "LogicLib.nsh"
 !include "Memento.nsh"
+!include "nsDialogs.nsh"
+
+
 
 ;--------------------------------
 ;Variables
 
 Var StartMenuFolder
+Var PYTHON_DIR
+Var Label2k
+
 
 
 ;--------------------------------
@@ -45,41 +55,78 @@ Var StartMenuFolder
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_BITMAP "header_image.bmp"
 !define MUI_WELCOMEFINISHPAGE_BITMAP "splash_installer.bmp"
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP "splash_installer.bmp"
 
-!define MUI_STARTMENUPAGE_REGISTRY_ROOT "HKCU"
+!define MUI_STARTMENUPAGE_REGISTRY_ROOT HKCU
 !define MUI_STARTMENUPAGE_REGISTRY_KEY "Software\${APPNAME}"
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME "Start Menu Folder"
+
+!define MUI_FINISHPAGE_RUN "$SMPROGRAMS\$StartMenuFolder\w3af GUI.lnk"
+!define MUI_FINISHPAGE_RUN_TEXT "Run W3af GUI"
+!define MUI_FINISHPAGE_RUN_FUNCTION RunW3afGUI
+!define MUI_FINISHPAGE_SHOWREADME "$SMPROGRAMS\$StartMenuFolder\w3af Users Guide (HTML).lnk"
+!define MUI_FINISHPAGE_SHOWREADME_TEXT "Show User Guide"
+!define MUI_FINISHPAGE_SHOWREADME_FUNCTION ShowReleaseNotes
+;!define MUI_FINISHPAGE_RUN_NOTCHECKED
+!define MUI_FINISHPAGE_NOAUTOCLOSE
+!define MUI_FINISHPAGE_LINK "Visit the w3af site for the latest news, FAQs and support"
+!define MUI_FINISHPAGE_LINK_LOCATION "http://w3af.sourceforge.net/"
+
 
 # MEMENTO
 !define MEMENTO_REGISTRY_ROOT ${MUI_STARTMENUPAGE_REGISTRY_ROOT}
 !define MEMENTO_REGISTRY_KEY ${MUI_STARTMENUPAGE_REGISTRY_KEY}
+
+!define LINK_PYTHON "http://www.python.org/download/"
+
 
 ;--------------------------------
 ;Pages
 
 ; Install Pages
 !insertmacro MUI_PAGE_WELCOME
+Page custom WindowDetectPython
 !insertmacro MUI_PAGE_LICENSE "GPL.txt"
 !insertmacro MUI_PAGE_COMPONENTS
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_STARTMENU Application $StartMenuFolder
 !insertmacro MUI_PAGE_INSTFILES
-;!define MUI_FINISHPAGE_RUN "$SMPROGRAMS\w3af\w3af GUI.lnk"
-!define MUI_FINISHPAGE_SHOWREADME "$SMPROGRAMS\w3af\w3af Users Guide (HTML).lnk"
-;!define MUI_FINISHPAGE_RUN_NOTCHECKED
-!define MUI_FINISHPAGE_NOAUTOCLOSE
 !insertmacro MUI_PAGE_FINISH
 
 ; Uninstall Pages
 !insertmacro MUI_UNPAGE_WELCOME
 !insertmacro MUI_UNPAGE_CONFIRM
 !insertmacro MUI_UNPAGE_INSTFILES
-!insertmacro MUI_UNPAGE_FINISH 
+!insertmacro MUI_UNPAGE_FINISH
 
-; Set languages (first is default language)
+;--------------------------------
+;Instalation Types
+
+InstType "Minimal" #1
+InstType "Full" #2
+
+
+;--------------------------------
+;Languages
+
 !insertmacro MUI_LANGUAGE "English"
 !insertmacro MUI_RESERVEFILE_LANGDLL
 
+; Custom Pages
+LangString PAGE_TITLE ${LANG_ENGLISH} "Prerequisite verification"
+LangString PAGE_SUBTITLE ${LANG_ENGLISH} "In this step the installer verifies if the system has the necessary prerequisites for the w3af installation."
+
+
+;--------------------------------
+; Version of installer
+VIProductVersion "0.7.0.0"
+VIAddVersionKey  "ProductName" "w3af"
+VIAddVersionKey  "Comments" "Web Application Attack and Audit Framework - ${RELEASE_VERSION}"
+VIAddVersionKey  "CompanyName" "-"
+VIAddVersionKey  "LegalTrademarks" "-"
+VIAddVersionKey  "LegalCopyright" "GPL"
+VIAddVersionKey  "FileDescription" "The project goal is to create a framework to find and exploit web application vulnerabilities that is easy to use and extend."
+VIAddVersionKey  "FileVersion" "${APPNAMEANDVERSION}"
 
 
 ;---------------------;
@@ -95,65 +142,35 @@ Var StartMenuFolder
 
 
 Function .onInit
-
-	;- w3af installer shouldn't include python
-	;- w3af installer should check for python dependency, and if it fails
-	;to find it tell the user to install it. Provide a link that the user
-	;can follow in order to download python and exit.
-
-
-	;Begin Detect Python
-	Var /GLOBAL PYTHON_DIR
-	StrCpy $PYTHON_DIR ""
-
-
-	; Python Installation "For all User""
-	EnumRegKey $0 HKLM Software\Python\PythonCore 0
-	StrCmp $0 "" nopythonHKLM
 	
-	ReadRegStr $PYTHON_DIR HKLM Software\Python\PythonCore\$0\InstallPath ""
-	
-	Goto fin
-	
-nopythonHKLM:
+	File /oname=$TEMP\splash.bmp "splash-without-version.bmp"	
+	advsplash::show 3000 600 400 -1 $TEMP\splash
 
-	; Python Installation "Just for Me""
-	EnumRegKey $0 HKCU Software\Python\PythonCore 0
-	StrCmp $0 "" nopythonHKCU	
-	
-	ReadRegStr $PYTHON_DIR HKCU Software\Python\PythonCore\$0\InstallPath ""	
-	
-	;Workround & Bugfix for prerequisites. Set "For all User".
-	WriteRegStr HKLM Software\Python\PythonCore\$0\InstallPath @ $PYTHON_DIR
-	
-	Goto fin
-	
-nopythonHKCU:
-	MessageBox MB_OK "Open the python download page and exit the installer"
-	
-	ExecShell "open" "http://www.python.org/download/"
+	;Prevent Multiple Instances
+	System::Call 'kernel32::CreateMutexA(i 0, i 0, t "w3af_installer") i .r1 ?e'
+		Pop $R0
 
-;For x86 processors:      http://www.python.org/ftp/python/2.5.2/python-2.5.2.msi
-;For Win64-Itanium users: http://www.python.org/ftp/python/2.5.2/python-2.5.2.amd64.msi
-;For Win64-AMD64 users:   http://www.python.org/ftp/python/2.5.2/python-2.5.2.ia64.msi
-;msiexec /i python-2.5.2.msi ALLUSERS=1
-
-
-	MessageBox MB_OK "Remember install python before use w3af"
+	StrCmp $R0 0 +3
+		MessageBox MB_OK|MB_ICONEXCLAMATION "The w3af installer is already running"
+		Abort
 	
-	Quit
-; End Detect Python
-
-
-fin:	
+	StrCpy $StartMenuFolder ${APPNAME}
+	
 	${MementoSectionRestore}
+FunctionEnd
+
+
+Function .onInstSuccess
+	IfFileExists "$TEMP\splash.bmp" 0 +2
+		Delete $TEMP\splash.bmp
+	${MementoSectionSave}
 FunctionEnd
 
 
 ############## Section W3AF ##############
 ${MementoSection} !"w3af" SectionW3af
 
-	SectionIn RO
+	SectionIn 1 2 RO
 	SetDetailsPrint both
 	SetOverwrite on
 	
@@ -166,7 +183,7 @@ ${MementoSection} !"w3af" SectionW3af
 	File "w3af_gui_icon.ico"
 	
 	; Instalando extensiones que vienen con w3af
-	SetOutPath "$INSTDIR\extlib\fpconst-0.7.2\"	
+	SetOutPath "$INSTDIR\extlib\fpconst-0.7.2\"
 	nsExec::ExecToLog '"$PYTHON_DIR\python.exe" "$INSTDIR\extlib\fpconst-0.7.2\setup.py" install' ;http://research.warnes.net/projects/RStatServer/fpconst/index_html
 	SetOutPath "$INSTDIR\extlib\pygoogle\"
 	nsExec::ExecToLog  '"$PYTHON_DIR\python.exe" "$INSTDIR\extlib\pygoogle\setup.py" install' ;http://pygoogle.sourceforge.net/
@@ -178,41 +195,27 @@ ${MementoSection} !"w3af" SectionW3af
 	nsExec::ExecToLog '"$PYTHON_DIR\python.exe" "$INSTDIR\extlib\buzhug\setup.py" install' ;http://buzhug.sourceforge.net
 	SetOutPath "$INSTDIR\extlib\SOAPpy\"
 	nsExec::ExecToLog '"$PYTHON_DIR\python.exe" "$INSTDIR\extlib\SOAPpy\setup.py" install' ;http://pywebsvcs.sourceforge.net/
+	SetOutPath "$INSTDIR\extlib\cluster\"
+	nsExec::ExecToLog '"$PYTHON_DIR\python.exe" "$INSTDIR\extlib\cluster\setup.py" install' ;http://python-cluster.sourceforge.net/
 	
-	
-  !insertmacro MUI_STARTMENU_WRITE_BEGIN Application  
-		SetShellVarContext current
-		
-		;Create shortcuts
-		SetOutPath "$INSTDIR\"
-		CreateShortCut "$DESKTOP\w3af Console.lnk" "$PYTHON_DIR\python.exe" "w3af"
-		CreateShortCut "$DESKTOP\w3af GUI.lnk" "$PYTHON_DIR\python.exe" "w3af -g" "$INSTDIR\w3af_gui_icon.ico" 0 SW_SHOWNORMAL
-		
-		CreateDirectory "$SMPROGRAMS\w3af"
-		CreateShortCut "$SMPROGRAMS\w3af\w3af Console.lnk" "$PYTHON_DIR\python.exe" "w3af"
-		CreateShortCut "$SMPROGRAMS\w3af\w3af GUI.lnk" "$PYTHON_DIR\python.exe" "w3af -g" "$INSTDIR\w3af_gui_icon.ico" 0 SW_SHOWNORMAL
-		CreateShortCut "$SMPROGRAMS\w3af\w3af Update.lnk" "$INSTDIR\w3af_update.bat"
-		CreateShortCut "$SMPROGRAMS\w3af\w3af Users Guide (PDF).lnk" "$INSTDIR\readme\w3afUsersGuide.pdf"
-		CreateShortCut "$SMPROGRAMS\w3af\w3af Users Guide (HTML).lnk" "$INSTDIR\readme\w3afUsersGuide.html"
-		CreateShortCut "$SMPROGRAMS\w3af\Uninstall.lnk" "$INSTDIR\uninstall.exe"
-	
-	!insertmacro MUI_STARTMENU_WRITE_END
-	
+
 ${MementoSectionEnd}
 
 
 ############## SVN Client ##############
-${MementoSection} "svn" SectionSVN
+${MementoSection} "svn client" SectionSVN
 	;http://subversion.tigris.org/project_packages.html
+	SectionIn 2
 	SetDetailsPrint both
 	SetOverwrite on
 	
 	SetOutPath "$INSTDIR\svn-client"
-	File "svn-client\*.exe"
+	File /x ".svn" "svn-client\*"
 	
-	SetOutPath "$INSTDIR\"
-	File "svn-client\*.dll"	
-	
+	; w3af update
+	SetOutPath "$INSTDIR"
+	File "w3af_update.exe"
+	File "w3af_update.bat.manifest"
 	Push $INSTDIR\w3af_update.bat
 	Call WriteUpdatew3af
 	
@@ -223,11 +226,13 @@ ${MementoSectionEnd}
 ${MementoSection} "GTK2-Runtime" SectionGTK2Runtime
 	;http://sourceforge.net/projects/gtk-win/
 
+	SectionIn 1 2
 	SetDetailsPrint both
 	SetOverwrite on
 	
 	SetOutPath "$INSTDIR"
-	File  /r "gtk2-runtime\*"	
+	File  /r /x ".svn" "gtk2-runtime\*"
+	File  /r /x ".svn" "svn-client\*.dll"	
 	
 	; Write $INSTDIR\gtk2-runtime\gtk2r-env.bat
 	; This script sets the GTK environment variables
@@ -251,47 +256,43 @@ ${MementoSectionEnd}
 SectionGroup "w3af prerequisites"
 
 ############## PyGTK ##############
-	${MementoSection} "PyGTK" SectionPyGTK	
+	${MementoSection} "PyGTK" SectionPyGTK
+		SectionIn 1 2
 		SetDetailsPrint both
 		SetOverwrite on
 		SetOutPath "$INSTDIR\"		
 		File ${PYGTK_INSTALLER}
-		ExecWait '"$INSTDIR\${PYGTK_INSTALLER}"'
-		;Delete $INSTDIR\${PYGTK_INSTALLER}
-		
+		ExecWait '"$INSTDIR\${PYGTK_INSTALLER}"'		
 	${MementoSectionEnd}
 	
 	############## Pycairo ##############
 	${MementoSection} "Pycairo" SectionPycairo
+		SectionIn 1 2
 		SetDetailsPrint both
 		SetOverwrite on
 		SetOutPath "$INSTDIR"
 		File ${PYCAIRO_INSTALLER}				
 		ExecWait '"$INSTDIR\${PYCAIRO_INSTALLER}"'		
-		;Delete $INSTDIR\${PYCAIRO_INSTALLER}
-		
 	${MementoSectionEnd}
 	
 	############## PyObject ##############
-	${MementoSection} "PyObject" SectionPyObject				
+	${MementoSection} "PyObject" SectionPyObject
+		SectionIn 1 2
 		SetDetailsPrint both
 		SetOverwrite on
 		SetOutPath "$INSTDIR"	
 		File ${PYGOBJECT_INSTALLER}	
-		ExecWait '"$INSTDIR\${PYGOBJECT_INSTALLER}"'
-		;Delete $INSTDIR\${PYGOBJECT_INSTALLER}
-		
+		ExecWait '"$INSTDIR\${PYGOBJECT_INSTALLER}"'		
 	${MementoSectionEnd}
 	
 	############## PyOpenSSL ##############
-	${MementoSection} "PyOpenSSL" SectionPyOpenSSL				
+	${MementoSection} "PyOpenSSL" SectionPyOpenSSL
+		SectionIn 1 2
 		SetDetailsPrint both
 		SetOverwrite on
-		SetOutPath "$INSTDIR"	
-		File ${PYOPENSSL_INSTALLER}		
-		ExecWait '"$INSTDIR\${PYOPENSSL_INSTALLER}"'
-		;Delete $INSTDIR\${PYOPENSSL_INSTALLER}
-		
+		SetOutPath "$INSTDIR"
+		File ${PYOPENSSL_INSTALLER}
+		ExecWait '"$INSTDIR\${PYOPENSSL_INSTALLER}"'	
 	${MementoSectionEnd}
 
 SectionGroupEnd
@@ -299,8 +300,35 @@ SectionGroupEnd
 
 Section -FinishSection
 
+
+	!insertmacro MUI_STARTMENU_WRITE_BEGIN Application
+		SetShellVarContext current
+		
+		;Create shortcuts
+		SetOutPath "$INSTDIR\"
+		CreateShortCut "$DESKTOP\w3af Console.lnk" "$PYTHON_DIR\python.exe" "w3af"
+		CreateShortCut "$DESKTOP\w3af GUI.lnk" "$PYTHON_DIR\python.exe" "w3af -g" "$INSTDIR\w3af_gui_icon.ico" 0 SW_SHOWNORMAL
+		
+		CreateDirectory "$SMPROGRAMS\$StartMenuFolder"
+		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Console.lnk" "$PYTHON_DIR\python.exe" "w3af"
+		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af GUI.lnk" "$PYTHON_DIR\python.exe" "w3af -g" "$INSTDIR\w3af_gui_icon.ico" 0 SW_SHOWNORMAL		
+		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Users Guide (PDF).lnk" "$INSTDIR\readme\w3afUsersGuide.pdf"
+		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Users Guide (HTML).lnk" "$INSTDIR\readme\w3afUsersGuide.html"
+		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Uninstall w3af.lnk" "$INSTDIR\uninstall.exe"	
+		IfFileExists "$INSTDIR\svn-client\svn.exe" 0
+			CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Update.lnk" "$INSTDIR\w3af_update.bat"
+	!insertmacro MUI_STARTMENU_WRITE_END
+	
+	
 	WriteRegStr HKLM "Software\${APPNAME}" "" "$INSTDIR"
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "DisplayName" "${APPNAME}"
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "DisplayIcon" "$INSTDIR\w3af_gui_icon.ico"
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "DisplayVersion" "${APPNAMEANDVERSION}"
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "URLInfoAbout" "http://w3af.sourceforge.net/"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "HelpLink" "http://w3af.sourceforge.net/"
+  WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "NoModify" "1"
+  WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "NoRepair" "1"
+	
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "UninstallString" "$INSTDIR\uninstall.exe"
 	WriteUninstaller "$INSTDIR\uninstall.exe"
 
@@ -326,43 +354,143 @@ ${MementoSectionDone}
 
 ;Uninstall section
 Section Uninstall
-
-	;Remove from registry...
-	DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}"
-	DeleteRegKey HKLM "Software\${APPNAME}"
-	DeleteRegKey HKCU "Software\${APPNAME}"
-
-	; Delete self
-	Delete "$INSTDIR\uninstall.exe"
-
-	; Clean up w3af
-	; No borrar 
-	;Delete "$INSTDIR\*"
 	
-
-	!insertmacro MUI_STARTMENU_GETFOLDER Application $StartMenuFolder
+	ReadRegStr $StartMenuFolder HKCU "Software\${APPNAME}" MUI_STARTMENUPAGE_REGISTRY_VALUENAME
+	
+	; Delete self
+	Delete "$INSTDIR\uninstall.exe"	
 	
 	; Delete Shortcuts
 	Delete "$DESKTOP\w3af Console.lnk"
 	Delete "$DESKTOP\w3af GUI.lnk"
-	Delete "$SMPROGRAMS\$StartMenuFolder\w3af Console.lnk"
-	Delete "$SMPROGRAMS\$StartMenuFolder\w3af GUI.lnk"
-	Delete "$SMPROGRAMS\$StartMenuFolder\w3af Users Guide (PDF).lnk"
-	Delete "$SMPROGRAMS\$StartMenuFolder\w3af Users Guide (HTML).lnk"
-	Delete "$SMPROGRAMS\$StartMenuFolder\w3af Update.lnk"
-	Delete "$SMPROGRAMS\$StartMenuFolder\Uninstall.lnk"	
-	
 
-	; Remove remaining directories
-	RMDir "$SMPROGRAMS\$StartMenuFolder"
+	; Remove directories
+	RMDir /r "$SMPROGRAMS\$StartMenuFolder"
 	RMDir /r "$INSTDIR\"
+	
+	;Remove from registry...
+	DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}"
+	DeleteRegKey HKLM "Software\${APPNAME}"
+	DeleteRegKey HKCU "Software\${APPNAME}"
 	
 SectionEnd
 
 
+; ##########################################
+; BEGIN CUSTOM PAGE
+; ##########################################
+Function WindowDetectPython
+	;http://nsis.sourceforge.net/Docs/nsDialogs/Readme.html
+	
+  !insertmacro MUI_HEADER_TEXT $(PAGE_TITLE) $(PAGE_SUBTITLE)
+	
+	nsDialogs::Create /NOUNLOAD 1018
+	Pop $0
 
-Function .onInstSuccess
-	${MementoSectionSave}
+	;${NSD_Create*} x y width height text
+	
+	Call DetectPython
+	
+	StrCmp $PYTHON_DIR "" 0 YesPython	
+
+	${NSD_CreateLabel} 0 0 100% 12u "The installer failed to detect a Python installation in your system"
+	Pop $Label2k
+
+	${NSD_CreateLabel} 0 23u 100% 13u "Please download the latest version of Python from the project homepage at "
+	Pop $Label2k
+	
+  ${NSD_CreateLabel} 0 30u 100% 13u "http://www.python.org/"
+	Pop $Label2k
+	SetCtlColors $Label2k 0x0000FF "transparent"
+	GetFunctionAddress $0 LinkPython
+	nsDialogs::OnClick /NOUNLOAD $Label2k $0
+	
+
+	Goto fin
+	
+	
+YesPython:
+	${NSD_CreateLabel} 0 0 100% 12u "Python was successfully detected"
+	Pop $Label2k
+
+	${NSD_CreateLabel} 0 23u 100% -13u "Python installation found at: $PYTHON_DIR"
+	Pop $Label2k
+	
+	
+fin:
+
+	
+	nsDialogs::Show
+	
+	
+	StrCmp $PYTHON_DIR "" 0 +3	
+		MessageBox MB_OK|MB_ICONINFORMATION  "Remember that you have to install Python before using w3af"
+		Quit
+	
+FunctionEnd
+
+Function LinkPython
+	
+  Pop $0
+	ExecShell open ${LINK_PYTHON}
+	
+FunctionEnd
+
+; DetectPython
+Function DetectPython
+	
+	; Python Installation "For all User""
+	; @=C:\Python25
+	; o
+	; Predeterminado=C:\Python25
+	StrCpy $PYTHON_DIR ""
+	StrCpy $0 0
+	StrCpy $1 0
+	
+	; BE CAREFULL IN CHANGE IT
+loopHKLM:
+	EnumRegKey $0 HKLM Software\Python\PythonCore $1		
+  StrCmp $0 "" doneloopHKLM 0
+	ReadRegStr $PYTHON_DIR HKLM Software\Python\PythonCore\$0\InstallPath ""	
+	IfFileExists $PYTHON_DIR\python.exe done 0
+	StrCpy $PYTHON_DIR ""
+  IntOp $1 $1 + 1
+	IntCmp $1 10 doneloopHKLM 0
+  Goto loopHKLM	
+doneloopHKLM:
+
+	
+	StrCpy $1 0
+loopHKCU:
+	EnumRegKey $0 HKCU Software\Python\PythonCore $1
+  StrCmp $0 "" doneloopHKCU 0
+	ReadRegStr $PYTHON_DIR HKCU Software\Python\PythonCore\$0\InstallPath ""
+	IfFileExists $PYTHON_DIR\python.exe doneloopHKCU 0
+	StrCpy $PYTHON_DIR ""
+  IntOp $1 $1 + 1
+	IntCmp $1 10 doneloopHKCU 0
+  Goto loopHKCU
+doneloopHKCU:
+
+	;Workround & Bugfix for prerequisites. Set "For all User".
+	WriteRegStr HKLM Software\Python\PythonCore\$0\InstallPath "" $PYTHON_DIR
+
+
+done:
+
+FunctionEnd
+
+; ##########################################
+; END CUSTOM PAGE
+; ##########################################
+
+Function ShowReleaseNotes
+	ExecShell "open" "$INSTDIR\readme\w3afUsersGuide.html"
+FunctionEnd
+
+Function RunW3afGUI
+	SetOutPath "$INSTDIR"
+	Exec '"$PYTHON_DIR\python.exe" w3af -g'	
 FunctionEnd
 
 
@@ -373,16 +501,16 @@ Function WriteUpdatew3af
 	FileOpen $R9 $R0 w
 	FileWrite $R9 "@echo off$\r$\n"
 	FileWrite $R9 "echo Updating the W3af...$\r$\n"
-	FileWrite $R9 "$\"$INSTDIR\svn-client\svn.exe$\" cleanup$\r$\n"
-	FileWrite $R9 "$\"$INSTDIR\svn-client\svn.exe$\" update$\r$\n"
-	FileWrite $R9 "$\"$INSTDIR\svn-client\svn.exe$\" info$\r$\n"
+	FileWrite $R9 "$\"$INSTDIR\svn-client\svn.exe$\" cleanup $\"$INSTDIR$\"$\r$\n"
+	FileWrite $R9 "$\"$INSTDIR\svn-client\svn.exe$\" update $\"$INSTDIR$\"$\r$\n"
+	;FileWrite $R9 "$\"$INSTDIR\svn-client\svn.exe$\" info $\"$INSTDIR$\"$\r$\n"
 	FileWrite $R9 "pause$\r$\n"
 	FileClose $R9
 	Pop $R9
 FunctionEnd
 
-; ----------------- CUSTOM POST (UN)INSTALL FUNCTIONS GTK RUNTIME
 
+; ----------------- CUSTOM POST (UN)INSTALL FUNCTIONS GTK RUNTIME
 ; WriteEnvBat
 Function WriteEnvBat
 	Pop $R0 ; Output file
@@ -415,6 +543,6 @@ Function WritePostInstall
 	Pop $R9
 FunctionEnd
 
-BrandingText "w3af - Andres Riancho / Installer - Ulises Cuñé(aka Ulises2k)"
+BrandingText "w3af - Andres Riancho / Installer - Ulises Cuñé (Ulises2k)"
 
 ; eof
