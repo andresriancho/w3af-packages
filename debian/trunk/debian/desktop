@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=[w3af_VERSION]
+Type=Application
+Exec=w3af
+Icon=w3af
+Terminal=false
+Name=w3af
+Comment=Web Application Attack and Audit Framework
+Categories=Network;Security;
+StartupNotify=true

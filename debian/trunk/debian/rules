@@ -1,0 +1,49 @@
+#!/usr/bin/make -f
+# Sample debian/rules that uses debhelper.
+# GNU copyright 1997 to 1999 by Joey Hess.
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -rf build-stamp configure-stamp
+
+	dh_clean
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+	dh_installdirs
+
+	cp debian/desktop debian/w3af/usr/share/applications/w3af.desktop
+	cp debian/w3af.xpm debian/w3af/usr/share/pixmaps/
+	cp -r core  plugins  profiles  scripts  sessions  webroot debian/w3af/usr/share/w3af/
+	cp w3af debian/w3af/usr/share/w3af/
+	cp debian/w3af.sh debian/w3af/usr/bin/w3af
+	cp -r extlib/socksipy debian/w3af/usr/share/python-socksipy
+
+# Build architecture-independent files here.
+binary-indep: install
+	dh_testdir
+	dh_testroot
+	dh_pysupport
+	dh_installman w3af.1
+	dh_installmenu
+	dh_desktop
+	dh_installdocs readme/
+	dh_installchangelogs
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+# Build architecture-dependent files here.
+binary-arch: install
+
+binary: binary-indep binary-arch
+.PHONY: clean build binary-indep binary-arch install
