@@ -34,7 +34,7 @@ RequestExecutionLevel admin
 !include "LogicLib.nsh"
 !include "Memento.nsh"
 !include "nsDialogs.nsh"
-
+!include "path_manipulation.nsh" ;http://nsis.sourceforge.net/Path_Manipulation
 
 
 ;--------------------------------
@@ -137,7 +137,7 @@ VIAddVersionKey  "FileVersion" "${APPNAMEANDVERSION}"
 !define PYCAIRO_INSTALLER "pycairo-1.4.12-1.win32-py2.5.exe" ; http://ftp.gnome.org/pub/GNOME/binaries/win32/pycairo/
 !define PYGOBJECT_INSTALLER "pygobject-2.14.1-1.win32-py2.5.exe" ; http://ftp.gnome.org/pub/GNOME/binaries/win32/pygobject/
 !define PYOPENSSL_INSTALLER "pyOpenSSL-0.7a2-py2.5.exe" ; http://pyopenssl.sourceforge.net/
-
+;!define PYWIN32_INSTALLER "pywin32-210.win32-py2.5.exe" ;http://python.net/crew/mhammond/win32/Downloads.html
 
 
 
@@ -182,6 +182,14 @@ ${MementoSection} !"w3af" SectionW3af
 	File /r /x "*.pyc" "..\..\trunk\*"
 	File "w3af_gui_icon.ico"
 	
+	; Execute w3af commandline
+	Push $INSTDIR\w3af.bat
+	Call Writew3af
+	
+	; Execute w3af GUI commandline
+	Push $INSTDIR\w3af-gui.bat
+	Call Writew3afGUI
+	
 	; Instalando extensiones que vienen con w3af
 	SetOutPath "$INSTDIR\extlib\fpconst-0.7.2\"
 	nsExec::ExecToLog '"$PYTHON_DIR\python.exe" "$INSTDIR\extlib\fpconst-0.7.2\setup.py" install' ;http://research.warnes.net/projects/RStatServer/fpconst/index_html
@@ -191,14 +199,19 @@ ${MementoSection} !"w3af" SectionW3af
 	nsExec::ExecToLog '"$PYTHON_DIR\python.exe" "$INSTDIR\extlib\pywordnet\setup.py" install' ;http://pywordnet.sourceforge.net
 	SetOutPath "$INSTDIR\extlib\pyPdf\"
 	nsExec::ExecToLog  '"$PYTHON_DIR\python.exe" "$INSTDIR\extlib\pyPdf\setup.py" install' ;http://pybrary.net/pyPdf/
-	SetOutPath "$INSTDIR\extlib\buzhug\"
-	nsExec::ExecToLog '"$PYTHON_DIR\python.exe" "$INSTDIR\extlib\buzhug\setup.py" install' ;http://buzhug.sourceforge.net
 	SetOutPath "$INSTDIR\extlib\SOAPpy\"
 	nsExec::ExecToLog '"$PYTHON_DIR\python.exe" "$INSTDIR\extlib\SOAPpy\setup.py" install' ;http://pywebsvcs.sourceforge.net/
 	SetOutPath "$INSTDIR\extlib\cluster\"
 	nsExec::ExecToLog '"$PYTHON_DIR\python.exe" "$INSTDIR\extlib\cluster\setup.py" install' ;http://python-cluster.sourceforge.net/
+	SetOutPath "$INSTDIR\extlib\jsonpy\"
+	nsExec::ExecToLog '"$PYTHON_DIR\python.exe" "$INSTDIR\extlib\jsonpy\setup.py" install' ;http://sourceforge.net/projects/json-py/
 	
-
+	
+	;Add $INSTDIR to %PATH% (CURRENT_USER)
+  Push "PATH"
+  Push $INSTDIR
+  Call AddToEnvVar
+	
 ${MementoSectionEnd}
 
 
@@ -295,6 +308,16 @@ SectionGroup "w3af prerequisites"
 		ExecWait '"$INSTDIR\${PYOPENSSL_INSTALLER}"'	
 	${MementoSectionEnd}
 
+	;############## PyWin32 ##############
+	;${MementoSection} "PyWin32" SectionPyWin32
+	;	SectionIn 1 2
+	;	SetDetailsPrint both
+	;	SetOverwrite on
+	;	SetOutPath "$INSTDIR"
+	;	File ${PYWIN32_INSTALLER}
+	;	ExecWait '"$INSTDIR\${PYWIN32_INSTALLER}"'	
+	;${MementoSectionEnd}
+	
 SectionGroupEnd
 
 
@@ -344,11 +367,12 @@ ${MementoSectionDone}
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
 	!insertmacro MUI_DESCRIPTION_TEXT ${SectionW3af} "w3af - Web Application Attack and Audit Framework"
 	!insertmacro MUI_DESCRIPTION_TEXT ${SectionSVN} "Svn client for updates"
-	!insertmacro MUI_DESCRIPTION_TEXT ${SectionGTK2Runtime} "GTK2 Runtime"
+	!insertmacro MUI_DESCRIPTION_TEXT ${SectionGTK2Runtime} "GTK2 Runtime. w3af GUI"
 	!insertmacro MUI_DESCRIPTION_TEXT ${SectionPyGTK} "PyGTK lets you to easily create programs with a graphical user interface using the Python programming language."
 	!insertmacro MUI_DESCRIPTION_TEXT ${SectionPyCairo} "Pycairo is set of Python bindings for the cairo graphics library."
 	!insertmacro MUI_DESCRIPTION_TEXT ${SectionPyObject} "Python Bindings for GObject."
 	!insertmacro MUI_DESCRIPTION_TEXT ${SectionPyOpenSSL} "Python interface to the OpenSSL library"	
+	;!insertmacro MUI_DESCRIPTION_TEXT ${SectionPyWin32} "Python Extensions for Windows"	
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
 
 
@@ -372,6 +396,11 @@ Section Uninstall
 	DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}"
 	DeleteRegKey HKLM "Software\${APPNAME}"
 	DeleteRegKey HKCU "Software\${APPNAME}"
+	
+	;Likewise RemoveFromPath could be
+  Push "PATH"
+  Push $INSTDIR
+  Call un.RemoveFromEnvVar
 	
 SectionEnd
 
@@ -490,7 +519,7 @@ FunctionEnd
 
 Function RunW3afGUI
 	SetOutPath "$INSTDIR"
-	Exec '"$PYTHON_DIR\python.exe" w3af -g'	
+	Exec '"$PYTHON_DIR\python.exe" w3af -g'
 FunctionEnd
 
 
@@ -503,11 +532,37 @@ Function WriteUpdatew3af
 	FileWrite $R9 "echo Updating the W3af...$\r$\n"
 	FileWrite $R9 "$\"$INSTDIR\svn-client\svn.exe$\" cleanup $\"$INSTDIR$\"$\r$\n"
 	FileWrite $R9 "$\"$INSTDIR\svn-client\svn.exe$\" update $\"$INSTDIR$\"$\r$\n"
-	;FileWrite $R9 "$\"$INSTDIR\svn-client\svn.exe$\" info $\"$INSTDIR$\"$\r$\n"
 	FileWrite $R9 "pause$\r$\n"
 	FileClose $R9
 	Pop $R9
 FunctionEnd
+
+; Add INSTDIR to %PATH%
+; Writew3af
+Function Writew3af
+	Pop $R0 ; Output file
+	Push $R9
+	FileOpen $R9 $R0 w
+	FileWrite $R9 "@echo off$\r$\n"
+	FileWrite $R9 "cd $\"$INSTDIR$\"$\r$\n"
+	FileWrite $R9 "$\"$PYTHON_DIR\python.exe$\" w3af$\r$\n"
+	FileClose $R9
+	Pop $R9
+FunctionEnd
+
+; Add INSTDIR to %PATH%
+; Writew3afGUI
+Function Writew3afGUI
+	Pop $R0 ; Output file
+	Push $R9
+	FileOpen $R9 $R0 w
+	FileWrite $R9 "@echo off$\r$\n"
+	FileWrite $R9 "cd $\"$INSTDIR$\"$\r$\n"
+	FileWrite $R9 "$\"$PYTHON_DIR\python.exe$\" w3af -g$\r$\n"
+	FileClose $R9
+	Pop $R9
+FunctionEnd
+
 
 
 ; ----------------- CUSTOM POST (UN)INSTALL FUNCTIONS GTK RUNTIME
@@ -537,7 +592,6 @@ Function WritePostInstall
 	FileOpen $R9 $R0 w
 	FileWrite $R9 "@echo off$\r$\n"
 	FileWrite $R9 "$\"$INSTDIR\bin\pango-querymodules.exe$\" > $\"$INSTDIR\etc\pango\pango.modules$\"$\r$\n"
-	FileWrite $R9 "rem $\"$INSTDIR\bin\gdk-pixbuf-query-loaders.exe$\" > $\"$INSTDIR\etc\gtk-2.0\gdk-pixbuf.loaders$\"$\r$\n"
 	FileWrite $R9 "$\"$INSTDIR\bin\gtk-query-immodules-2.0.exe$\" > $\"$INSTDIR\etc\gtk-2.0\gtk.immodules$\"$\r$\n"
 	FileClose $R9
 	Pop $R9
