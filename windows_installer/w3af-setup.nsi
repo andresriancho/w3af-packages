@@ -5,7 +5,7 @@
 
 ; Define your application name
 !define APPNAME "w3af"
-!define APPNAMEANDVERSION "w3af svn rev. 1243"
+!define APPNAMEANDVERSION "w3af svn rev. 1314"
 
 ; Main Install settings
 Name "${APPNAMEANDVERSION}"
