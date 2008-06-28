@@ -1,47 +1,49 @@
 #!/bin/bash
 TRUNK='../../w3af'
 
+if test ! -x /usr/bin/dpkg  ; then echo "Is this a Debian-derivate? This scripts use specific tools like dpkg and debhelper, which are only available in a Debian-derivate. Sorry..." ; return 1; fi
+
+echo "Checking if you have needed packages to build w3af.deb"
+installed=$(dpkg -l debhelper fakeroot make subversion python-support | grep ^ii |awk '{print $2}')
+
 UPSTREAM_RELEASE="0.0.0"
 REVISION=$(svn info $TRUNK | grep Revision | cut -f 2 -d ' ')
 VERSION="${UPSTREAM_RELEASE}svn${REVISION}"
 BASE_DIR="w3af-${VERSION}"
 
 # Just in case...
-rm -rf ${BASE_DIR}
-rm w3af_${VERSION}.orig.tar.gz
+rm -rf ${BASE_DIR} > /dev/null 2>&1 && echo "removing ${BASE_DIR}"
+rm w3af_${VERSION}.orig.tar.gz > /dev/null 2>&1 && echo "removing w3af_${VERSION}.orig.tar.gz"
 
 # copy trunk so we don't destroy our local copy
-cp -Rp $TRUNK ${BASE_DIR}
+cp -Rp $TRUNK ${BASE_DIR} && echo ""
 
 # copy the manpage
-cp -Rp ../manpage/w3af.1 ${BASE_DIR}
+cp -Rp ../manpage/w3af.1 ${BASE_DIR} && echo "Coping the manpage"
 
+echo -n "Removing: "
 # remove the compiled python modules
-find -L ${BASE_DIR} -name *.pyc | xargs rm
-
+(find ${BASE_DIR} -name *.pyc | xargs rm) > /dev/null 2>&1 && echo -n "*.pyc, "
 # remove the backup files
-find -L ${BASE_DIR} -name '*~' | xargs rm
-
+(find ${BASE_DIR} -name '*~' | xargs rm) > /dev/null 2>&1 && echo -n "~, "
 # remove the svn stuff
-find -L ${BASE_DIR} -name .svn | xargs rm -rf
-
+(find ${BASE_DIR} -name .svn | xargs rm -rf) > /dev/null 2>&1 && echo -n ".svn, "
 # remove plugins started with _
-find w3af-0.0.0svn1305/plugins/ -name "_*.py" | grep -v init | xargs rm
-
+(find ${BASE_DIR}/plugins/ -name "_*.py" | grep -v init | xargs rm) > /dev/null 2>&1 && echo -n "obsolete plugins, "
 # remove some paths and files that are created during the run
-rm ${BASE_DIR}/.urllib2cache/ -rf
-rm ${BASE_DIR}/.tmp/ -rf
-rm ${BASE_DIR}/output-*.txt -rf
-rm ${BASE_DIR}/sessions/* -rf
-rm ${BASE_DIR}/w3af.e3* -rf
+((rm ${BASE_DIR}/.urllib2cache/ -rf) > /dev/null 2>&1 || 
+(rm ${BASE_DIR}/.tmp/ -rf) > /dev/null 2>&1 ||
+(rm ${BASE_DIR}/output-*.txt -rf) > /dev/null 2>&1 ||
+(rm ${BASE_DIR}/sessions/* -rf) > /dev/null 2>&1 ||
+(rm ${BASE_DIR}/w3af.e3* -rf) > /dev/null 2>&1) && echo -n "paths created during the run, " 
+echo "-"
 
 # This is not ready for distribution yet
-rm ${BASE_DIR}/mozilla-extension/ -rf
+(rm ${BASE_DIR}/mozilla-extension/ -rf)  > /dev/null 2>&1 
 
 # sanitize oHalberd
-mv ${BASE_DIR}/plugins/discovery/oHalberd/Halberd ${BASE_DIR}/plugins/discovery/
-rm -rf ${BASE_DIR}/plugins/discovery/oHalberd/
-mv ${BASE_DIR}/plugins/discovery/Halberd ${BASE_DIR}/plugins/discovery/oHalberd
+find ${BASE_DIR}/plugins/discovery/oHalberd/* -type d | grep -v "plugins/discovery/oHalberd/Halberd" | xargs rm -rf
+rm ${BASE_DIR}/plugins/discovery/oHalberd/* > /dev/null 2>&1 
 
 # Remove the debian offending stuff
 rm -rf ${BASE_DIR}/extlib/pygoogle/
@@ -87,3 +89,6 @@ sed -i "s/\[w3af_VERSION\]/$VERSION/" ${BASE_DIR}/debian/desktop
 
 echo "The w3af directory inside ${BASE_DIR} contains all you need to create the .deb package."
 
+echo -n "Building the package..."
+cd ${BASE_DIR} 
+fakeroot ./debian/rules binary   > /dev/null 2>&1  && echo ' done.'
