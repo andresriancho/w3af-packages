@@ -143,7 +143,7 @@ VIAddVersionKey  "FileVersion" "${APPNAMEANDVERSION}"
 
 Function .onInit
 	
-	File /oname=$TEMP\splash.bmp "splash-without-version.bmp"	
+	File /oname=$TEMP\splash.bmp "splash.bmp"	
 	advsplash::show 3000 600 400 -1 $TEMP\splash
 
 	;Prevent Multiple Instances
