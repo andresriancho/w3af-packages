@@ -2,7 +2,7 @@
 !define _AddToPath_nsh
  
 !verbose 3
-!include "WinMessages.nsh"
+!include "WinMessages.NSH"
 !verbose 4
  
 !ifndef WriteEnvStr_RegKey
@@ -13,7 +13,7 @@
     !define WriteEnvStr_RegKey 'HKCU "Environment"'
   !endif
 !endif
- 
+
 ; AddToPath - Adds the given dir to the search path.
 ;        Input - head of the stack
 ;        Note - Win9x systems requires reboot
@@ -67,10 +67,10 @@ Function AddToPath
  
   AddToPath_NT:
     ReadRegStr $1 ${WriteEnvStr_RegKey} "PATH"
+    StrCpy $2 $1 1 -1 # copy last char
+    StrCmp $2 ";" 0 +2 # if last char == ;
+      StrCpy $1 $1 -1 # remove last char
     StrCmp $1 "" AddToPath_NTdoIt
-      Push $1
-      Call Trim
-      Pop $1
       StrCpy $0 "$1;$0"
     AddToPath_NTdoIt:
       WriteRegExpandStr ${WriteEnvStr_RegKey} "PATH" $0
@@ -143,7 +143,7 @@ Function un.RemoveFromPath
     Call un.StrStr ; Find `$0;` in $1
     Pop $2 ; pos of our dir
     StrCmp $2 "" unRemoveFromPath_done
-       ;else, it is in path
+      ; else, it is in path
       # $0 - path to add
       # $1 - path var
       StrLen $3 "$0;"
@@ -168,173 +168,6 @@ Function un.RemoveFromPath
     Pop $1
     Pop $0
 FunctionEnd
- 
- 
- 
-; AddToEnvVar - Adds the given value to the given environment var
-;        Input - head of the stack $0 environement variable $1=value to add
-;        Note - Win9x systems requires reboot
- 
-Function AddToEnvVar
- 
-  Exch $1 ; $1 has environment variable value
-  Exch
-  Exch $0 ; $0 has environment variable name
- 
-  DetailPrint "Adding $1 to $0"
-  Push $2
-  Push $3
-  Push $4
- 
- 
-  ReadEnvStr $2 $0
-  Push "$2;"
-  Push "$1;"
-  Call StrStr
-  Pop $3
-  StrCmp $3 "" "" AddToEnvVar_done
- 
-  Push "$2;"
-  Push "$1\;"
-  Call StrStr
-  Pop $3
-  StrCmp $3 "" "" AddToEnvVar_done
- 
- 
-  Call IsNT
-  Pop $2
-  StrCmp $2 1 AddToEnvVar_NT
-    ; Not on NT
-    StrCpy $2 $WINDIR 2
-    FileOpen $2 "$2\autoexec.bat" a
-    FileSeek $2 -1 END
-    FileReadByte $2 $3
-    IntCmp $3 26 0 +2 +2 # DOS EOF
-      FileSeek $2 -1 END # write over EOF
-    FileWrite $2 "$\r$\nSET $0=%$0%;$4$\r$\n"
-    FileClose $2
-    SetRebootFlag true
-    Goto AddToEnvVar_done
- 
-  AddToEnvVar_NT:
-    ReadRegStr $2 ${WriteEnvStr_RegKey} $0
-    StrCpy $3 $2 1 -1 # copy last char
-    StrCmp $3 ";" 0 +2 # if last char == ;
-      StrCpy $2 $2 -1 # remove last char
-    StrCmp $2 "" AddToEnvVar_NTdoIt
-      StrCpy $1 "$2;$1"
-    AddToEnvVar_NTdoIt:
-      WriteRegExpandStr ${WriteEnvStr_RegKey} $0 $1
-      SendMessage ${HWND_BROADCAST} ${WM_WININICHANGE} 0 "STR:Environment" /TIMEOUT=5000
- 
-  AddToEnvVar_done:
-    Pop $4
-    Pop $3
-    Pop $2
-    Pop $0
-    Pop $1
- 
-FunctionEnd
- 
-; RemoveFromEnvVar - Remove a given value from a environment var
-;     Input: head of the stack
- 
-Function un.RemoveFromEnvVar
- 
-  Exch $1 ; $1 has environment variable value
-  Exch
-  Exch $0 ; $0 has environment variable name
- 
-  DetailPrint "Removing $1 from $0"
-  Push $2
-  Push $3
-  Push $4
-  Push $5
-  Push $6
-  Push $7
- 
-  IntFmt $7 "%c" 26 # DOS EOF
- 
-  Call un.IsNT
-  Pop $2
-  StrCmp $2 1 unRemoveFromEnvVar_NT
-    ; Not on NT
-    StrCpy $2 $WINDIR 2
-    FileOpen $2 "$2\autoexec.bat" r
-    GetTempFileName $5
-    FileOpen $3 $5 w
-    GetFullPathName /SHORT $1 $1
-    StrCpy $1 "SET $0=%$0%;$1"
-    Goto unRemoveFromEnvVar_dosLoop
- 
-    unRemoveFromEnvVar_dosLoop:
-      FileRead $2 $4
-      StrCpy $6 $4 1 -1 # read last char
-      StrCmp $6 $7 0 +2 # if DOS EOF
-        StrCpy $4 $4 -1 # remove DOS EOF so we can compare
-      StrCmp $4 "$1$\r$\n" unRemoveFromEnvVar_dosLoopRemoveLine
-      StrCmp $4 "$1$\n" unRemoveFromEnvVar_dosLoopRemoveLine
-      StrCmp $4 "$1" unRemoveFromEnvVar_dosLoopRemoveLine
-      StrCmp $4 "" unRemoveFromEnvVar_dosLoopEnd
-      FileWrite $3 $4
-      Goto unRemoveFromEnvVar_dosLoop
-      unRemoveFromEnvVar_dosLoopRemoveLine:
-        SetRebootFlag true
-        Goto unRemoveFromEnvVar_dosLoop
- 
-    unRemoveFromEnvVar_dosLoopEnd:
-      FileClose $3
-      FileClose $2
-      StrCpy $2 $WINDIR 2
-      Delete "$2\autoexec.bat"
-      CopyFiles /SILENT $5 "$2\autoexec.bat"
-      Delete $5
-      Goto unRemoveFromEnvVar_done
- 
-  unRemoveFromEnvVar_NT:
-    ReadRegStr $2 ${WriteEnvStr_RegKey} $0
-    StrCpy $6 $2 1 -1 # copy last char
-    StrCmp $6 ";" +2 # if last char != ;
-      StrCpy $2 "$2;" # append ;
-    Push $2
-    Push "$1;"
-    Call un.StrStr ; Find `$1;` in $2
-    Pop $3 ; pos of our dir
-    StrCmp $3 "" unRemoveFromEnvVar_done
-      ; else, it is in path
-      # $1 - path to add
-      # $2 - path var
-      StrLen $4 "$1;"
-      StrLen $5 $3
-      StrCpy $6 $2 -$5 # $6 is now the part before the path to remove
-      StrCpy $7 $3 "" $4 # $7 is now the part after the path to remove
-      StrCpy $4 $6$7
- 
-      StrCpy $6 $4 1 -1 # copy last char
-      StrCmp $6 ";" 0 +2 # if last char == ;
-      StrCpy $4 $4 -1 # remove last char
- 
-      WriteRegExpandStr ${WriteEnvStr_RegKey} $0 $4
- 
-      ; delete reg value if null
-      StrCmp $4 "" 0 +2 # if null delete reg
-      DeleteRegValue ${WriteEnvStr_RegKey} $0
- 
-      SendMessage ${HWND_BROADCAST} ${WM_WININICHANGE} 0 "STR:Environment" /TIMEOUT=5000
- 
-  unRemoveFromEnvVar_done:
-    Pop $7
-    Pop $6
-    Pop $5
-    Pop $4
-    Pop $3
-    Pop $2
-    Pop $1
-    Pop $0
-FunctionEnd
- 
- 
- 
  
 !ifndef IsNT_KiCHiK
 !define IsNT_KiCHiK
@@ -420,21 +253,3 @@ FunctionEnd
 !insertmacro StrStr "un."
  
 !endif ; _AddToPath_nsh
- 
-Function Trim ; Added by Pelaca
-	Exch $R1
-	Push $R2
-Loop:
-	StrCpy $R2 "$R1" 1 -1
-	StrCmp "$R2" " " RTrim
-	StrCmp "$R2" "$\n" RTrim
-	StrCmp "$R2" "$\r" RTrim
-	StrCmp "$R2" ";" RTrim
-	GoTo Done
-RTrim:	
-	StrCpy $R1 "$R1" -1
-	Goto Loop
-Done:
-	Pop $R2
-	Exch $R1
-FunctionEnd
