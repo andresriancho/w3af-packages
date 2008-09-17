@@ -1,5 +1,23 @@
-; Script to generate update w3af
+;Copyright 2008 Ulises U. Cuñé
+;
+;Script to generate update w3af.
+;
+;w3af is free software; you can redistribute it and/or modify
+;it under the terms of the GNU General Public License as published by
+;the Free Software Foundation version 2 of the License.
+;
+;w3ad windows installer is distributed in the hope that it will be useful,
+;but WITHOUT ANY WARRANTY; without even the implied warranty of
+;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;GNU General Public License for more details.
 
+;You should have received a copy of the GNU General Public License
+;along with w3af; if not, write to the Free Software
+;Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA 
+;
+;
+;
+; 
 ;General Attributes
 SetCompressor /SOLID lzma
 SetDatablockOptimize on
@@ -21,7 +39,7 @@ VIAddVersionKey  "CompanyName" "-"
 VIAddVersionKey  "LegalTrademarks" "-"
 VIAddVersionKey  "LegalCopyright" "GPL"
 VIAddVersionKey  "FileDescription" "The project goal is to create a framework to find and exploit web application vulnerabilities that is easy to use and extend."
-VIAddVersionKey  "FileVersion" "svn later Beta 7"
+VIAddVersionKey  "FileVersion" "svn beta 7"
 
 ; Request application privileges for Windows Vista
 RequestExecutionLevel admin
