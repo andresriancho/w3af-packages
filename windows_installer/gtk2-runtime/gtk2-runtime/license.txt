@@ -1,0 +1,30 @@
+
+You can find the latest version of this software at http://gtk-win.sourceforge.net.
+You may reach the packager (Alexander Shaduri) by email at ashaduri '@' gmail.com
+
+The authors make NO WARRANTY or representation, either express or implied, with respect to this software, its quality, accuracy, merchantability, or fitness for a particular purpose.  This software is provided "AS IS", and you, its user, assume the entire risk as to its quality and accuracy.
+
+This package contains the following software (or pieces of it):
+GTK+, ATK, Pango, GLib: http://www.gtk.org/;
+Cairo: http://cairographics.org/;
+Freetype2: http://www.freetype.org/;
+JPEG library: http://www.ijg.org/;
+libpng: http://www.libpng.org/pub/png/libpng.html;
+LibTIFF: http://www.libtiff.org/;
+intl library (from gettext): http://www.gnu.org/software/gettext/;
+libiconv: http://www.gnu.org/software/libiconv/;
+zlib: http://www.zlib.net/;
+Fontconfig: http://www.fontconfig.org/;
+Expat: http://expat.sourceforge.net/.
+
+You may obtain the respective sources at the URLs listed above.
+
+The binaries distributed with this package come from either their official sites (listed above), or from the following locations:
+GTK+, ATK, Pango, GLib, Cairo and their dependencies can be obtained from http://www.gimp.org/~tml/gimp/win32/ and http://ftp.gnome.org/pub/gnome/binaries/win32/.
+Most other binaries can be obtained from http://gnuwin32.sourceforge.net/.
+
+This package contains the licenses of libraries distributed in it:
+license_lgpl.txt contains a license for GTK+, ATK, Pango, GLib, Cairo, intl, libiconv, Freetype2, Fontconfig, Expat, LibTIFF;
+license_zlib.txt contains a license for zlib;
+license_png.txt contains a license for libpng;
+license_jpeg.txt contains a license for libjpeg.
