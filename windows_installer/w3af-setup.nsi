@@ -1,17 +1,34 @@
-; Script to generate installer w3af
+;Copyright 2008 Ulises U. Cuñé
+;
+;This file is part of w3af Windows Installer.
+;
+;w3af is free software; you can redistribute it and/or modify
+;it under the terms of the GNU General Public License as published by
+;the Free Software Foundation version 2 of the License.
+;
+;w3ad windows installer is distributed in the hope that it will be useful,
+;but WITHOUT ANY WARRANTY; without even the implied warranty of
+;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;GNU General Public License for more details.
 
-;General
+;You should have received a copy of the GNU General Public License
+;along with w3af; if not, write to the Free Software
+;Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA 
+;
+;
+;
+; General
 !define /date RELEASE_VERSION "%d/%m/%Y"
 
 ; Define your application name
 !define APPNAME "w3af"
-!define APPNAMEANDVERSION "w3af svn rev. 1314"
+!define APPNAMEANDVERSION "w3af beta 7"
 
 ; Main Install settings
 Name "${APPNAMEANDVERSION}"
 InstallDir "$PROGRAMFILES\w3af"
 InstallDirRegKey HKLM "Software\${APPNAME}" ""
-OutFile "w3af-svn-setup.exe"
+OutFile "w3af-beta-7.exe"
 
 ; Use compression
 SetCompressor /SOLID LZMA
@@ -34,7 +51,7 @@ RequestExecutionLevel admin
 !include "LogicLib.nsh"
 !include "Memento.nsh"
 !include "nsDialogs.nsh"
-!include "path_manipulation.nsh" ;http://nsis.sourceforge.net/Path_Manipulation
+!include "AddToPath.nsh" ; http://nsis.sourceforge.net/Path_Manipulation ( & nmap )
 
 
 ;--------------------------------
@@ -45,17 +62,16 @@ Var PYTHON_DIR
 Var Label2k
 
 
-
 ;--------------------------------
 ;Interface Settings
 
 !define MUI_ABORTWARNING
-!define MUI_ICON "w3af_gui_icon.ico"
+!define MUI_ICON "image\w3af_gui_icon.ico"
 
 !define MUI_HEADERIMAGE
-!define MUI_HEADERIMAGE_BITMAP "header_image.bmp"
-!define MUI_WELCOMEFINISHPAGE_BITMAP "splash_installer.bmp"
-!define MUI_UNWELCOMEFINISHPAGE_BITMAP "splash_installer.bmp"
+!define MUI_HEADERIMAGE_BITMAP "image\header_image.bmp"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "image\splash_installer.bmp"
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP "image\splash_installer.bmp"
 
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT HKCU
 !define MUI_STARTMENUPAGE_REGISTRY_KEY "Software\${APPNAME}"
@@ -81,7 +97,7 @@ Var Label2k
 
 
 ;--------------------------------
-;Pages
+; Pages
 
 ; Install Pages
 !insertmacro MUI_PAGE_WELCOME
@@ -91,6 +107,7 @@ Page custom WindowDetectPython
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_STARTMENU Application $StartMenuFolder
 !insertmacro MUI_PAGE_INSTFILES
+Page custom shortcutsPage makeShortcuts
 !insertmacro MUI_PAGE_FINISH
 
 ; Uninstall Pages
@@ -100,14 +117,14 @@ Page custom WindowDetectPython
 !insertmacro MUI_UNPAGE_FINISH
 
 ;--------------------------------
-;Instalation Types
+; Instalation Types
 
 InstType "Minimal" #1
 InstType "Full" #2
 
 
 ;--------------------------------
-;Languages
+; Languages
 
 !insertmacro MUI_LANGUAGE "English"
 !insertmacro MUI_RESERVEFILE_LANGDLL
@@ -132,21 +149,30 @@ VIAddVersionKey  "FileVersion" "${APPNAMEANDVERSION}"
 ;---------------------;
 ; Original Installers ;
 ;---------------------;-------------------------------
-;This files should be on the same directory than the script
+; This files should be on prerequisite directory on the script
+!define PREREQUISITEDIR "prerequisite"
+
 !define PYGTK_INSTALLER "pygtk-2.12.1-2.win32-py2.5.exe" ; http://ftp.gnome.org/pub/GNOME/binaries/win32/pygtk/
 !define PYCAIRO_INSTALLER "pycairo-1.4.12-1.win32-py2.5.exe" ; http://ftp.gnome.org/pub/GNOME/binaries/win32/pycairo/
 !define PYGOBJECT_INSTALLER "pygobject-2.14.1-1.win32-py2.5.exe" ; http://ftp.gnome.org/pub/GNOME/binaries/win32/pygobject/
 !define PYOPENSSL_INSTALLER "pyOpenSSL-0.7a2-py2.5.exe" ; http://pyopenssl.sourceforge.net/
-;!define PYWIN32_INSTALLER "pywin32-210.win32-py2.5.exe" ;http://python.net/crew/mhammond/win32/Downloads.html
+!define CLUSTER_INSTALLER "cluster-1.1.1b3.win32.exe" ; http://sourceforge.net/projects/python-cluster/
+!define GRAPHVIZ_INSTALLER "graphviz-2.20.2.exe" ; http://www.graphviz.org/
+!define PYPARSING_INSTALLER "pyparsing-1.5.0.win32.exe" ; http://sourceforge.net/projects/pyparsing/ 
 
-
+; For Scapy
+!define PYWIN32_INSTALLER "pywin32-210.win32-py2.5.exe" ; http://python.net/crew/mhammond/win32/Downloads.html
+!define WINPCAP_INSTALLER "WinPcap_4_0_2.exe" ; http://www.winpcap.org/
+!define PYPCAP_INSTALLER "pcap-1.1-scapy.win32-py2.5.exe" ; http://www.secdev.org/projects/scapy/files/pcap-1.1-scapy.win32-py2.5.exe "special version for Scapy"
+!define DNET_INSTALLER "dnet-1.12.win32-py2.5.exe" ; http://code.google.com/p/libdnet/
+!define PYREADLINE_INSTALLER "pyreadline-1.5-win32-setup.exe" ; http://ipython.scipy.org/moin/PyReadline/Intro
 
 Function .onInit
 	
-	File /oname=$TEMP\splash.bmp "splash.bmp"	
+	File /oname=$TEMP\splash.bmp "image\splash.bmp"	
 	advsplash::show 3000 600 400 -1 $TEMP\splash
 
-	;Prevent Multiple Instances
+	; Prevent Multiple Instances
 	System::Call 'kernel32::CreateMutexA(i 0, i 0, t "w3af_installer") i .r1 ?e'
 		Pop $R0
 
@@ -180,14 +206,14 @@ ${MementoSection} !"w3af" SectionW3af
 	
 	; SVN TRUNK
 	File /r /x "*.pyc" "..\..\trunk\*"
-	File "w3af_gui_icon.ico"
+	File "image\w3af_gui_icon.ico"
 	
-	; Execute w3af commandline
-	Push $INSTDIR\w3af.bat
+	; Create w3af commandline
+	Push $INSTDIR\w3af_console.bat
 	Call Writew3af
 	
-	; Execute w3af GUI commandline
-	Push $INSTDIR\w3af-gui.bat
+	; Create w3af GUI commandline
+	Push $INSTDIR\w3af_gui.bat
 	Call Writew3afGUI
 	
 	; Instalando extensiones que vienen con w3af
@@ -205,19 +231,26 @@ ${MementoSection} !"w3af" SectionW3af
 	nsExec::ExecToLog '"$PYTHON_DIR\python.exe" "$INSTDIR\extlib\cluster\setup.py" install' ;http://python-cluster.sourceforge.net/
 	SetOutPath "$INSTDIR\extlib\jsonpy\"
 	nsExec::ExecToLog '"$PYTHON_DIR\python.exe" "$INSTDIR\extlib\jsonpy\setup.py" install' ;http://sourceforge.net/projects/json-py/
+
+; Pequeño parche hasta que Andres lo arregle.
+	SetOutPath "$INSTDIR\extlib\pydot\"
+	nsExec::ExecToLog '"$PYTHON_DIR\python.exe" "$INSTDIR\extlib\pydot\setup.py" install' ;http://code.google.com/p/pydot/
 	
+	; Install Scapy-Win	
+	SetOutPath "$PYTHON_DIR\Lib\site-packages\"
+	File "..\..\trunk\extlib\scapy-win\scapy.py"
 	
-	;Add $INSTDIR to %PATH% (CURRENT_USER)
-  Push "PATH"
+	; Add $INSTDIR to %PATH% (CURRENT_USER)
+  ;Push "PATH"
   Push $INSTDIR
-  Call AddToEnvVar
+  Call AddToPath
 	
 ${MementoSectionEnd}
 
 
 ############## SVN Client ##############
 ${MementoSection} "svn client" SectionSVN
-	;http://subversion.tigris.org/project_packages.html
+	; http://subversion.tigris.org/getting.html#windows
 	SectionIn 2
 	SetDetailsPrint both
 	SetOverwrite on
@@ -232,12 +265,17 @@ ${MementoSection} "svn client" SectionSVN
 	Push $INSTDIR\w3af_update.bat
 	Call WriteUpdatew3af
 	
+	!insertmacro MUI_STARTMENU_WRITE_BEGIN Application
+		SetShellVarContext current	
+		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Update.lnk" "$INSTDIR\w3af_update.bat"
+	!insertmacro MUI_STARTMENU_WRITE_END
+	
 ${MementoSectionEnd}
 
 
 ############## GTK2 Runtime ##############
 ${MementoSection} "GTK2-Runtime" SectionGTK2Runtime
-	;http://sourceforge.net/projects/gtk-win/
+	; http://sourceforge.net/projects/gtk-win/
 
 	SectionIn 1 2
 	SetDetailsPrint both
@@ -268,14 +306,15 @@ ${MementoSectionEnd}
 
 SectionGroup "w3af prerequisites"
 
+
 ############## PyGTK ##############
 	${MementoSection} "PyGTK" SectionPyGTK
 		SectionIn 1 2
 		SetDetailsPrint both
 		SetOverwrite on
-		SetOutPath "$INSTDIR\"		
-		File ${PYGTK_INSTALLER}
-		ExecWait '"$INSTDIR\${PYGTK_INSTALLER}"'		
+		SetOutPath "$INSTDIR\${PREREQUISITEDIR}"
+		File "${PREREQUISITEDIR}\${PYGTK_INSTALLER}"
+		ExecWait '"$INSTDIR\${PREREQUISITEDIR}\${PYGTK_INSTALLER}"'		
 	${MementoSectionEnd}
 	
 	############## Pycairo ##############
@@ -283,9 +322,9 @@ SectionGroup "w3af prerequisites"
 		SectionIn 1 2
 		SetDetailsPrint both
 		SetOverwrite on
-		SetOutPath "$INSTDIR"
-		File ${PYCAIRO_INSTALLER}				
-		ExecWait '"$INSTDIR\${PYCAIRO_INSTALLER}"'		
+		SetOutPath "$INSTDIR\${PREREQUISITEDIR}"
+		File "${PREREQUISITEDIR}\${PYCAIRO_INSTALLER}"
+		ExecWait '"$INSTDIR\${PREREQUISITEDIR}\${PYCAIRO_INSTALLER}"'		
 	${MementoSectionEnd}
 	
 	############## PyObject ##############
@@ -293,9 +332,9 @@ SectionGroup "w3af prerequisites"
 		SectionIn 1 2
 		SetDetailsPrint both
 		SetOverwrite on
-		SetOutPath "$INSTDIR"	
-		File ${PYGOBJECT_INSTALLER}	
-		ExecWait '"$INSTDIR\${PYGOBJECT_INSTALLER}"'		
+		SetOutPath "$INSTDIR\${PREREQUISITEDIR}"	
+		File "${PREREQUISITEDIR}\${PYGOBJECT_INSTALLER}"
+		ExecWait '"$INSTDIR\${PREREQUISITEDIR}\${PYGOBJECT_INSTALLER}"'		
 	${MementoSectionEnd}
 	
 	############## PyOpenSSL ##############
@@ -303,20 +342,90 @@ SectionGroup "w3af prerequisites"
 		SectionIn 1 2
 		SetDetailsPrint both
 		SetOverwrite on
-		SetOutPath "$INSTDIR"
-		File ${PYOPENSSL_INSTALLER}
-		ExecWait '"$INSTDIR\${PYOPENSSL_INSTALLER}"'	
+		SetOutPath "$INSTDIR\${PREREQUISITEDIR}"
+		File "${PREREQUISITEDIR}\${PYOPENSSL_INSTALLER}"
+		ExecWait '"$INSTDIR\${PREREQUISITEDIR}\${PYOPENSSL_INSTALLER}"'	
+	${MementoSectionEnd}
+	
+	############## python-cluster ##############
+	${MementoSection} "python-cluster" SectionPythonCluster
+		SectionIn 1 2
+		SetDetailsPrint both
+		SetOverwrite on
+		SetOutPath "$INSTDIR\${PREREQUISITEDIR}"
+		File "${PREREQUISITEDIR}\${CLUSTER_INSTALLER}"
+		ExecWait '"$INSTDIR\${PREREQUISITEDIR}\${CLUSTER_INSTALLER}"'	
 	${MementoSectionEnd}
 
-	;############## PyWin32 ##############
-	;${MementoSection} "PyWin32" SectionPyWin32
-	;	SectionIn 1 2
-	;	SetDetailsPrint both
-	;	SetOverwrite on
-	;	SetOutPath "$INSTDIR"
-	;	File ${PYWIN32_INSTALLER}
-	;	ExecWait '"$INSTDIR\${PYWIN32_INSTALLER}"'	
-	;${MementoSectionEnd}
+	############## PyWin32 ##############
+	${MementoSection} "PyWin32" SectionPyWin32
+		SectionIn 1 2
+		SetDetailsPrint both
+		SetOverwrite on
+		SetOutPath "$INSTDIR\${PREREQUISITEDIR}"
+		File "${PREREQUISITEDIR}\${PYWIN32_INSTALLER}"
+		ExecWait '"$INSTDIR\${PREREQUISITEDIR}\${PYWIN32_INSTALLER}"'	
+	${MementoSectionEnd}
+	
+	############## WinPcap ##############
+	${MementoSection} "WinPcap 4.0.2" SectionWinPcap
+		SectionIn 1 2
+		SetDetailsPrint both
+		SetOverwrite on
+		SetOutPath "$INSTDIR\${PREREQUISITEDIR}"
+		File "${PREREQUISITEDIR}\${WINPCAP_INSTALLER}"
+		ExecWait '"$INSTDIR\${PREREQUISITEDIR}\${WINPCAP_INSTALLER}"'	
+	${MementoSectionEnd}
+	
+	############## PyPcap ##############
+	${MementoSection} "PyPcap" SectionPyPcap
+		SectionIn 1 2
+		SetDetailsPrint both
+		SetOverwrite on
+		SetOutPath "$INSTDIR\${PREREQUISITEDIR}"
+		File "${PREREQUISITEDIR}\${PYPCAP_INSTALLER}"
+		ExecWait '"$INSTDIR\${PREREQUISITEDIR}\${PYPCAP_INSTALLER}"'	
+	${MementoSectionEnd}
+	
+	############## libnet ##############
+	${MementoSection} "libnet" SectionLibNet
+		SectionIn 1 2
+		SetDetailsPrint both
+		SetOverwrite on
+		SetOutPath "$INSTDIR\${PREREQUISITEDIR}"
+		File "${PREREQUISITEDIR}\${DNET_INSTALLER}"
+		ExecWait '"$INSTDIR\${PREREQUISITEDIR}\${DNET_INSTALLER}"'	
+	${MementoSectionEnd}	
+
+	############## PyReadline ##############
+	${MementoSection} "PyReadline" SectionPyReadline
+		SectionIn 1 2
+		SetDetailsPrint both
+		SetOverwrite on
+		SetOutPath "$INSTDIR\${PREREQUISITEDIR}"
+		File "${PREREQUISITEDIR}\${PYREADLINE_INSTALLER}"
+		ExecWait '"$INSTDIR\${PREREQUISITEDIR}\${PYREADLINE_INSTALLER}"'	
+	${MementoSectionEnd}
+	
+	############## PyParsing ##############
+	${MementoSection} "PyParsing" SectionPyParsing
+		SectionIn 1 2
+		SetDetailsPrint both
+		SetOverwrite on
+		SetOutPath "$INSTDIR\${PREREQUISITEDIR}"
+		File "${PREREQUISITEDIR}\${PYPARSING_INSTALLER}"
+		ExecWait '"$INSTDIR\${PREREQUISITEDIR}\${PYPARSING_INSTALLER}"'		
+	${MementoSectionEnd}
+	
+	############## Graphiz ##############
+	${MementoSection} "Graphiz" SectionGraphiz
+		SectionIn 1 2
+		SetDetailsPrint both
+		SetOverwrite on
+		SetOutPath "$INSTDIR\${PREREQUISITEDIR}"
+		File "${PREREQUISITEDIR}\${GRAPHVIZ_INSTALLER}"
+		ExecWait '"$INSTDIR\${PREREQUISITEDIR}\${GRAPHVIZ_INSTALLER}"'
+	${MementoSectionEnd}
 	
 SectionGroupEnd
 
@@ -327,14 +436,14 @@ Section -FinishSection
 	!insertmacro MUI_STARTMENU_WRITE_BEGIN Application
 		SetShellVarContext current
 		
-		;Create shortcuts
+		; Create shortcuts
 		SetOutPath "$INSTDIR\"
-		CreateShortCut "$DESKTOP\w3af Console.lnk" "$PYTHON_DIR\python.exe" "w3af"
-		CreateShortCut "$DESKTOP\w3af GUI.lnk" "$PYTHON_DIR\python.exe" "w3af -g" "$INSTDIR\w3af_gui_icon.ico" 0 SW_SHOWNORMAL
+		CreateShortCut "$DESKTOP\w3af Console.lnk" "$PYTHON_DIR\python.exe" "w3af_console"
+		CreateShortCut "$DESKTOP\w3af GUI.lnk" "$PYTHON_DIR\python.exe" "w3af_gui" "$INSTDIR\w3af_gui_icon.ico" 0 SW_SHOWNORMAL
 		
 		CreateDirectory "$SMPROGRAMS\$StartMenuFolder"
-		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Console.lnk" "$PYTHON_DIR\python.exe" "w3af"
-		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af GUI.lnk" "$PYTHON_DIR\python.exe" "w3af -g" "$INSTDIR\w3af_gui_icon.ico" 0 SW_SHOWNORMAL		
+		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Console.lnk" "$PYTHON_DIR\python.exe" "w3af_console"
+		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af GUI.lnk" "$PYTHON_DIR\python.exe" "w3af_gui" "$INSTDIR\w3af_gui_icon.ico" 0 SW_SHOWNORMAL		
 		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Users Guide (PDF).lnk" "$INSTDIR\readme\w3afUsersGuide.pdf"
 		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Users Guide (HTML).lnk" "$INSTDIR\readme\w3afUsersGuide.html"
 		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Uninstall w3af.lnk" "$INSTDIR\uninstall.exe"	
@@ -365,18 +474,25 @@ ${MementoSectionDone}
 ; Descriptions
 ; Modern install component descriptions
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
-	!insertmacro MUI_DESCRIPTION_TEXT ${SectionW3af} "w3af - Web Application Attack and Audit Framework"
-	!insertmacro MUI_DESCRIPTION_TEXT ${SectionSVN} "Svn client for updates"
-	!insertmacro MUI_DESCRIPTION_TEXT ${SectionGTK2Runtime} "GTK2 Runtime. w3af GUI"
+	!insertmacro MUI_DESCRIPTION_TEXT ${SectionW3af} "w3af - Web Application Attack and Audit Framework."
+	!insertmacro MUI_DESCRIPTION_TEXT ${SectionSVN} "Svn client for updates."
+	!insertmacro MUI_DESCRIPTION_TEXT ${SectionGTK2Runtime} "GTK2 Runtime. w3af GUI."
 	!insertmacro MUI_DESCRIPTION_TEXT ${SectionPyGTK} "PyGTK lets you to easily create programs with a graphical user interface using the Python programming language."
 	!insertmacro MUI_DESCRIPTION_TEXT ${SectionPyCairo} "Pycairo is set of Python bindings for the cairo graphics library."
 	!insertmacro MUI_DESCRIPTION_TEXT ${SectionPyObject} "Python Bindings for GObject."
-	!insertmacro MUI_DESCRIPTION_TEXT ${SectionPyOpenSSL} "Python interface to the OpenSSL library"	
-	;!insertmacro MUI_DESCRIPTION_TEXT ${SectionPyWin32} "Python Extensions for Windows"	
+	!insertmacro MUI_DESCRIPTION_TEXT ${SectionPyOpenSSL} "Python interface to the OpenSSL library."
+	!insertmacro MUI_DESCRIPTION_TEXT ${SectionPythonCluster} "python-cluster is a package that allows grouping a list of arbitrary objects into related groups (clusters)."
+	!insertmacro MUI_DESCRIPTION_TEXT ${SectionPyWin32} "Python Extensions for Windows."	
+	!insertmacro MUI_DESCRIPTION_TEXT ${SectionWinPcap} "WinPcap is the industry-standard tool for link-layer network access in Windows environments: it allows applications to capture and transmit network packets bypassing the protocol stack, and has additional useful features, including kernel-level packet filtering, a network statistics engine and support for remote packet capture."
+	!insertmacro MUI_DESCRIPTION_TEXT ${SectionPyPcap} "Simplified object-oriented Python extension module for libpcap - the current tcpdump.org version, the legacy version shipping with some of the BSD operating systems, and the WinPcap port for Windows."
+	!insertmacro MUI_DESCRIPTION_TEXT ${SectionLibNet} "Libdnet provides a simplified, portable interface to several low-level networking routines."
+	!insertmacro MUI_DESCRIPTION_TEXT ${SectionPyReadline} "Pyreadline is based on UNC readline."
+	!insertmacro MUI_DESCRIPTION_TEXT ${SectionPyParsing} "PyParsing is a general parsing module for Python."
+	!insertmacro MUI_DESCRIPTION_TEXT ${SectionGraphiz} "Graph visualization is a way of representing structural information as diagrams of abstract graphs and networks."
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
 
 
-;Uninstall section
+; Uninstall section
 Section Uninstall
 	
 	ReadRegStr $StartMenuFolder HKCU "Software\${APPNAME}" MUI_STARTMENUPAGE_REGISTRY_VALUENAME
@@ -392,15 +508,15 @@ Section Uninstall
 	RMDir /r "$SMPROGRAMS\$StartMenuFolder"
 	RMDir /r "$INSTDIR\"
 	
-	;Remove from registry...
+	; Remove from registry...
 	DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}"
 	DeleteRegKey HKLM "Software\${APPNAME}"
 	DeleteRegKey HKCU "Software\${APPNAME}"
 	
-	;Likewise RemoveFromPath could be
-  Push "PATH"
+	; Likewise RemoveFromPath could be
+  ;Push "PATH"
   Push $INSTDIR
-  Call un.RemoveFromEnvVar
+  Call un.RemoveFromPath
 	
 SectionEnd
 
@@ -409,7 +525,7 @@ SectionEnd
 ; BEGIN CUSTOM PAGE
 ; ##########################################
 Function WindowDetectPython
-	;http://nsis.sourceforge.net/Docs/nsDialogs/Readme.html
+	; http://nsis.sourceforge.net/Docs/nsDialogs/Readme.html
 	
   !insertmacro MUI_HEADER_TEXT $(PAGE_TITLE) $(PAGE_SUBTITLE)
 	
@@ -501,7 +617,7 @@ loopHKCU:
   Goto loopHKCU
 doneloopHKCU:
 
-	;Workround & Bugfix for prerequisites. Set "For all User".
+	; Workround & Bugfix for prerequisites. Set "For all User".
 	WriteRegStr HKLM Software\Python\PythonCore\$0\InstallPath "" $PYTHON_DIR
 
 
@@ -519,11 +635,11 @@ FunctionEnd
 
 Function RunW3afGUI
 	SetOutPath "$INSTDIR"
-	Exec '"$PYTHON_DIR\python.exe" w3af -g'
+	Exec '"$PYTHON_DIR\python.exe" w3af_gui'
 FunctionEnd
 
 
-; WriteUpdate_w3af
+; Create w3af Update
 Function WriteUpdatew3af
 	Pop $R0 ; Output file
 	Push $R9
@@ -537,28 +653,26 @@ Function WriteUpdatew3af
 	Pop $R9
 FunctionEnd
 
-; Add INSTDIR to %PATH%
-; Writew3af
+; Create w3af console
 Function Writew3af
 	Pop $R0 ; Output file
 	Push $R9
 	FileOpen $R9 $R0 w
 	FileWrite $R9 "@echo off$\r$\n"
 	FileWrite $R9 "cd $\"$INSTDIR$\"$\r$\n"
-	FileWrite $R9 "$\"$PYTHON_DIR\python.exe$\" w3af$\r$\n"
+	FileWrite $R9 "$\"$PYTHON_DIR\python.exe$\" w3af_console$\r$\n"
 	FileClose $R9
 	Pop $R9
 FunctionEnd
 
-; Add INSTDIR to %PATH%
-; Writew3afGUI
+; Create w3af GUI
 Function Writew3afGUI
 	Pop $R0 ; Output file
 	Push $R9
 	FileOpen $R9 $R0 w
 	FileWrite $R9 "@echo off$\r$\n"
 	FileWrite $R9 "cd $\"$INSTDIR$\"$\r$\n"
-	FileWrite $R9 "$\"$PYTHON_DIR\python.exe$\" w3af -g$\r$\n"
+	FileWrite $R9 "$\"$PYTHON_DIR\python.exe$\" w3af_gui$\r$\n"
 	FileClose $R9
 	Pop $R9
 FunctionEnd
@@ -566,7 +680,7 @@ FunctionEnd
 
 
 ; ----------------- CUSTOM POST (UN)INSTALL FUNCTIONS GTK RUNTIME
-; WriteEnvBat
+; WriteEnvBat GTK Runtime
 Function WriteEnvBat
 	Pop $R0 ; Output file
 	Push $R9
@@ -585,7 +699,7 @@ Function WriteEnvBat
 FunctionEnd
 
 
-; WritePostInstall
+; WritePostInstall GTK Runtime
 Function WritePostInstall
 	Pop $R0 ; Output file
 	Push $R9
