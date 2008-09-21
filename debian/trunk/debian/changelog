@@ -2,5 +2,5 @@ w3af ([w3af_VERSION]-1) UNRELEASED; urgency=low
 
   * Initial release (Closes: #465120)
 
- -- Luciano Bello <luciano@debian.org>  Fri, 09 May 2008 14:32:47 -0300
+ -- Luciano Bello <luciano@debian.org>  Sun, 21 Sep 2008 15:40:34 -0300
 

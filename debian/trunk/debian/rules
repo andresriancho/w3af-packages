@@ -20,8 +20,8 @@ install: build
 
 	cp debian/desktop debian/w3af/usr/share/applications/w3af.desktop
 	cp debian/w3af.xpm debian/w3af/usr/share/pixmaps/
-	cp -r core  plugins  profiles  scripts  sessions  webroot debian/w3af/usr/share/w3af/
-	cp w3af debian/w3af/usr/share/w3af/
+	cp -r core  plugins  profiles  scripts webroot debian/w3af/usr/share/w3af/
+	cp w3af_* debian/w3af/usr/share/w3af/
 	cp debian/w3af.sh debian/w3af/usr/bin/w3af
 	cp -r extlib/socksipy debian/w3af/usr/share/python-socksipy
 

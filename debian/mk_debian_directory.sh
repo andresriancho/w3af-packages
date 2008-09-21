@@ -34,7 +34,7 @@ echo -n "Removing: "
 ((rm ${BASE_DIR}/.urllib2cache/ -rf) > /dev/null 2>&1 || 
 (rm ${BASE_DIR}/.tmp/ -rf) > /dev/null 2>&1 ||
 (rm ${BASE_DIR}/output-*.txt -rf) > /dev/null 2>&1 ||
-(rm ${BASE_DIR}/sessions/* -rf) > /dev/null 2>&1 ||
+#(rm ${BASE_DIR}/sessions/* -rf) > /dev/null 2>&1 ||
 (rm ${BASE_DIR}/w3af.e3* -rf) > /dev/null 2>&1) && echo -n "paths created during the run, " 
 echo "-"
 
@@ -49,6 +49,7 @@ rm ${BASE_DIR}/plugins/discovery/oHalberd/* > /dev/null 2>&1
 rm -rf ${BASE_DIR}/extlib/pygoogle/
 rm -rf ${BASE_DIR}/extlib/pywordnet/
 rm -rf ${BASE_DIR}/plugins/discovery/wordnet.py
+rm -rf ${BASE_DIR}/plugins/discovery/
 rm -rf ${BASE_DIR}/tools/
 
 # And remove the things that are already inside debian as packages
@@ -77,6 +78,7 @@ tar zcf w3af_${VERSION}.orig.tar.gz ${BASE_DIR}
 
 echo '~/debian'
 cp -r trunk/debian ${BASE_DIR}/
+(find ${BASE_DIR}/debian -name .svn | xargs rm -rf) > /dev/null 2>&1 && echo -n ".svn, "
 
 echo 'copy diffs'
 cp -Rp dependencyCheck.py ${BASE_DIR}/core/controllers/misc/dependencyCheck.py
@@ -89,6 +91,6 @@ sed -i "s/\[w3af_VERSION\]/$VERSION/" ${BASE_DIR}/debian/desktop
 
 echo "The w3af directory inside ${BASE_DIR} contains all you need to create the .deb package."
 
-echo -n "Building the package..."
+echo "Building the package..."
 cd ${BASE_DIR} 
-fakeroot ./debian/rules binary   > /dev/null 2>&1  && echo ' done.'
+#fakeroot ./debian/rules binary   > /dev/null 2>&1  && echo ' done.'

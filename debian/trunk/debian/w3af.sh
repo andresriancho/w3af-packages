@@ -1,2 +1,2 @@
 #!/bin/sh
-/usr/share/w3af/w3af
+python /usr/share/w3af/w3af_console

@@ -10,7 +10,7 @@ Upstream Authors:
 
 Copyright: 
 
-    Copyright (C) 2008 Andres Riancho
+    Copyright © 2008 Andres Riancho
 
 License:
 
@@ -32,3 +32,28 @@ Public License can be found in `/usr/share/common-licenses/GPL'.
 
 The Debian packaging is (C) 2008, Luciano Bello <luciano@debian.org> and
 is licensed under the GPL, see above.
+
+The following exceptions have a different copyright/license. They was modificated by Andres Riancho under the tems of each license conditions:
+
+sqlmap
+------
+  Files: plugins/attack/db
+  Copyright: © 2008 Daniele Bellucci
+             © 2008 Bernardo Damele
+  HomePage: http://sqlmap.sourceforge.net/
+  License: GPL-2
+
+halberd
+-------
+  Files: plugins/discovery/oHalberd
+  Copyright: © 2008 Juan M. Bello Rivas
+  HomePage: http://halberd.superadditive.com/
+  License: GPL-2
+
+hmap
+----
+  Files: plugins/discovery/oHmap
+  Copyright: © 2003 Dustin Lee
+  HomePage: http://ujeni.murkyroc.com/hmap/
+  License: GPL-2
+
