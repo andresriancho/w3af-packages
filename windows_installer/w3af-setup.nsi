@@ -22,13 +22,14 @@
 
 ; Define your application name
 !define APPNAME "w3af"
-!define APPNAMEANDVERSION "w3af beta 7"
+!define APPNAMEANDVERSION "w3af svn rev. 1812"
+
 
 ; Main Install settings
 Name "${APPNAMEANDVERSION}"
 InstallDir "$PROGRAMFILES\w3af"
 InstallDirRegKey HKLM "Software\${APPNAME}" ""
-OutFile "w3af-beta-7.exe"
+OutFile "w3af-beta-7-r1812.exe"
 
 ; Use compression
 SetCompressor /SOLID LZMA
@@ -52,7 +53,7 @@ RequestExecutionLevel admin
 !include "Memento.nsh"
 !include "nsDialogs.nsh"
 !include "AddToPath.nsh" ; http://nsis.sourceforge.net/Path_Manipulation ( & nmap )
-
+!include "FileFunc.nsh"	; Macro RefreshShellIcons
 
 ;--------------------------------
 ;Variables
@@ -107,7 +108,6 @@ Page custom WindowDetectPython
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_STARTMENU Application $StartMenuFolder
 !insertmacro MUI_PAGE_INSTFILES
-Page custom shortcutsPage makeShortcuts
 !insertmacro MUI_PAGE_FINISH
 
 ; Uninstall Pages
@@ -115,6 +115,11 @@ Page custom shortcutsPage makeShortcuts
 !insertmacro MUI_UNPAGE_CONFIRM
 !insertmacro MUI_UNPAGE_INSTFILES
 !insertmacro MUI_UNPAGE_FINISH
+
+;--------------------------------
+; Asociation .w3af to w3af_console.bat
+; 
+!insertmacro RefreshShellIcons
 
 ;--------------------------------
 ; Instalation Types
@@ -136,7 +141,7 @@ LangString PAGE_SUBTITLE ${LANG_ENGLISH} "In this step the installer verifies if
 
 ;--------------------------------
 ; Version of installer
-VIProductVersion "0.7.0.0"
+VIProductVersion "0.7.1812.0"
 VIAddVersionKey  "ProductName" "w3af"
 VIAddVersionKey  "Comments" "Web Application Attack and Audit Framework - ${RELEASE_VERSION}"
 VIAddVersionKey  "CompanyName" "-"
@@ -157,15 +162,15 @@ VIAddVersionKey  "FileVersion" "${APPNAMEANDVERSION}"
 !define PYGOBJECT_INSTALLER "pygobject-2.14.1-1.win32-py2.5.exe" ; http://ftp.gnome.org/pub/GNOME/binaries/win32/pygobject/
 !define PYOPENSSL_INSTALLER "pyOpenSSL-0.7a2-py2.5.exe" ; http://pyopenssl.sourceforge.net/
 !define CLUSTER_INSTALLER "cluster-1.1.1b3.win32.exe" ; http://sourceforge.net/projects/python-cluster/
-!define GRAPHVIZ_INSTALLER "graphviz-2.20.2.exe" ; http://www.graphviz.org/
 !define PYPARSING_INSTALLER "pyparsing-1.5.0.win32.exe" ; http://sourceforge.net/projects/pyparsing/ 
+!define GRAPHVIZ_INSTALLER "graphviz-2.20.2.exe" ; http://www.graphviz.org/
 
 ; For Scapy
 !define PYWIN32_INSTALLER "pywin32-210.win32-py2.5.exe" ; http://python.net/crew/mhammond/win32/Downloads.html
-!define WINPCAP_INSTALLER "WinPcap_4_0_2.exe" ; http://www.winpcap.org/
 !define PYPCAP_INSTALLER "pcap-1.1-scapy.win32-py2.5.exe" ; http://www.secdev.org/projects/scapy/files/pcap-1.1-scapy.win32-py2.5.exe "special version for Scapy"
 !define DNET_INSTALLER "dnet-1.12.win32-py2.5.exe" ; http://code.google.com/p/libdnet/
 !define PYREADLINE_INSTALLER "pyreadline-1.5-win32-setup.exe" ; http://ipython.scipy.org/moin/PyReadline/Intro
+!define WINPCAP_INSTALLER "WinPcap_4_0_2.exe" ; http://www.winpcap.org/
 
 Function .onInit
 	
@@ -206,7 +211,18 @@ ${MementoSection} !"w3af" SectionW3af
 	
 	; SVN TRUNK
 	File /r /x "*.pyc" "..\..\trunk\*"
+	
+	; Icons
 	File "image\w3af_gui_icon.ico"
+	File "image\w3af_script_icon.ico"
+	
+	; Manifest (WinVista)
+	File "w3af_console.bat.manifest"
+	File "w3af_gui.bat.manifest"
+	
+	; DLL's (w3af_console)
+	File  /r /x ".svn" "svn-client\libeay32.dll"
+	File  /r /x ".svn" "svn-client\ssleay32.dll"
 	
 	; Create w3af commandline
 	Push $INSTDIR\w3af_console.bat
@@ -231,8 +247,6 @@ ${MementoSection} !"w3af" SectionW3af
 	nsExec::ExecToLog '"$PYTHON_DIR\python.exe" "$INSTDIR\extlib\cluster\setup.py" install' ;http://python-cluster.sourceforge.net/
 	SetOutPath "$INSTDIR\extlib\jsonpy\"
 	nsExec::ExecToLog '"$PYTHON_DIR\python.exe" "$INSTDIR\extlib\jsonpy\setup.py" install' ;http://sourceforge.net/projects/json-py/
-
-; Pequeño parche hasta que Andres lo arregle.
 	SetOutPath "$INSTDIR\extlib\pydot\"
 	nsExec::ExecToLog '"$PYTHON_DIR\python.exe" "$INSTDIR\extlib\pydot\setup.py" install' ;http://code.google.com/p/pydot/
 	
@@ -241,7 +255,6 @@ ${MementoSection} !"w3af" SectionW3af
 	File "..\..\trunk\extlib\scapy-win\scapy.py"
 	
 	; Add $INSTDIR to %PATH% (CURRENT_USER)
-  ;Push "PATH"
   Push $INSTDIR
   Call AddToPath
 	
@@ -256,19 +269,15 @@ ${MementoSection} "svn client" SectionSVN
 	SetOverwrite on
 	
 	SetOutPath "$INSTDIR\svn-client"
-	File /x ".svn" "svn-client\*"
+	File /x ".svn" /x "*.dll" "svn-client\*"
 	
 	; w3af update
 	SetOutPath "$INSTDIR"
-	File "w3af_update.exe"
+	File "w3af_update.exe"	
 	File "w3af_update.bat.manifest"
+	
 	Push $INSTDIR\w3af_update.bat
 	Call WriteUpdatew3af
-	
-	!insertmacro MUI_STARTMENU_WRITE_BEGIN Application
-		SetShellVarContext current	
-		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Update.lnk" "$INSTDIR\w3af_update.bat"
-	!insertmacro MUI_STARTMENU_WRITE_END
 	
 ${MementoSectionEnd}
 
@@ -305,7 +314,6 @@ ${MementoSectionEnd}
 
 
 SectionGroup "w3af prerequisites"
-
 
 ############## PyGTK ##############
 	${MementoSection} "PyGTK" SectionPyGTK
@@ -357,56 +365,6 @@ SectionGroup "w3af prerequisites"
 		ExecWait '"$INSTDIR\${PREREQUISITEDIR}\${CLUSTER_INSTALLER}"'	
 	${MementoSectionEnd}
 
-	############## PyWin32 ##############
-	${MementoSection} "PyWin32" SectionPyWin32
-		SectionIn 1 2
-		SetDetailsPrint both
-		SetOverwrite on
-		SetOutPath "$INSTDIR\${PREREQUISITEDIR}"
-		File "${PREREQUISITEDIR}\${PYWIN32_INSTALLER}"
-		ExecWait '"$INSTDIR\${PREREQUISITEDIR}\${PYWIN32_INSTALLER}"'	
-	${MementoSectionEnd}
-	
-	############## WinPcap ##############
-	${MementoSection} "WinPcap 4.0.2" SectionWinPcap
-		SectionIn 1 2
-		SetDetailsPrint both
-		SetOverwrite on
-		SetOutPath "$INSTDIR\${PREREQUISITEDIR}"
-		File "${PREREQUISITEDIR}\${WINPCAP_INSTALLER}"
-		ExecWait '"$INSTDIR\${PREREQUISITEDIR}\${WINPCAP_INSTALLER}"'	
-	${MementoSectionEnd}
-	
-	############## PyPcap ##############
-	${MementoSection} "PyPcap" SectionPyPcap
-		SectionIn 1 2
-		SetDetailsPrint both
-		SetOverwrite on
-		SetOutPath "$INSTDIR\${PREREQUISITEDIR}"
-		File "${PREREQUISITEDIR}\${PYPCAP_INSTALLER}"
-		ExecWait '"$INSTDIR\${PREREQUISITEDIR}\${PYPCAP_INSTALLER}"'	
-	${MementoSectionEnd}
-	
-	############## libnet ##############
-	${MementoSection} "libnet" SectionLibNet
-		SectionIn 1 2
-		SetDetailsPrint both
-		SetOverwrite on
-		SetOutPath "$INSTDIR\${PREREQUISITEDIR}"
-		File "${PREREQUISITEDIR}\${DNET_INSTALLER}"
-		ExecWait '"$INSTDIR\${PREREQUISITEDIR}\${DNET_INSTALLER}"'	
-	${MementoSectionEnd}	
-
-	############## PyReadline ##############
-	${MementoSection} "PyReadline" SectionPyReadline
-		SectionIn 1 2
-		SetDetailsPrint both
-		SetOverwrite on
-		SetOutPath "$INSTDIR\${PREREQUISITEDIR}"
-		File "${PREREQUISITEDIR}\${PYREADLINE_INSTALLER}"
-		ExecWait '"$INSTDIR\${PREREQUISITEDIR}\${PYREADLINE_INSTALLER}"'	
-	${MementoSectionEnd}
-	
 	############## PyParsing ##############
 	${MementoSection} "PyParsing" SectionPyParsing
 		SectionIn 1 2
@@ -416,7 +374,7 @@ SectionGroup "w3af prerequisites"
 		File "${PREREQUISITEDIR}\${PYPARSING_INSTALLER}"
 		ExecWait '"$INSTDIR\${PREREQUISITEDIR}\${PYPARSING_INSTALLER}"'		
 	${MementoSectionEnd}
-	
+
 	############## Graphiz ##############
 	${MementoSection} "Graphiz" SectionGraphiz
 		SectionIn 1 2
@@ -426,31 +384,129 @@ SectionGroup "w3af prerequisites"
 		File "${PREREQUISITEDIR}\${GRAPHVIZ_INSTALLER}"
 		ExecWait '"$INSTDIR\${PREREQUISITEDIR}\${GRAPHVIZ_INSTALLER}"'
 	${MementoSectionEnd}
+
+
+	SectionGroup "Scapy-Win requisites"
 	
+		############## PyWin32 ##############
+		${MementoSection} "PyWin32" SectionPyWin32
+			SectionIn 1 2
+			SetDetailsPrint both
+			SetOverwrite on
+			SetOutPath "$INSTDIR\${PREREQUISITEDIR}"
+			File "${PREREQUISITEDIR}\${PYWIN32_INSTALLER}"
+			ExecWait '"$INSTDIR\${PREREQUISITEDIR}\${PYWIN32_INSTALLER}"'	
+		${MementoSectionEnd}
+		
+		############## PyPcap ##############
+		${MementoSection} "PyPcap" SectionPyPcap
+			SectionIn 1 2
+			SetDetailsPrint both
+			SetOverwrite on
+			SetOutPath "$INSTDIR\${PREREQUISITEDIR}"
+			File "${PREREQUISITEDIR}\${PYPCAP_INSTALLER}"
+			ExecWait '"$INSTDIR\${PREREQUISITEDIR}\${PYPCAP_INSTALLER}"'	
+		${MementoSectionEnd}
+		
+		############## libnet ##############
+		${MementoSection} "libnet" SectionLibNet
+			SectionIn 1 2
+			SetDetailsPrint both
+			SetOverwrite on
+			SetOutPath "$INSTDIR\${PREREQUISITEDIR}"
+			File "${PREREQUISITEDIR}\${DNET_INSTALLER}"
+			ExecWait '"$INSTDIR\${PREREQUISITEDIR}\${DNET_INSTALLER}"'	
+		${MementoSectionEnd}	
+	
+		############## PyReadline ##############
+		${MementoSection} "PyReadline" SectionPyReadline
+			SectionIn 1 2
+			SetDetailsPrint both
+			SetOverwrite on
+			SetOutPath "$INSTDIR\${PREREQUISITEDIR}"
+			File "${PREREQUISITEDIR}\${PYREADLINE_INSTALLER}"
+			ExecWait '"$INSTDIR\${PREREQUISITEDIR}\${PYREADLINE_INSTALLER}"'	
+		${MementoSectionEnd}
+		
+		############## WinPcap ##############
+		${MementoSection} "WinPcap 4.0.2" SectionWinPcap
+			SectionIn 1 2
+			SetDetailsPrint both
+			SetOverwrite on
+			SetOutPath "$INSTDIR\${PREREQUISITEDIR}"
+			File "${PREREQUISITEDIR}\${WINPCAP_INSTALLER}"
+			ExecWait '"$INSTDIR\${PREREQUISITEDIR}\${WINPCAP_INSTALLER}"'	
+		${MementoSectionEnd}
+	
+	SectionGroupEnd
+
 SectionGroupEnd
 
 
-Section -FinishSection
+Section -AsociationExtW3af
+	
+	; Script .w3af
+	ReadRegStr $R0 HKCR ".w3af" ""
+	StrCmp $R0 "W3AF.Script" 0 +2
+		DeleteRegKey HKCR "W3AF.Script"
+		
+	WriteRegStr HKCR ".w3af" "" "W3AF.Script"
+	WriteRegStr HKCR "W3AF.Script" "" "W3AF Script File"
+	WriteRegStr HKCR "W3AF.Script\DefaultIcon" "" "$INSTDIR\w3af_script_icon.ico,0"
 
+	; Open .w3af with w3af_console
+	WriteRegStr HKCR "W3AF.Script\shell" "" "open"	;Default
+	WriteRegStr HKCR "W3AF.Script\shell\open\command" "" '"$INSTDIR\w3af_console.bat" -s "%1"'
 
+	; Edit .w3af with notepad.exe
+	WriteRegStr HKCR "W3AF.Script\shell\edit\command" "" '"notepad.exe" "%1"'
+	
+	
+	; Profile .pw3af
+	ReadRegStr $R0 HKCR ".pw3af" ""
+	StrCmp $R0 "W3AF.Profile" 0 +2
+		DeleteRegKey HKCR "W3AF.Profile"
+
+	WriteRegStr HKCR ".pw3af" "" "W3AF.Profile"
+	WriteRegStr HKCR "W3AF.Profile" "" "W3AF Profile File"
+	WriteRegStr HKCR "W3AF.Profile\DefaultIcon" "" "$INSTDIR\w3af_gui_icon.ico,0"
+
+	; Open .pw3af with w3af_gui 
+	WriteRegStr HKCR "W3AF.Profile\shell" "" "open"	; Default
+	WriteRegStr HKCR "W3AF.Profile\shell\open\command" "" '"$INSTDIR\w3af_gui.bat" -p "%1"'
+
+	; Edit .pw3af with notepad.exe	
+	WriteRegStr HKCR "W3AF.Profile\shell\edit\command" "" '"notepad.exe" "%1"'
+	
+	;After changing file associations, you can call this function to refresh the shell immediately.	
+	${RefreshShellIcons}
+
+SectionEnd
+
+Section -MakeShortCuts
+	
 	!insertmacro MUI_STARTMENU_WRITE_BEGIN Application
 		SetShellVarContext current
 		
 		; Create shortcuts
 		SetOutPath "$INSTDIR\"
-		CreateShortCut "$DESKTOP\w3af Console.lnk" "$PYTHON_DIR\python.exe" "w3af_console"
-		CreateShortCut "$DESKTOP\w3af GUI.lnk" "$PYTHON_DIR\python.exe" "w3af_gui" "$INSTDIR\w3af_gui_icon.ico" 0 SW_SHOWNORMAL
+		CreateShortCut "$DESKTOP\w3af Console.lnk" "$INSTDIR\w3af_console.bat" ""
+		CreateShortCut "$DESKTOP\w3af GUI.lnk" "$INSTDIR\w3af_gui.bat" "" "$INSTDIR\w3af_gui_icon.ico" 0 SW_SHOWNORMAL
 		
 		CreateDirectory "$SMPROGRAMS\$StartMenuFolder"
-		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Console.lnk" "$PYTHON_DIR\python.exe" "w3af_console"
-		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af GUI.lnk" "$PYTHON_DIR\python.exe" "w3af_gui" "$INSTDIR\w3af_gui_icon.ico" 0 SW_SHOWNORMAL		
+		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Console.lnk" "$INSTDIR\w3af_console.bat" ""
+		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af GUI.lnk" "$INSTDIR\w3af_gui.bat" "" "$INSTDIR\w3af_gui_icon.ico" 0 SW_SHOWNORMAL
 		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Users Guide (PDF).lnk" "$INSTDIR\readme\w3afUsersGuide.pdf"
 		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Users Guide (HTML).lnk" "$INSTDIR\readme\w3afUsersGuide.html"
 		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Uninstall w3af.lnk" "$INSTDIR\uninstall.exe"	
-		IfFileExists "$INSTDIR\svn-client\svn.exe" 0
-			CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Update.lnk" "$INSTDIR\w3af_update.bat"
+		IfFileExists "$INSTDIR\svn-client\svn.exe" 0 +2
+			CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Update.lnk" "$INSTDIR\w3af_update.bat" "" "$INSTDIR\svn-client\svn.exe" 0 SW_SHOWNORMAL
+			
 	!insertmacro MUI_STARTMENU_WRITE_END
 	
+SectionEnd
+
+Section -FinishSection
 	
 	WriteRegStr HKLM "Software\${APPNAME}" "" "$INSTDIR"
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "DisplayName" "${APPNAME}"
@@ -513,8 +569,14 @@ Section Uninstall
 	DeleteRegKey HKLM "Software\${APPNAME}"
 	DeleteRegKey HKCU "Software\${APPNAME}"
 	
-	; Likewise RemoveFromPath could be
-  ;Push "PATH"
+	; Remove .w3af
+	DeleteRegKey HKCR ".w3af"
+	DeleteRegKey HKCR "W3AF.Script"
+	; Remove .pw3af
+	DeleteRegKey HKCR ".pw3af"
+	DeleteRegKey HKCR "W3AF.Profile"
+	
+	; Likewise RemoveFromPath could be  
   Push $INSTDIR
   Call un.RemoveFromPath
 	
@@ -635,7 +697,7 @@ FunctionEnd
 
 Function RunW3afGUI
 	SetOutPath "$INSTDIR"
-	Exec '"$PYTHON_DIR\python.exe" w3af_gui'
+	Exec '$INSTDIR\w3af_gui.bat'
 FunctionEnd
 
 
@@ -653,26 +715,26 @@ Function WriteUpdatew3af
 	Pop $R9
 FunctionEnd
 
-; Create w3af console
+; Create w3af_console.bat
 Function Writew3af
 	Pop $R0 ; Output file
 	Push $R9
 	FileOpen $R9 $R0 w
 	FileWrite $R9 "@echo off$\r$\n"
 	FileWrite $R9 "cd $\"$INSTDIR$\"$\r$\n"
-	FileWrite $R9 "$\"$PYTHON_DIR\python.exe$\" w3af_console$\r$\n"
+	FileWrite $R9 "$\"$PYTHON_DIR\python.exe$\" w3af_console %1 %2$\r$\n"
 	FileClose $R9
 	Pop $R9
 FunctionEnd
 
-; Create w3af GUI
+; Create w3af_gui.bat
 Function Writew3afGUI
 	Pop $R0 ; Output file
 	Push $R9
 	FileOpen $R9 $R0 w
 	FileWrite $R9 "@echo off$\r$\n"
 	FileWrite $R9 "cd $\"$INSTDIR$\"$\r$\n"
-	FileWrite $R9 "$\"$PYTHON_DIR\python.exe$\" w3af_gui$\r$\n"
+	FileWrite $R9 "$\"$PYTHON_DIR\python.exe$\" w3af_gui %1 %2$\r$\n"
 	FileClose $R9
 	Pop $R9
 FunctionEnd
