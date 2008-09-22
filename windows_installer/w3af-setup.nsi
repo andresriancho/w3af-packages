@@ -13,7 +13,7 @@
 
 ;You should have received a copy of the GNU General Public License
 ;along with w3af; if not, write to the Free Software
-;Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA 
+;Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 ;
 ;
 ;
@@ -118,7 +118,7 @@ Page custom WindowDetectPython
 
 ;--------------------------------
 ; Asociation .w3af to w3af_console.bat
-; 
+;
 !insertmacro RefreshShellIcons
 
 ;--------------------------------
@@ -132,11 +132,26 @@ InstType "Full" #2
 ; Languages
 
 !insertmacro MUI_LANGUAGE "English"
+!insertmacro MUI_LANGUAGE "Spanish"
 !insertmacro MUI_RESERVEFILE_LANGDLL
 
-; Custom Pages
+; (English)
 LangString PAGE_TITLE ${LANG_ENGLISH} "Prerequisite verification"
 LangString PAGE_SUBTITLE ${LANG_ENGLISH} "In this step the installer verifies if the system has the necessary prerequisites for the w3af installation."
+LangString PYTHON_FAILED ${LANG_ENGLISH} "The installer failed to detect a Python installation in your system."
+LangString PYTHON_DOWNLOAD ${LANG_ENGLISH} "Please download the latest version of Python from the project homepage at "
+LangString PYTHON_REMENBER ${LANG_ENGLISH} "Remember that you have to install Python before using w3af"
+LangString PYTHON_SUCCESSFULL ${LANG_ENGLISH} "Python was successfully detected"
+LangString PYTHON_DIRECTORY ${LANG_ENGLISH} "Python installation found at: " ; $PYTHON_DIR"
+
+; (Spanish)
+LangString PAGE_TITLE ${LANG_SPANISH} "Verificación de pre-requisitos"
+LangString PAGE_SUBTITLE ${LANG_SPANISH} "En este paso el instalador verifica si el sistema tiene los pre-requisitos necesarios para la instalación de w3af"
+LangString PYTHON_FAILED ${LANG_SPANISH} "El instalador no ha detectado una instalacion de Python en tu sistema."
+LangString PYTHON_DOWNLOAD ${LANG_SPANISH} "Por favor descarga la última version de Python desde la homepage del proyecto en:"
+LangString PYTHON_REMENBER ${LANG_SPANISH} "Recuerda que tienes que instalar Python antes de utilizar w3af"
+LangString PYTHON_SUCCESSFULL ${LANG_SPANISH} "Python fue correctamente detectado"
+LangString PYTHON_DIRECTORY ${LANG_SPANISH} "Instalación de Python encontrada en: " ; $PYTHON_DIR"
 
 
 ;--------------------------------
@@ -162,7 +177,7 @@ VIAddVersionKey  "FileVersion" "${APPNAMEANDVERSION}"
 !define PYGOBJECT_INSTALLER "pygobject-2.14.1-1.win32-py2.5.exe" ; http://ftp.gnome.org/pub/GNOME/binaries/win32/pygobject/
 !define PYOPENSSL_INSTALLER "pyOpenSSL-0.7a2-py2.5.exe" ; http://pyopenssl.sourceforge.net/
 !define CLUSTER_INSTALLER "cluster-1.1.1b3.win32.exe" ; http://sourceforge.net/projects/python-cluster/
-!define PYPARSING_INSTALLER "pyparsing-1.5.0.win32.exe" ; http://sourceforge.net/projects/pyparsing/ 
+!define PYPARSING_INSTALLER "pyparsing-1.5.0.win32.exe" ; http://sourceforge.net/projects/pyparsing/
 !define GRAPHVIZ_INSTALLER "graphviz-2.20.2.exe" ; http://www.graphviz.org/
 
 ; For Scapy
@@ -184,6 +199,8 @@ Function .onInit
 	StrCmp $R0 0 +3
 		MessageBox MB_OK|MB_ICONEXCLAMATION "The w3af installer is already running"
 		Abort
+	
+	!insertmacro MUI_LANGDLL_DISPLAY
 	
 	StrCpy $StartMenuFolder ${APPNAME}
 	
@@ -275,6 +292,11 @@ ${MementoSection} "svn client" SectionSVN
 	SetOutPath "$INSTDIR"
 	File "w3af_update.exe"	
 	File "w3af_update.bat.manifest"
+	
+	!insertmacro MUI_STARTMENU_WRITE_BEGIN Application
+		SetShellVarContext current
+		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Update.lnk" "$INSTDIR\w3af_update.bat" "" "$INSTDIR\svn-client\svn.exe" 0 SW_SHOWNORMAL
+	!insertmacro MUI_STARTMENU_WRITE_END
 	
 	Push $INSTDIR\w3af_update.bat
 	Call WriteUpdatew3af
@@ -471,7 +493,7 @@ Section -AsociationExtW3af
 	WriteRegStr HKCR "W3AF.Profile" "" "W3AF Profile File"
 	WriteRegStr HKCR "W3AF.Profile\DefaultIcon" "" "$INSTDIR\w3af_gui_icon.ico,0"
 
-	; Open .pw3af with w3af_gui 
+	; Open .pw3af with w3af_gui
 	WriteRegStr HKCR "W3AF.Profile\shell" "" "open"	; Default
 	WriteRegStr HKCR "W3AF.Profile\shell\open\command" "" '"$INSTDIR\w3af_gui.bat" -p "%1"'
 
@@ -499,8 +521,8 @@ Section -MakeShortCuts
 		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Users Guide (PDF).lnk" "$INSTDIR\readme\w3afUsersGuide.pdf"
 		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Users Guide (HTML).lnk" "$INSTDIR\readme\w3afUsersGuide.html"
 		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Uninstall w3af.lnk" "$INSTDIR\uninstall.exe"	
-		IfFileExists "$INSTDIR\svn-client\svn.exe" 0 +2
-			CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Update.lnk" "$INSTDIR\w3af_update.bat" "" "$INSTDIR\svn-client\svn.exe" 0 SW_SHOWNORMAL
+		;IfFileExists "$INSTDIR\svn-client\svn.exe" 0 +2
+			;CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Update.lnk" "$INSTDIR\w3af_update.bat" "" "$INSTDIR\svn-client\svn.exe" 0 SW_SHOWNORMAL
 			
 	!insertmacro MUI_STARTMENU_WRITE_END
 	
@@ -576,7 +598,7 @@ Section Uninstall
 	DeleteRegKey HKCR ".pw3af"
 	DeleteRegKey HKCR "W3AF.Profile"
 	
-	; Likewise RemoveFromPath could be  
+	; Likewise RemoveFromPath could be
   Push $INSTDIR
   Call un.RemoveFromPath
 	
@@ -600,10 +622,10 @@ Function WindowDetectPython
 	
 	StrCmp $PYTHON_DIR "" 0 YesPython	
 
-	${NSD_CreateLabel} 0 0 100% 12u "The installer failed to detect a Python installation in your system"
+	${NSD_CreateLabel} 0 0 100% 12u $(PYTHON_FAILED)
 	Pop $Label2k
 
-	${NSD_CreateLabel} 0 23u 100% 13u "Please download the latest version of Python from the project homepage at "
+	${NSD_CreateLabel} 0 23u 100% 13u $(PYTHON_DOWNLOAD)
 	Pop $Label2k
 	
   ${NSD_CreateLabel} 0 30u 100% 13u "http://www.python.org/"
@@ -617,10 +639,10 @@ Function WindowDetectPython
 	
 	
 YesPython:
-	${NSD_CreateLabel} 0 0 100% 12u "Python was successfully detected"
+	${NSD_CreateLabel} 0 0 100% 12u $(PYTHON_SUCCESSFULL)
 	Pop $Label2k
 
-	${NSD_CreateLabel} 0 23u 100% -13u "Python installation found at: $PYTHON_DIR"
+	${NSD_CreateLabel} 0 23u 100% -13u "$(PYTHON_DIRECTORY) $PYTHON_DIR"
 	Pop $Label2k
 	
 	
@@ -631,7 +653,7 @@ fin:
 	
 	
 	StrCmp $PYTHON_DIR "" 0 +3	
-		MessageBox MB_OK|MB_ICONINFORMATION  "Remember that you have to install Python before using w3af"
+		MessageBox MB_OK|MB_ICONINFORMATION  $(PYTHON_REMENBER)
 		Quit
 	
 FunctionEnd
