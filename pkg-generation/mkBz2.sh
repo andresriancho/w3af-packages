@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 # copy trunk so we don't destroy our local copy
 cp -Rp ../../trunk ../../w3af
 
@@ -15,10 +17,17 @@ find -L ../../w3af -name .svn | xargs rm -rf
 # remove some paths and files that are created during the run
 rm ../../w3af/.urllib2cache/ -rf
 rm ../../w3af/.tmp/ -rf
-rm ../../w3af/output-*.txt -rf
+rm ../../w3af/output*.txt -rf
 rm ../../w3af/sessions/* -rf
 rm ../../w3af/w3af.e3* -rf
 rm ../../w3af/extras/ -rf
+rm ../../w3af/w3af.e4* -rf
+rm ../../w3af/w3af_crash.txt -rf
+
+# Remove plugins under development
+rm ../../w3af/plugins/discovery/_web20Spider.py -rf
+rm ../../w3af/plugins/discovery/_mailer.py -rf
+
 
 # Create the tar archive
 tar -chpvf w3af-`date +%d%b%Y`.tar ../../w3af
