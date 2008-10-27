@@ -177,7 +177,6 @@ VIAddVersionKey  "FileVersion" "${APPNAMEANDVERSION}"
 !define PYGOBJECT_INSTALLER "pygobject-2.14.1-1.win32-py2.5.exe" ; http://ftp.gnome.org/pub/GNOME/binaries/win32/pygobject/
 !define PYOPENSSL_INSTALLER "pyOpenSSL-0.7a2-py2.5.exe" ; http://pyopenssl.sourceforge.net/
 !define CLUSTER_INSTALLER "cluster-1.1.1b3.win32.exe" ; http://sourceforge.net/projects/python-cluster/
-!define PYPARSING_INSTALLER "pyparsing-1.5.0.win32.exe" ; http://sourceforge.net/projects/pyparsing/
 !define GRAPHVIZ_INSTALLER "graphviz-2.20.2.exe" ; http://www.graphviz.org/
 
 ; For Scapy
@@ -264,8 +263,6 @@ ${MementoSection} !"w3af" SectionW3af
 	nsExec::ExecToLog '"$PYTHON_DIR\python.exe" "$INSTDIR\extlib\cluster\setup.py" install' ;http://python-cluster.sourceforge.net/
 	SetOutPath "$INSTDIR\extlib\jsonpy\"
 	nsExec::ExecToLog '"$PYTHON_DIR\python.exe" "$INSTDIR\extlib\jsonpy\setup.py" install' ;http://sourceforge.net/projects/json-py/
-	SetOutPath "$INSTDIR\extlib\pydot\"
-	nsExec::ExecToLog '"$PYTHON_DIR\python.exe" "$INSTDIR\extlib\pydot\setup.py" install' ;http://code.google.com/p/pydot/
 	
 	; Install Scapy-Win	
 	SetOutPath "$PYTHON_DIR\Lib\site-packages\"
