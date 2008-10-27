@@ -237,8 +237,8 @@ ${MementoSection} !"w3af" SectionW3af
 	File "w3af_gui.bat.manifest"
 	
 	; DLL's (w3af_console)
-	File  /r /x ".svn" "svn-client\libeay32.dll"
-	File  /r /x ".svn" "svn-client\ssleay32.dll"
+	File  /x ".svn" "svn-client\libeay32.dll"
+	File  /x ".svn" "svn-client\ssleay32.dll"
 	
 	; Create w3af commandline
 	Push $INSTDIR\w3af_console.bat
