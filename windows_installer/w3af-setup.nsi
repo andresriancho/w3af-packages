@@ -20,7 +20,7 @@
 ; General
 !define /date RELEASE_VERSION "%d/%m/%Y"
 
-; Define your application name
+; Application name
 !define APPNAME "w3af"
 !define APPNAMEANDVERSION "w3af svn rev. 1812"
 
@@ -186,6 +186,10 @@ VIAddVersionKey  "FileVersion" "${APPNAMEANDVERSION}"
 !define PYREADLINE_INSTALLER "pyreadline-1.5-win32-setup.exe" ; http://ipython.scipy.org/moin/PyReadline/Intro
 !define WINPCAP_INSTALLER "WinPcap_4_0_2.exe" ; http://www.winpcap.org/
 
+; Portable Python
+; http://www.portablepython.com/site/home/
+
+
 Function .onInit
 	
 	File /oname=$TEMP\splash.bmp "image\splash.bmp"	
@@ -213,6 +217,43 @@ Function .onInstSuccess
 	${MementoSectionSave}
 FunctionEnd
 
+############## Section W3AF Portable##############
+${MementoSection} !"w3afPortable" SectionW3afPortable
+	
+	Var $DIRPORTABLE "c:\w3af"
+	
+	
+	SetOutPath "$DIRPORTABLE\trunk"
+	
+	; SVN TRUNK
+	File /r /x "*.pyc" "..\..\trunk\*"
+	
+	
+	SetOutPath "$DIRPORTABLE\"
+	; w3af update
+	File "w3af_update.exe"	
+	File "w3af_update.bat.manifest"
+	
+	; Create w3af commandline
+	Push $DIRPORTABLE\w3af_console.bat
+	Call W3afPortableConsole
+	File "w3af_console.bat.manifest"
+
+	; Create w3af GUI commandline
+	Push $DIRPORTABLE\w3af_gui.bat
+	Call W3afPortableGUI
+	File "w3af_gui.bat.manifest"	
+	
+	; w3af update
+	Push $DIRPORTABLE\w3af_update.bat
+	Call WriteUpdatew3af
+	
+	
+	SetOutPath "$INSTDIR\svn-client"
+	File /x ".svn" /x "*.dll" "svn-client\*"
+
+
+${MementoSectionEnd}
 
 ############## Section W3AF ##############
 ${MementoSection} !"w3af" SectionW3af
@@ -719,6 +760,46 @@ Function RunW3afGUI
 	Exec '$INSTDIR\w3af_gui.bat'
 FunctionEnd
 
+; W3afPortable Gui (.bat)
+Function W3afPortableGui	
+	Pop $R0 ; Output file
+	Push $R9
+	FileOpen $R9 $R0 w
+	FileWrite $R9 "@echo off$\r$\n"
+	FileWrite $R9 "set PATH=%CD%\GTK\bin;%CD%;%CD%\trunk;%CD%\svn-client$\r$\n"
+	FileWrite $R9 "cd trunk$\r$\n"
+	FileWrite $R9 "..\PortablePython1.0\python.exe w3af_gui$\r$\n"
+	FileWrite $R9 "cd ..$\r$\n"
+	FileClose $R9
+	Pop $R9
+FunctionEnd
+
+; W3afPortable Console(.bat)
+Function W3afPortableConsole
+	Pop $R0 ; Output file
+	Push $R9
+	FileOpen $R9 $R0 w
+	FileWrite $R9 "@echo off$\r$\n"
+	FileWrite $R9 "sset PATH=%CD%\GTK\bin;%CD%;%CD%\trunk;%CD%\svn-client$\r$\n"
+	FileWrite $R9 "cd trunk$\r$\n"
+	FileWrite $R9 "..\PortablePython1.0\python.exe w3af_console$\r$\n"
+	FileWrite $R9 "cd ..$\r$\n"
+	FileClose $R9
+	Pop $R9
+FunctionEnd
+
+Function W3afPortableUpdate
+	Pop $R0 ; Output file
+	Push $R9
+	FileOpen $R9 $R0 w
+	FileWrite $R9 "@echo off$\r$\n"
+	FileWrite $R9 "echo Updating the W3af...$\r$\n"
+	FileWrite $R9 "svn-client\svn.exe$\" cleanup trunk$\r$\n"
+	FileWrite $R9 "svn-client\svn.exe$\" update trunk$\r$\n"
+	FileWrite $R9 "pause$\r$\n"
+	FileClose $R9
+	Pop $R9
+FunctionEnd
 
 ; Create w3af Update
 Function WriteUpdatew3af
