@@ -1,0 +1,36 @@
+*** Installation started 2008/06/16 23:38 ***
+Source: D:\w3af-svn\extras\windows_installer\dnet-1.12.win32-py2.5.exe
+999 Root Key: HKEY_LOCAL_MACHINE
+020 Reg DB Key: [Software\Microsoft\Windows\CurrentVersion\Uninstall]dnet-py2.5
+040 Reg DB Value: [Software\Microsoft\Windows\CurrentVersion\Uninstall\dnet-py2.5]DisplayName=Python 2.5 dnet-1.12
+040 Reg DB Value: [Software\Microsoft\Windows\CurrentVersion\Uninstall\dnet-py2.5]UninstallString="C:\Python25\Removednet.exe" -u "C:\Python25\dnet-wininst.log"
+200 File Copy: C:\Python25\Lib\site-packages\dnet-1.12-py2.5.egg-info
+200 File Copy: C:\Python25\Lib\site-packages\dnet.pyd
+*** Installation started 2008/08/04 02:08 ***
+Source: C:\Archivos de programa\w3af\dnet-1.12.win32-py2.5.exe
+999 Root Key: HKEY_LOCAL_MACHINE
+040 Reg DB Value: [Software\Microsoft\Windows\CurrentVersion\Uninstall\dnet-py2.5]DisplayName=Python 2.5 dnet-1.12
+040 Reg DB Value: [Software\Microsoft\Windows\CurrentVersion\Uninstall\dnet-py2.5]UninstallString="C:\Python25\Removednet.exe" -u "C:\Python25\dnet-wininst.log"
+200 File Copy: C:\Python25\Lib\site-packages\dnet-1.12-py2.5.egg-info
+200 File Copy: C:\Python25\Lib\site-packages\dnet.pyd
+*** Installation started 2008/09/17 22:48 ***
+Source: C:\Archivos de programa\w3af\prerequisite\dnet-1.12.win32-py2.5.exe
+999 Root Key: HKEY_LOCAL_MACHINE
+040 Reg DB Value: [Software\Microsoft\Windows\CurrentVersion\Uninstall\dnet-py2.5]DisplayName=Python 2.5 dnet-1.12
+040 Reg DB Value: [Software\Microsoft\Windows\CurrentVersion\Uninstall\dnet-py2.5]UninstallString="C:\Python25\Removednet.exe" -u "C:\Python25\dnet-wininst.log"
+200 File Copy: C:\Python25\Lib\site-packages\dnet-1.12-py2.5.egg-info
+200 File Copy: C:\Python25\Lib\site-packages\dnet.pyd
+*** Installation started 2008/09/22 02:33 ***
+Source: C:\Archivos de programa\w3af\prerequisite\dnet-1.12.win32-py2.5.exe
+999 Root Key: HKEY_LOCAL_MACHINE
+040 Reg DB Value: [Software\Microsoft\Windows\CurrentVersion\Uninstall\dnet-py2.5]DisplayName=Python 2.5 dnet-1.12
+040 Reg DB Value: [Software\Microsoft\Windows\CurrentVersion\Uninstall\dnet-py2.5]UninstallString="C:\Python25\Removednet.exe" -u "C:\Python25\dnet-wininst.log"
+200 File Copy: C:\Python25\Lib\site-packages\dnet-1.12-py2.5.egg-info
+200 File Copy: C:\Python25\Lib\site-packages\dnet.pyd
+*** Installation started 2008/10/18 14:08 ***
+Source: C:\Archivos de programa\w3af\prerequisite\dnet-1.12.win32-py2.5.exe
+999 Root Key: HKEY_LOCAL_MACHINE
+040 Reg DB Value: [Software\Microsoft\Windows\CurrentVersion\Uninstall\dnet-py2.5]DisplayName=Python 2.5 dnet-1.12
+040 Reg DB Value: [Software\Microsoft\Windows\CurrentVersion\Uninstall\dnet-py2.5]UninstallString="C:\Python25\Removednet.exe" -u "C:\Python25\dnet-wininst.log"
+200 File Copy: C:\Python25\Lib\site-packages\dnet-1.12-py2.5.egg-info
+200 File Copy: C:\Python25\Lib\site-packages\dnet.pyd

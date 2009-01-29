@@ -1,0 +1,11 @@
+#!/bin/sh
+
+prefix=C:/Python25
+datarootdir=${prefix}/share
+datadir=${prefix}/share
+codegendir=C:/Python25/Lib/site-packages/gtk-2.0/codegen
+
+PYTHONPATH=$codegendir
+export PYTHONPATH
+
+exec C:/Python25/python.exe $codegendir/codegen.py "$@"

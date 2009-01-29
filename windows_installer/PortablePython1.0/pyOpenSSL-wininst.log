@@ -1,0 +1,218 @@
+*** Installation started 2008/05/02 01:44 ***
+Source: C:\Archivos de programa\w3af\pyOpenSSL-0.7a2-py2.5.exe
+999 Root Key: HKEY_LOCAL_MACHINE
+040 Reg DB Value: [Software\Microsoft\Windows\CurrentVersion\Uninstall\pyOpenSSL-py2.5]DisplayName=Python 2.5 pyOpenSSL-0.7a2
+040 Reg DB Value: [Software\Microsoft\Windows\CurrentVersion\Uninstall\pyOpenSSL-py2.5]UninstallString="C:\Python25\RemovepyOpenSSL.exe" -u "C:\Python25\pyOpenSSL-wininst.log"
+200 File Copy: C:\Python25\Lib\site-packages\pyOpenSSL-0.7a2-py2.5.egg-info
+100 Made Dir: C:\Python25\Lib\site-packages\OpenSSL
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\crypto.pyd
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\rand.pyd
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\SSL.pyd
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\tsafe.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\version.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\__init__.py
+100 Made Dir: C:\Python25\Lib\site-packages\OpenSSL\test
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_crypto.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_ssl.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\__init__.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\__init__.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_ssl.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_crypto.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\__init__.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\version.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\tsafe.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\__init__.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_ssl.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_crypto.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\__init__.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\version.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\tsafe.pyo
+*** Installation started 2008/06/02 19:03 ***
+Source: C:\Archivos de programa\w3af\pyOpenSSL-0.7a2-py2.5.exe
+999 Root Key: HKEY_LOCAL_MACHINE
+040 Reg DB Value: [Software\Microsoft\Windows\CurrentVersion\Uninstall\pyOpenSSL-py2.5]DisplayName=Python 2.5 pyOpenSSL-0.7a2
+040 Reg DB Value: [Software\Microsoft\Windows\CurrentVersion\Uninstall\pyOpenSSL-py2.5]UninstallString="C:\Python25\RemovepyOpenSSL.exe" -u "C:\Python25\pyOpenSSL-wininst.log"
+200 File Copy: C:\Python25\Lib\site-packages\pyOpenSSL-0.7a2-py2.5.egg-info
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\crypto.pyd
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\rand.pyd
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\SSL.pyd
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\tsafe.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\version.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\__init__.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_crypto.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_ssl.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\__init__.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\__init__.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_ssl.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_crypto.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\__init__.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\version.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\tsafe.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\__init__.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_ssl.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_crypto.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\__init__.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\version.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\tsafe.pyo
+*** Installation started 2008/06/17 00:14 ***
+Source: D:\w3af-svn\extras\windows_installer\pyOpenSSL-0.7a2-py2.5.exe
+999 Root Key: HKEY_LOCAL_MACHINE
+040 Reg DB Value: [Software\Microsoft\Windows\CurrentVersion\Uninstall\pyOpenSSL-py2.5]DisplayName=Python 2.5 pyOpenSSL-0.7a2
+040 Reg DB Value: [Software\Microsoft\Windows\CurrentVersion\Uninstall\pyOpenSSL-py2.5]UninstallString="C:\Python25\RemovepyOpenSSL.exe" -u "C:\Python25\pyOpenSSL-wininst.log"
+200 File Copy: C:\Python25\Lib\site-packages\pyOpenSSL-0.7a2-py2.5.egg-info
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\crypto.pyd
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\rand.pyd
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\SSL.pyd
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\tsafe.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\version.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\__init__.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_crypto.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_ssl.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\__init__.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\__init__.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_ssl.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_crypto.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\__init__.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\version.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\tsafe.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\__init__.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_ssl.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_crypto.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\__init__.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\version.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\tsafe.pyo
+*** Installation started 2008/07/23 00:15 ***
+Source: C:\Archivos de programa\w3af\pyOpenSSL-0.7a2-py2.5.exe
+999 Root Key: HKEY_LOCAL_MACHINE
+040 Reg DB Value: [Software\Microsoft\Windows\CurrentVersion\Uninstall\pyOpenSSL-py2.5]DisplayName=Python 2.5 pyOpenSSL-0.7a2
+040 Reg DB Value: [Software\Microsoft\Windows\CurrentVersion\Uninstall\pyOpenSSL-py2.5]UninstallString="C:\Python25\RemovepyOpenSSL.exe" -u "C:\Python25\pyOpenSSL-wininst.log"
+200 File Copy: C:\Python25\Lib\site-packages\pyOpenSSL-0.7a2-py2.5.egg-info
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\crypto.pyd
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\rand.pyd
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\SSL.pyd
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\tsafe.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\version.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\__init__.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_crypto.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_ssl.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\__init__.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\__init__.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_ssl.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_crypto.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\__init__.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\version.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\tsafe.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\__init__.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_ssl.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_crypto.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\__init__.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\version.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\tsafe.pyo
+*** Installation started 2008/08/04 02:07 ***
+Source: C:\Archivos de programa\w3af\pyOpenSSL-0.7a2-py2.5.exe
+999 Root Key: HKEY_LOCAL_MACHINE
+040 Reg DB Value: [Software\Microsoft\Windows\CurrentVersion\Uninstall\pyOpenSSL-py2.5]DisplayName=Python 2.5 pyOpenSSL-0.7a2
+040 Reg DB Value: [Software\Microsoft\Windows\CurrentVersion\Uninstall\pyOpenSSL-py2.5]UninstallString="C:\Python25\RemovepyOpenSSL.exe" -u "C:\Python25\pyOpenSSL-wininst.log"
+200 File Copy: C:\Python25\Lib\site-packages\pyOpenSSL-0.7a2-py2.5.egg-info
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\crypto.pyd
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\rand.pyd
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\SSL.pyd
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\tsafe.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\version.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\__init__.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_crypto.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_ssl.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\__init__.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\__init__.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_ssl.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_crypto.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\__init__.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\version.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\tsafe.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\__init__.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_ssl.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_crypto.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\__init__.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\version.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\tsafe.pyo
+*** Installation started 2008/09/17 22:47 ***
+Source: C:\Archivos de programa\w3af\prerequisite\pyOpenSSL-0.7a2-py2.5.exe
+999 Root Key: HKEY_LOCAL_MACHINE
+040 Reg DB Value: [Software\Microsoft\Windows\CurrentVersion\Uninstall\pyOpenSSL-py2.5]DisplayName=Python 2.5 pyOpenSSL-0.7a2
+040 Reg DB Value: [Software\Microsoft\Windows\CurrentVersion\Uninstall\pyOpenSSL-py2.5]UninstallString="C:\Python25\RemovepyOpenSSL.exe" -u "C:\Python25\pyOpenSSL-wininst.log"
+200 File Copy: C:\Python25\Lib\site-packages\pyOpenSSL-0.7a2-py2.5.egg-info
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\crypto.pyd
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\rand.pyd
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\SSL.pyd
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\tsafe.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\version.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\__init__.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_crypto.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_ssl.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\__init__.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\__init__.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_ssl.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_crypto.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\__init__.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\version.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\tsafe.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\__init__.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_ssl.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_crypto.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\__init__.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\version.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\tsafe.pyo
+*** Installation started 2008/09/22 02:33 ***
+Source: C:\Archivos de programa\w3af\prerequisite\pyOpenSSL-0.7a2-py2.5.exe
+999 Root Key: HKEY_LOCAL_MACHINE
+040 Reg DB Value: [Software\Microsoft\Windows\CurrentVersion\Uninstall\pyOpenSSL-py2.5]DisplayName=Python 2.5 pyOpenSSL-0.7a2
+040 Reg DB Value: [Software\Microsoft\Windows\CurrentVersion\Uninstall\pyOpenSSL-py2.5]UninstallString="C:\Python25\RemovepyOpenSSL.exe" -u "C:\Python25\pyOpenSSL-wininst.log"
+200 File Copy: C:\Python25\Lib\site-packages\pyOpenSSL-0.7a2-py2.5.egg-info
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\crypto.pyd
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\rand.pyd
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\SSL.pyd
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\tsafe.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\version.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\__init__.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_crypto.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_ssl.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\__init__.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\__init__.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_ssl.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_crypto.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\__init__.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\version.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\tsafe.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\__init__.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_ssl.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_crypto.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\__init__.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\version.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\tsafe.pyo
+*** Installation started 2008/10/18 14:07 ***
+Source: C:\Archivos de programa\w3af\prerequisite\pyOpenSSL-0.7a2-py2.5.exe
+999 Root Key: HKEY_LOCAL_MACHINE
+040 Reg DB Value: [Software\Microsoft\Windows\CurrentVersion\Uninstall\pyOpenSSL-py2.5]DisplayName=Python 2.5 pyOpenSSL-0.7a2
+040 Reg DB Value: [Software\Microsoft\Windows\CurrentVersion\Uninstall\pyOpenSSL-py2.5]UninstallString="C:\Python25\RemovepyOpenSSL.exe" -u "C:\Python25\pyOpenSSL-wininst.log"
+200 File Copy: C:\Python25\Lib\site-packages\pyOpenSSL-0.7a2-py2.5.egg-info
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\crypto.pyd
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\rand.pyd
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\SSL.pyd
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\tsafe.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\version.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\__init__.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_crypto.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_ssl.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\__init__.py
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\__init__.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_ssl.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_crypto.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\__init__.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\version.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\tsafe.pyc
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\__init__.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_ssl.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\test\test_crypto.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\__init__.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\version.pyo
+200 File Copy: C:\Python25\Lib\site-packages\OpenSSL\tsafe.pyo
