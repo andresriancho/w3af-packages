@@ -251,7 +251,7 @@ portable:
 		
 		; Create w3af commandline
 		Push $INSTDIR\w3af_console.bat
-		Call Writew3af
+		Call Writew3afConsole
 		
 		; Create w3af GUI
 		Push $INSTDIR\w3af_gui.bat
@@ -261,7 +261,7 @@ portable:
 		Push $INSTDIR\w3af_update.bat
 		Call WriteUpdatew3af
 		
-		File "w3af_update.exe"	
+		File "w3af_update.exe"
 		
 		
 		; Manifest (WinVista)
@@ -345,7 +345,7 @@ ${MementoSection} !"w3af" SectionW3af
 	
 	; Create w3af commandline
 	Push $INSTDIR\w3af_console.bat
-	Call Writew3af
+	Call Writew3afConsole
 	
 	; Create w3af GUI
 	Push $INSTDIR\w3af_gui.bat
@@ -398,8 +398,8 @@ ${MementoSection} "GTK2-Runtime" SectionGTK2Runtime
 	SetOverwrite on
 	
 	SetOutPath "$INSTDIR"
-	File  /r /x ".svn" "gtk2-runtime\*"
-	File  /r /x ".svn" "svn-client\*.dll"	
+	File  /r "gtk2-runtime\*"
+	File  /r "svn-client\*.dll"
 	
 	; Write $INSTDIR\gtk2-runtime\gtk2r-env.bat
 	; This script sets the GTK environment variables
@@ -816,7 +816,7 @@ Function WriteUpdatew3af
 FunctionEnd
 
 ; Create w3af_console.bat
-Function Writew3af
+Function Writew3afConsole
 	Pop $R0 ; Output file
 	Push $R9
 	FileOpen $R9 $R0 w
