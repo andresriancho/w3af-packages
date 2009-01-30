@@ -224,14 +224,14 @@ Function .onInit
 		ClearErrors
 		${GetOptions} "$R0" "/INSTALLPORTABLE=" $R1
 		IfErrors 0 +2
-		MessageBox MB_OK "/INSTALLPORTABLE= [directorio a descomprimir w3af, por ejemplo: c:\]" IDOK +3
+		MessageBox MB_OK "/INSTALLPORTABLE= [Target directory to decompress w3af into, for example C:\]" IDOK +3
 		StrCpy $R0  '$R1'
 		
-		MessageBox MB_YESNO|MB_ICONQUESTION "¿Quieres descomprimir la version portable de w3af en: $R0?" IDYES portable IDNO installw3f
+		MessageBox MB_YESNO|MB_ICONQUESTION "¿Are you sure that you want to decompress the portable version of w3af into $R0?" IDYES portable IDNO installw3f
 		
 portable:
 		
-		MessageBox MB_OK|MB_ICONINFORMATION "Haga click en [Aceptar] y espere a que se le sea informado el fin del proceso..."
+		MessageBox MB_OK|MB_ICONINFORMATION "Please click on [Accept] and wait until all files are decompressed..."
 		
 		; Variables 
 		StrCpy "$INSTDIR" "$R0\w3af"
@@ -284,7 +284,7 @@ portable:
 		
 		Call InstallExtLib
 		
-		MessageBox MB_OK|MB_ICONINFORMATION "W3af Portable ha sido descomprimido en: $INSTDIR"
+		MessageBox MB_OK|MB_ICONINFORMATION "The portable version of w3af has been decompressed into: $INSTDIR"
     
 		Quit
 
