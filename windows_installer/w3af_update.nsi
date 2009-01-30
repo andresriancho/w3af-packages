@@ -1,4 +1,4 @@
-;Copyright 2008 Ulises U. Cuñé
+;Copyright 2008, 2009 Ulises U. Cuñé
 ;
 ;Script to generate update w3af.
 ;
@@ -32,14 +32,14 @@ ShowInstDetails show
 XPStyle on
 
 ;Insertar Informacion de la Version en el Instalador
-VIProductVersion "0.7.0.0"
+VIProductVersion "1.0.0.0"
 VIAddVersionKey  "ProductName" "w3af update"
 VIAddVersionKey  "Comments" "Web Application Attack and Audit Framework"
-VIAddVersionKey  "CompanyName" "-"
+VIAddVersionKey  "CompanyName" "w3af team"
 VIAddVersionKey  "LegalTrademarks" "-"
 VIAddVersionKey  "LegalCopyright" "GPL"
 VIAddVersionKey  "FileDescription" "The project goal is to create a framework to find and exploit web application vulnerabilities that is easy to use and extend."
-VIAddVersionKey  "FileVersion" "svn beta 7"
+VIAddVersionKey  "FileVersion" "1.0 rc1"
 
 ; Request application privileges for Windows Vista
 RequestExecutionLevel admin
