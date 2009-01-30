@@ -26,7 +26,7 @@
 
 
 ; Main Install settings
-Name "${APPNAMEANDVERSION}"
+Name "${APPNAME}"
 InstallDir "$PROGRAMFILES\w3af"
 InstallDirRegKey HKLM "Software\${APPNAME}" ""
 OutFile "w3af-1.0-rc1.exe"
@@ -123,8 +123,9 @@ Page custom WindowDetectPython
 ;--------------------------------
 ; Instalation Types
 
-InstType "Minimal" #1
-InstType "Full" #2
+;InstType "Full" #1
+InstType "Full" 
+InstType "Minimal"
 
 ; Portable W3af
 !include "WinMessages.nsh"
@@ -150,6 +151,7 @@ LangString PYTHON_REMENBER ${LANG_ENGLISH} "Remember that you have to install Py
 LangString PYTHON_SUCCESSFULL ${LANG_ENGLISH} "Python 2.5 was successfully detected"
 LangString PYTHON_DIRECTORY ${LANG_ENGLISH} "Python 2.5 installation found at: " ; $PYTHON_DIR"
 
+
 ; (Spanish)
 LangString PAGE_TITLE ${LANG_SPANISH} "Verificación de pre-requisitos"
 LangString PAGE_SUBTITLE ${LANG_SPANISH} "En este paso el instalador verifica si el sistema tiene los pre-requisitos necesarios para la instalación de w3af"
@@ -166,7 +168,7 @@ VIProductVersion "1.0.0.0"
 VIAddVersionKey  /LANG=${LANG_ENGLISH} "ProductName" "w3af"
 VIAddVersionKey  /LANG=${LANG_ENGLISH} "Comments" "Web Application Attack and Audit Framework - ${RELEASE_VERSION}"
 VIAddVersionKey  /LANG=${LANG_ENGLISH} "CompanyName" "w3af team"
-VIAddVersionKey  /LANG=${LANG_ENGLISH} "LegalTrademarks" "-"
+VIAddVersionKey  /LANG=${LANG_ENGLISH} "LegalTrademarks" "w3af team"
 VIAddVersionKey  /LANG=${LANG_ENGLISH} "LegalCopyright" "GPL"
 VIAddVersionKey  /LANG=${LANG_ENGLISH} "FileDescription" "The project goal is to create a framework to find and exploit web application vulnerabilities that is easy to use and extend."
 VIAddVersionKey  /LANG=${LANG_ENGLISH} "FileVersion" "${APPNAMEANDVERSION}"
@@ -184,7 +186,7 @@ VIAddVersionKey  /LANG=${LANG_ENGLISH} "FileVersion" "${APPNAMEANDVERSION}"
 !define PYGOBJECT_INSTALLER "pygobject-2.14.1-1.win32-py2.5.exe" ; http://ftp.gnome.org/pub/GNOME/binaries/win32/pygobject/
 !define PYOPENSSL_INSTALLER "pyOpenSSL-0.8.winxp32-py2.5.exe" ; http://pyopenssl.sourceforge.net/
 !define CLUSTER_INSTALLER "cluster-1.1.1b3.win32.exe" ; http://sourceforge.net/projects/python-cluster/
-!define GRAPHVIZ_INSTALLER "graphviz-2.20.3.msi" ; http://www.graphviz.org/
+!define GRAPHVIZ_INSTALLER "graphviz-2.20.2.exe" ; http://www.graphviz.org/
 
 ; Python 2.6 (Aun no usados)
 !define PYGTK_INSTALLER_2_6 "pygtk-2.12.1-2.win32-py2.6.exe" ; http://ftp.gnome.org/pub/GNOME/binaries/win32/pygtk/
@@ -227,7 +229,7 @@ Function .onInit
 		MessageBox MB_OK "/INSTALLPORTABLE= [Target directory to decompress w3af into, for example C:\]" IDOK +3
 		StrCpy $R0  '$R1'
 		
-		MessageBox MB_YESNO|MB_ICONQUESTION "¿Are you sure that you want to decompress the portable version of w3af into $R0?" IDYES portable IDNO installw3f
+		MessageBox MB_YESNO|MB_ICONQUESTION "¿Are you sure that you want to decompress the portable version of w3af into $R0\w3af\?" IDYES portable IDNO installw3f
 		
 portable:
 		
@@ -240,12 +242,12 @@ portable:
 		
 		; PortablePython1.0+prerequisites
 		SetOutPath "$INSTDIR\PortablePython1.0"
-		File "PortablePython1.0\*"
+		File /r /x "*.pyc" /x "*.pyo" "PortablePython1.0\*"
 		
 		
 		; W3af SVN TRUNK
 		SetOutPath "$INSTDIR"
-		File /r /x "*.pyc" "..\..\trunk\*"
+		File /r /x "*.pyc" /x "*.pyo" "..\..\trunk\*"
 		
 		; Create w3af commandline
 		Push $INSTDIR\w3af_console.bat
@@ -284,15 +286,17 @@ portable:
 		
 		Call InstallExtLib
 		
-		MessageBox MB_OK|MB_ICONINFORMATION "The portable version of w3af has been decompressed into: $INSTDIR"
+		MessageBox MB_OK|MB_ICONINFORMATION "The portable version of w3af has been decompressed into: $INSTDIR\w3af\"
     
 		Quit
 
   
 installw3f:
 	; Install W3af 
-	
+
+	; Select Language
 	!insertmacro MUI_LANGDLL_DISPLAY
+
 	
 	StrCpy $StartMenuFolder ${APPNAME}
 	
@@ -317,13 +321,15 @@ ${MementoSection} !"w3af" SectionW3af
 	
 	SetOutPath "$INSTDIR\"
 	; BETA 6
-	;File /r /x "*.pyc" "..\..\tags\beta6-release\*"
+	;File /r /x "*.pyc" /x "*.pyo" "..\..\tags\beta6-release\*"
 	
 	; BETA 7
-	;File /r /x "*.pyc" "..\..\tags\beta7-release\*"
+	;File /r /x "*.pyc" /x "*.pyo" "..\..\tags\beta7-release\*"
 	
 	; SVN TRUNK
-	File /r /x "*.pyc" "..\..\trunk\*"
+	File /r /x "*.pyc" /x "*.pyo" "..\..\trunk\*"
+	
+	;File /r /x "*.pyc" /x "*.pyo" "..\..\tags\1.0\*"
 	
 	; Icons
 	File "image\w3af_gui_icon.ico"
@@ -358,7 +364,7 @@ ${MementoSectionEnd}
 ############## SVN Client ##############
 ${MementoSection} "svn client" SectionSVN
 	; http://subversion.tigris.org/getting.html#windows
-	SectionIn 2
+	SectionIn 1
 	SetDetailsPrint both
 	SetOverwrite on
 	
@@ -473,7 +479,7 @@ SectionGroup "w3af prerequisites"
 		SetOverwrite on
 		SetOutPath "$INSTDIR\${PREREQUISITEDIR}"
 		File "${PREREQUISITEDIR}\${GRAPHVIZ_INSTALLER}"
-		ExecWait '"msiexec.exe" /i "$INSTDIR\${PREREQUISITEDIR}\${GRAPHVIZ_INSTALLER}"'
+		ExecWait '"$INSTDIR\${PREREQUISITEDIR}\${GRAPHVIZ_INSTALLER}"'
 	${MementoSectionEnd}
 
 
@@ -678,7 +684,7 @@ SectionEnd
 
 
 ; ##########################################
-; BEGIN CUSTOM PAGE
+; BEGIN CUSTOM PAGE WindowDetectPython
 ; ##########################################
 Function WindowDetectPython
 	; http://nsis.sourceforge.net/Docs/nsDialogs/Readme.html
@@ -783,11 +789,11 @@ done:
 FunctionEnd
 
 ; ##########################################
-; END CUSTOM PAGE
+; END CUSTOM PAGE WindowDetectPython
 ; ##########################################
 
-Function ShowReleaseNotes
-	ExecShell "open" "$INSTDIR\readme\w3afUsersGuide.html"
+Function ShowReleaseNotes	
+	ExecShell "open" "$INSTDIR\readme\EN\w3afUsersGuide.html"
 FunctionEnd
 
 Function RunW3afGUI
@@ -815,7 +821,7 @@ Function Writew3af
 	Push $R9
 	FileOpen $R9 $R0 w
 	FileWrite $R9 "@echo off$\r$\n"
-	FileWrite $R9 "set PATH=%PATH%;%CD%\GTK\bin;%CD%;%CD%\svn-client"
+	FileWrite $R9 "set PATH=%PATH%;%CD%\GTK\bin;%CD%;%CD%\svn-client$\r$\n"
 	FileWrite $R9 "cd $\"$INSTDIR$\"$\r$\n"
 	FileWrite $R9 "$\"$PYTHON_DIR\python.exe$\" w3af_console %1 %2$\r$\n"
 	FileClose $R9
