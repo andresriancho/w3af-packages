@@ -17,12 +17,14 @@ find -L ../../w3af -name .svn | xargs rm -rf
 # remove some paths and files that are created during the run
 rm ../../w3af/.urllib2cache/ -rf
 rm ../../w3af/.tmp/ -rf
-rm ../../w3af/output*.txt -rf
-rm ../../w3af/sessions/* -rf
+rm ../../w3af/output*.* -rf
+rm ../../w3af/gprof2dot.py -rf
 rm ../../w3af/w3af.e3* -rf
-rm ../../w3af/extras/ -rf
 rm ../../w3af/w3af.e4* -rf
 rm ../../w3af/w3af_crash.txt -rf
+
+# remove the things that are under development
+rm ../../mozilla-extension/ -rf
 
 # Remove plugins under development
 rm ../../w3af/plugins/discovery/_web20Spider.py -rf
