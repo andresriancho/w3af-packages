@@ -5,7 +5,7 @@
 w3af_console \- Web Application Attack and Audit Framework with console interface
 .SH SYNOPSIS
 .B w3af_console
-[\fB-h\fR] [\fB-s \fI<script-file>\fB\fR] [\fB-p \fI<profile-name>\fB\fR] [\fB-i \fI<metasploit-path>\fB\fR]
+[\fB-h\fR] [\fB-s \fI<script-file>\fB\fR] [\fB-p \fI<profile-file>\fB\fR] [\fB-i \fI<metasploit-path>\fB\fR]
 .SH DESCRIPTION
 w3af is a Web Application Attack and Audit Framework. The project goal is to create a framework to find and exploit web application vulnerabilities that is easy to use and
 extend. This is the console user interface manpage.
@@ -15,10 +15,10 @@ extend. This is the console user interface manpage.
 Print help message.
 .TP
 .B \fB-s \fI<script-file>\fB\fR
-Execute a script file.
+Execute a script file. Example: "w3af_console -s script/web_spider.w3af".
 .TP
-.B \fB-p \fI<profile-name>\fB\fR
-Run with the selected profile.
+.B \fB-p \fI<profile-file>\fB\fR
+Run with the selected profile. Example: "w3af_console -p profiles/OWASP_TOP10.pw3af".
 .TP
 .B \fB-i \fI<metasploit-path>\fB\fR
 Directory where MSF is installed (only used to install the virtual daemon)
