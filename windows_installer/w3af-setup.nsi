@@ -286,7 +286,7 @@ portable:
 		
 		Call InstallExtLib
 		
-		MessageBox MB_OK|MB_ICONINFORMATION "The portable version of w3af has been decompressed into: $INSTDIR\w3af\"
+		MessageBox MB_OK|MB_ICONINFORMATION "The portable version of w3af has been decompressed into: $INSTDIR\"
     
 		Quit
 
