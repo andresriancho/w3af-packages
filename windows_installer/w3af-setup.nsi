@@ -220,7 +220,7 @@ Function .onInit
 	; Obtener parametros
 	${GetParameters} $R0
 	StrCmp $R0 "" 0 +2
-	Goto done
+	Goto installw3f
 	
 		; Obtener opcion ( /INSTALLPORTABLE= )
 		ClearErrors
@@ -296,7 +296,6 @@ installw3f:
 
 	; Select Language
 	!insertmacro MUI_LANGDLL_DISPLAY
-
 	
 	StrCpy $StartMenuFolder ${APPNAME}
 	
@@ -821,7 +820,7 @@ Function Writew3afConsole
 	Push $R9
 	FileOpen $R9 $R0 w
 	FileWrite $R9 "@echo off$\r$\n"
-	FileWrite $R9 "set PATH=%PATH%;%CD%\GTK\bin;%CD%;%CD%\svn-client$\r$\n"
+	FileWrite $R9 "set PATH=%CD%;%CD%\svn-client;%CD%\GTK\bin;%PATH%$\r$\n"
 	FileWrite $R9 "cd $\"$INSTDIR$\"$\r$\n"
 	FileWrite $R9 "$\"$PYTHON_DIR\python.exe$\" w3af_console %1 %2$\r$\n"
 	FileClose $R9
@@ -834,7 +833,7 @@ Function Writew3afGUI
 	Push $R9
 	FileOpen $R9 $R0 w
 	FileWrite $R9 "@echo off$\r$\n"
-	FileWrite $R9 "set PATH=%PATH%;%CD%\GTK\bin;%CD%;%CD%\svn-client$\r$\n"
+	FileWrite $R9 "set PATH=%CD%;%CD%\svn-client;%CD%\GTK\bin;%PATH%$\r$\n"
 	FileWrite $R9 "cd $\"$INSTDIR$\"$\r$\n"
 	FileWrite $R9 "$\"$PYTHON_DIR\python.exe$\" w3af_gui %1 %2$\r$\n"
 	FileClose $R9
