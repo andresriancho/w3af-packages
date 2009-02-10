@@ -312,7 +312,7 @@ installw3f:
 	;Uninstall before Install
 	ReadRegStr $R0 HKLM "${REGKEY}" ""
 	IfFileExists $R0\w3af_console 0 install
-	MessageBox MB_YESNO|MB_ICONQUESTION "Debe desinstalar w3af antes de continuar con la instalacion. Desea desinstalarlo?" IDYES Desinstalar IDNO end
+	MessageBox MB_YESNO|MB_ICONQUESTION "You have to uninstall the previously installed version of w3af before installing this version. Do you want to uninstall the old version of w3af?" IDYES Desinstalar IDNO end
 	Goto end
 	
 desinstalar:
