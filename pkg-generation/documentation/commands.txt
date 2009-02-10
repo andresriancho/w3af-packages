@@ -1,5 +1,5 @@
 # Local commands:
-epydoc2.4 --config epydoc.conf
+epydoc --config epydoc.conf
 tar -zcpvf epydoc.tgz epydoc/
 scp epydoc.tgz andresriancho@shell1.sf.net:/home/groups/w/w3/w3af/htdocs/documentation/
 
