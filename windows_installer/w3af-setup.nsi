@@ -45,7 +45,8 @@ ShowInstDetails hide
 
 
 ; Request application privileges for Windows Vista
-!define MULTIUSER_EXECUTIONLEVEL Admin
+RequestExecutionLevel admin
+
 
 
 ;--------------------------------
