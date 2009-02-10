@@ -23,12 +23,15 @@
 ; Define your application name
 !define APPNAME "w3af"
 !define APPNAMEANDVERSION "w3af 1.0 rc 1"
+!define REGKEY "Software\${APPNAME}"
 
 
 ; Main Install settings
 Name "${APPNAME}"
-InstallDir "$PROGRAMFILES\w3af"
-InstallDirRegKey HKLM "Software\${APPNAME}" ""
+InstallDir "$PROGRAMFILES\${APPNAME}"
+InstallDirRegKey HKLM "${REGKEY}" ""
+
+
 OutFile "w3af-1.0-rc1.exe"
 
 ; Use compression
@@ -42,18 +45,8 @@ ShowInstDetails hide
 
 
 ; Request application privileges for Windows Vista
-RequestExecutionLevel admin
+!define MULTIUSER_EXECUTIONLEVEL Admin
 
-
-;--------------------------------
-;Include
-
-!include "MUI2.nsh" ; Docs: http://nsis.sourceforge.net/Docs/Modern%20UI%202/Readme.html
-!include "LogicLib.nsh"
-!include "Memento.nsh"
-!include "nsDialogs.nsh"
-!include "AddToPath.nsh" ; http://nsis.sourceforge.net/Path_Manipulation ( & nmap )
-!include "FileFunc.nsh"	; Macro RefreshShellIcons
 
 ;--------------------------------
 ;Variables
@@ -75,13 +68,15 @@ Var Label2k
 !define MUI_UNWELCOMEFINISHPAGE_BITMAP "image\splash_installer.bmp"
 
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT HKCU
-!define MUI_STARTMENUPAGE_REGISTRY_KEY "Software\${APPNAME}"
+!define MUI_STARTMENUPAGE_REGISTRY_KEY "${REGKEY}"
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME "Start Menu Folder"
 
-!define MUI_FINISHPAGE_RUN "$SMPROGRAMS\$StartMenuFolder\w3af GUI.lnk"
+;!define MUI_FINISHPAGE_RUN "$SMPROGRAMS\$StartMenuFolder\w3af GUI.lnk"
+!define MUI_FINISHPAGE_RUN
 !define MUI_FINISHPAGE_RUN_TEXT "Run W3af GUI"
 !define MUI_FINISHPAGE_RUN_FUNCTION RunW3afGUI
-!define MUI_FINISHPAGE_SHOWREADME "$SMPROGRAMS\$StartMenuFolder\w3af Users Guide (HTML).lnk"
+;!define MUI_FINISHPAGE_SHOWREADME "$SMPROGRAMS\$StartMenuFolder\w3af Users Guide (HTML).lnk"
+!define MUI_FINISHPAGE_SHOWREADME
 !define MUI_FINISHPAGE_SHOWREADME_TEXT "Show User Guide"
 !define MUI_FINISHPAGE_SHOWREADME_FUNCTION ShowReleaseNotes
 !define MUI_FINISHPAGE_NOAUTOCLOSE
@@ -95,6 +90,18 @@ Var Label2k
 
 !define LINK_PYTHON "http://www.python.org/download/releases/2.5.4/"
 
+
+;--------------------------------
+;Include
+
+!include "MUI2.nsh" ; Docs: http://nsis.sourceforge.net/Docs/Modern%20UI%202/Readme.html
+!include "MultiUser.nsh"
+!include "Sections.nsh"
+!include "LogicLib.nsh"
+!include "Memento.nsh"
+!include "nsDialogs.nsh"
+!include "AddToPath.nsh" ; http://nsis.sourceforge.net/Path_Manipulation ( & nmap )
+!include "FileFunc.nsh"	; Macro RefreshShellIcons
 
 ;--------------------------------
 ; Pages
@@ -112,6 +119,7 @@ Page custom WindowDetectPython
 ; Uninstall Pages
 !insertmacro MUI_UNPAGE_WELCOME
 !insertmacro MUI_UNPAGE_CONFIRM
+;!insertmacro MUI_UNPAGE_COMPONENTS
 !insertmacro MUI_UNPAGE_INSTFILES
 !insertmacro MUI_UNPAGE_FINISH
 
@@ -301,6 +309,22 @@ installw3f:
 	
 	${MementoSectionRestore}
 	
+
+	;Uninstall before Install
+	ReadRegStr $R0 HKLM "${REGKEY}" ""
+	IfFileExists $R0\w3af_console 0 install
+	MessageBox MB_YESNO|MB_ICONQUESTION "Debe desinstalar w3af antes de continuar con la instalacion. Desea desinstalarlo?" IDYES Desinstalar IDNO end
+	Goto end
+	
+desinstalar:
+	Exec $R0\uninstall.exe
+	
+end:
+	Quit
+	
+install:
+
+ 
 FunctionEnd
 
 
@@ -607,7 +631,7 @@ SectionEnd
 
 Section -FinishSection
 	
-	WriteRegStr HKLM "Software\${APPNAME}" "" "$INSTDIR"
+	WriteRegStr HKLM ${REGKEY} "" "$INSTDIR"
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "DisplayName" "${APPNAME}"
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "DisplayIcon" "$INSTDIR\w3af_gui_icon.ico"
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "DisplayVersion" "${APPNAMEANDVERSION}"
@@ -649,8 +673,10 @@ ${MementoSectionDone}
 ; Uninstall section
 Section Uninstall
 	
-	ReadRegStr $StartMenuFolder HKCU "Software\${APPNAME}" MUI_STARTMENUPAGE_REGISTRY_VALUENAME
+	;ReadRegStr $StartMenuFolder HKCU ${REGKEY} MUI_STARTMENUPAGE_REGISTRY_VALUENAME
 	
+	!insertmacro MUI_STARTMENU_GETFOLDER Application $StartMenuFolder
+
 	; Delete self
 	Delete "$INSTDIR\uninstall.exe"	
 	
@@ -664,8 +690,8 @@ Section Uninstall
 	
 	; Remove from registry...
 	DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}"
-	DeleteRegKey HKLM "Software\${APPNAME}"
-	DeleteRegKey HKCU "Software\${APPNAME}"
+	DeleteRegKey HKLM ${REGKEY}
+	DeleteRegKey HKCU ${REGKEY}
 	
 	; Remove .w3af
 	DeleteRegKey HKCR ".w3af"
@@ -820,7 +846,7 @@ Function Writew3afConsole
 	Push $R9
 	FileOpen $R9 $R0 w
 	FileWrite $R9 "@echo off$\r$\n"
-	FileWrite $R9 "set PATH=%CD%;%CD%\svn-client;%CD%\GTK\bin;%PATH%$\r$\n"
+	FileWrite $R9 "set PATH=%CD%;%CD%\svn-client;%CD%\GTK\bin;$PROGRAMFILES\Graphviz2.20\bin;%PATH%$\r$\n"
 	FileWrite $R9 "cd $\"$INSTDIR$\"$\r$\n"
 	FileWrite $R9 "$\"$PYTHON_DIR\python.exe$\" w3af_console %1 %2$\r$\n"
 	FileClose $R9
@@ -833,7 +859,7 @@ Function Writew3afGUI
 	Push $R9
 	FileOpen $R9 $R0 w
 	FileWrite $R9 "@echo off$\r$\n"
-	FileWrite $R9 "set PATH=%CD%;%CD%\svn-client;%CD%\GTK\bin;%PATH%$\r$\n"
+	FileWrite $R9 "set PATH=%CD%;%CD%\svn-client;%CD%\GTK\bin;$PROGRAMFILES\Graphviz2.20\bin;%PATH%$\r$\n"
 	FileWrite $R9 "cd $\"$INSTDIR$\"$\r$\n"
 	FileWrite $R9 "$\"$PYTHON_DIR\python.exe$\" w3af_gui %1 %2$\r$\n"
 	FileClose $R9
