@@ -96,8 +96,6 @@ Var Label2k
 ;Include
 
 !include "MUI2.nsh" ; Docs: http://nsis.sourceforge.net/Docs/Modern%20UI%202/Readme.html
-!include "MultiUser.nsh"
-!include "Sections.nsh"
 !include "LogicLib.nsh"
 !include "Memento.nsh"
 !include "nsDialogs.nsh"
