@@ -376,9 +376,16 @@ ${MementoSection} !"w3af" SectionW3af
 	; Install extlib
 	Call InstallExtLib
 	
+	
 	; Add w3af install dir to %PATH% (CURRENT_USER)
   Push $INSTDIR
   Call AddToPath
+	
+	; Copy libeay32.dll to OpenSSL Packages
+	SetOutPath "$PYTHON_DIR\Lib\site-packages\OpenSSL\"
+	File "svn-client\libeay32.dll"
+	
+	
 	
 ${MementoSectionEnd}
 
