@@ -10,9 +10,15 @@ XS-Python-Version: 2.5
 Package: w3af
 Architecture: all
 Depends: ${python:Depends}, ${misc:Depends}, python-json, python-beautifulsoup, python-soappy, python-pypdf, python-openssl, python-pysqlite2, python-pyparsing, python-pydot, graphviz
-Description: framework to find and exploit web application vulnerabilities
- W3af, is a Web Application Attack and Audit Framework. W3af core and it's 
- plugins are fully written in Python. The project has more than 130 
- plugins, which check for SQL injection, cross site scripting (XSS), remote 
- file inclusion and more.
+Description: w3af is a Web Application Attack and Audit Framework which aims
+to identify and exploit all web application vulnerabilities.
 
+The framework has been called the "metasploit for the web", but it's actually
+ much more than that, because it also discovers the web application 
+vulnerabilities using black-box scanning techniques!
+
+The w3af core and it's plugins are fully written in Python. The project has 
+more than 130 plugins, which identify and exploit SQL injection, cross site 
+scripting (XSS), remote file inclusion and more.
+
+Homepage: http://w3af.sf.net/
