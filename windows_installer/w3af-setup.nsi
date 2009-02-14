@@ -264,17 +264,13 @@ portable:
 		Push $INSTDIR\w3af_gui.bat
 		Call Writew3afGUI
 		
-		; w3af update
-		Push $INSTDIR\w3af_update.bat
-		Call WriteUpdatew3af
-		
+		; w3af update		
 		File "w3af_update.exe"
 		
 		
 		; Manifest (WinVista)
 		File "w3af_console.bat.manifest"
-		File "w3af_gui.bat.manifest"
-		File "w3af_update.bat.manifest"
+		File "w3af_gui.bat.manifest"		
 		
 		; DLL's (w3af_console)
 		File "svn-client\libeay32.dll"
@@ -403,15 +399,11 @@ ${MementoSection} "svn client" SectionSVN
 	; w3af update
 	SetOutPath "$INSTDIR"
 	File "w3af_update.exe"	
-	File "w3af_update.bat.manifest"
 
-	Push $INSTDIR\w3af_update.bat
-	Call WriteUpdatew3af
-	
 	!insertmacro MUI_STARTMENU_WRITE_BEGIN Application
 		SetOutPath $SMPROGRAMS\$StartMenuFolder
 		SetShellVarContext current
-		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Update.lnk" "$INSTDIR\w3af_update.bat" "" "$INSTDIR\svn-client\svn.exe" 0 SW_SHOWNORMAL
+		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Update.lnk" "$INSTDIR\w3af_update.exe" "" "$INSTDIR\svn-client\svn.exe" 0 SW_SHOWNORMAL
 	!insertmacro MUI_STARTMENU_WRITE_END
 	
 
@@ -830,20 +822,6 @@ FunctionEnd
 Function RunW3afGUI
 	SetOutPath "$INSTDIR"
 	Exec '$INSTDIR\w3af_gui.bat'
-FunctionEnd
-
-; Create w3af Update
-Function WriteUpdatew3af
-	Pop $R0 ; Output file
-	Push $R9
-	FileOpen $R9 $R0 w
-	FileWrite $R9 "@echo off$\r$\n"
-	FileWrite $R9 "echo Updating w3af to the latest SVN revision...$\r$\n"
-	FileWrite $R9 "$\"$INSTDIR\svn-client\svn.exe$\" cleanup $\"$INSTDIR$\"$\r$\n"
-	FileWrite $R9 "$\"$INSTDIR\svn-client\svn.exe$\" update $\"$INSTDIR$\"$\r$\n"
-	FileWrite $R9 "pause$\r$\n"
-	FileClose $R9
-	Pop $R9
 FunctionEnd
 
 ; Create w3af_console.bat
