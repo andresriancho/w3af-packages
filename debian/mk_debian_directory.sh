@@ -102,6 +102,6 @@ sed -i "s/\[w3af_VERSION\]/$VERSION/" ${BASE_DIR}/debian/desktop
 
 echo "The w3af directory inside ${BASE_DIR} contains all you need to create the .deb package."
 
-echo "Building the package..."
-cd ${BASE_DIR} 
+#echo "Building the package..."
+#cd ${BASE_DIR} 
 #fakeroot ./debian/rules binary   > /dev/null 2>&1  && echo ' done.'
