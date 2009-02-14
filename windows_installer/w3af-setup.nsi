@@ -838,7 +838,7 @@ Function WriteUpdatew3af
 	Push $R9
 	FileOpen $R9 $R0 w
 	FileWrite $R9 "@echo off$\r$\n"
-	FileWrite $R9 "echo Updating the W3af...$\r$\n"
+	FileWrite $R9 "echo Updating w3af to the latest SVN revision...$\r$\n"
 	FileWrite $R9 "$\"$INSTDIR\svn-client\svn.exe$\" cleanup $\"$INSTDIR$\"$\r$\n"
 	FileWrite $R9 "$\"$INSTDIR\svn-client\svn.exe$\" update $\"$INSTDIR$\"$\r$\n"
 	FileWrite $R9 "pause$\r$\n"
