@@ -32,7 +32,7 @@ InstallDir "$PROGRAMFILES\${APPNAME}"
 InstallDirRegKey HKLM "${REGKEY}" ""
 
 
-OutFile "w3af-1.0-rc1.exe"
+OutFile "${APPNAMEANDVERSION} setup.exe"
 
 ; Use compression
 SetCompressor /SOLID LZMA
