@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=[w3af_VERSION]
 Type=Application
-Exec=w3af
+Exec=/usr/share/w3af/w3af_gui
 Icon=w3af
 Terminal=false
 Name=w3af
