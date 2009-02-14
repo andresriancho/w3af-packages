@@ -47,12 +47,12 @@ RequestExecutionLevel admin
 Section -Run
 	
 	SetDetailsPrint both
-	DetailPrint "w3af updating..."
+	DetailPrint "Updating w3af to the latest SVN revision..."
 	
-	DetailPrint "svn cleanup"
-	nsExec::ExecToLog '"svn-client\svn.exe" cleanup'
+	DetailPrint "svn cleanup"	
+	ExecDos::exec 'svn-client\svn.exe cleanup'
 	
 	DetailPrint "svn update"
-	nsExec::ExecToLog '"svn-client\svn.exe" update'
+	ExecDos::exec /NOUNLOAD /DETAILED 'svn-client\svn.exe update'
 	
 SectionEnd
