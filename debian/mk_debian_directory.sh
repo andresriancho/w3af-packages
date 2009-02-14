@@ -1,5 +1,5 @@
 #!/bin/bash
-TRUNK='../../w3af'
+TRUNK='../w3af'
 
 if test ! -x /usr/bin/dpkg  ; then echo "Is this a Debian-derivate? This scripts use specific tools like dpkg and debhelper, which are only available in a Debian-derivate. Sorry..." ; return 1; fi
 
@@ -18,8 +18,11 @@ rm w3af_${VERSION}.orig.tar.gz > /dev/null 2>&1 && echo "removing w3af_${VERSION
 # copy trunk so we don't destroy our local copy
 cp -Rp $TRUNK ${BASE_DIR} && echo ""
 
-# copy the manpage
-cp -Rp ../manpage/w3af.1 ${BASE_DIR} && echo "Coping the manpage"
+# copy the manpages
+mkdir ${BASE_DIR}/manpages
+cp -R ../manpages/w3af ${BASE_DIR}/manpages/w3af.1
+cp -R ../manpages/w3af_console ${BASE_DIR}/manpages/w3af_console.1
+cp -R ../manpages/w3af_gui ${BASE_DIR}/manpages/w3af_gui.1
 
 echo -n "Removing: "
 # remove the compiled python modules
@@ -53,6 +56,10 @@ rm -rf ${BASE_DIR}/plugins/discovery/
 rm -rf ${BASE_DIR}/tools/
 
 # And remove the things that are already inside debian as packages
+# python-cluster 
+rm -rf ${BASE_DIR}/extlib/cluster/
+# python-socksipy 
+rm -rf ${BASE_DIR}/extlib/socksipy/
 # python-scapy
 rm -rf ${BASE_DIR}/extlib/scapy/
 # python-pypdf
@@ -71,7 +78,6 @@ rm -rf ${BASE_DIR}/extlib/buzhug/
 #fixing permitions
 find ${BASE_DIR} -type d -exec chmod 755 {} \;
 find ${BASE_DIR} -type f -exec chmod 644 {} \;
-chmod +x ${BASE_DIR}/w3af
 
 echo "creating w3af_${VERSION}.orig.tar.gz"
 tar zcf w3af_${VERSION}.orig.tar.gz ${BASE_DIR}
@@ -84,7 +90,12 @@ echo 'copy diffs'
 cp -Rp dependencyCheck.py ${BASE_DIR}/core/controllers/misc/dependencyCheck.py
 
 echo 'setting changelog'
+# TODO chequear la existencia de DEBEMAIL y DEBFULLNAME
+DATE=$(date -R)
+sed -i "s/\[w3af_DEBEMAIL\]/$DEBEMAIL/" ${BASE_DIR}/debian/changelog
+sed -i "s/\[w3af_DEBFULLNAME\]/$DEBFULLNAME/" ${BASE_DIR}/debian/changelog
 sed -i "s/\[w3af_VERSION\]/$VERSION/" ${BASE_DIR}/debian/changelog
+sed -i "s/\[w3af_DATE\]/$DATE/" ${BASE_DIR}/debian/changelog
 
 echo 'setting desktop'
 sed -i "s/\[w3af_VERSION\]/$VERSION/" ${BASE_DIR}/debian/desktop

@@ -20,17 +20,16 @@ install: build
 
 	cp debian/desktop debian/w3af/usr/share/applications/w3af.desktop
 	cp debian/w3af.xpm debian/w3af/usr/share/pixmaps/
-	cp -r core  plugins  profiles  scripts webroot debian/w3af/usr/share/w3af/
+	cp -r core  plugins  profiles  scripts debian/w3af/usr/share/w3af/
 	cp w3af_* debian/w3af/usr/share/w3af/
 	cp debian/w3af.sh debian/w3af/usr/bin/w3af
-	cp -r extlib/socksipy debian/w3af/usr/share/python-socksipy
 
 # Build architecture-independent files here.
 binary-indep: install
 	dh_testdir
 	dh_testroot
 	dh_pysupport
-	dh_installman w3af.1
+	dh_installman manpages/w3af.1  manpages/w3af_console.1  manpages/w3af_gui.1
 	dh_installmenu
 	dh_desktop
 	dh_installdocs readme/

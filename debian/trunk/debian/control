@@ -12,7 +12,7 @@ Architecture: all
 Depends: ${python:Depends}, ${misc:Depends}, python-json, python-beautifulsoup, python-soappy, python-pypdf, python-openssl, python-pysqlite2, python-pyparsing, python-pydot, graphviz
 Description: framework to find and exploit web application vulnerabilities
  W3af, is a Web Application Attack and Audit Framework. W3af core and it's 
- plugins are are fully written in Python. The project has more than 130 
+ plugins are fully written in Python. The project has more than 130 
  plugins, which check for SQL injection, cross site scripting (XSS), remote 
  file inclusion and more.
 
