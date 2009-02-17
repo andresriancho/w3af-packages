@@ -72,8 +72,6 @@ rm -rf ${BASE_DIR}/extlib/jsonpy/
 rm -rf ${BASE_DIR}/extlib/fpconst*/
 # python-soappy
 rm -rf ${BASE_DIR}/extlib/SOAPpy/
-# python-buzhug
-rm -rf ${BASE_DIR}/extlib/buzhug/
 
 #fixing permitions
 find ${BASE_DIR} -type d -exec chmod 755 {} \;
