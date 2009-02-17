@@ -19,7 +19,7 @@ install: build
 	dh_installdirs
 
 	cp debian/desktop debian/w3af/usr/share/applications/w3af.desktop
-	cp debian/w3af.xpm debian/w3af/usr/share/pixmaps/
+	cp debian/w3af.png debian/w3af/usr/share/pixmaps/
 	cp -r extlib debian/w3af/usr/share/w3af/
 	cp -r core plugins profiles  scripts debian/w3af-console/usr/share/w3af/
 	cp w3af_console debian/w3af-console/usr/share/w3af/
