@@ -74,7 +74,7 @@ Var Label2k
 
 ;!define MUI_FINISHPAGE_RUN "$SMPROGRAMS\$StartMenuFolder\w3af GUI.lnk"
 !define MUI_FINISHPAGE_RUN
-!define MUI_FINISHPAGE_RUN_TEXT "Run W3af GUI"
+!define MUI_FINISHPAGE_RUN_TEXT "Run w3af GUI"
 !define MUI_FINISHPAGE_RUN_FUNCTION RunW3afGUI
 ;!define MUI_FINISHPAGE_SHOWREADME "$SMPROGRAMS\$StartMenuFolder\w3af Users Guide (HTML).lnk"
 !define MUI_FINISHPAGE_SHOWREADME
@@ -177,7 +177,7 @@ VIAddVersionKey  /LANG=${LANG_ENGLISH} "Comments" "Web Application Attack and Au
 VIAddVersionKey  /LANG=${LANG_ENGLISH} "CompanyName" "w3af team"
 VIAddVersionKey  /LANG=${LANG_ENGLISH} "LegalTrademarks" "w3af team"
 VIAddVersionKey  /LANG=${LANG_ENGLISH} "LegalCopyright" "GPL"
-VIAddVersionKey  /LANG=${LANG_ENGLISH} "FileDescription" "The project goal is to create a framework to find and exploit web application vulnerabilities that is easy to use and extend."
+VIAddVersionKey  /LANG=${LANG_ENGLISH} "FileDescription" "Web Application Attack and Audit Framework - Installer."
 VIAddVersionKey  /LANG=${LANG_ENGLISH} "FileVersion" "${APPNAMEANDVERSION}"
 
 
