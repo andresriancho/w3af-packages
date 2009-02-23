@@ -227,7 +227,7 @@ Function .onInit
 	; Obtener parametros
 	${GetParameters} $R0
 	StrCmp $R0 "" 0 +2
-	Goto installw3f
+	Goto installw3af
 	
 		; Obtener opcion ( /INSTALLPORTABLE= )
 		ClearErrors
@@ -236,7 +236,7 @@ Function .onInit
 		MessageBox MB_OK "/INSTALLPORTABLE= [Target directory to decompress w3af into, for example C:\]" IDOK +3
 		StrCpy $R0  '$R1'
 		
-		MessageBox MB_YESNO|MB_ICONQUESTION "¿Are you sure that you want to decompress the portable version of w3af into $R0\w3af\?" IDYES portable IDNO installw3f
+		MessageBox MB_YESNO|MB_ICONQUESTION "¿Are you sure that you want to decompress the portable version of w3af into $R0\w3af\?" IDYES portable IDNO installw3af
 		
 portable:
 		
@@ -294,7 +294,7 @@ portable:
 		Quit
 
   
-installw3f:
+installw3af:
 	; Install W3af 
 
 	; Select Language
