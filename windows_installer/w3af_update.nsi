@@ -38,7 +38,7 @@ VIAddVersionKey  "Comments" "Web Application Attack and Audit Framework"
 VIAddVersionKey  "CompanyName" "w3af team"
 VIAddVersionKey  "LegalTrademarks" "-"
 VIAddVersionKey  "LegalCopyright" "GPL"
-VIAddVersionKey  "FileDescription" "The project goal is to create a framework to find and exploit web application vulnerabilities that is easy to use and extend."
+VIAddVersionKey  "FileDescription" "Update w3af - Web Application Attack and Audit Framework."
 VIAddVersionKey  "FileVersion" "1.0 rc1"
 
 ; Request application privileges for Windows Vista
