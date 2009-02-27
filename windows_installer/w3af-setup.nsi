@@ -402,9 +402,13 @@ ${MementoSection} "svn client" SectionSVN
 	File "w3af_update.exe"	
 
 	!insertmacro MUI_STARTMENU_WRITE_BEGIN Application
-		SetOutPath $SMPROGRAMS\$StartMenuFolder
+		SetOutPath $INSTDIR
 		SetShellVarContext current
-		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Update.lnk" "$INSTDIR\w3af_update.exe" "" "$INSTDIR\svn-client\svn.exe" 0 SW_SHOWNORMAL
+		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af update.lnk" "$INSTDIR\w3af_update.exe" "" "$INSTDIR\svn-client\svn.exe" 0 SW_SHOWNORMAL
+#		File "$SMPROGRAMS\$StartMenuFolder\w3af update.lnk"
+
+		# Restore the old out path
+		SetOutPath $SMPROGRAMS\$StartMenuFolder
 	!insertmacro MUI_STARTMENU_WRITE_END
 	
 
@@ -420,8 +424,8 @@ ${MementoSection} "GTK2-Runtime" SectionGTK2Runtime
 	SetOverwrite on
 	
 	SetOutPath "$INSTDIR"
-	File  /r "gtk2-runtime\*"
-	File  /r "svn-client\*.dll"
+	File /r /x ".svn" "gtk2-runtime\*"
+	File /r /x ".svn" "svn-client\*.dll"
 	
 	; Write $INSTDIR\gtk2-runtime\gtk2r-env.bat
 	; This script sets the GTK environment variables
