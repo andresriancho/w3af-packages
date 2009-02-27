@@ -64,3 +64,10 @@ xdot.py
   HomePage: http://code.google.com/p/jrfonseca/wiki/XDot
   License: GPL-3
 
+GHDB
+----
+  Files: plugins/discovery/ghdb/GHDB.xml
+  Copyright: © 2006 Johnny Long
+  HomePage: http://johnny.ihackstuff.com/xml/schema.xml (it's not online anymore)
+  License: Public Domain 
+

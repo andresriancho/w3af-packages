@@ -42,18 +42,27 @@ echo -n "Removing: "
 echo "-"
 
 # This is not ready for distribution yet
-(rm ${BASE_DIR}/mozilla-extension/ -rf)  > /dev/null 2>&1 
+#(rm ${BASE_DIR}/mozilla-extension/ -rf)  > /dev/null 2>&1 
 
-# sanitize oHalberd
+# sanitize oHalberd (Remove the documentation and leave only the useful code part)
 find ${BASE_DIR}/plugins/discovery/oHalberd/* -type d | grep -v "plugins/discovery/oHalberd/Halberd" | xargs rm -rf
-rm ${BASE_DIR}/plugins/discovery/oHalberd/* > /dev/null 2>&1 
+rm ${BASE_DIR}/plugins/discovery/oHalberd/* > /dev/null 2>&1
+# sanitize oHmap (Remove the documentation and leave only the useful code part)
+find ${BASE_DIR}/plugins/discovery/oHmap/* -type d | grep -v "plugins/discovery/oHmap/Hmap" | xargs rm -rf
+rm ${BASE_DIR}/plugins/discovery/oHmap/* > /dev/null 2>&1
+
 
 # Remove the debian offending stuff
+# There is some legal issues with pygoogle http://bugs.debian.org/282313 and w3af works anyway without it.
 rm -rf ${BASE_DIR}/extlib/pygoogle/
+# pywordnet is not maintained any more (see http://bugs.debian.org/369087). Probably python-nltk http://bugs.debian.org/279422 is a better option
 rm -rf ${BASE_DIR}/extlib/pywordnet/
-rm -rf ${BASE_DIR}/plugins/discovery/wordnet.py
-rm -rf ${BASE_DIR}/plugins/discovery/
+# nikto's database is not free.  (see http://www.mail-archive.com/debian-legal@lists.debian.org/msg38622.html)
+rm -rf ${BASE_DIR}/plugins/discovery/pykto*
+# These tools have other options in debian and do not contribute much to w3af as package.
 rm -rf ${BASE_DIR}/tools/
+# http://www.phishtank.com/blog/2006/10/17/xml-data-file-of-online-valid-phishes-from-phishtank/ said that "This data is free." But there is no *a* license over this.
+rm -rf ${BASE_DIR}/plugins/discovery/phishtank*
 
 # And remove the things that are already inside debian as packages
 # python-cluster 
