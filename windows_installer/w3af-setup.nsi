@@ -401,13 +401,18 @@ ${MementoSection} "svn client" SectionSVN
 	File "w3af_update.exe"	
 
 	!insertmacro MUI_STARTMENU_WRITE_BEGIN Application
-		SetOutPath $INSTDIR
-		SetShellVarContext current
+		SetDetailsPrint both
+
+		CreateDirectory "$SMPROGRAMS\$StartMenuFolder"
+
+		#SetShellVarContext current
+		SetOutPath "$INSTDIR"
+
+		# lnk, point-to, params, icon
 		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af update.lnk" "$INSTDIR\w3af_update.exe" "" "$INSTDIR\svn-client\svn.exe" 0 SW_SHOWNORMAL
-#		File "$SMPROGRAMS\$StartMenuFolder\w3af update.lnk"
 
 		# Restore the old out path
-		SetOutPath $SMPROGRAMS\$StartMenuFolder
+		SetOutPath "$SMPROGRAMS\$StartMenuFolder"
 	!insertmacro MUI_STARTMENU_WRITE_END
 	
 
@@ -619,10 +624,14 @@ Section -MakeShortCuts
 		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af GUI.lnk" "$INSTDIR\w3af_gui.bat" "" "$INSTDIR\w3af_gui_icon.ico" 0 SW_SHOWNORMAL
 		
 		;Readme EN
+		CreateDirectory "$SMPROGRAMS\$StartMenuFolder\readme"
+		CreateDirectory "$SMPROGRAMS\$StartMenuFolder\readme\EN"
 		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\EN\w3af Users Guide (PDF).lnk" "$INSTDIR\readme\EN\w3afUsersGuide.pdf"
 		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\EN\w3af Users Guide (HTML).lnk" "$INSTDIR\readme\EN\w3afUsersGuide.html"
 		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\EN\w3af gtkUi User Guide (HTML).lnk" "$INSTDIR\readme\EN\gtkUiHTML\gtkUiUsersGuide.html"
+
 		;Readme FR
+		CreateDirectory "$SMPROGRAMS\$StartMenuFolder\readme\FR"
 		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\FR\w3af Users Guide (PDF).lnk" "$INSTDIR\readme\FR\w3afUsersGuide_fr.pdf"
 		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\FR\w3af Users Guide (HTML).lnk" "$INSTDIR\readme\FR\w3afUsersGuide_fr.html"
 		
@@ -656,7 +665,7 @@ ${MementoSectionDone}
 ; Modern install component descriptions
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
 	!insertmacro MUI_DESCRIPTION_TEXT ${SectionW3af} "w3af - Web Application Attack and Audit Framework."
-	!insertmacro MUI_DESCRIPTION_TEXT ${SectionSVN} "Svn client for updates."
+	!insertmacro MUI_DESCRIPTION_TEXT ${SectionSVN} "SVN client for updates."
 	!insertmacro MUI_DESCRIPTION_TEXT ${SectionGTK2Runtime} "GTK2 Runtime. w3af GUI."
 	!insertmacro MUI_DESCRIPTION_TEXT ${SectionPyGTK} "PyGTK lets you to easily create programs with a graphical user interface using the Python programming language."
 	!insertmacro MUI_DESCRIPTION_TEXT ${SectionPyCairo} "Pycairo is set of Python bindings for the cairo graphics library."
