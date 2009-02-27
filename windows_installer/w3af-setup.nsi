@@ -193,6 +193,7 @@ VIAddVersionKey  /LANG=${LANG_ENGLISH} "FileVersion" "${APPNAMEANDVERSION}"
 !define PYGOBJECT_INSTALLER "pygobject-2.14.1-1.win32-py2.5.exe" ; http://ftp.gnome.org/pub/GNOME/binaries/win32/pygobject/
 !define PYOPENSSL_INSTALLER "pyOpenSSL-0.8.winxp32-py2.5.exe" ; http://pyopenssl.sourceforge.net/
 !define CLUSTER_INSTALLER "cluster-1.1.1b3.win32.exe" ; http://sourceforge.net/projects/python-cluster/
+!define NLTK_INSTALLER "nltk-0.9.8.win32-py2.5.msi" ; http://www.nltk.org/download
 !define GRAPHVIZ_INSTALLER "graphviz-2.20.2.exe" ; http://www.graphviz.org/
 
 ; Python 2.6 (Aun no usados)
@@ -491,6 +492,16 @@ SectionGroup "w3af prerequisites"
 		SetOutPath "$INSTDIR\${PREREQUISITEDIR}"
 		File "${PREREQUISITEDIR}\${CLUSTER_INSTALLER}"
 		ExecWait '"$INSTDIR\${PREREQUISITEDIR}\${CLUSTER_INSTALLER}"'	
+	${MementoSectionEnd}
+
+	############## python-nltk ##############
+	${MementoSection} "python-nltk" SectionPythonNltk
+		SectionIn 1 2
+		SetDetailsPrint both
+		SetOverwrite on
+		SetOutPath "$INSTDIR\${PREREQUISITEDIR}"
+		File "${PREREQUISITEDIR}\${NLTK_INSTALLER}"
+		ExecWait '"$INSTDIR\${PREREQUISITEDIR}\${NLTK_INSTALLER}"'	
 	${MementoSectionEnd}
 
 	############## Graphiz ##############
