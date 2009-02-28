@@ -1,0 +1,19 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 01_report_bugs_as_debian.dpatch by Luciano Bello <luciano@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Indicates that the version cames from a Debian Package 
+## DP: TODO: include the Debian Package Version
+
+@DPATCH@
+diff -urNad w3af-0.0.0svn2696~/core/controllers/misc/get_w3af_version.py w3af-0.0.0svn2696/core/controllers/misc/get_w3af_version.py
+--- w3af-0.0.0svn2696~/core/controllers/misc/get_w3af_version.py	2009-02-28 17:49:57.000000000 -0200
++++ w3af-0.0.0svn2696/core/controllers/misc/get_w3af_version.py	2009-02-28 20:02:51.000000000 -0200
+@@ -45,6 +45,6 @@
+         res += ' (from SVN server)'
+         res += '\nRevision: ' + str(revision)
+     else:
+-        res += ' (from tgz)'
++        res += ' (from Debian Package)'
+     res += '\nAuthor: Andres Riancho and the w3af team.'
+     return res

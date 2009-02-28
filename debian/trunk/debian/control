@@ -2,7 +2,7 @@ Source: w3af
 Section: net
 Priority: extra
 Maintainer: Luciano Bello <luciano@debian.org>
-Build-Depends: debhelper (>= 5), python-support
+Build-Depends: debhelper (>= 5), python-support, dpatch
 Standards-Version: 3.8.0
 Homepage: http://w3af.sourceforge.net/
 XS-Python-Version: 2.5
