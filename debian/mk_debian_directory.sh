@@ -61,8 +61,6 @@ rm -rf ${BASE_DIR}/extlib/pywordnet/
 rm -rf ${BASE_DIR}/plugins/discovery/pykto*
 # These tools have other options in debian and do not contribute much to w3af as package.
 rm -rf ${BASE_DIR}/tools/
-# http://www.phishtank.com/blog/2006/10/17/xml-data-file-of-online-valid-phishes-from-phishtank/ said that "This data is free." But there is no *a* license over this.
-rm -rf ${BASE_DIR}/plugins/discovery/phishtank*
 
 # And remove the things that are already inside debian as packages
 # python-cluster 

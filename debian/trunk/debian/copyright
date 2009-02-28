@@ -33,29 +33,36 @@ Public License can be found in `/usr/share/common-licenses/GPL'.
 The Debian packaging is (C) 2008, Luciano Bello <luciano@debian.org> and
 is licensed under the GPL, see above.
 
-The following exceptions have a different copyright/license. They was modificated by Andres Riancho under the tems of each license conditions:
+The following exceptions have a different copyright/license. They was 
+modificated by Andres Riancho under the tems of each license conditions:
 
 sqlmap
 ------
-  Files: plugins/attack/db
+  Files: plugins/attack/db/*
   Copyright: © 2008 Daniele Bellucci
              © 2008 Bernardo Damele
   HomePage: http://sqlmap.sourceforge.net/
   License: GPL-2
+  On Debian systems, the complete text of the GNU General
+  Public License Version 2 can be found in `/usr/share/common-licenses/GPL-2'.
 
 halberd
 -------
-  Files: plugins/discovery/oHalberd
+  Files: plugins/discovery/oHalberd/*
   Copyright: © 2008 Juan M. Bello Rivas
   HomePage: http://halberd.superadditive.com/
   License: GPL-2
+  On Debian systems, the complete text of the GNU General
+  Public License Version 2 can be found in `/usr/share/common-licenses/GPL-2'.
 
 hmap
 ----
-  Files: plugins/discovery/oHmap
+  Files: plugins/discovery/oHmap/*
   Copyright: © 2003 Dustin Lee
   HomePage: http://ujeni.murkyroc.com/hmap/
   License: GPL-2
+  On Debian systems, the complete text of the GNU General
+  Public License Version 2 can be found in `/usr/share/common-licenses/GPL-2'.
 
 xdot.py
 -------
@@ -63,6 +70,17 @@ xdot.py
   Copyright: © 2008 Jose.R.Fonseca
   HomePage: http://code.google.com/p/jrfonseca/wiki/XDot
   License: GPL-3
+  On Debian systems, the complete text of the GNU General
+  Public License Version 3 can be found in `/usr/share/common-licenses/GPL-3'.
+    
+Natural Language Toolkit (nltk)
+-------------------------------
+  Files: extlib/nltk/*
+  Copyright: © 2001-2009 NLTK Project
+  HomePage: http://www.nltk.org 
+  License: GPL-2 or any later version
+  On Debian systems, the complete text of the GNU General
+  Public License can be found in `/usr/share/common-licenses/GPL'.
 
 GHDB
 ----
@@ -70,4 +88,11 @@ GHDB
   Copyright: © 2006 Johnny Long
   HomePage: http://johnny.ihackstuff.com/xml/schema.xml (it's not online anymore)
   License: Public Domain 
+
+xml-data-file-of-online-valid-phishes-from-phishtank
+----------------------------------------------------
+  Files: plugins/discovery/phishtank/index.xml
+  Copyright: © 2006 OpenDNS, LLC
+  HomePage: http://www.phishtank.com/blog/2006/10/17/xml-data-file-of-online-valid-phishes-from-phishtank/
+  License: Creative Commons Attribution-ShareAlike 2.5 License
 
