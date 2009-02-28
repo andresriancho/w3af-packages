@@ -38,6 +38,7 @@ binary-indep: install
 	dh_installmenu
 	dh_desktop
 	dh_installdocs readme/
+	dh_installexamples scripts/
 	dh_installchangelogs
 	dh_compress
 	dh_fixperms
