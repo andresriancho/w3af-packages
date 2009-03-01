@@ -48,8 +48,7 @@ echo "-"
 find ${BASE_DIR}/plugins/discovery/oHalberd/* -type d | grep -v "plugins/discovery/oHalberd/Halberd" | xargs rm -rf
 rm ${BASE_DIR}/plugins/discovery/oHalberd/* > /dev/null 2>&1
 # sanitize oHmap (Remove the documentation and leave only the useful code part)
-find ${BASE_DIR}/plugins/discovery/oHmap/* -type d | grep -v "plugins/discovery/oHmap/Hmap" | xargs rm -rf
-rm ${BASE_DIR}/plugins/discovery/oHmap/* > /dev/null 2>&1
+find ${BASE_DIR}/plugins/discovery/oHmap/ | grep -v ".py" | xargs rm > /dev/null 2>&1
 
 
 # Remove the debian offending stuff
@@ -90,9 +89,6 @@ tar zcf w3af_${VERSION}.orig.tar.gz ${BASE_DIR}
 echo '~/debian'
 cp -r trunk/debian ${BASE_DIR}/
 (find ${BASE_DIR}/debian -name .svn | xargs rm -rf) > /dev/null 2>&1 && echo -n ".svn, "
-
-echo 'copy diffs'
-cp -Rp dependencyCheck.py ${BASE_DIR}/core/controllers/misc/dependencyCheck.py
 
 echo 'setting changelog'
 # TODO chequear la existencia de DEBEMAIL y DEBFULLNAME
