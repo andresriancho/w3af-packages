@@ -14,8 +14,8 @@ diff -urNad w3af-0.0.0svn2722~/core/controllers/misc/get_w3af_version.py w3af-0.
          res += '\nRevision: ' + str(revision)
      else:
 -        res += ' (from tgz)'
-+        res += ' (from Debian Package)'
++        res += ' (from Debian Package '
 +        import commands
-+        res += '\n' + commands.getstatusoutput('dpkg -p w3af-console | grep "Version:"')[1]
++        res += commands.getstatusoutput('dpkg -p w3af-console | grep "Version:"')[1][9:] + ')'
      res += '\nAuthor: Andres Riancho and the w3af team.'
      return res
