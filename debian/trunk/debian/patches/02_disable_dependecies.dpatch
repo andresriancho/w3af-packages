@@ -1,0 +1,21 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 02_disable_dependecies.dpatch by Luciano Bello <luciano@debian.org>
+##
+## DP: The pygoogle support is disable. There is some legal issues with it
+## DP: (see http://bugs.debian.org/282313) and w3af works anyway without it.
+
+@DPATCH@
+diff -urNad w3af-0.0.0svn2707~/core/controllers/misc/dependencyCheck.py w3af-0.0.0svn2707/core/controllers/misc/dependencyCheck.py
+--- w3af-0.0.0svn2707~/core/controllers/misc/dependencyCheck.py	2009-02-28 17:49:57.000000000 -0200
++++ w3af-0.0.0svn2707/core/controllers/misc/dependencyCheck.py	2009-03-01 21:35:00.000000000 -0200
+@@ -64,9 +64,7 @@
+         try:
+             import google as pygoogle
+         except Exception, e:
+-            print 'You have to install pygoogle lib. Please read the users guide.'
+-            print 'Error: ' + str(e)
+-            sys.exit( 1 )
++	    pass
+ 
+     try:
+         import extlib.BeautifulSoup as BeautifulSoup
