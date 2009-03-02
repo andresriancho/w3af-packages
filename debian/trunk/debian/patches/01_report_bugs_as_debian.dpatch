@@ -6,14 +6,16 @@
 ## DP: TODO: include the Debian Package Version
 
 @DPATCH@
-diff -urNad w3af-0.0.0svn2696~/core/controllers/misc/get_w3af_version.py w3af-0.0.0svn2696/core/controllers/misc/get_w3af_version.py
---- w3af-0.0.0svn2696~/core/controllers/misc/get_w3af_version.py	2009-02-28 17:49:57.000000000 -0200
-+++ w3af-0.0.0svn2696/core/controllers/misc/get_w3af_version.py	2009-02-28 20:02:51.000000000 -0200
-@@ -45,6 +45,6 @@
+diff -urNad w3af-0.0.0svn2722~/core/controllers/misc/get_w3af_version.py w3af-0.0.0svn2722/core/controllers/misc/get_w3af_version.py
+--- w3af-0.0.0svn2722~/core/controllers/misc/get_w3af_version.py	2009-03-02 15:37:47.000000000 -0200
++++ w3af-0.0.0svn2722/core/controllers/misc/get_w3af_version.py	2009-03-02 16:02:16.000000000 -0200
+@@ -47,6 +47,8 @@
          res += ' (from SVN server)'
          res += '\nRevision: ' + str(revision)
      else:
 -        res += ' (from tgz)'
 +        res += ' (from Debian Package)'
++        import commands
++        res += '\n' + commands.getstatusoutput('dpkg -p w3af-console | grep "Version:"')[1]
      res += '\nAuthor: Andres Riancho and the w3af team.'
      return res
