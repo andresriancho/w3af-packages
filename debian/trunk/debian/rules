@@ -25,6 +25,7 @@ install: build patch-stamp
 	cp -r core locales plugins profiles extlib scripts debian/w3af-console/usr/share/w3af/
 	cp w3af_console debian/w3af-console/usr/share/w3af/
 	cp w3af_gui debian/w3af/usr/share/w3af/
+	chmod +x debian/w3af-console/usr/share/w3af/w3af_console debian/w3af/usr/share/w3af/w3af_gui
 	cp debian/w3af.sh debian/w3af-console/usr/bin/w3af
 	mv debian/w3af-console/usr/share/w3af/core/ui/gtkUi debian/w3af/usr/share/w3af/core/ui/gtkUi
 	mv debian/w3af-console/usr/share/w3af/extlib/xdot debian/w3af/usr/share/w3af/extlib/
