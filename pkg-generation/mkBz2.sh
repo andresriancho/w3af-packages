@@ -3,7 +3,7 @@
 set -x
 
 # copy trunk so we don't destroy our local copy
-cp -Rp ../../trunk ../../w3af
+cp -Rp ../../branches/1.0/ ../../w3af
 
 # remove the compiled python modules
 find -L ../../w3af -name *.pyc | xargs rm
@@ -45,3 +45,6 @@ du -sh  w3af-`date +%d%b%Y`.tar.bz2
 # Cleanup
 rm -rf ../../w3af
 
+set +x
+
+echo "You may upload this file to the FRS here:  https://frs.sourceforge.net/webupload"
