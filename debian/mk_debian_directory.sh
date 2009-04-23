@@ -1,13 +1,67 @@
 #!/bin/bash
-TRUNK='../w3af'
+
+# Argument = -t test -r server -p password -v
+
+usage()
+{
+cat << EOF
+usage: $0 -d <diretory> -v <upstream_version>
+
+This script builds a deb package
+
+OPTIONS:
+   -h      Show this message
+   -d      Diretory with the source
+   -v      Upstream version
+EOF
+}
+
+DIR=
+UPSTREAM_RELEASE=
+
+while getopts "hd:v:" OPTION
+do
+     case $OPTION in
+         h)
+             usage
+             exit 1
+             ;;
+         d)
+             DIR=$OPTARG
+             ;;
+         v)
+	     UPSTREAM_RELEASE=$OPTARG
+             ;;
+         ?)
+             usage
+             exit
+             ;;
+     esac
+done
+
+echo $DIR
+echo $UPSTREAM_RELEASE
+
+if [[ -z $DIR ]] || [[ -z $UPSTREAM_RELEASE ]]
+then
+     usage
+     exit 1
+fi
+
+REVISION=$(svn info $DIR | grep Revision | cut -f 2 -d ' ' 2> /dev/null)
+if [[ -z $REVISION ]]
+then
+      VERSION="${UPSTREAM_RELEASE}"
+else
+      VERSION="${UPSTREAM_RELEASE}svn${REVISION}"
+fi
+
 
 if test ! -x /usr/bin/dpkg  ; then echo "Is this a Debian-derivate? This scripts use specific tools like dpkg and debhelper, which are only available in a Debian-derivate. Sorry..." ; return 1; fi
 
 echo "Checking if you have needed packages to build w3af.deb"
 installed=$(dpkg -l debhelper fakeroot make subversion python-support | grep ^ii |awk '{print $2}')
 
-UPSTREAM_RELEASE="0.0.0"
-REVISION=$(svn info $TRUNK | grep Revision | cut -f 2 -d ' ')
 VERSION="${UPSTREAM_RELEASE}svn${REVISION}"
 BASE_DIR="w3af-${VERSION}"
 
@@ -16,7 +70,7 @@ rm -rf ${BASE_DIR} > /dev/null 2>&1 && echo "removing ${BASE_DIR}"
 rm w3af_${VERSION}.orig.tar.gz > /dev/null 2>&1 && echo "removing w3af_${VERSION}.orig.tar.gz"
 
 # copy trunk so we don't destroy our local copy
-cp -Rp $TRUNK ${BASE_DIR} && echo ""
+cp -Rp $DIR ${BASE_DIR} && echo ""
 
 # copy the manpages
 mkdir ${BASE_DIR}/manpages
