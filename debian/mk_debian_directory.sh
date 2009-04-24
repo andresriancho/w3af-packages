@@ -39,9 +39,6 @@ do
      esac
 done
 
-echo $DIR
-echo $UPSTREAM_RELEASE
-
 if [[ -z $DIR ]] || [[ -z $UPSTREAM_RELEASE ]]
 then
      usage
@@ -56,14 +53,13 @@ else
       VERSION="${UPSTREAM_RELEASE}svn${REVISION}"
 fi
 
+BASE_DIR="w3af-${VERSION}"
+echo ····· Building $BASE_DIR ·····
 
 if test ! -x /usr/bin/dpkg  ; then echo "Is this a Debian-derivate? This scripts use specific tools like dpkg and debhelper, which are only available in a Debian-derivate. Sorry..." ; return 1; fi
 
 echo "Checking if you have needed packages to build w3af.deb"
 installed=$(dpkg -l debhelper fakeroot make subversion python-support | grep ^ii |awk '{print $2}')
-
-VERSION="${UPSTREAM_RELEASE}svn${REVISION}"
-BASE_DIR="w3af-${VERSION}"
 
 # Just in case...
 rm -rf ${BASE_DIR} > /dev/null 2>&1 && echo "removing ${BASE_DIR}"
@@ -73,10 +69,10 @@ rm w3af_${VERSION}.orig.tar.gz > /dev/null 2>&1 && echo "removing w3af_${VERSION
 cp -Rp $DIR ${BASE_DIR} && echo ""
 
 # copy the manpages
-mkdir ${BASE_DIR}/manpages
-cp -R ../manpages/w3af ${BASE_DIR}/manpages/w3af.1
-cp -R ../manpages/w3af_console ${BASE_DIR}/manpages/w3af_console.1
-cp -R ../manpages/w3af_gui ${BASE_DIR}/manpages/w3af_gui.1
+mkdir ${BASE_DIR}/manpage
+cp -R ../manpage/w3af ${BASE_DIR}/manpage/w3af.1
+cp -R ../manpage/w3af_console ${BASE_DIR}/manpage/w3af_console.1
+cp -R ../manpage/w3af_gui ${BASE_DIR}/manpage/w3af_gui.1
 
 echo -n "Removing: "
 # remove the compiled python modules
