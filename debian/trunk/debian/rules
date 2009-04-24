@@ -22,7 +22,7 @@ install: build patch-stamp
 
 	cp debian/desktop debian/w3af/usr/share/applications/w3af.desktop
 	cp debian/w3af.xpm debian/w3af/usr/share/pixmaps/
-	cp -r core locales plugins profiles extlib scripts debian/w3af-console/usr/share/w3af/
+	cp -r core locales plugins profiles extlib debian/w3af-console/usr/share/w3af/
 	cp w3af_console debian/w3af-console/usr/share/w3af/
 	cp w3af_gui debian/w3af/usr/share/w3af/
 	chmod +x debian/w3af-console/usr/share/w3af/w3af_console debian/w3af/usr/share/w3af/w3af_gui
@@ -38,8 +38,8 @@ binary-indep: install
 	dh_installman
 	dh_installmenu
 	dh_desktop
-	dh_installdocs readme/
-	dh_installexamples scripts/
+	dh_installdocs
+	dh_installexamples
 	dh_installchangelogs
 	dh_compress
 	dh_fixperms
