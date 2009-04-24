@@ -1,5 +1,5 @@
 #!/bin/bash
-
+ 
 # Argument = -t test -r server -p password -v
 
 usage()
@@ -108,6 +108,10 @@ rm -rf ${BASE_DIR}/extlib/pygoogle/
 rm -rf ${BASE_DIR}/extlib/pywordnet/
 # nikto's database is not free.  (see http://www.mail-archive.com/debian-legal@lists.debian.org/msg38622.html)
 rm -rf ${BASE_DIR}/plugins/discovery/pykto*
+rm -rf ${BASE_DIR}/scripts/script-pykto.w3af
+rm -rf ${BASE_DIR}/scripts/script-pykto_mutate.w3af
+rm -rf ${BASE_DIR}/scripts/script-updatePyktoDb.w3af
+rm -rf ${BASE_DIR}/scripts/script-gtkOutput.w3af
 # These tools have other options in debian and do not contribute much to w3af as package.
 rm -rf ${BASE_DIR}/tools/
 
