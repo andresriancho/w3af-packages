@@ -48,3 +48,4 @@ rm -rf ../../w3af
 set +x
 
 echo "You may upload this file to the FRS here:  https://frs.sourceforge.net/webupload"
+echo "And also using SFTP like this:  http://apps.sourceforge.net/trac/sourceforge/wiki/SFTP"
