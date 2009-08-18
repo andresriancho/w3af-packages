@@ -330,7 +330,10 @@ if SOLARIS:
     socket.IPPROTO_GRE = 47
 
 if WINDOWS:
-    import _winreg  
+    import _winreg
+        
+    class PcapNameNotFoundError(Scapy_Exception):
+        pass    
     
     class NetworkInterface(object):
         """A network interface of your local host"""
@@ -381,11 +384,11 @@ if WINDOWS:
                             continue
                         try:    
                             fixed_ip = _winreg.QueryValueEx(key, "IPAddress")[0][0].encode("utf-8")
-                        except WindowsError, UnicodeDecodeError:
+                        except (WindowsError, UnicodeDecodeError, IndexError):
                             fixed_ip = None
                         try:
                             dhcp_ip = _winreg.QueryValueEx(key, "DhcpIPAddress")[0].encode("utf-8")
-                        except WindowsError, UnicodeDecodeError:
+                        except (WindowsError, UnicodeDecodeError, IndexError):
                             dhcp_ip = None
                         # "0.0.0.0" or None means the value is not set (at least not correctly).
                         # If both fixed_ip and dhcp_ip are set, fixed_ip takes precedence 
@@ -404,8 +407,7 @@ if WINDOWS:
                             self.uuid = uuid
                             break
             else:
-                log_loading.warning("No matching pcap interface name for dnet "
-                                    "interface %s (IP=%s) found." % (self.name, self.ip))
+                raise PcapNameNotFoundError
         
         def __repr__(self):
             return "<%s: %s %s %s pcap_name=%s win_name=%s>" % (self.__class__.__name__,
@@ -423,8 +425,12 @@ if WINDOWS:
                     # XXX: Only Ethernet for the moment: localhost is not supported by dnet and pcap
                     if i["name"].startswith("eth"):
                         self.data[i["name"]] = NetworkInterface(i)
-                except KeyError:
+                except (KeyError, PcapNameNotFoundError):
                     pass
+            if len(self.data) == 0:
+                log_loading.warning("No match between your pcap and dnet network interfaces found. "
+                                    "You probably won't be able to send packets. "
+                                    "Deactivating unneeded interfaces and restarting Scapy might help.")
         
         def pcap_name(self, devname):
             """Return pypcap device name for given libdnet/Scapy device name
@@ -491,7 +497,7 @@ class Console(object):
             try:
                 import readline
                 self.console = readline.GetOutputFile()
-            except ImportError, AttributeError:
+            except (ImportError, AttributeError):
                 log_loading.info("Could not get readline console. Will not interpret ANSI color codes.") 
                 self._colored = False
             else:
@@ -1560,7 +1566,10 @@ if not LINUX:
             ok = 0
             routes = []
             ip = '(\d+\.\d+\.\d+\.\d+)\s+'
-            netstat_line = ip + ip + ip + ip + "(\d+)"
+            # On Vista and Windows 7 the gateway can be IP or 'on-link'.
+            # The exact 'on-link' string depends on the locale.
+            gw_pattern = '([\w\s]+|\d+\.\d+\.\d+\.\d+)\s+'
+            netstat_line = ip + ip + gw_pattern + ip + "(\d+)"
             pattern = re.compile(netstat_line)
             f=os.popen("netstat -rn")
             for l in f.readlines():
@@ -1579,6 +1588,12 @@ if not LINUX:
                     
                     dest = atol(dest)
                     mask = atol(mask)
+                    # If the gateway is no IP we assume it's on-link
+                    gw_ipmatch = re.search('\d+\.\d+\.\d+\.\d+', gw)
+                    if gw_ipmatch:
+                        gw = gw_ipmatch.group(0)
+                    else:
+                        gw = netif
                     routes.append((dest,mask,gw, str(intf["name"]), addr))
             f.close()
             return routes
@@ -10331,8 +10346,13 @@ def defragment(plist):
 ###################
 
 def Ether_Dot3_Dispatcher(pkt=None, **kargs):
-    if type(pkt) is str and len(pkt) >= 14 and struct.unpack("!H", pkt[12:14])[0] <= 1500:
-        return Dot3(pkt, **kargs)
+    if WINDOWS:
+        # pypcap doesn't return Python strings but special <read-only buffer> objects
+        if type(pkt) is not None and len(pkt) >= 14 and struct.unpack("!H", pkt[12:14])[0] <= 1500:
+            return Dot3(pkt, **kargs)
+    else:
+        if type(pkt) is str and len(pkt) >= 14 and struct.unpack("!H", pkt[12:14])[0] <= 1500:
+            return Dot3(pkt, **kargs)
     return Ether(pkt, **kargs)
 
 # According to libdnet
