@@ -12,6 +12,7 @@ This script builds a deb package
 OPTIONS:
    -h      Show this message
    -d      Diretory with the source
+   -m      Diretory with the manpages
    -v      Upstream version
 EOF
 }
@@ -19,7 +20,7 @@ EOF
 DIR=
 UPSTREAM_RELEASE=
 
-while getopts "hd:v:" OPTION
+while getopts "hm:d:v:" OPTION
 do
      case $OPTION in
          h)
@@ -28,6 +29,9 @@ do
              ;;
          d)
              DIR=$OPTARG
+             ;;
+         m)
+             MAN_DIR=$OPTARG
              ;;
          v)
 	     UPSTREAM_RELEASE=$OPTARG
@@ -66,13 +70,15 @@ rm -rf ${BASE_DIR} > /dev/null 2>&1 && echo "removing ${BASE_DIR}"
 rm w3af_${VERSION}.orig.tar.gz > /dev/null 2>&1 && echo "removing w3af_${VERSION}.orig.tar.gz"
 
 # copy trunk so we don't destroy our local copy
+echo "copying files to ${BASE_DIR}"
 cp -Rp $DIR ${BASE_DIR} && echo ""
 
 # copy the manpages
+echo "copying the manpages from ${MAN_DIR} to ${BASE_DIR}/manpage"
 mkdir ${BASE_DIR}/manpage
-cp -R ../manpage/w3af ${BASE_DIR}/manpage/w3af.1
-cp -R ../manpage/w3af_console ${BASE_DIR}/manpage/w3af_console.1
-cp -R ../manpage/w3af_gui ${BASE_DIR}/manpage/w3af_gui.1
+cp -v ${MAN_DIR}/w3af ${BASE_DIR}/manpage/w3af.1
+cp -v ${MAN_DIR}/w3af_console ${BASE_DIR}/manpage/w3af_console.1
+cp -v ${MAN_DIR}/w3af_gui ${BASE_DIR}/manpage/w3af_gui.1
 
 echo -n "Removing: "
 # remove the compiled python modules
