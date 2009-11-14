@@ -9,7 +9,7 @@ XB-Python-Version: ${python:Versions}
 
 Package: w3af
 Architecture: all
-Depends: ${python:Depends}, ${misc:Depends}, w3af-console, python-gtk2 (>= 2.12), graphviz
+Depends: ${python:Depends}, ${misc:Depends}, w3af-console (>= ${binary:Version}), python-gtk2 (>= 2.12), graphviz
 Description: framework to find and exploit web application vulnerabilities
  w3af is a Web Application Attack and Audit Framework which aims
  to identify and exploit all web application vulnerabilities. 
