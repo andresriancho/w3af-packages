@@ -3,9 +3,9 @@ Section: net
 Priority: extra
 Maintainer: Luciano Bello <luciano@debian.org>
 Build-Depends: debhelper (>= 5), python-support, dpatch
-Standards-Version: 3.8.0
+Standards-Version: 3.8.3
 Homepage: http://w3af.sourceforge.net/
-XS-Python-Version: 2.5
+XB-Python-Version: ${python:Versions}
 
 Package: w3af
 Architecture: all
@@ -24,7 +24,6 @@ Description: framework to find and exploit web application vulnerabilities
  The w3af core and it's plugins are fully written in Python. The project has
  more than 130 plugins, which identify and exploit SQL injection, cross site
  scripting (XSS), remote file inclusion and more.
- .
 
 Package: w3af-console
 Architecture: all
