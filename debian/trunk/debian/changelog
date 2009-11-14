@@ -1,7 +1,11 @@
 w3af ([w3af_VERSION]-1) UNRELEASED; urgency=low
 
+  * No more dh_desktop.
+  * Added 03_webshell.pl_is_not_script. 
+  * w3af: depends on w3af-console (binary:Version)
+  * Added the recommended README file for packages which depend on dpatch.
   * Ready for Python 2.6. (Closes: #534803)
-  * Removed the empty paragraph at the end of the package description, which
+  * w3af: Removed the empty paragraph at the end of the package description, which
     can be only spotted by Rhonda (Closes: #531026).
 
  -- [w3af_DEBFULLNAME] <[w3af_DEBEMAIL]>  [w3af_DATE]
