@@ -1,8 +1,0 @@
-prefix=c:\Python25
-
-Name: Pycairo
-Description: Python bindings for cairo
-Version: 1.4.12
-Requires: cairo
-Cflags: -I${prefix}/include/pycairo
-Libs:
