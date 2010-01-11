@@ -1,0 +1,303 @@
+LIBRARY gvplugin_neato_layout.dll
+
+EXPORTS
+
+D2E
+ELcleanup
+ELdelete
+ELinitialize
+ELinsert
+ELleft
+ELleftbnd
+ELleftend DATA
+ELright
+ELrightend DATA
+HEcreate
+IMDS_given_dim
+PCA_alloc
+PQ_min
+PQcleanup
+PQdelete
+PQdump
+PQempty
+PQextractmin
+PQinitialize
+PQinsert
+Plegal_arrangement
+UG_graph
+addGrid
+addVertex
+add_edge
+addpt
+adjustGrid
+adjustNodes
+allow_edits
+appendBlock
+appendNodelist
+area_2
+bfs
+bfs_bounded
+bisect
+bottomsite DATA
+breakPoly
+cAdjust
+center_coordinate
+checkStart
+choose_node
+circPos
+circleLayout
+circoLayout
+circo_cleanup
+circo_init_graph
+circo_layout
+circogen_engine DATA
+circomps
+circuitModel
+circuit_model
+circularLayout
+clearGrid
+clearNodeset
+clip_line
+cloneNodelist
+closest_pairs2graph
+common_neighbors
+compoundEdges
+compute_apsp
+compute_apsp_artifical_weights
+compute_apsp_artifical_weights_packed
+compute_apsp_packed
+compute_hierarchy
+compute_new_weights
+compute_y_coords
+conjugate_gradient
+conjugate_gradient_f
+conjugate_gradient_mkernel
+constrained_majorization_new
+constrained_majorization_new_with_gaps
+copy_vector
+copy_vectorf
+cpvec
+createBlocktree
+deQueue
+delGrid
+delQueue
+delaunay_tri
+delaunay_triangulation
+deleteCMajEnv
+deltax DATA
+deltay DATA
+deref
+diffeq_model
+dijkstra
+dijkstra_bounded
+dijkstra_f
+dist
+dist_2
+distance_kD
+distvec
+dot
+doubleattr
+drand48
+dumpstat
+edgeItemDisc DATA
+edgeinit
+embed_graph
+empty_neighbors_vec
+enQueue
+endpoint
+esepFactor
+fdpLayout
+fdp_cleanup
+fdp_initParams
+fdp_init_graph
+fdp_init_node_edge
+fdp_layout
+fdp_tLayout
+fdp_xLayout
+fdpgen_engine DATA
+fill_neighbors_vec_unweighted
+final_energy
+findCComp
+findGrid
+find_intersection
+find_ints
+firstDeglist
+fpow32
+freeBlock
+freeBlocktree
+freeDeglist
+freeGraph
+freeGraphData
+freeNodelist
+freeNodeset
+freeQueue
+freeStack
+free_array
+free_edgelist
+free_scan_graph
+freeinit
+gLength
+geominit
+getPath
+getfree
+getsite
+graphAdjustMode
+gvlayout_neato_types DATA
+gvplugin_neato_layout_LTX_library DATA
+heapdown
+heapup
+hintersect
+infoinit
+initBlocklist
+initConstrainedMajorization
+initLayout
+initQueue
+init_edgelist
+init_info
+init_nop
+init_vec_orth1
+initial_positions
+insertBlock
+insertDeglist
+insertNodelist
+insertNodeset
+intersection
+invert_sqrt_vec
+invert_vec
+iterativePCA_1D
+jitter3d
+jitter_d
+layout
+layout_block
+leftOf
+leftreg
+lu_decompose
+lu_solve
+makeAddPoly
+makeObstacle
+makePoly
+makeSelfArcs
+makeSpline
+make_spring
+makefree
+makevertex
+matinv
+max_abs
+max_absf
+mkBlock
+mkDeglist
+mkGrid
+mkNodelist
+mkNodeset
+mkQueue
+mkStack
+move_node
+mult_dense_mat
+mult_dense_mat_d
+mult_sparse_dense_mat_transpose
+neatoLayout
+neato_cleanup
+neato_dequeue
+neato_enqueue
+neato_init_node
+neato_layout
+neato_set_aspect
+neatogen_engine DATA
+neatogen_features DATA
+newQueue
+new_array
+nodeInfo DATA
+node_position
+nop1gen_engine DATA
+nop2gen_engine DATA
+norm
+normalize
+nsites DATA
+origin DATA
+orthog1
+orthog1f
+polyFree
+polyOverlap
+power_iteration
+printNodeset
+printvis
+pxmax DATA
+pxmin DATA
+pymax DATA
+pymin DATA
+quicksort_place
+quicksort_placef
+randompos
+realignNodelist
+ref
+removeDeglist
+removeNodeset
+removeOverlap
+removeOverlapAs
+remove_edge
+restore_old_weights
+reverseAppend
+reverseNodelist
+right_mult_with_vector
+right_mult_with_vector_d
+right_mult_with_vector_f
+right_mult_with_vector_ff
+right_mult_with_vector_transpose
+right_of
+rightreg
+s1
+scAdjust
+scadd
+scan_graph
+scan_graph_mode
+sepFactor
+setSeed
+set_vector_val
+set_vector_valf
+shortest_path
+siteidx DATA
+siteinit
+sizeNodelist
+sizeNodeset
+size_edgelist
+solve
+solveCircuit
+solve_model
+splineEdges
+spline_edges
+spline_edges0
+spline_edges1
+sqrt_nsites DATA
+sqrt_vec
+sqrt_vecf
+square_vec
+stackCheck
+stackPop
+stackPush
+stackSize
+stress_majorization_kD_mkernel
+stress_majorization_with_hierarchy
+subpt
+twopi_cleanup
+twopi_init_graph
+twopi_layout
+twopigen_engine DATA
+unpackMatrix
+update_arrays
+user_pos
+vecscale
+vectors_addition
+vectors_additionf
+vectors_inner_product
+vectors_inner_productf
+vectors_mult_additionf
+vectors_scalar_mult
+vectors_scalar_multf
+vectors_substractionf
+vectors_subtraction
+voronoi
+walkGrid
+xmax DATA
+xmin DATA
+ymax DATA
+ymin DATA

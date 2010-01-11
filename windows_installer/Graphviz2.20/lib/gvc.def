@@ -1,0 +1,451 @@
+LIBRARY gvc.dll
+
+EXPORTS
+
+Bezier
+CL_type DATA
+CmdName DATA
+Concentrate DATA
+DIA_CodeGen DATA
+Damping DATA
+Demand_Loading DATA
+E_activefillcolor DATA
+E_activepencolor DATA
+E_arrowhead DATA
+E_arrowsz DATA
+E_arrowtail DATA
+E_color DATA
+E_comment DATA
+E_constr DATA
+E_decorate DATA
+E_deletedfillcolor DATA
+E_deletedpencolor DATA
+E_dir DATA
+E_fontcolor DATA
+E_fontname DATA
+E_fontsize DATA
+E_headclip DATA
+E_headlabel DATA
+E_label DATA
+E_label_float DATA
+E_labelangle DATA
+E_labeldistance DATA
+E_labelfontcolor DATA
+E_labelfontname DATA
+E_labelfontsize DATA
+E_layer DATA
+E_minlen DATA
+E_penwidth DATA
+E_samehead DATA
+E_sametail DATA
+E_selectedfillcolor DATA
+E_selectedpencolor DATA
+E_showboxes DATA
+E_style DATA
+E_tailclip DATA
+E_taillabel DATA
+E_visitedfillcolor DATA
+E_visitedpencolor DATA
+E_weight DATA
+Epsilon DATA
+Files DATA
+G_activefillcolor DATA
+G_activepencolor DATA
+G_deletedfillcolor DATA
+G_deletedpencolor DATA
+G_penwidth DATA
+G_peripheries DATA
+G_selectedfillcolor DATA
+G_selectedpencolor DATA
+G_visitedfillcolor DATA
+G_visitedpencolor DATA
+Gvfilepath DATA
+HPGL_CodeGen DATA
+HTTPServerEnVar DATA
+Initial_dist DATA
+Lib DATA
+MIF_CodeGen DATA
+MP_CodeGen DATA
+MaxIter DATA
+MemTest DATA
+N_activefillcolor DATA
+N_activepencolor DATA
+N_color DATA
+N_comment DATA
+N_deletedfillcolor DATA
+N_deletedpencolor DATA
+N_distortion DATA
+N_fillcolor DATA
+N_fixed DATA
+N_fontcolor DATA
+N_fontname DATA
+N_fontsize DATA
+N_group DATA
+N_height DATA
+N_imagescale DATA
+N_label DATA
+N_layer DATA
+N_nojustify DATA
+N_orientation DATA
+N_penwidth DATA
+N_peripheries DATA
+N_selectedfillcolor DATA
+N_selectedpencolor DATA
+N_shape DATA
+N_showboxes DATA
+N_sides DATA
+N_skew DATA
+N_style DATA
+N_vertices DATA
+N_visitedfillcolor DATA
+N_visitedpencolor DATA
+N_width DATA
+N_z DATA
+Ndim DATA
+Nop DATA
+Obj DATA
+Output_file DATA
+Output_file_name DATA
+Output_lang DATA
+PIC_CodeGen DATA
+PSinputscale DATA
+Reduce DATA
+Show_boxes DATA
+Show_cnt DATA
+State DATA
+Syntax_errors DATA
+UF_find
+UF_remove
+UF_setname
+UF_singleton
+UF_union
+VTX_CodeGen DATA
+Verbose DATA
+Version DATA
+YF_off DATA
+Y_invert DATA
+Y_off DATA
+addPS
+addPt
+add_box
+add_pointfs
+add_points
+arrowEndClip
+arrowStartClip
+arrow_bb
+arrow_flags
+arrow_gen
+arrow_length
+arrow_newgen
+attach_attrs
+attach_attrs_and_arrows
+beginpath
+bezier_clip
+bind_shape
+box_bb
+box_connection
+box_contains
+box_intersect
+box_overlap
+boxf_bb
+boxf_contains
+boxf_intersect
+boxf_overlap
+boxfof
+boxof
+canontoken
+cat_libfile
+cat_preamble
+ccomps
+ccwrotatep
+ccwrotatepf
+charsetToStr
+clearHTMLlexer
+clearPM
+clip_and_install
+colorxlate
+common_init_edge
+common_init_node
+compute_bb
+coord
+cvt2pt
+cvt2ptf
+cwrotatep
+cwrotatepf
+dequeue
+do_graph_label
+dot_nodesize
+dotneato_args_initialize
+dotneato_closest
+dotneato_postprocess
+dotneato_usage
+elapsed_sec
+ellipse_connection
+emit_background
+emit_clusters
+emit_graph
+emit_html_label
+emit_label
+emit_map_rect
+emit_once
+emit_once_reset
+endpath
+enqueue
+epsf_define
+epsf_emit_body
+epsf_free
+epsf_init
+exch_xy
+exch_xyf
+fdp_parms DATA
+fdp_parms_default DATA
+fillLine
+find_user_shape
+first_codegen
+flip_rec_box
+freePM
+freePS
+free_html_data
+free_html_font
+free_html_img
+free_html_label
+free_html_text
+free_label
+free_queue
+getPack
+getPackMode
+getdouble
+getsplinepoints
+global_def
+gmalloc
+graph_cleanup
+graph_init
+graphviz_errors DATA
+grealloc
+gvContext
+gvFirstPlugin
+gvFreeContext
+gvFreeLayout
+gvLayout
+gvLayoutJobs
+gvNEWargvlist
+gvNEWcontext
+gvNextInputGraph
+gvNextPlugin
+gvParseArgs
+gvPluginType
+gvRender
+gvRenderData
+gvRenderFilename
+gvRenderJobs
+gvToggle
+gvUsername
+gv_argvlist_free
+gv_argvlist_reset
+gv_argvlist_set_item
+gv_cleanup_edge
+gv_cleanup_node
+gv_free_splines
+gv_nodesize
+gvcBuildDate
+gvcInfo
+gvcUsername
+gvcVersion
+gvconfig
+gvconfig_libdir
+gvdevice_callbacks DATA
+gvdevice_finalize
+gvdevice_format
+gvdevice_fputs
+gvdevice_initialize
+gvdevice_printf
+gvdevice_printnum
+gvdevice_printpointf
+gvdevice_printpointflist
+gvdevice_write
+gvevent_key_binding DATA
+gvevent_key_binding_size DATA
+gvjobs_delete
+gvjobs_first
+gvjobs_next
+gvjobs_output_filename
+gvjobs_output_langname
+gvlayout_select
+gvloadimage
+gvplugin_api
+gvplugin_api_name
+gvplugin_install
+gvplugin_library_load
+gvplugin_list
+gvplugin_load
+gvplugin_write_status
+gvrender_begin_anchor
+gvrender_begin_cluster
+gvrender_begin_context
+gvrender_begin_edge
+gvrender_begin_edges
+gvrender_begin_graph
+gvrender_begin_job
+gvrender_begin_layer
+gvrender_begin_node
+gvrender_begin_nodes
+gvrender_begin_page
+gvrender_beziercurve
+gvrender_box
+gvrender_comment
+gvrender_ellipse
+gvrender_end_anchor
+gvrender_end_cluster
+gvrender_end_context
+gvrender_end_edge
+gvrender_end_edges
+gvrender_end_graph
+gvrender_end_job
+gvrender_end_layer
+gvrender_end_node
+gvrender_end_nodes
+gvrender_end_page
+gvrender_features
+gvrender_polygon
+gvrender_polyline
+gvrender_ptf
+gvrender_ptf_A
+gvrender_select
+gvrender_set_fillcolor
+gvrender_set_font
+gvrender_set_pencolor
+gvrender_set_penwidth
+gvrender_set_style
+gvrender_textpara
+gvrender_usershape
+gvtextlayout
+gvtextlayout_select
+gvusershape_file_access
+gvusershape_file_release
+gvusershape_find
+gvusershape_size
+gvusershape_size_dpi
+htmlEntityUTF8
+html_path
+html_port
+htmlchar DATA
+htmlerror
+htmllex
+htmllineno
+htmllval DATA
+htmlnerrs DATA
+htmlparse
+inPS
+initHTMLlexer
+initMapData
+insertPM
+insertPS
+isConnected
+isInPS
+isPolygon
+late_attr
+late_bool
+late_double
+late_int
+late_nnstring
+late_string
+latin1ToUTF8
+lineToBox
+lt_preloaded_symbols DATA
+makeGraphs
+makeSelfEdge
+make_html_label
+make_label
+mapbool
+maptoken
+mkbox
+mkboxf
+nToName
+neato_closest
+newPM
+newPS
+new_queue
+new_spline
+next_codegen
+nodeInduce
+output_point
+overlap_edge
+overlap_label
+overlap_node
+packGraphs
+packSubgraphs
+pack_graph
+parseHTML
+parse_style
+pccomps
+perp
+place_graph_label
+place_portlabel
+pointfof
+pointof
+pointsOf
+pop_obj_state
+processClusterEdges
+ps_string
+ps_txt DATA
+psfontResolve
+ptToLine2
+push_obj_state
+putGraphs
+rank
+re_compile_fastmap
+re_compile_pattern
+re_match
+re_match_2
+re_search
+re_search_2
+re_set_registers
+re_set_syntax
+re_syntax_options DATA
+rect2poly
+regcomp
+regerror
+regexec
+regfree
+round_corners
+routepolylines
+routesplines
+routesplinesinit
+routesplinesterm
+safe_dcl
+safefile
+scale
+scanEntity
+seg_intersect
+selfRightSpace
+setColorScheme
+setEdgeType
+setSizes
+shapeOf
+shape_clip
+sizeArray
+sizeLinearArray
+sizeOf
+size_label
+specificFlags DATA
+specificItems DATA
+spline_at_y
+start_timer
+strcasecmp
+strdup_and_subst_obj
+strncasecmp
+subPt
+sub_pointfs
+sub_points
+test_toggle
+textsize
+translate_bb
+undoClusterEdges
+updateBB
+update_bb
+utf8ToLatin1
+write_plain
+xml_string
+xml_url_string
+zmalloc
+zrealloc

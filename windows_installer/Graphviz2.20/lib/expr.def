@@ -1,0 +1,196 @@
+LIBRARY expr.dll
+
+EXPORTS
+
+Vm_atexit_already_defined DATA
+Vmbest DATA
+Vmdcheap DATA
+Vmdcsbrk DATA
+Vmdebug DATA
+Vmheap DATA
+Vmlast DATA
+Vmpool DATA
+Vmprofile DATA
+Vmregion DATA
+_STUB_malloc DATA
+_Sfextern DATA
+_Sfi DATA
+_Sfstderr DATA
+_Sfstdin DATA
+_Sfstdout DATA
+_Sftable DATA
+_Vmextern DATA
+_err_info DATA
+_err_msg
+_err_msgv
+_extoken_fn_
+_sfcvt
+_sfdlen
+_sfexcept
+_sffilbuf
+_sfflsbuf
+_sfgetpath
+_sfllen
+_sfmode
+_sfpclose
+_sfpopen
+_sfputd
+_sfputl
+_sfputm
+_sfputu
+_sfrsrv
+_sfsetpool
+_sfstrtod
+_sftype
+call
+chresc
+chrtoi
+errorf
+exbuiltin DATA
+excast
+excc
+exccclose
+exccopen
+exchar DATA
+exclose
+excomp
+excontext
+exdebug DATA
+exdump
+exerror
+exeval
+exexpr
+exfreenode
+exisAssign
+exlexname
+exlval DATA
+exnerrs DATA
+exnewnode
+exnoncast
+exopen
+exopname
+exparse
+expop
+expr DATA
+expush
+exrewind
+exstatement
+exstralloc
+exstrfree
+exstring
+exsub
+extoken_fn
+extype
+extypename
+exversion DATA
+exwarn
+exzero
+fmtbuf
+fmtesc
+fmtesq
+fmtnesq
+fmtquote
+getErrorErrors
+opt_info_argv DATA
+pathaccess
+pathbin
+pathcanon
+pathcat
+pathexists
+pathfind
+pathgetlink
+pathinclude
+pathpath
+setErrorErrors
+setErrorFileLine
+setErrorId
+setErrorLine
+sfclose
+sfclrerr
+sfclrlock
+sfdisc
+sfdlen
+sfeof
+sferror
+sffcvt
+sffileno
+sfgetc
+sfgetd
+sfgetl
+sfgetm
+sfgetr
+sfgetu
+sfllen
+sfmove
+sfmutex
+sfnew
+sfnotify
+sfnputc
+sfopen
+sfpkrd
+sfpoll
+sfpool
+sfprintf
+sfprints
+sfpurge
+sfputc
+sfputd
+sfputl
+sfputm
+sfputr
+sfputu
+sfraise
+sfrd
+sfread
+sfreserve
+sfresize
+sfscanf
+sfseek
+sfset
+sfsetbuf
+sfsetfd
+sfsize
+sfsk
+sfsprintf
+sfsscanf
+sfstack
+sfstacked
+sfstderr DATA
+sfstdin DATA
+sfstdout DATA
+sfswap
+sfsync
+sftell
+sftmp
+sfulen
+sfungetc
+sfvalue
+sfvprintf
+sfvscanf
+sfvsprintf
+sfvsscanf
+sfwr
+sfwrite
+strToL
+strcopy
+stresc
+strgrpmatch
+strmatch
+strsubmatch
+strton
+traceLex DATA
+vmclear
+vmclose
+vmdbcheck
+vmdbwatch
+vmdisc
+vmopen
+vmprofile
+vmregion
+vmsegment
+vmset
+vmstat
+vmstrdup
+vmtrace
+vmtrbusy
+vmwalk

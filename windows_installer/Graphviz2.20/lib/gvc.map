@@ -1,0 +1,1506 @@
+ gvc
+
+ Timestamp is 48752c6b (Wed Jul 09 17:23:55 2008)
+
+ Preferred load address is 6cdc0000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00049534H .text                   CODE
+ 0002:00000000 00000310H .idata$5                DATA
+ 0002:00000310 00000004H .CRT$XCA                DATA
+ 0002:00000314 00000004H .CRT$XCZ                DATA
+ 0002:00000318 00000004H .CRT$XIA                DATA
+ 0002:0000031c 00000004H .CRT$XIAA               DATA
+ 0002:00000320 00000004H .CRT$XIC                DATA
+ 0002:00000324 00000004H .CRT$XIZ                DATA
+ 0002:00000328 000005a8H .rdata                  DATA
+ 0002:000008d0 00000004H .rdata$sxdata           DATA
+ 0002:000008d4 00000004H .rtc$IAA                DATA
+ 0002:000008d8 00000004H .rtc$IZZ                DATA
+ 0002:000008dc 00000004H .rtc$TAA                DATA
+ 0002:000008e0 00000004H .rtc$TZZ                DATA
+ 0002:000008e8 00000084H .xdata$x                DATA
+ 0002:0000096c 000000a0H .idata$2                DATA
+ 0002:00000a0c 00000014H .idata$3                DATA
+ 0002:00000a20 00000310H .idata$4                DATA
+ 0002:00000d30 000009a8H .idata$6                DATA
+ 0002:000016e0 00002857H .edata                  DATA
+ 0003:00000000 0001dac8H .data                   DATA
+ 0003:0001dae0 0000198cH .bss                    DATA
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0000:00000000       __except_list              00000000     <absolute>
+ 0000:00000001       ___safe_se_handler_count   00000001     <absolute>
+ 0000:00009876       __ldused                   00009876     <absolute>
+ 0000:00009876       __fltused                  00009876     <absolute>
+ 0000:00000000       ___ImageBase               6cdc0000     <linker-defined>
+ 0001:00000000       _fillLine                  6cdc1000 f   libgvc:pack.o
+ 0001:00000150       _putGraphs                 6cdc1150 f   libgvc:pack.o
+ 0001:00001a10       _packGraphs                6cdc2a10 f   libgvc:pack.o
+ 0001:00001ee0       _packSubgraphs             6cdc2ee0 f   libgvc:pack.o
+ 0001:000020a0       _pack_graph                6cdc30a0 f   libgvc:pack.o
+ 0001:00002110       _getPackMode               6cdc3110 f   libgvc:pack.o
+ 0001:00002200       _getPack                   6cdc3200 f   libgvc:pack.o
+ 0001:00002280       _pccomps                   6cdc3280 f   libgvc:ccomps.o
+ 0001:00002660       _ccomps                    6cdc3660 f   libgvc:ccomps.o
+ 0001:00002860       _isConnected               6cdc3860 f   libgvc:ccomps.o
+ 0001:00002920       _nodeInduce                6cdc3920 f   libgvc:ccomps.o
+ 0001:00003e00       _new_queue                 6cdc4e00 f   libgvc:utils.o
+ 0001:00003e70       _free_queue                6cdc4e70 f   libgvc:utils.o
+ 0001:00003ea0       _enqueue                   6cdc4ea0 f   libgvc:utils.o
+ 0001:00003ee0       _dequeue                   6cdc4ee0 f   libgvc:utils.o
+ 0001:00003f40       _late_attr                 6cdc4f40 f   libgvc:utils.o
+ 0001:00003f70       _late_int                  6cdc4f70 f   libgvc:utils.o
+ 0001:00003fd0       _late_double               6cdc4fd0 f   libgvc:utils.o
+ 0001:00004030       _late_string               6cdc5030 f   libgvc:utils.o
+ 0001:00004060       _late_nnstring             6cdc5060 f   libgvc:utils.o
+ 0001:000040a0       _late_bool                 6cdc50a0 f   libgvc:utils.o
+ 0001:000040d0       _UF_find                   6cdc50d0 f   libgvc:utils.o
+ 0001:00004130       _UF_union                  6cdc5130 f   libgvc:utils.o
+ 0001:00004220       _UF_remove                 6cdc5220 f   libgvc:utils.o
+ 0001:00004270       _UF_singleton              6cdc5270 f   libgvc:utils.o
+ 0001:000042a0       _UF_setname                6cdc52a0 f   libgvc:utils.o
+ 0001:00004300       _coord                     6cdc5300 f   libgvc:utils.o
+ 0001:00004340       _Bezier                    6cdc5340 f   libgvc:utils.o
+ 0001:000045c0       _gvUsername                6cdc55c0 f   libgvc:utils.o
+ 0001:00004600       _safefile                  6cdc5600 f   libgvc:utils.o
+ 0001:00004780       _cat_libfile               6cdc5780 f   libgvc:utils.o
+ 0001:00004980       _cat_preamble              6cdc5980 f   libgvc:utils.o
+ 0001:000049a0       _maptoken                  6cdc59a0 f   libgvc:utils.o
+ 0001:00004a10       _mapbool                   6cdc5a10 f   libgvc:utils.o
+ 0001:00004a60       _dotneato_closest          6cdc5a60 f   libgvc:utils.o
+ 0001:00004e10       _spline_at_y               6cdc5e10 f   libgvc:utils.o
+ 0001:00005130       _neato_closest             6cdc6130 f   libgvc:utils.o
+ 0001:00005150       _gvToggle                  6cdc6150 f   libgvc:utils.o
+ 0001:00005170       _test_toggle               6cdc6170 f   libgvc:utils.o
+ 0001:00005180       _common_init_node          6cdc6180 f   libgvc:utils.o
+ 0001:000053a0       _common_init_edge          6cdc63a0 f   libgvc:utils.o
+ 0001:00005a90       _updateBB                  6cdc6a90 f   libgvc:utils.o
+ 0001:00005cc0       _compute_bb                6cdc6cc0 f   libgvc:utils.o
+ 0001:000061b0       _processClusterEdges       6cdc71b0 f   libgvc:utils.o
+ 0001:000069c0       _undoClusterEdges          6cdc79c0 f   libgvc:utils.o
+ 0001:00006c20       _safe_dcl                  6cdc7c20 f   libgvc:utils.o
+ 0001:00006c60       _scanEntity                6cdc7c60 f   libgvc:utils.o
+ 0001:00006e20       _htmlEntityUTF8            6cdc7e20 f   libgvc:utils.o
+ 0001:00007450       _latin1ToUTF8              6cdc8450 f   libgvc:utils.o
+ 0001:00007710       _utf8ToLatin1              6cdc8710 f   libgvc:utils.o
+ 0001:000078b0       _overlap_node              6cdc88b0 f   libgvc:utils.o
+ 0001:00007980       _overlap_label             6cdc8980 f   libgvc:utils.o
+ 0001:00007a20       _overlap_edge              6cdc8a20 f   libgvc:utils.o
+ 0001:00007d70       _setEdgeType               6cdc8d70 f   libgvc:utils.o
+ 0001:00007fc0       _strcasecmp                6cdc8fc0 f   libgvc:utils.o
+ 0001:00008040       _strncasecmp               6cdc9040 f   libgvc:utils.o
+ 0001:000080f0       _gv_free_splines           6cdc90f0 f   libgvc:utils.o
+ 0001:00008170       _gv_cleanup_edge           6cdc9170 f   libgvc:utils.o
+ 0001:000081b0       _gv_cleanup_node           6cdc91b0 f   libgvc:utils.o
+ 0001:00008220       _gv_nodesize               6cdc9220 f   libgvc:utils.o
+ 0001:00008310       _start_timer               6cdc9310 f   libgvc:timing.o
+ 0001:00008320       _elapsed_sec               6cdc9320 f   libgvc:timing.o
+ 0001:00008350       _bezier_clip               6cdc9350 f   libgvc:splines.o
+ 0001:000085e0       _shape_clip                6cdc95e0 f   libgvc:splines.o
+ 0001:00008820       _new_spline                6cdc9820 f   libgvc:splines.o
+ 0001:00008910       _update_bb                 6cdc9910 f   libgvc:splines.o
+ 0001:00008970       _clip_and_install          6cdc9970 f   libgvc:splines.o
+ 0001:00008f00       _add_box                   6cdc9f00 f   libgvc:splines.o
+ 0001:00008f50       _beginpath                 6cdc9f50 f   libgvc:splines.o
+ 0001:00009910       _endpath                   6cdca910 f   libgvc:splines.o
+ 0001:0000a1c0       _selfRightSpace            6cdcb1c0 f   libgvc:splines.o
+ 0001:0000a280       _makeSelfEdge              6cdcb280 f   libgvc:splines.o
+ 0001:0000b700       _place_portlabel           6cdcc700 f   libgvc:splines.o
+ 0001:0000bac0       _getsplinepoints           6cdccac0 f   libgvc:splines.o
+ 0001:0000bb10       _round_corners             6cdccb10 f   libgvc:shapes.o
+ 0001:0000ce70       _shapeOf                   6cdcde70 f   libgvc:shapes.o
+ 0001:0000cef0       _isPolygon                 6cdcdef0 f   libgvc:shapes.o
+ 0001:00012730       _find_user_shape           6cdd3730 f   libgvc:shapes.o
+ 0001:000127b0       _bind_shape                6cdd37b0 f   libgvc:shapes.o
+ 0001:00012c00       _routesplinesinit          6cdd3c00 f   libgvc:routespl.o
+ 0001:00012c80       _routesplinesterm          6cdd3c80 f   libgvc:routespl.o
+ 0001:00012cf0       _routesplines              6cdd3cf0 f   libgvc:routespl.o
+ 0001:00013e10       _routepolylines            6cdd4e10 f   libgvc:routespl.o
+ 0001:000147e0       _epsf_init                 6cdd57e0 f   libgvc:psusershape.o
+ 0001:00014bd0       _epsf_free                 6cdd5bd0 f   libgvc:psusershape.o
+ 0001:00014bf0       _epsf_emit_body            6cdd5bf0 f   libgvc:psusershape.o
+ 0001:00014cf0       _epsf_define               6cdd5cf0 f   libgvc:psusershape.o
+ 0001:00014e10       _ps_string                 6cdd5e10 f   libgvc:psusershape.o
+ 0001:00015100       _translate_bb              6cdd6100 f   libgvc:postproc.o
+ 0001:00015290       _dot_nodesize              6cdd6290 f   libgvc:postproc.o
+ 0001:000153b0       _dotneato_postprocess      6cdd63b0 f   libgvc:postproc.o
+ 0001:00015cc0       _place_graph_label         6cdd6cc0 f   libgvc:postproc.o
+ 0001:00015e80       _newPS                     6cdd6e80 f   libgvc:pointset.o
+ 0001:00015ea0       _freePS                    6cdd6ea0 f   libgvc:pointset.o
+ 0001:00015ec0       _insertPS                  6cdd6ec0 f   libgvc:pointset.o
+ 0001:00015f20       _addPS                     6cdd6f20 f   libgvc:pointset.o
+ 0001:00015f60       _inPS                      6cdd6f60 f   libgvc:pointset.o
+ 0001:00015f90       _isInPS                    6cdd6f90 f   libgvc:pointset.o
+ 0001:00015fc0       _sizeOf                    6cdd6fc0 f   libgvc:pointset.o
+ 0001:00015fe0       _pointsOf                  6cdd6fe0 f   libgvc:pointset.o
+ 0001:000160d0       _newPM                     6cdd70d0 f   libgvc:pointset.o
+ 0001:00016120       _clearPM                   6cdd7120 f   libgvc:pointset.o
+ 0001:00016140       _freePM                    6cdd7140 f   libgvc:pointset.o
+ 0001:000161a0       _insertPM                  6cdd71a0 f   libgvc:pointset.o
+ 0001:000178e0       _write_plain               6cdd88e0 f   libgvc:output.o
+ 0001:00017e30       _attach_attrs_and_arrows   6cdd8e30 f   libgvc:output.o
+ 0001:00018f10       _attach_attrs              6cdd9f10 f   libgvc:output.o
+ 0001:00018f30       _output_point              6cdd9f30 f   libgvc:output.o
+ 0001:00019060       _rank                      6cdda060 f   libgvc:ns.o
+ 0001:0001d230       _zmalloc                   6cdde230 f   libgvc:memory.o
+ 0001:0001d270       _zrealloc                  6cdde270 f   libgvc:memory.o
+ 0001:0001d2f0       _gmalloc                   6cdde2f0 f   libgvc:memory.o
+ 0001:0001d340       _grealloc                  6cdde340 f   libgvc:memory.o
+ 0001:0001d390       _size_label                6cdde390 f   libgvc:labels.o
+ 0001:0001d780       _make_label                6cdde780 f   libgvc:labels.o
+ 0001:0001d7e0       _free_label                6cdde7e0 f   libgvc:labels.o
+ 0001:0001d8a0       _emit_label                6cdde8a0 f   libgvc:labels.o
+ 0001:0001da50       _strdup_and_subst_obj      6cddea50 f   libgvc:labels.o
+ 0001:0001df00       _xml_string                6cddef00 f   libgvc:labels.o
+ 0001:0001e200       _xml_url_string            6cddf200 f   libgvc:labels.o
+ 0001:0001e3a0       _dotneato_usage            6cddf3a0 f   libgvc:input.o
+ 0001:0001e4b0       _dotneato_args_initialize  6cddf4b0 f   libgvc:input.o
+ 0001:0001edf0       _global_def                6cddfdf0 f   libgvc:input.o
+ 0001:0001ee50       _getdouble                 6cddfe50 f   libgvc:input.o
+ 0001:0001eea0       _gvNextInputGraph          6cddfea0 f   libgvc:input.o
+ 0001:0001f060       _graph_init                6cde0060 f   libgvc:input.o
+ 0001:0001fff0       _graph_cleanup             6cde0ff0 f   libgvc:input.o
+ 0001:00020040       _charsetToStr              6cde1040 f   libgvc:input.o
+ 0001:000200a0       _do_graph_label            6cde10a0 f   libgvc:input.o
+ 0001:000203d0       _emit_html_label           6cde13d0 f   libgvc:htmltable.o
+ 0001:00021590       _free_html_font            6cde2590 f   libgvc:htmltable.o
+ 0001:000215f0       _free_html_data            6cde25f0 f   libgvc:htmltable.o
+ 0001:00021660       _free_html_text            6cde2660 f   libgvc:htmltable.o
+ 0001:00021790       _free_html_img             6cde2790 f   libgvc:htmltable.o
+ 0001:000217c0       _free_html_label           6cde27c0 f   libgvc:htmltable.o
+ 0001:00021900       _html_port                 6cde2900 f   libgvc:htmltable.o
+ 0001:00021a40       _html_path                 6cde2a40 f   libgvc:htmltable.o
+ 0001:00021a50       _sizeLinearArray           6cde2a50 f   libgvc:htmltable.o
+ 0001:00021c40       _nToName                   6cde2c40 f   libgvc:htmltable.o
+ 0001:00021c80       _makeGraphs                6cde2c80 f   libgvc:htmltable.o
+ 0001:000225d0       _setSizes                  6cde35d0 f   libgvc:htmltable.o
+ 0001:000226b0       _sizeArray                 6cde36b0 f   libgvc:htmltable.o
+ 0001:00022830       _make_html_label           6cde3830 f   libgvc:htmltable.o
+ 0001:000240c0       _htmlparse                 6cde50c0 f   libgvc:htmlparse.o
+ 0001:000253b0       _parseHTML                 6cde63b0 f   libgvc:htmlparse.o
+ 0001:00025500       _htmlerror                 6cde6500 f   libgvc:htmllex.o
+ 0001:00025fc0       _initHTMLlexer             6cde6fc0 f   libgvc:htmllex.o
+ 0001:00026670       _clearHTMLlexer            6cde7670 f   libgvc:htmllex.o
+ 0001:000266b0       _htmllineno                6cde76b0 f   libgvc:htmllex.o
+ 0001:000266d0       _htmllex                   6cde76d0 f   libgvc:htmllex.o
+ 0001:00028700       _pointof                   6cde9700 f   libgvc:geom.o
+ 0001:00028720       _pointfof                  6cde9720 f   libgvc:geom.o
+ 0001:00028750       _cvt2pt                    6cde9750 f   libgvc:geom.o
+ 0001:00028800       _cvt2ptf                   6cde9800 f   libgvc:geom.o
+ 0001:00028840       _boxof                     6cde9840 f   libgvc:geom.o
+ 0001:00028880       _boxfof                    6cde9880 f   libgvc:geom.o
+ 0001:000288c0       _mkbox                     6cde98c0 f   libgvc:geom.o
+ 0001:00028930       _mkboxf                    6cde9930 f   libgvc:geom.o
+ 0001:000289b0       _add_points                6cde99b0 f   libgvc:geom.o
+ 0001:000289d0       _sub_points                6cde99d0 f   libgvc:geom.o
+ 0001:000289f0       _add_pointfs               6cde99f0 f   libgvc:geom.o
+ 0001:00028a20       _sub_pointfs               6cde9a20 f   libgvc:geom.o
+ 0001:00028a50       _exch_xy                   6cde9a50 f   libgvc:geom.o
+ 0001:00028a70       _exch_xyf                  6cde9a70 f   libgvc:geom.o
+ 0001:00028aa0       _box_bb                    6cde9aa0 f   libgvc:geom.o
+ 0001:00028b40       _boxf_bb                   6cde9b40 f   libgvc:geom.o
+ 0001:00028bf0       _box_intersect             6cde9bf0 f   libgvc:geom.o
+ 0001:00028c90       _boxf_intersect            6cde9c90 f   libgvc:geom.o
+ 0001:00028d40       _box_overlap               6cde9d40 f   libgvc:geom.o
+ 0001:00028d80       _boxf_overlap              6cde9d80 f   libgvc:geom.o
+ 0001:00028dd0       _box_contains              6cde9dd0 f   libgvc:geom.o
+ 0001:00028e10       _boxf_contains             6cde9e10 f   libgvc:geom.o
+ 0001:00028e60       _lineToBox                 6cde9e60 f   libgvc:geom.o
+ 0001:00029190       _rect2poly                 6cdea190 f   libgvc:geom.o
+ 0001:000291d0       _cwrotatep                 6cdea1d0 f   libgvc:geom.o
+ 0001:00029410       _cwrotatepf                6cdea410 f   libgvc:geom.o
+ 0001:00029580       _ccwrotatep                6cdea580 f   libgvc:geom.o
+ 0001:00029660       _ccwrotatepf               6cdea660 f   libgvc:geom.o
+ 0001:000297d0       _flip_rec_box              6cdea7d0 f   libgvc:geom.o
+ 0001:00029840       _ptToLine2                 6cdea840 f   libgvc:geom.o
+ 0001:000298b0       _addPt                     6cdea8b0 f   libgvc:geom.o
+ 0001:000298e0       _subPt                     6cdea8e0 f   libgvc:geom.o
+ 0001:00029910       _perp                      6cdea910 f   libgvc:geom.o
+ 0001:00029940       _scale                     6cdea940 f   libgvc:geom.o
+ 0001:00029970       _seg_intersect             6cdea970 f   libgvc:geom.o
+ 0001:00029c20       _textsize                  6cdeac20 f   libgvc:fontmetrics.o
+ 0001:00029eb0       _psfontResolve             6cdeaeb0 f   libgvc:fontmetrics.o
+ 0001:00029fc0       _push_obj_state            6cdeafc0 f   libgvc:emit.o
+ 0001:0002a080       _pop_obj_state             6cdeb080 f   libgvc:emit.o
+ 0001:0002a1f0       _initMapData               6cdeb1f0 f   libgvc:emit.o
+ 0001:0002a330       _emit_map_rect             6cdeb330 f   libgvc:emit.o
+ 0001:0002a430       _emit_background           6cdeb430 f   libgvc:emit.o
+ 0001:0002a4e0       _emit_graph                6cdeb4e0 f   libgvc:emit.o
+ 0001:0002f800       _emit_once                 6cdf0800 f   libgvc:emit.o
+ 0001:0002f880       _emit_once_reset           6cdf0880 f   libgvc:emit.o
+ 0001:0002f8b0       _emit_clusters             6cdf08b0 f   libgvc:emit.o
+ 0001:00030290       _parse_style               6cdf1290 f   libgvc:emit.o
+ 0001:00030750       _gvRenderJobs              6cdf1750 f   libgvc:emit.o
+ 0001:00033780       _ellipse_connection        6cdf4780 f   libgvc:diagen.o
+ 0001:00033850       _box_connection            6cdf4850 f   libgvc:diagen.o
+ 0001:00034a80       _canontoken                6cdf5a80 f   libgvc:colxlate.o
+ 0001:00034b40       _colorxlate                6cdf5b40 f   libgvc:colxlate.o
+ 0001:00035e00       _setColorScheme            6cdf6e00 f   libgvc:colxlate.o
+ 0001:00035e10       _arrow_flags               6cdf6e10 f   libgvc:arrows.o
+ 0001:00036110       _arrow_length              6cdf7110 f   libgvc:arrows.o
+ 0001:000361e0       _arrowEndClip              6cdf71e0 f   libgvc:arrows.o
+ 0001:00036570       _arrowStartClip            6cdf7570 f   libgvc:arrows.o
+ 0001:00037170       _arrow_bb                  6cdf8170 f   libgvc:arrows.o
+ 0001:000376c0       _arrow_newgen              6cdf86c0 f   libgvc:arrows.o
+ 0001:00037950       _arrow_gen                 6cdf8950 f   libgvc:arrows.o
+ 0001:000379c0       _gvParseArgs               6cdf89c0 f   libgvc:args.o
+ 0001:00038070       _gvContext                 6cdf9070 f   libgvc:gvc.o
+ 0001:000380d0       _gvLayout                  6cdf90d0 f   libgvc:gvc.o
+ 0001:000383b0       _gvRender                  6cdf93b0 f   libgvc:gvc.o
+ 0001:000384e0       _gvRenderFilename          6cdf94e0 f   libgvc:gvc.o
+ 0001:000385f0       _gvRenderData              6cdf95f0 f   libgvc:gvc.o
+ 0001:00038750       _gvcInfo                   6cdf9750 f   libgvc:gvc.o
+ 0001:00038760       _gvcUsername               6cdf9760 f   libgvc:gvc.o
+ 0001:00038770       _gvcVersion                6cdf9770 f   libgvc:gvc.o
+ 0001:00038780       _gvcBuildDate              6cdf9780 f   libgvc:gvc.o
+ 0001:00038790       _gvFirstPlugin             6cdf9790 f   libgvc:gvc.o
+ 0001:000387a0       _gvNextPlugin              6cdf97a0 f   libgvc:gvc.o
+ 0001:000387b0       _gvPluginType              6cdf97b0 f   libgvc:gvc.o
+ 0001:00038820       _gvusershape_find          6cdf9820 f   libgvc:gvusershape.o
+ 0001:00038860       _gvusershape_file_access   6cdf9860 f   libgvc:gvusershape.o
+ 0001:00038950       _gvusershape_file_release  6cdf9950 f   libgvc:gvusershape.o
+ 0001:00038990       _gvusershape_size_dpi      6cdf9990 f   libgvc:gvusershape.o
+ 0001:00038a10       _gvusershape_size          6cdf9a10 f   libgvc:gvusershape.o
+ 0001:000396e0       _gvtextlayout_select       6cdfa6e0 f   libgvc:gvtextlayout.o
+ 0001:00039730       _gvtextlayout              6cdfa730 f   libgvc:gvtextlayout.o
+ 0001:00039770       _re_set_syntax             6cdfa770 f   libgvc:gvconfig.o
+ 0001:00039790       _re_compile_fastmap        6cdfa790 f   libgvc:gvconfig.o
+ 0001:00039e00       _re_set_registers          6cdfae00 f   libgvc:gvconfig.o
+ 0001:00039e70       _re_search                 6cdfae70 f   libgvc:gvconfig.o
+ 0001:00039ea0       _re_search_2               6cdfaea0 f   libgvc:gvconfig.o
+ 0001:0003a170       _re_match                  6cdfb170 f   libgvc:gvconfig.o
+ 0001:0003a1b0       _re_match_2                6cdfb1b0 f   libgvc:gvconfig.o
+ 0001:0003da40       _re_compile_pattern        6cdfea40 f   libgvc:gvconfig.o
+ 0001:00041ce0       _regcomp                   6ce02ce0 f   libgvc:gvconfig.o
+ 0001:00041e60       _regexec                   6ce02e60 f   libgvc:gvconfig.o
+ 0001:00041ff0       _regerror                  6ce02ff0 f   libgvc:gvconfig.o
+ 0001:00042070       _regfree                   6ce03070 f   libgvc:gvconfig.o
+ 0001:00042100       _gvconfig_libdir           6ce03100 f   libgvc:gvconfig.o
+ 0001:000421e0       _first_codegen             6ce031e0 f   libgvc:gvconfig.o
+ 0001:000421f0       _next_codegen              6ce031f0 f   libgvc:gvconfig.o
+ 0001:00042210       _gvconfig                  6ce03210 f   libgvc:gvconfig.o
+ 0001:00042f10       _gvplugin_api              6ce03f10 f   libgvc:gvplugin.o
+ 0001:00042f60       _gvplugin_api_name         6ce03f60 f   libgvc:gvplugin.o
+ 0001:00042f80       _gvplugin_install          6ce03f80 f   libgvc:gvplugin.o
+ 0001:00043130       _gvplugin_library_load     6ce04130 f   libgvc:gvplugin.o
+ 0001:000433b0       _gvplugin_load             6ce043b0 f   libgvc:gvplugin.o
+ 0001:000437a0       _gvplugin_list             6ce047a0 f   libgvc:gvplugin.o
+ 0001:00043a80       _gvplugin_write_status     6ce04a80 f   libgvc:gvplugin.o
+ 0001:00045370       _gvjobs_output_filename    6ce06370 f   libgvc:gvjobs.o
+ 0001:00045410       _gvjobs_output_langname    6ce06410 f   libgvc:gvjobs.o
+ 0001:000454d0       _gvjobs_first              6ce064d0 f   libgvc:gvjobs.o
+ 0001:000454f0       _gvjobs_next               6ce064f0 f   libgvc:gvjobs.o
+ 0001:00045530       _gvNEWargvlist             6ce06530 f   libgvc:gvjobs.o
+ 0001:00045540       _gv_argvlist_set_item      6ce06540 f   libgvc:gvjobs.o
+ 0001:00045590       _gv_argvlist_reset         6ce06590 f   libgvc:gvjobs.o
+ 0001:000455d0       _gv_argvlist_free          6ce065d0 f   libgvc:gvjobs.o
+ 0001:00045600       _gvjobs_delete             6ce06600 f   libgvc:gvjobs.o
+ 0001:000456f0       _gvNEWcontext              6ce066f0 f   libgvc:gvcontext.o
+ 0001:00045730       _gvFreeContext             6ce06730 f   libgvc:gvcontext.o
+ 0001:000457e0       _gvloadimage               6ce067e0 f   libgvc:gvloadimage.o
+ 0001:00045920       _gvdevice_write            6ce06920 f   libgvc:gvdevice.o
+ 0001:00045a80       _gvdevice_fputs            6ce06a80 f   libgvc:gvdevice.o
+ 0001:00045ab0       _gvdevice_printf           6ce06ab0 f   libgvc:gvdevice.o
+ 0001:00045b20       _gvdevice_printnum         6ce06b20 f   libgvc:gvdevice.o
+ 0001:00045ce0       _gvdevice_printpointf      6ce06ce0 f   libgvc:gvdevice.o
+ 0001:00045d60       _gvdevice_printpointflist  6ce06d60 f   libgvc:gvdevice.o
+ 0001:00045dd0       _gvdevice_initialize       6ce06dd0 f   libgvc:gvdevice.o
+ 0001:000460d0       _gvdevice_format           6ce070d0 f   libgvc:gvdevice.o
+ 0001:00046140       _gvdevice_finalize         6ce07140 f   libgvc:gvdevice.o
+ 0001:00046230       _gvlayout_select           6ce07230 f   libgvc:gvlayout.o
+ 0001:000462b0       _gvLayoutJobs              6ce072b0 f   libgvc:gvlayout.o
+ 0001:00046360       _gvFreeLayout              6ce07360 f   libgvc:gvlayout.o
+ 0001:000463c0       _gvrender_select           6ce073c0 f   libgvc:gvrender.o
+ 0001:00046540       _gvrender_features         6ce07540 f   libgvc:gvrender.o
+ 0001:000465b0       _gvrender_begin_job        6ce075b0 f   libgvc:gvrender.o
+ 0001:00046650       _gvrender_end_job          6ce07650 f   libgvc:gvrender.o
+ 0001:000466c0       _gvrender_ptf              6ce076c0 f   libgvc:gvrender.o
+ 0001:00046760       _gvrender_ptf_A            6ce07760 f   libgvc:gvrender.o
+ 0001:00046880       _gvrender_begin_graph      6ce07880 f   libgvc:gvrender.o
+ 0001:00046bc0       _gvrender_end_graph        6ce07bc0 f   libgvc:gvrender.o
+ 0001:00046c30       _gvrender_begin_page       6ce07c30 f   libgvc:gvrender.o
+ 0001:00046d60       _gvrender_end_page         6ce07d60 f   libgvc:gvrender.o
+ 0001:00046dc0       _gvrender_begin_layer      6ce07dc0 f   libgvc:gvrender.o
+ 0001:00046e80       _gvrender_end_layer        6ce07e80 f   libgvc:gvrender.o
+ 0001:00046ee0       _gvrender_begin_cluster    6ce07ee0 f   libgvc:gvrender.o
+ 0001:00046f40       _gvrender_end_cluster      6ce07f40 f   libgvc:gvrender.o
+ 0001:00046fa0       _gvrender_begin_nodes      6ce07fa0 f   libgvc:gvrender.o
+ 0001:00047000       _gvrender_end_nodes        6ce08000 f   libgvc:gvrender.o
+ 0001:00047060       _gvrender_begin_edges      6ce08060 f   libgvc:gvrender.o
+ 0001:000470c0       _gvrender_end_edges        6ce080c0 f   libgvc:gvrender.o
+ 0001:00047120       _gvrender_begin_node       6ce08120 f   libgvc:gvrender.o
+ 0001:00047180       _gvrender_end_node         6ce08180 f   libgvc:gvrender.o
+ 0001:000471e0       _gvrender_begin_edge       6ce081e0 f   libgvc:gvrender.o
+ 0001:00047240       _gvrender_end_edge         6ce08240 f   libgvc:gvrender.o
+ 0001:000472a0       _gvrender_begin_context    6ce082a0 f   libgvc:gvrender.o
+ 0001:000472e0       _gvrender_end_context      6ce082e0 f   libgvc:gvrender.o
+ 0001:00047320       _gvrender_begin_anchor     6ce08320 f   libgvc:gvrender.o
+ 0001:000473a0       _gvrender_end_anchor       6ce083a0 f   libgvc:gvrender.o
+ 0001:00047400       _gvrender_set_font         6ce08400 f   libgvc:gvrender.o
+ 0001:00047450       _gvrender_textpara         6ce08450 f   libgvc:gvrender.o
+ 0001:000475c0       _gvrender_set_pencolor     6ce085c0 f   libgvc:gvrender.o
+ 0001:00047680       _gvrender_set_fillcolor    6ce08680 f   libgvc:gvrender.o
+ 0001:00047740       _gvrender_set_style        6ce08740 f   libgvc:gvrender.o
+ 0001:000479d0       _gvrender_ellipse          6ce089d0 f   libgvc:gvrender.o
+ 0001:00047bf0       _gvrender_polygon          6ce08bf0 f   libgvc:gvrender.o
+ 0001:00047e10       _gvrender_box              6ce08e10 f   libgvc:gvrender.o
+ 0001:00047e80       _gvrender_beziercurve      6ce08e80 f   libgvc:gvrender.o
+ 0001:000480c0       _gvrender_polyline         6ce090c0 f   libgvc:gvrender.o
+ 0001:000482d0       _gvrender_comment          6ce092d0 f   libgvc:gvrender.o
+ 0001:00048350       _gvrender_usershape        6ce09350 f   libgvc:gvrender.o
+ 0001:000489c0       _gvrender_set_penwidth     6ce099c0 f   libgvc:gvrender.o
+ 0001:00048a1c       _Proutespline              6ce09a1c f   pathplan:pathplan.dll
+ 0001:00048a22       _make_polyline             6ce09a22 f   pathplan:pathplan.dll
+ 0001:00048a28       _Pshortestpath             6ce09a28 f   pathplan:pathplan.dll
+ 0001:00048a2e       _agerr                     6ce09a2e f   graph:graph.dll
+ 0001:00048a34       _agnxtout                  6ce09a34 f   graph:graph.dll
+ 0001:00048a3a       _agfstout                  6ce09a3a f   graph:graph.dll
+ 0001:00048a40       _agnxtnode                 6ce09a40 f   graph:graph.dll
+ 0001:00048a46       _agfstnode                 6ce09a46 f   graph:graph.dll
+ 0001:00048a4c       _agnnodes                  6ce09a4c f   graph:graph.dll
+ 0001:00048a52       _agget                     6ce09a52 f   graph:graph.dll
+ 0001:00048a58       _agsubg                    6ce09a58 f   graph:graph.dll
+ 0001:00048a5e       _agnxtedge                 6ce09a5e f   graph:graph.dll
+ 0001:00048a64       _agfstedge                 6ce09a64 f   graph:graph.dll
+ 0001:00048a6a       _aginsert                  6ce09a6a f   graph:graph.dll
+ 0001:00048a70       _agcontains                6ce09a70 f   graph:graph.dll
+ 0001:00048a76       _agfindattr                6ce09a76 f   graph:graph.dll
+ 0001:00048a7c       _agxget                    6ce09a7c f   graph:graph.dll
+ 0001:00048a82       _aghtmlstr                 6ce09a82 f   graph:graph.dll
+ 0001:00048a88       _agclose                   6ce09a88 f   graph:graph.dll
+ 0001:00048a8e       _agdelete                  6ce09a8e f   graph:graph.dll
+ 0001:00048a94       _agxbfree                  6ce09a94 f   graph:graph.dll
+ 0001:00048a9a       _agxbinit                  6ce09a9a f   graph:graph.dll
+ 0001:00048aa0       _agfindsubg                6ce09aa0 f   graph:graph.dll
+ 0001:00048aa6       _agnode                    6ce09aa6 f   graph:graph.dll
+ 0001:00048aac       _agxbmore                  6ce09aac f   graph:graph.dll
+ 0001:00048ab2       _agxbput                   6ce09ab2 f   graph:graph.dll
+ 0001:00048ab8       _agxset                    6ce09ab8 f   graph:graph.dll
+ 0001:00048abe       _agedgeattr                6ce09abe f   graph:graph.dll
+ 0001:00048ac4       _agnodeattr                6ce09ac4 f   graph:graph.dll
+ 0001:00048aca       _agraphattr                6ce09aca f   graph:graph.dll
+ 0001:00048ad0       _agcopyattr                6ce09ad0 f   graph:graph.dll
+ 0001:00048ad6       _agedge                    6ce09ad6 f   graph:graph.dll
+ 0001:00048adc       _agdictof                  6ce09adc f   graph:graph.dll
+ 0001:00048ae2       _agfindnode                6ce09ae2 f   graph:graph.dll
+ 0001:00048ae8       _agcanon                   6ce09ae8 f   graph:graph.dll
+ 0001:00048aee       _agcanonical               6ce09aee f   graph:graph.dll
+ 0001:00048af4       _agxbpop                   6ce09af4 f   graph:graph.dll
+ 0001:00048afa       _agset                     6ce09afa f   graph:graph.dll
+ 0001:00048b00       _agprotograph              6ce09b00 f   graph:graph.dll
+ 0001:00048b06       _agseterr                  6ce09b06 f   graph:graph.dll
+ 0001:00048b0c       _aginitlib                 6ce09b0c f   graph:graph.dll
+ 0001:00048b12       _agread                    6ce09b12 f   graph:graph.dll
+ 0001:00048b18       _agsetfile                 6ce09b18 f   graph:graph.dll
+ 0001:00048b1e       _agfindedge                6ce09b1e f   graph:graph.dll
+ 0001:00048b24       _agopen                    6ce09b24 f   graph:graph.dll
+ 0001:00048b2a       _agxbput_n                 6ce09b2a f   graph:graph.dll
+ 0001:00048b30       _agstrfree                 6ce09b30 f   graph:graph.dll
+ 0001:00048b36       _agstrdup                  6ce09b36 f   graph:graph.dll
+ 0001:00048b3c       _agsafeset                 6ce09b3c f   graph:graph.dll
+ 0001:00048b42       _agprvnode                 6ce09b42 f   graph:graph.dll
+ 0001:00048b48       _aglstnode                 6ce09b48 f   graph:graph.dll
+ 0001:00048b4e       _agerrorf                  6ce09b4e f   graph:graph.dll
+ 0001:00048b54       _agerrors                  6ce09b54 f   graph:graph.dll
+ 0001:00048b5a       _dtclose                   6ce09b5a f   cdt:cdt.dll
+ 0001:00048b60       _dtopen                    6ce09b60 f   cdt:cdt.dll
+ 0001:00048b66       _dtsize                    6ce09b66 f   cdt:cdt.dll
+ 0001:00048b6c       _dtflatten                 6ce09b6c f   cdt:cdt.dll
+ 0001:00048b72       _gzwrite                   6ce09b72 f   z:zlib1.dll
+ 0001:00048b78       _gzdopen                   6ce09b78 f   z:zlib1.dll
+ 0001:00048b7e       _gzclose                   6ce09b7e f   z:zlib1.dll
+ 0001:00048b84       _lt_dlsym                  6ce09b84 f   ltdl:ltdl.dll
+ 0001:00048b8a       _lt_dlerror                6ce09b8a f   ltdl:ltdl.dll
+ 0001:00048b90       _lt_dlopen                 6ce09b90 f   ltdl:ltdl.dll
+ 0001:00048b96       _lt_dlinit                 6ce09b96 f   ltdl:ltdl.dll
+ 0001:00048be9       __CRT_INIT@12              6ce09be9 f   msvcrt:crtdll.obj
+ 0001:00048e9e       __DllMainCRTStartup@12     6ce09e9e f   msvcrt:crtdll.obj
+ 0001:00048ec0       _free                      6ce09ec0 f   msvcrt:MSVCR80.dll
+ 0001:00048ec6       _sqrt                      6ce09ec6 f   msvcrt:MSVCR80.dll
+ 0001:00048ed0       __ftol2_sse                6ce09ed0 f   msvcrt:ftol2.obj
+ 0001:00048ed9       __ftol2_pentium4           6ce09ed9 f   msvcrt:ftol2.obj
+ 0001:00048eec       __ftol2_sse_excpt          6ce09eec f   msvcrt:ftol2.obj
+ 0001:00048f06       __ftol2                    6ce09f06 f   msvcrt:ftol2.obj
+ 0001:00048f7c       _abs                       6ce09f7c f   msvcrt:MSVCR80.dll
+ 0001:00048f82       _strcmp                    6ce09f82 f   msvcrt:MSVCR80.dll
+ 0001:00048f88       _strcpy                    6ce09f88 f   msvcrt:MSVCR80.dll
+ 0001:00048f8e       _strlen                    6ce09f8e f   msvcrt:MSVCR80.dll
+ 0001:00048f94       @__security_check_cookie@4 6ce09f94 f   msvcrt:secchk.obj
+ 0001:00048fa4       _strcat                    6ce09fa4 f   msvcrt:MSVCR80.dll
+ 0001:00048faa       _fabs                      6ce09faa f   msvcrt:MSVCR80.dll
+ 0001:00048fb0       _memset                    6ce09fb0 f   msvcrt:MSVCR80.dll
+ 0001:00048fb6       _atan2                     6ce09fb6 f   msvcrt:MSVCR80.dll
+ 0001:00048fc0       __alloca_probe             6ce09fc0     msvcrt:chkstk.obj
+ 0001:00048fc0       __chkstk                   6ce09fc0 f   msvcrt:chkstk.obj
+ 0001:00048fec       _sin                       6ce09fec f   msvcrt:MSVCR80.dll
+ 0001:00048ff2       _cos                       6ce09ff2 f   msvcrt:MSVCR80.dll
+ 0001:00048ff8       _pow                       6ce09ff8 f   msvcrt:MSVCR80.dll
+ 0001:00048ffe       _log10                     6ce09ffe f   msvcrt:MSVCR80.dll
+ 0001:00049004       _malloc                    6ce0a004 f   msvcrt:MSVCR80.dll
+ 0001:0004900a       _memcmp                    6ce0a00a f   msvcrt:MSVCR80.dll
+ 0001:00049010       _memcpy                    6ce0a010 f   msvcrt:MSVCR80.dll
+ 0001:00049016       ___clean_type_info_names   6ce0a016 f   msvcrt:tncleanup.obj
+ 0001:00049022       __onexit                   6ce0a022 f   msvcrt:atonexit.obj
+ 0001:000490c1       _atexit                    6ce0a0c1 f   msvcrt:atonexit.obj
+ 0001:000490d3       __RTC_Initialize           6ce0a0d3 f   msvcrt:initsect.obj
+ 0001:000490f7       __RTC_Terminate            6ce0a0f7 f   msvcrt:initsect.obj
+ 0001:00049120       __ValidateImageBase        6ce0a120 f   msvcrt:pesect.obj
+ 0001:00049150       __FindPESection            6ce0a150 f   msvcrt:pesect.obj
+ 0001:00049192       __IsNonwritableInCurrentImage 6ce0a192 f   msvcrt:pesect.obj
+ 0001:000491fe       __initterm                 6ce0a1fe f   msvcrt:MSVCR80.dll
+ 0001:00049204       __initterm_e               6ce0a204 f   msvcrt:MSVCR80.dll
+ 0001:0004920a       __amsg_exit                6ce0a20a f   msvcrt:MSVCR80.dll
+ 0001:00049210       ___CppXcptFilter           6ce0a210 f   msvcrt:MSVCR80.dll
+ 0001:00049216       _DllMain@12                6ce0a216 f   msvcrt:dllmain.obj
+ 0001:00049238       __SEH_prolog4              6ce0a238 f   msvcrt:sehprolg4.obj
+ 0001:0004927d       __SEH_epilog4              6ce0a27d f   msvcrt:sehprolg4.obj
+ 0001:00049291       __except_handler4          6ce0a291 f   msvcrt:chandler4gs.obj
+ 0001:000492b4       ___security_init_cookie    6ce0a2b4 f   msvcrt:gs_support.obj
+ 0001:00049398       __get_sse2_info            6ce0a398 f   msvcrt:cpu_disp.obj
+ 0001:000493f8       ___sse2_available_init     6ce0a3f8 f   msvcrt:cpu_disp.obj
+ 0001:00049405       ___report_gsfailure        6ce0a405 f   msvcrt:gs_report.obj
+ 0001:0004950a       ___clean_type_info_names_internal 6ce0a50a f   msvcrt:MSVCR80.dll
+ 0001:00049510       __unlock                   6ce0a510 f   msvcrt:MSVCR80.dll
+ 0001:00049516       ___dllonexit               6ce0a516 f   msvcrt:MSVCR80.dll
+ 0001:0004951c       __lock                     6ce0a51c f   msvcrt:MSVCR80.dll
+ 0001:00049522       __except_handler4_common   6ce0a522 f   msvcrt:MSVCR80.dll
+ 0001:00049528       __crt_debugger_hook        6ce0a528 f   msvcrt:MSVCR80.dll
+ 0001:0004952e       __dup                      6ce0a52e f   msvcrt:MSVCR80.dll
+ 0001:0004952e       _dup                       6ce0a52e f   msvcrt:MSVCR80.dll
+ 0002:00000000       __imp__FindNextFileA@8     6ce0b000     KERNEL32:KERNEL32.dll
+ 0002:00000004       __imp__VirtualQuery@12     6ce0b004     KERNEL32:KERNEL32.dll
+ 0002:00000008       __imp__GetModuleFileNameA@12 6ce0b008     KERNEL32:KERNEL32.dll
+ 0002:0000000c       __imp__FindFirstFileA@8    6ce0b00c     KERNEL32:KERNEL32.dll
+ 0002:00000010       __imp__InterlockedExchange@8 6ce0b010     KERNEL32:KERNEL32.dll
+ 0002:00000014       __imp__IsDebuggerPresent@0 6ce0b014     KERNEL32:KERNEL32.dll
+ 0002:00000018       __imp__SetUnhandledExceptionFilter@4 6ce0b018     KERNEL32:KERNEL32.dll
+ 0002:0000001c       __imp__UnhandledExceptionFilter@4 6ce0b01c     KERNEL32:KERNEL32.dll
+ 0002:00000020       __imp__GetCurrentProcess@0 6ce0b020     KERNEL32:KERNEL32.dll
+ 0002:00000024       __imp__TerminateProcess@8  6ce0b024     KERNEL32:KERNEL32.dll
+ 0002:00000028       __imp__GetSystemTimeAsFileTime@4 6ce0b028     KERNEL32:KERNEL32.dll
+ 0002:0000002c       __imp__GetCurrentProcessId@0 6ce0b02c     KERNEL32:KERNEL32.dll
+ 0002:00000030       __imp__GetCurrentThreadId@0 6ce0b030     KERNEL32:KERNEL32.dll
+ 0002:00000034       __imp__GetTickCount@0      6ce0b034     KERNEL32:KERNEL32.dll
+ 0002:00000038       __imp__QueryPerformanceCounter@4 6ce0b038     KERNEL32:KERNEL32.dll
+ 0002:0000003c       __imp__DisableThreadLibraryCalls@4 6ce0b03c     KERNEL32:KERNEL32.dll
+ 0002:00000040       __imp__InterlockedCompareExchange@12 6ce0b040     KERNEL32:KERNEL32.dll
+ 0002:00000044       __imp__Sleep@4             6ce0b044     KERNEL32:KERNEL32.dll
+ 0002:00000048       \177KERNEL32_NULL_THUNK_DATA 6ce0b048     KERNEL32:KERNEL32.dll
+ 0002:0000004c       __imp__strdup              6ce0b04c     msvcrt:MSVCR80.dll
+ 0002:0000004c       __imp___strdup             6ce0b04c     msvcrt:MSVCR80.dll
+ 0002:00000050       __imp___crt_debugger_hook  6ce0b050     msvcrt:MSVCR80.dll
+ 0002:00000054       __imp___except_handler4_common 6ce0b054     msvcrt:MSVCR80.dll
+ 0002:00000058       __imp___onexit             6ce0b058     msvcrt:MSVCR80.dll
+ 0002:0000005c       __imp___lock               6ce0b05c     msvcrt:MSVCR80.dll
+ 0002:00000060       __imp____dllonexit         6ce0b060     msvcrt:MSVCR80.dll
+ 0002:00000064       __imp___unlock             6ce0b064     msvcrt:MSVCR80.dll
+ 0002:00000068       __imp____clean_type_info_names_internal 6ce0b068     msvcrt:MSVCR80.dll
+ 0002:0000006c       __imp__vsnprintf           6ce0b06c     msvcrt:MSVCR80.dll
+ 0002:0000006c       __imp___vsnprintf          6ce0b06c     msvcrt:MSVCR80.dll
+ 0002:00000070       __imp____CppXcptFilter     6ce0b070     msvcrt:MSVCR80.dll
+ 0002:00000074       __imp___adjust_fdiv        6ce0b074     msvcrt:MSVCR80.dll
+ 0002:00000078       __imp___amsg_exit          6ce0b078     msvcrt:MSVCR80.dll
+ 0002:0000007c       __imp___initterm_e         6ce0b07c     msvcrt:MSVCR80.dll
+ 0002:00000080       __imp___initterm           6ce0b080     msvcrt:MSVCR80.dll
+ 0002:00000084       __imp___decode_pointer     6ce0b084     msvcrt:MSVCR80.dll
+ 0002:00000088       __imp___encoded_null       6ce0b088     msvcrt:MSVCR80.dll
+ 0002:0000008c       __imp___malloc_crt         6ce0b08c     msvcrt:MSVCR80.dll
+ 0002:00000090       __imp___encode_pointer     6ce0b090     msvcrt:MSVCR80.dll
+ 0002:00000094       __imp__strncat             6ce0b094     msvcrt:MSVCR80.dll
+ 0002:00000098       __imp__memcpy              6ce0b098     msvcrt:MSVCR80.dll
+ 0002:0000009c       __imp__fwrite              6ce0b09c     msvcrt:MSVCR80.dll
+ 0002:000000a0       __imp___stat64i32          6ce0b0a0     msvcrt:MSVCR80.dll
+ 0002:000000a4       __imp___hypot              6ce0b0a4     msvcrt:MSVCR80.dll
+ 0002:000000a4       __imp__hypot               6ce0b0a4     msvcrt:MSVCR80.dll
+ 0002:000000a8       __imp__iscntrl             6ce0b0a8     msvcrt:MSVCR80.dll
+ 0002:000000ac       __imp__isprint             6ce0b0ac     msvcrt:MSVCR80.dll
+ 0002:000000b0       __imp__islower             6ce0b0b0     msvcrt:MSVCR80.dll
+ 0002:000000b4       __imp__ispunct             6ce0b0b4     msvcrt:MSVCR80.dll
+ 0002:000000b8       __imp__isxdigit            6ce0b0b8     msvcrt:MSVCR80.dll
+ 0002:000000bc       __imp__fgetc               6ce0b0bc     msvcrt:MSVCR80.dll
+ 0002:000000c0       __imp__feof                6ce0b0c0     msvcrt:MSVCR80.dll
+ 0002:000000c4       __imp__memcmp              6ce0b0c4     msvcrt:MSVCR80.dll
+ 0002:000000c8       __imp___errno              6ce0b0c8     msvcrt:MSVCR80.dll
+ 0002:000000cc       __imp__strerror            6ce0b0cc     msvcrt:MSVCR80.dll
+ 0002:000000d0       __imp__fflush              6ce0b0d0     msvcrt:MSVCR80.dll
+ 0002:000000d4       __imp__strtod              6ce0b0d4     msvcrt:MSVCR80.dll
+ 0002:000000d8       __imp__isspace             6ce0b0d8     msvcrt:MSVCR80.dll
+ 0002:000000dc       __imp__isdigit             6ce0b0dc     msvcrt:MSVCR80.dll
+ 0002:000000e0       __imp__strtok              6ce0b0e0     msvcrt:MSVCR80.dll
+ 0002:000000e4       __imp__isupper             6ce0b0e4     msvcrt:MSVCR80.dll
+ 0002:000000e8       __imp__toupper             6ce0b0e8     msvcrt:MSVCR80.dll
+ 0002:000000ec       __imp__strtol              6ce0b0ec     msvcrt:MSVCR80.dll
+ 0002:000000f0       __imp__malloc              6ce0b0f0     msvcrt:MSVCR80.dll
+ 0002:000000f4       __imp__atol                6ce0b0f4     msvcrt:MSVCR80.dll
+ 0002:000000f8       __imp__log10               6ce0b0f8     msvcrt:MSVCR80.dll
+ 0002:000000fc       __imp__pow                 6ce0b0fc     msvcrt:MSVCR80.dll
+ 0002:00000100       __imp__perror              6ce0b100     msvcrt:MSVCR80.dll
+ 0002:00000104       __imp___fstat64i32         6ce0b104     msvcrt:MSVCR80.dll
+ 0002:00000108       __imp__strstr              6ce0b108     msvcrt:MSVCR80.dll
+ 0002:0000010c       __imp__fseek               6ce0b10c     msvcrt:MSVCR80.dll
+ 0002:00000110       __imp__fread               6ce0b110     msvcrt:MSVCR80.dll
+ 0002:00000114       __imp__fclose              6ce0b114     msvcrt:MSVCR80.dll
+ 0002:00000118       __imp__abort               6ce0b118     msvcrt:MSVCR80.dll
+ 0002:0000011c       __imp__cos                 6ce0b11c     msvcrt:MSVCR80.dll
+ 0002:00000120       __imp__sin                 6ce0b120     msvcrt:MSVCR80.dll
+ 0002:00000124       __imp__atan2               6ce0b124     msvcrt:MSVCR80.dll
+ 0002:00000128       __imp__clock               6ce0b128     msvcrt:MSVCR80.dll
+ 0002:0000012c       __imp__memset              6ce0b12c     msvcrt:MSVCR80.dll
+ 0002:00000130       __imp__tolower             6ce0b130     msvcrt:MSVCR80.dll
+ 0002:00000134       __imp__exit                6ce0b134     msvcrt:MSVCR80.dll
+ 0002:00000138       __imp__strncpy             6ce0b138     msvcrt:MSVCR80.dll
+ 0002:0000013c       __imp__bsearch             6ce0b13c     msvcrt:MSVCR80.dll
+ 0002:00000140       __imp___fileno             6ce0b140     msvcrt:MSVCR80.dll
+ 0002:00000140       __imp__fileno              6ce0b140     msvcrt:MSVCR80.dll
+ 0002:00000144       __imp__putenv              6ce0b144     msvcrt:MSVCR80.dll
+ 0002:00000144       __imp___putenv             6ce0b144     msvcrt:MSVCR80.dll
+ 0002:00000148       __imp___dup                6ce0b148     msvcrt:MSVCR80.dll
+ 0002:00000148       __imp__dup                 6ce0b148     msvcrt:MSVCR80.dll
+ 0002:0000014c       __imp__isalpha             6ce0b14c     msvcrt:MSVCR80.dll
+ 0002:00000150       __imp__strftime            6ce0b150     msvcrt:MSVCR80.dll
+ 0002:00000154       __imp__free                6ce0b154     msvcrt:MSVCR80.dll
+ 0002:00000158       __imp__qsort               6ce0b158     msvcrt:MSVCR80.dll
+ 0002:0000015c       __imp__fprintf             6ce0b15c     msvcrt:MSVCR80.dll
+ 0002:00000160       __imp____iob_func          6ce0b160     msvcrt:MSVCR80.dll
+ 0002:00000164       __imp__sqrt                6ce0b164     msvcrt:MSVCR80.dll
+ 0002:00000168       __imp__abs                 6ce0b168     msvcrt:MSVCR80.dll
+ 0002:0000016c       __imp__strcmp              6ce0b16c     msvcrt:MSVCR80.dll
+ 0002:00000170       __imp__sscanf              6ce0b170     msvcrt:MSVCR80.dll
+ 0002:00000174       __imp__sprintf             6ce0b174     msvcrt:MSVCR80.dll
+ 0002:00000178       __imp__strcpy              6ce0b178     msvcrt:MSVCR80.dll
+ 0002:0000017c       __imp__strlen              6ce0b17c     msvcrt:MSVCR80.dll
+ 0002:00000180       __imp__isalnum             6ce0b180     msvcrt:MSVCR80.dll
+ 0002:00000184       __imp__setmode             6ce0b184     msvcrt:MSVCR80.dll
+ 0002:00000184       __imp___setmode            6ce0b184     msvcrt:MSVCR80.dll
+ 0002:00000188       __imp___localtime64        6ce0b188     msvcrt:MSVCR80.dll
+ 0002:0000018c       __imp___time64             6ce0b18c     msvcrt:MSVCR80.dll
+ 0002:00000190       __imp___wassert            6ce0b190     msvcrt:MSVCR80.dll
+ 0002:00000194       __imp__strchr              6ce0b194     msvcrt:MSVCR80.dll
+ 0002:00000198       __imp__atoi                6ce0b198     msvcrt:MSVCR80.dll
+ 0002:0000019c       __imp__atof                6ce0b19c     msvcrt:MSVCR80.dll
+ 0002:000001a0       __imp__getenv              6ce0b1a0     msvcrt:MSVCR80.dll
+ 0002:000001a4       __imp__strcat              6ce0b1a4     msvcrt:MSVCR80.dll
+ 0002:000001a8       __imp__strrchr             6ce0b1a8     msvcrt:MSVCR80.dll
+ 0002:000001ac       __imp__realloc             6ce0b1ac     msvcrt:MSVCR80.dll
+ 0002:000001b0       __imp__fopen               6ce0b1b0     msvcrt:MSVCR80.dll
+ 0002:000001b4       __imp__fputc               6ce0b1b4     msvcrt:MSVCR80.dll
+ 0002:000001b8       __imp__fputs               6ce0b1b8     msvcrt:MSVCR80.dll
+ 0002:000001bc       __imp__fgets               6ce0b1bc     msvcrt:MSVCR80.dll
+ 0002:000001c0       __imp__fabs                6ce0b1c0     msvcrt:MSVCR80.dll
+ 0002:000001c4       __imp__strncmp             6ce0b1c4     msvcrt:MSVCR80.dll
+ 0002:000001c8       \177MSVCR80_NULL_THUNK_DATA 6ce0b1c8     msvcrt:MSVCR80.dll
+ 0002:000001cc       __imp__dtclose             6ce0b1cc     cdt:cdt.dll
+ 0002:000001d0       __imp__Dtoset              6ce0b1d0     cdt:cdt.dll
+ 0002:000001d4       __imp__dtsize              6ce0b1d4     cdt:cdt.dll
+ 0002:000001d8       __imp__dtflatten           6ce0b1d8     cdt:cdt.dll
+ 0002:000001dc       __imp__Dtqueue             6ce0b1dc     cdt:cdt.dll
+ 0002:000001e0       __imp__Dttree              6ce0b1e0     cdt:cdt.dll
+ 0002:000001e4       __imp__dtopen              6ce0b1e4     cdt:cdt.dll
+ 0002:000001e8       \177cdt_NULL_THUNK_DATA    6ce0b1e8     cdt:cdt.dll
+ 0002:000001ec       __imp__agnxtnode           6ce0b1ec     graph:graph.dll
+ 0002:000001f0       __imp__agfstedge           6ce0b1f0     graph:graph.dll
+ 0002:000001f4       __imp__aginsert            6ce0b1f4     graph:graph.dll
+ 0002:000001f8       __imp__agcontains          6ce0b1f8     graph:graph.dll
+ 0002:000001fc       __imp__agfstout            6ce0b1fc     graph:graph.dll
+ 0002:00000200       __imp__agxget              6ce0b200     graph:graph.dll
+ 0002:00000204       __imp__aghtmlstr           6ce0b204     graph:graph.dll
+ 0002:00000208       __imp__agclose             6ce0b208     graph:graph.dll
+ 0002:0000020c       __imp__agdelete            6ce0b20c     graph:graph.dll
+ 0002:00000210       __imp__agxbfree            6ce0b210     graph:graph.dll
+ 0002:00000214       __imp__agnxtout            6ce0b214     graph:graph.dll
+ 0002:00000218       __imp__agerr               6ce0b218     graph:graph.dll
+ 0002:0000021c       __imp__agnxtedge           6ce0b21c     graph:graph.dll
+ 0002:00000220       __imp__agsubg              6ce0b220     graph:graph.dll
+ 0002:00000224       __imp__agget               6ce0b224     graph:graph.dll
+ 0002:00000228       __imp__agnnodes            6ce0b228     graph:graph.dll
+ 0002:0000022c       __imp__agfindattr          6ce0b22c     graph:graph.dll
+ 0002:00000230       __imp__agseterr            6ce0b230     graph:graph.dll
+ 0002:00000234       __imp__agerrors            6ce0b234     graph:graph.dll
+ 0002:00000238       __imp__agerrorf            6ce0b238     graph:graph.dll
+ 0002:0000023c       __imp__aglstnode           6ce0b23c     graph:graph.dll
+ 0002:00000240       __imp__agprvnode           6ce0b240     graph:graph.dll
+ 0002:00000244       __imp__agsafeset           6ce0b244     graph:graph.dll
+ 0002:00000248       __imp__agstrdup            6ce0b248     graph:graph.dll
+ 0002:0000024c       __imp__agstrfree           6ce0b24c     graph:graph.dll
+ 0002:00000250       __imp__agxbput_n           6ce0b250     graph:graph.dll
+ 0002:00000254       __imp__agopen              6ce0b254     graph:graph.dll
+ 0002:00000258       __imp__agfindedge          6ce0b258     graph:graph.dll
+ 0002:0000025c       __imp__agsetfile           6ce0b25c     graph:graph.dll
+ 0002:00000260       __imp__agread              6ce0b260     graph:graph.dll
+ 0002:00000264       __imp__aginitlib           6ce0b264     graph:graph.dll
+ 0002:00000268       __imp__agxbinit            6ce0b268     graph:graph.dll
+ 0002:0000026c       __imp__agprotograph        6ce0b26c     graph:graph.dll
+ 0002:00000270       __imp__agset               6ce0b270     graph:graph.dll
+ 0002:00000274       __imp__agxbpop             6ce0b274     graph:graph.dll
+ 0002:00000278       __imp__agcanonical         6ce0b278     graph:graph.dll
+ 0002:0000027c       __imp__agcanon             6ce0b27c     graph:graph.dll
+ 0002:00000280       __imp__agfindnode          6ce0b280     graph:graph.dll
+ 0002:00000284       __imp__agdictof            6ce0b284     graph:graph.dll
+ 0002:00000288       __imp__agedge              6ce0b288     graph:graph.dll
+ 0002:0000028c       __imp__agcopyattr          6ce0b28c     graph:graph.dll
+ 0002:00000290       __imp__agraphattr          6ce0b290     graph:graph.dll
+ 0002:00000294       __imp__agnodeattr          6ce0b294     graph:graph.dll
+ 0002:00000298       __imp__agedgeattr          6ce0b298     graph:graph.dll
+ 0002:0000029c       __imp__agxset              6ce0b29c     graph:graph.dll
+ 0002:000002a0       __imp__agxbput             6ce0b2a0     graph:graph.dll
+ 0002:000002a4       __imp__agxbmore            6ce0b2a4     graph:graph.dll
+ 0002:000002a8       __imp__agnode              6ce0b2a8     graph:graph.dll
+ 0002:000002ac       __imp__agfindsubg          6ce0b2ac     graph:graph.dll
+ 0002:000002b0       __imp__agfstnode           6ce0b2b0     graph:graph.dll
+ 0002:000002b4       \177graph_NULL_THUNK_DATA  6ce0b2b4     graph:graph.dll
+ 0002:000002b8       __imp__XML_SetCharacterDataHandler 6ce0b2b8     expat:libexpat.dll
+ 0002:000002bc       __imp__XML_SetElementHandler 6ce0b2bc     expat:libexpat.dll
+ 0002:000002c0       __imp__XML_ParserCreate    6ce0b2c0     expat:libexpat.dll
+ 0002:000002c4       __imp__XML_ParserFree      6ce0b2c4     expat:libexpat.dll
+ 0002:000002c8       __imp__XML_GetCurrentLineNumber 6ce0b2c8     expat:libexpat.dll
+ 0002:000002cc       __imp__XML_ErrorString     6ce0b2cc     expat:libexpat.dll
+ 0002:000002d0       __imp__XML_GetErrorCode    6ce0b2d0     expat:libexpat.dll
+ 0002:000002d4       __imp__XML_Parse           6ce0b2d4     expat:libexpat.dll
+ 0002:000002d8       \177libexpat_NULL_THUNK_DATA 6ce0b2d8     expat:libexpat.dll
+ 0002:000002dc       __imp__lt_dlerror          6ce0b2dc     ltdl:ltdl.dll
+ 0002:000002e0       __imp__lt_dlopen           6ce0b2e0     ltdl:ltdl.dll
+ 0002:000002e4       __imp__lt_dlinit           6ce0b2e4     ltdl:ltdl.dll
+ 0002:000002e8       __imp__lt_dlsym            6ce0b2e8     ltdl:ltdl.dll
+ 0002:000002ec       \177ltdl_NULL_THUNK_DATA   6ce0b2ec     ltdl:ltdl.dll
+ 0002:000002f0       __imp__make_polyline       6ce0b2f0     pathplan:pathplan.dll
+ 0002:000002f4       __imp__Pshortestpath       6ce0b2f4     pathplan:pathplan.dll
+ 0002:000002f8       __imp__Proutespline        6ce0b2f8     pathplan:pathplan.dll
+ 0002:000002fc       \177pathplan_NULL_THUNK_DATA 6ce0b2fc     pathplan:pathplan.dll
+ 0002:00000300       __imp__gzclose             6ce0b300     z:zlib1.dll
+ 0002:00000304       __imp__gzdopen             6ce0b304     z:zlib1.dll
+ 0002:00000308       __imp__gzwrite             6ce0b308     z:zlib1.dll
+ 0002:0000030c       \177zlib1_NULL_THUNK_DATA  6ce0b30c     z:zlib1.dll
+ 0002:00000310       ___xc_a                    6ce0b310     msvcrt:cinitexe.obj
+ 0002:00000314       ___xc_z                    6ce0b314     msvcrt:cinitexe.obj
+ 0002:00000318       ___xi_a                    6ce0b318     msvcrt:cinitexe.obj
+ 0002:00000324       ___xi_z                    6ce0b324     msvcrt:cinitexe.obj
+ 0002:00000328       __real@4000000000000000    6ce0b328     libgvc:pack.o
+ 0002:00000330       __real@4010000000000000    6ce0b330     libgvc:pack.o
+ 0002:00000338       __real@0000000000000000    6ce0b338     libgvc:pack.o
+ 0002:00000340       __real@4052000000000000    6ce0b340     libgvc:pack.o
+ 0002:00000348       __real@4059000000000000    6ce0b348     libgvc:vtxgen.o
+ 0002:00000350       __real@4020000000000000    6ce0b350     libgvc:vtxgen.o
+ 0002:00000358       __real@3ff0000000000000    6ce0b358     libgvc:utils.o
+ 0002:00000360       __real@3fe0000000000000    6ce0b360     libgvc:utils.o
+ 0002:00000368       __real@3ee4f8b588e368f1    6ce0b368     libgvc:utils.o
+ 0002:00000370       __real@47d2ced32a16a1b1    6ce0b370     libgvc:utils.o
+ 0002:00000378       __real@402c000000000000    6ce0b378     libgvc:utils.o
+ 0002:00000380       __real@3f947ae147ae147b    6ce0b380     libgvc:utils.o
+ 0002:00000388       __real@3fe8000000000000    6ce0b388     libgvc:utils.o
+ 0002:00000390       __real@3f847ae147ae147b    6ce0b390     libgvc:utils.o
+ 0002:00000398       __real@408f400000000000    6ce0b398     libgvc:timing.o
+ 0002:000003a0       __real@401921fb54442d18    6ce0b3a0     libgvc:splines.o
+ 0002:000003a8       __real@400921fb54442d18    6ce0b3a8     libgvc:splines.o
+ 0002:000003b0       __real@4024000000000000    6ce0b3b0     libgvc:splines.o
+ 0002:000003b8       __real@4066800000000000    6ce0b3b8     libgvc:splines.o
+ 0002:000003c0       __real@c039000000000000    6ce0b3c0     libgvc:splines.o
+ 0002:000003c8       __real@c066800000000000    6ce0b3c8     libgvc:splines.o
+ 0002:000003d0       __real@3feccccccccccccd    6ce0b3d0     libgvc:splines.o
+ 0002:000003d8       __real@3fb999999999999a    6ce0b3d8     libgvc:splines.o
+ 0002:000003e0       __real@4002000000000000    6ce0b3e0     libgvc:shapes.o
+ 0002:000003e8       __real@4008000000000000    6ce0b3e8     libgvc:shapes.o
+ 0002:000003f0       __real@4028000000000000    6ce0b3f0     libgvc:shapes.o
+ 0002:000003f8       __real@3ff6a09e667f3bcd    6ce0b3f8     libgvc:shapes.o
+ 0002:00000400       __real@4030000000000000    6ce0b400     libgvc:shapes.o
+ 0002:00000408       __real@c059000000000000    6ce0b408     libgvc:shapes.o
+ 0002:00000410       __real@c076800000000000    6ce0b410     libgvc:shapes.o
+ 0002:00000418       __real@4070000000000000    6ce0b418     libgvc:shapes.o
+ 0002:00000420       __real@4012d97c7f3321d2    6ce0b420     libgvc:shapes.o
+ 0002:00000428       __real@4002d97c7f3321d2    6ce0b428     libgvc:shapes.o
+ 0002:00000430       __real@3fe921fb54442d18    6ce0b430     libgvc:shapes.o
+ 0002:00000438       __real@3ff921fb54442d18    6ce0b438     libgvc:shapes.o
+ 0002:00000440       __real@c002d97c7f3321d2    6ce0b440     libgvc:shapes.o
+ 0002:00000448       __real@c1dfffffffc00000    6ce0b448     libgvc:shapes.o
+ 0002:00000450       __real@41dfffffffc00000    6ce0b450     libgvc:shapes.o
+ 0002:00000458       __real@bfe921fb54442d18    6ce0b458     libgvc:shapes.o
+ 0002:00000460       __real@bff921fb54442d18    6ce0b460     libgvc:shapes.o
+ 0002:00000468       __real@bff0000000000000    6ce0b468     libgvc:shapes.o
+ 0002:00000470       __real@3fe52a305532617c    6ce0b470     libgvc:shapes.o
+ 0002:00000478       __real@3fa999999999999a    6ce0b478     libgvc:shapes.o
+ 0002:00000480       __real@7fefffffffffffff    6ce0b480     libgvc:shapes.o
+ 0002:00000488       __real@3f33a92a30553261    6ce0b488     libgvc:shapes.o
+ 0002:00000490       __real@4062000000000000    6ce0b490     libgvc:picgen.o
+ 0002:00000498       __real@406b000000000000    6ce0b498     libgvc:picgen.o
+ 0002:000004a0       __real@3ff3333333333333    6ce0b4a0     libgvc:labels.o
+ 0002:000004a8       __real@479e17b84357691b    6ce0b4a8     libgvc:input.o
+ 0002:000004b0       __real@3fd0000000000000    6ce0b4b0     libgvc:input.o
+ 0002:000004b8       __real@4018000000000000    6ce0b4b8     libgvc:htmltable.o
+ 0002:000004c0       __real@4014000000000000    6ce0b4c0     libgvc:htmltable.o
+ 0002:00000790       __real@402c38d4fdf3b646    6ce0b790     libgvc:hpglgen.o
+ 0002:00000798       __real@4032000000000000    6ce0b798     libgvc:hpglgen.o
+ 0002:000007a0       __real@3f8c432ca57a786c    6ce0b7a0     libgvc:hpglgen.o
+ 0002:000007a8       __real@3f9c432ca57a786c    6ce0b7a8     libgvc:hpglgen.o
+ 0002:000007b0       __real@3ddb7cdfd9d7bdbb    6ce0b7b0     libgvc:geom.o
+ 0002:000007b8       __real@c7efffffe0000000    6ce0b7b8     libgvc:emit.o
+ 0002:000007c0       __real@3f1a36e2eb1c432d    6ce0b7c0     libgvc:emit.o
+ 0002:000007c8       __real@c08f400000000000    6ce0b7c8     libgvc:emit.o
+ 0002:000007d0       __real@4042000000000000    6ce0b7d0     libgvc:emit.o
+ 0002:000007d8       __real@4058000000000000    6ce0b7d8     libgvc:emit.o
+ 0002:000007e0       __real@3fb1111111111111    6ce0b7e0     libgvc:diagen.o
+ 0002:000007e8       __real@3fd999999999999a    6ce0b7e8     libgvc:diagen.o
+ 0002:000007f0       __real@3fbc28f5c28f5c29    6ce0b7f0     libgvc:diagen.o
+ 0002:000007f8       __real@40efffe000000000    6ce0b7f8     libgvc:colxlate.o
+ 0002:00000800       __real@406fe00000000000    6ce0b800     libgvc:colxlate.o
+ 0002:00000808       __real@4076800000000000    6ce0b808     libgvc:colxlate.o
+ 0002:00000810       __real@404e000000000000    6ce0b810     libgvc:colxlate.o
+ 0002:00000818       __real@3fd6666666666666    6ce0b818     libgvc:arrows.o
+ 0002:00000820       __real@3fdccccccccccccd    6ce0b820     libgvc:arrows.o
+ 0002:00000828       __real@3fe3333333333333    6ce0b828     libgvc:arrows.o
+ 0002:00000830       __real@3fc999999999999a    6ce0b830     libgvc:arrows.o
+ 0002:00000838       __real@3fe999999999999a    6ce0b838     libgvc:arrows.o
+ 0002:00000840       __real@bf1a36e2eb1c432d    6ce0b840     libgvc:arrows.o
+ 0002:00000848       _Demand_Loading            6ce0b848     libgvc:demand_loading.o
+ 0002:0000084c       _lt_preloaded_symbols      6ce0b84c     libgvc:no_builtins.o
+ 0002:00000858       __real@4006ad5ab5077d2f    6ce0b858     libgvc:gvusershape.o
+ 0002:00000860       __real@403c58b162495c7c    6ce0b860     libgvc:gvusershape.o
+ 0002:00000868       __real@3ff199999999999a    6ce0b868     libgvc:gvevent.o
+ 0002:00000870       __real@3fb99999999999a0    6ce0b870     libgvc:gvevent.o
+ 0002:0000087c       __pDefaultRawDllMain       6ce0b87c     msvcrt:crtdll.obj
+ 0002:0000087c       __pRawDllMain              6ce0b87c     msvcrt:crtdll.obj
+ 0002:00000888       __load_config_used         6ce0b888     msvcrt:loadcfg.obj
+ 0002:000008d0       ___safe_se_handler_table   6ce0b8d0     <linker-defined>
+ 0002:000008d4       ___rtc_iaa                 6ce0b8d4     msvcrt:initsect.obj
+ 0002:000008d8       ___rtc_izz                 6ce0b8d8     msvcrt:initsect.obj
+ 0002:000008dc       ___rtc_taa                 6ce0b8dc     msvcrt:initsect.obj
+ 0002:000008e0       ___rtc_tzz                 6ce0b8e0     msvcrt:initsect.obj
+ 0002:0000096c       __IMPORT_DESCRIPTOR_pathplan 6ce0b96c     pathplan:pathplan.dll
+ 0002:00000980       __IMPORT_DESCRIPTOR_graph  6ce0b980     graph:graph.dll
+ 0002:00000994       __IMPORT_DESCRIPTOR_cdt    6ce0b994     cdt:cdt.dll
+ 0002:000009a8       __IMPORT_DESCRIPTOR_libexpat 6ce0b9a8     expat:libexpat.dll
+ 0002:000009bc       __IMPORT_DESCRIPTOR_zlib1  6ce0b9bc     z:zlib1.dll
+ 0002:000009d0       __IMPORT_DESCRIPTOR_ltdl   6ce0b9d0     ltdl:ltdl.dll
+ 0002:000009e4       __IMPORT_DESCRIPTOR_KERNEL32 6ce0b9e4     KERNEL32:KERNEL32.dll
+ 0002:000009f8       __IMPORT_DESCRIPTOR_MSVCR80 6ce0b9f8     msvcrt:MSVCR80.dll
+ 0002:00000a0c       __NULL_IMPORT_DESCRIPTOR   6ce0ba0c     pathplan:pathplan.dll
+ 0003:00000be0       _VTX_CodeGen               6ce0fbe0     libgvc:vtxgen.o
+ 0003:00002a50       _ps_txt                    6ce11a50     libgvc:utils.o
+ 0003:00005a28       _PIC_CodeGen               6ce14a28     libgvc:picgen.o
+ 0003:00006150       _MP_CodeGen                6ce15150     libgvc:mpgen.o
+ 0003:000076c0       _MIF_CodeGen               6ce166c0     libgvc:mifgen.o
+ 0003:000096f0       _HPGL_CodeGen              6ce186f0     libgvc:hpglgen.o
+ 0003:0000e840       _DIA_CodeGen               6ce1d840     libgvc:diagen.o
+ 0003:0001c468       _fdp_parms_default         6ce2b468     libgvc:args.o
+ 0003:0001d7f8       _gvevent_key_binding       6ce2c7f8     libgvc:gvevent.o
+ 0003:0001d868       _gvevent_key_binding_size  6ce2c868     libgvc:gvevent.o
+ 0003:0001d86c       _gvdevice_callbacks        6ce2c86c     libgvc:gvevent.o
+ 0003:0001dab0       ___security_cookie         6ce2cab0     msvcrt:gs_cookie.obj
+ 0003:0001dab4       ___security_cookie_complement 6ce2cab4     msvcrt:gs_cookie.obj
+ 0003:0001dac0       ___native_dllmain_reason   6ce2cac0     msvcrt:natstart.obj
+ 0003:0001dac4       ___native_vcclrit_reason   6ce2cac4     msvcrt:natstart.obj
+ 0003:0001eee4       ?__type_info_root_node@@3U__type_info_node@@A 6ce2dee4     msvcrt:tncleanup.obj
+ 0003:0001f214       _re_syntax_options         6ce2e214     <common>
+ 0003:0001f218       _N_shape                   6ce2e218     <common>
+ 0003:0001f21c       _Output_file               6ce2e21c     <common>
+ 0003:0001f220       _N_skew                    6ce2e220     <common>
+ 0003:0001f224       _N_fixed                   6ce2e224     <common>
+ 0003:0001f228       _E_labeldistance           6ce2e228     <common>
+ 0003:0001f22c       _N_group                   6ce2e22c     <common>
+ 0003:0001f230       _E_constr                  6ce2e230     <common>
+ 0003:0001f234       _E_visitedfillcolor        6ce2e234     <common>
+ 0003:0001f238       _Ndim                      6ce2e238     <common>
+ 0003:0001f23c       _G_visitedpencolor         6ce2e23c     <common>
+ 0003:0001f240       _N_orientation             6ce2e240     <common>
+ 0003:0001f244       _E_weight                  6ce2e244     <common>
+ 0003:0001f248       _E_fontsize                6ce2e248     <common>
+ 0003:0001f24c       _E_showboxes               6ce2e24c     <common>
+ 0003:0001f250       _Show_cnt                  6ce2e250     <common>
+ 0003:0001f254       _E_arrowtail               6ce2e254     <common>
+ 0003:0001f258       _N_activefillcolor         6ce2e258     <common>
+ 0003:0001f25c       _N_style                   6ce2e25c     <common>
+ 0003:0001f260       _State                     6ce2e260     <common>
+ 0003:0001f264       _E_selectedfillcolor       6ce2e264     <common>
+ 0003:0001f268       _E_comment                 6ce2e268     <common>
+ 0003:0001f26c       _N_height                  6ce2e26c     <common>
+ 0003:0001f270       _N_visitedfillcolor        6ce2e270     <common>
+ 0003:0001f274       _E_labelfontsize           6ce2e274     <common>
+ 0003:0001f278       _N_z                       6ce2e278     <common>
+ 0003:0001f27c       _E_activefillcolor         6ce2e27c     <common>
+ 0003:0001f280       _E_labelangle              6ce2e280     <common>
+ 0003:0001f284       _E_fontname                6ce2e284     <common>
+ 0003:0001f288       _Syntax_errors             6ce2e288     <common>
+ 0003:0001f28c       _Y_invert                  6ce2e28c     <common>
+ 0003:0001f290       _N_comment                 6ce2e290     <common>
+ 0003:0001f294       _N_fontcolor               6ce2e294     <common>
+ 0003:0001f298       _N_width                   6ce2e298     <common>
+ 0003:0001f29c       _G_selectedpencolor        6ce2e29c     <common>
+ 0003:0001f2a0       _Initial_dist              6ce2e2a0     <common>
+ 0003:0001f2a8       _N_activepencolor          6ce2e2a8     <common>
+ 0003:0001f2ac       _N_selectedfillcolor       6ce2e2ac     <common>
+ 0003:0001f2b0       _G_activepencolor          6ce2e2b0     <common>
+ 0003:0001f2b4       _MemTest                   6ce2e2b4     <common>
+ 0003:0001f2b8       _E_tailclip                6ce2e2b8     <common>
+ 0003:0001f2bc       _E_visitedpencolor         6ce2e2bc     <common>
+ 0003:0001f2c0       _E_deletedpencolor         6ce2e2c0     <common>
+ 0003:0001f2e0       _fdp_parms                 6ce2e2e0     <common>
+ 0003:0001f310       _PSinputscale              6ce2e310     <common>
+ 0003:0001f318       _E_labelfontcolor          6ce2e318     <common>
+ 0003:0001f31c       _N_color                   6ce2e31c     <common>
+ 0003:0001f320       _G_visitedfillcolor        6ce2e320     <common>
+ 0003:0001f324       _E_samehead                6ce2e324     <common>
+ 0003:0001f328       _Damping                   6ce2e328     <common>
+ 0003:0001f330       _CmdName                   6ce2e330     <common>
+ 0003:0001f334       _Show_boxes                6ce2e334     <common>
+ 0003:0001f338       _E_penwidth                6ce2e338     <common>
+ 0003:0001f33c       _E_labelfontname           6ce2e33c     <common>
+ 0003:0001f340       _Version                   6ce2e340     <common>
+ 0003:0001f344       _MaxIter                   6ce2e344     <common>
+ 0003:0001f348       _E_dir                     6ce2e348     <common>
+ 0003:0001f34c       _Lib                       6ce2e34c     <common>
+ 0003:0001f350       _E_style                   6ce2e350     <common>
+ 0003:0001f354       _Output_lang               6ce2e354     <common>
+ 0003:0001f358       _E_minlen                  6ce2e358     <common>
+ 0003:0001f35c       _E_headclip                6ce2e35c     <common>
+ 0003:0001f360       _E_label_float             6ce2e360     <common>
+ 0003:0001f364       _E_arrowhead               6ce2e364     <common>
+ 0003:0001f368       _G_activefillcolor         6ce2e368     <common>
+ 0003:0001f36c       _E_fontcolor               6ce2e36c     <common>
+ 0003:0001f370       _E_taillabel               6ce2e370     <common>
+ 0003:0001f374       _N_label                   6ce2e374     <common>
+ 0003:0001f378       _Output_file_name          6ce2e378     <common>
+ 0003:0001f37c       _E_sametail                6ce2e37c     <common>
+ 0003:0001f380       _N_penwidth                6ce2e380     <common>
+ 0003:0001f384       _graphviz_errors           6ce2e384     <common>
+ 0003:0001f388       _N_deletedfillcolor        6ce2e388     <common>
+ 0003:0001f38c       _specificFlags             6ce2e38c     <common>
+ 0003:0001f390       _G_selectedfillcolor       6ce2e390     <common>
+ 0003:0001f398       _Epsilon                   6ce2e398     <common>
+ 0003:0001f3a0       _E_color                   6ce2e3a0     <common>
+ 0003:0001f3a4       _N_fontname                6ce2e3a4     <common>
+ 0003:0001f3a8       _E_activepencolor          6ce2e3a8     <common>
+ 0003:0001f3ac       _E_decorate                6ce2e3ac     <common>
+ 0003:0001f3b0       _N_visitedpencolor         6ce2e3b0     <common>
+ 0003:0001f3b4       _N_nojustify               6ce2e3b4     <common>
+ 0003:0001f3b8       _N_vertices                6ce2e3b8     <common>
+ 0003:0001f3bc       _Files                     6ce2e3bc     <common>
+ 0003:0001f3c0       _specificItems             6ce2e3c0     <common>
+ 0003:0001f3c4       _N_fontsize                6ce2e3c4     <common>
+ 0003:0001f3c8       _E_deletedfillcolor        6ce2e3c8     <common>
+ 0003:0001f3cc       _E_headlabel               6ce2e3cc     <common>
+ 0003:0001f3d0       _G_penwidth                6ce2e3d0     <common>
+ 0003:0001f3d4       _N_showboxes               6ce2e3d4     <common>
+ 0003:0001f3d8       _Reduce                    6ce2e3d8     <common>
+ 0003:0001f3dc       _E_arrowsz                 6ce2e3dc     <common>
+ 0003:0001f3e0       _CL_type                   6ce2e3e0     <common>
+ 0003:0001f3e4       _N_deletedpencolor         6ce2e3e4     <common>
+ 0003:0001f3e8       _G_deletedpencolor         6ce2e3e8     <common>
+ 0003:0001f3ec       _N_layer                   6ce2e3ec     <common>
+ 0003:0001f3f0       _E_label                   6ce2e3f0     <common>
+ 0003:0001f3f4       _N_distortion              6ce2e3f4     <common>
+ 0003:0001f3f8       _E_selectedpencolor        6ce2e3f8     <common>
+ 0003:0001f3fc       _N_peripheries             6ce2e3fc     <common>
+ 0003:0001f400       _Verbose                   6ce2e400     <common>
+ 0003:0001f404       _N_imagescale              6ce2e404     <common>
+ 0003:0001f408       _G_deletedfillcolor        6ce2e408     <common>
+ 0003:0001f40c       _HTTPServerEnVar           6ce2e40c     <common>
+ 0003:0001f410       _N_selectedpencolor        6ce2e410     <common>
+ 0003:0001f414       _E_layer                   6ce2e414     <common>
+ 0003:0001f418       _N_fillcolor               6ce2e418     <common>
+ 0003:0001f41c       _Concentrate               6ce2e41c     <common>
+ 0003:0001f420       _Gvfilepath                6ce2e420     <common>
+ 0003:0001f424       _Nop                       6ce2e424     <common>
+ 0003:0001f428       _Obj                       6ce2e428     <common>
+ 0003:0001f42c       _G_peripheries             6ce2e42c     <common>
+ 0003:0001f430       _N_sides                   6ce2e430     <common>
+ 0003:0001f434       _htmlchar                  6ce2e434     <common>
+ 0003:0001f438       _htmlnerrs                 6ce2e438     <common>
+ 0003:0001f43c       _htmllval                  6ce2e43c     <common>
+ 0003:0001f440       _Y_off                     6ce2e440     <common>
+ 0003:0001f448       _YF_off                    6ce2e448     <common>
+ 0003:0001f450       ___sse2_available          6ce2e450     <common>
+ 0003:0001f454       __adjust_fdiv              6ce2e454     <common>
+ 0003:0001f458       ___native_startup_state    6ce2e458     <common>
+ 0003:0001f45c       ___native_startup_lock     6ce2e45c     <common>
+ 0003:0001f460       ___onexitend               6ce2e460     <common>
+ 0003:0001f464       ___onexitbegin             6ce2e464     <common>
+ 0003:0001f468       ___dyn_tls_init_callback   6ce2e468     <common>
+
+ entry point at        0001:00048e9e
+
+ Static symbols
+
+ 0001:00000670       _computeStep               6cdc1670 f   libgvc:pack.o
+ 0001:00000890       _cmpf                      6cdc1890 f   libgvc:pack.o
+ 0001:000008c0       _genBox                    6cdc18c0 f   libgvc:pack.o
+ 0001:00000aa0       _genPoly                   6cdc1aa0 f   libgvc:pack.o
+ 0001:00001210       _fillEdge                  6cdc2210 f   libgvc:pack.o
+ 0001:00001460       _placeFixed                6cdc2460 f   libgvc:pack.o
+ 0001:00001510       _placeGraph                6cdc2510 f   libgvc:pack.o
+ 0001:000018b0       _fits                      6cdc28b0 f   libgvc:pack.o
+ 0001:00001a80       _shiftGraphs               6cdc2a80 f   libgvc:pack.o
+ 0001:00001c00       _shiftEdge                 6cdc2c00 f   libgvc:pack.o
+ 0001:00001df0       _shiftGraph                6cdc2df0 f   libgvc:pack.o
+ 0001:00002550       _dfs                       6cdc3550 f   libgvc:ccomps.o
+ 0001:000025f0       _isLegal                   6cdc35f0 f   libgvc:ccomps.o
+ 0001:00002640       _insertFn                  6cdc3640 f   libgvc:ccomps.o
+ 0001:00002900       _cntFn                     6cdc3900 f   libgvc:ccomps.o
+ 0001:000029d0       _vtx_reset                 6cdc39d0 f   libgvc:vtxgen.o
+ 0001:000029e0       _vtx_comment               6cdc39e0 f   libgvc:vtxgen.o
+ 0001:00002a00       _vtx_begin_job             6cdc3a00 f   libgvc:vtxgen.o
+ 0001:00002ab0       _localtime                 6cdc3ab0 f   libgvc:vtxgen.o
+ 0001:00002ad0       _time                      6cdc3ad0 f   libgvc:vtxgen.o
+ 0001:00002af0       _vtx_begin_graph           6cdc3af0 f   libgvc:vtxgen.o
+ 0001:00002b10       _init_vtx                  6cdc3b10 f   libgvc:vtxgen.o
+ 0001:00002b70       _vtx_begin_page            6cdc3b70 f   libgvc:vtxgen.o
+ 0001:00002be0       _vtx_begin_nodes           6cdc3be0 f   libgvc:vtxgen.o
+ 0001:00002c00       _vtx_end_nodes             6cdc3c00 f   libgvc:vtxgen.o
+ 0001:00002c20       _vtx_begin_edges           6cdc3c20 f   libgvc:vtxgen.o
+ 0001:00002c40       _vtx_end_edges             6cdc3c40 f   libgvc:vtxgen.o
+ 0001:00002c60       _vtx_begin_node            6cdc3c60 f   libgvc:vtxgen.o
+ 0001:00002cf0       _vtx_end_node              6cdc3cf0 f   libgvc:vtxgen.o
+ 0001:00002d10       _vtx_begin_edge            6cdc3d10 f   libgvc:vtxgen.o
+ 0001:00002d60       _vtx_end_edge              6cdc3d60 f   libgvc:vtxgen.o
+ 0001:00002d80       _vtx_begin_context         6cdc3d80 f   libgvc:vtxgen.o
+ 0001:00002df0       _vtx_end_context           6cdc3df0 f   libgvc:vtxgen.o
+ 0001:00002e30       _vtx_set_font              6cdc3e30 f   libgvc:vtxgen.o
+ 0001:00002ef0       _vtx_font                  6cdc3ef0 f   libgvc:vtxgen.o
+ 0001:00002f00       _vtx_set_color             6cdc3f00 f   libgvc:vtxgen.o
+ 0001:00002f60       _vtx_set_style             6cdc3f60 f   libgvc:vtxgen.o
+ 0001:00003110       _vtx_textpara              6cdc4110 f   libgvc:vtxgen.o
+ 0001:00003210       _vtx_pt                    6cdc4210 f   libgvc:vtxgen.o
+ 0001:00003250       _vtx_string                6cdc4250 f   libgvc:vtxgen.o
+ 0001:00003410       _vtx_bezier                6cdc4410 f   libgvc:vtxgen.o
+ 0001:00003520       _vtx_bzptarray             6cdc4520 f   libgvc:vtxgen.o
+ 0001:000037a0       _vtx_style                 6cdc47a0 f   libgvc:vtxgen.o
+ 0001:00003820       _vtx_polygon               6cdc4820 f   libgvc:vtxgen.o
+ 0001:00003a30       _vtx_node_style            6cdc4a30 f   libgvc:vtxgen.o
+ 0001:00003a70       _vtx_ellipse               6cdc4a70 f   libgvc:vtxgen.o
+ 0001:00003b00       _vtx_polyline              6cdc4b00 f   libgvc:vtxgen.o
+ 0001:00003b30       _vtx_ptarray               6cdc4b30 f   libgvc:vtxgen.o
+ 0001:00003bf0       _vtx_usershape             6cdc4bf0 f   libgvc:vtxgen.o
+ 0001:000048d0       _Fgets                     6cdc58d0 f   libgvc:utils.o
+ 0001:00005840       _edgeError                 6cdc6840 f   libgvc:utils.o
+ 0001:000058a0       _initFontEdgeAttr          6cdc68a0 f   libgvc:utils.o
+ 0001:00005910       _initFontLabelEdgeAttr     6cdc6910 f   libgvc:utils.o
+ 0001:000059a0       _noClip                    6cdc69a0 f   libgvc:utils.o
+ 0001:00005a00       _chkPort                   6cdc6a00 f   libgvc:utils.o
+ 0001:00005b00       _addLabelBB                6cdc6b00 f   libgvc:utils.o
+ 0001:000060e0       _cmpItem                   6cdc70e0 f   libgvc:utils.o
+ 0001:00006140       _newItem                   6cdc7140 f   libgvc:utils.o
+ 0001:00006190       _freeItem                  6cdc7190 f   libgvc:utils.o
+ 0001:00006350       _checkCompound             6cdc7350 f   libgvc:utils.o
+ 0001:00006660       _clustNode                 6cdc7660 f   libgvc:utils.o
+ 0001:00006830       _setAttr                   6cdc7830 f   libgvc:utils.o
+ 0001:000068d0       _cloneEdge                 6cdc78d0 f   libgvc:utils.o
+ 0001:00006910       _insertEdge                6cdc7910 f   libgvc:utils.o
+ 0001:00006980       _mapEdge                   6cdc7980 f   libgvc:utils.o
+ 0001:00006aa0       _undoCompound              6cdc7aa0 f   libgvc:utils.o
+ 0001:00006b10       _mapN                      6cdc7b10 f   libgvc:utils.o
+ 0001:00006e00       _comp_entities             6cdc7e00 f   libgvc:utils.o
+ 0001:00007260       _htmlEntity                6cdc8260 f   libgvc:utils.o
+ 0001:00007b00       _overlap_bezier            6cdc8b00 f   libgvc:utils.o
+ 0001:00007cc0       _overlap_arrow             6cdc8cc0 f   libgvc:utils.o
+ 0001:00008690       _shape_clip0               6cdc9690 f   libgvc:splines.o
+ 0001:00008df0       _arrow_clip                6cdc9df0 f   libgvc:splines.o
+ 0001:000097d0       _conc_slope                6cdca7d0 f   libgvc:splines.o
+ 0001:0000a400       _selfBottom                6cdcb400 f   libgvc:splines.o
+ 0001:0000a8b0       _selfTop                   6cdcb8b0 f   libgvc:splines.o
+ 0001:0000ad60       _selfRight                 6cdcbd60 f   libgvc:splines.o
+ 0001:0000b230       _selfLeft                  6cdcc230 f   libgvc:splines.o
+ 0001:0000ce30       _interpolate               6cdcde30 f   libgvc:shapes.o
+ 0001:0000cf30       _poly_init                 6cdcdf30 f   libgvc:shapes.o
+ 0001:0000e5a0       _quant                     6cdcf5a0 f   libgvc:shapes.o
+ 0001:0000e5e0       _userSize                  6cdcf5e0 f   libgvc:shapes.o
+ 0001:0000e6e0       _poly_free                 6cdcf6e0 f   libgvc:shapes.o
+ 0001:0000e720       _poly_inside               6cdcf720 f   libgvc:shapes.o
+ 0001:0000ee40       _same_side                 6cdcfe40 f   libgvc:shapes.o
+ 0001:0000eef0       _poly_path                 6cdcfef0 f   libgvc:shapes.o
+ 0001:0000ef40       _poly_port                 6cdcff40 f   libgvc:shapes.o
+ 0001:0000f050       _unrecognized              6cdd0050 f   libgvc:shapes.o
+ 0001:0000f070       _compassPort               6cdd0070 f   libgvc:shapes.o
+ 0001:0000f540       _invflip_side              6cdd0540 f   libgvc:shapes.o
+ 0001:0000f660       _invflip_angle             6cdd0660 f   libgvc:shapes.o
+ 0001:0000f780       _compassPoint              6cdd0780 f   libgvc:shapes.o
+ 0001:0000f880       _poly_gencode              6cdd0880 f   libgvc:shapes.o
+ 0001:00010020       _pencolor                  6cdd1020 f   libgvc:shapes.o
+ 0001:00010070       _findFill                  6cdd1070 f   libgvc:shapes.o
+ 0001:00010090       _findFillDflt              6cdd1090 f   libgvc:shapes.o
+ 0001:00010100       _stylenode                 6cdd1100 f   libgvc:shapes.o
+ 0001:000101b0       _checkStyle                6cdd11b0 f   libgvc:shapes.o
+ 0001:00010370       _Mcircle_hack              6cdd1370 f   libgvc:shapes.o
+ 0001:00010450       _node_round_corners        6cdd1450 f   libgvc:shapes.o
+ 0001:00010490       _findPen                   6cdd1490 f   libgvc:shapes.o
+ 0001:000104d0       _point_init                6cdd14d0 f   libgvc:shapes.o
+ 0001:00010760       _point_inside              6cdd1760 f   libgvc:shapes.o
+ 0001:00010880       _point_gencode             6cdd1880 f   libgvc:shapes.o
+ 0001:00010cb0       _record_init               6cdd1cb0 f   libgvc:shapes.o
+ 0001:00010f40       _parse_reclbl              6cdd1f40 f   libgvc:shapes.o
+ 0001:00011810       _size_reclbl               6cdd2810 f   libgvc:shapes.o
+ 0001:00011b10       _resize_reclbl             6cdd2b10 f   libgvc:shapes.o
+ 0001:00011c60       _pos_reclbl                6cdd2c60 f   libgvc:shapes.o
+ 0001:00011dd0       _record_free               6cdd2dd0 f   libgvc:shapes.o
+ 0001:00011df0       _free_field                6cdd2df0 f   libgvc:shapes.o
+ 0001:00011e70       _record_port               6cdd2e70 f   libgvc:shapes.o
+ 0001:00011f60       _map_rec_port              6cdd2f60 f   libgvc:shapes.o
+ 0001:00012000       _record_inside             6cdd3000 f   libgvc:shapes.o
+ 0001:000120f0       _record_path               6cdd30f0 f   libgvc:shapes.o
+ 0001:00012290       _record_gencode            6cdd3290 f   libgvc:shapes.o
+ 0001:000124f0       _gen_fields                6cdd34f0 f   libgvc:shapes.o
+ 0001:000128a0       _user_shape                6cdd38a0 f   libgvc:shapes.o
+ 0001:000129e0       _epsf_inside               6cdd39e0 f   libgvc:shapes.o
+ 0001:00012aa0       _epsf_gencode              6cdd3aa0 f   libgvc:shapes.o
+ 0001:00012d10       __routesplines             6cdd3d10 f   libgvc:routespl.o
+ 0001:00013e30       _checkpath                 6cdd4e30 f   libgvc:routespl.o
+ 0001:00014590       _overlap                   6cdd5590 f   libgvc:routespl.o
+ 0001:00014610       _mkspacep                  6cdd5610 f   libgvc:routespl.o
+ 0001:00014670       _printpath                 6cdd5670 f   libgvc:routespl.o
+ 0001:000147c0       _ps_image_free             6cdd57c0 f   libgvc:psusershape.o
+ 0001:000148d0       _user_init                 6cdd58d0 f   libgvc:psusershape.o
+ 0001:00014bb0       _fstat                     6cdd5bb0 f   libgvc:psusershape.o
+ 0001:00015090       _charsetOf                 6cdd6090 f   libgvc:psusershape.o
+ 0001:00015240       _map_point                 6cdd6240 f   libgvc:postproc.o
+ 0001:000157c0       _translate_drawing         6cdd67c0 f   libgvc:postproc.o
+ 0001:000158e0       _map_edge                  6cdd68e0 f   libgvc:postproc.o
+ 0001:00015ac0       _place_root_label          6cdd6ac0 f   libgvc:postproc.o
+ 0001:00015b80       _place_flip_graph_label    6cdd6b80 f   libgvc:postproc.o
+ 0001:00015e00       _freePair                  6cdd6e00 f   libgvc:pointset.o
+ 0001:00015e20       _cmppair                   6cdd6e20 f   libgvc:pointset.o
+ 0001:00015ef0       _mkPair                    6cdd6ef0 f   libgvc:pointset.o
+ 0001:00016050       _mkMPair                   6cdd7050 f   libgvc:pointset.o
+ 0001:000160b0       _freeMPair                 6cdd70b0 f   libgvc:pointset.o
+ 0001:000161e0       _pic_reset                 6cdd71e0 f   libgvc:picgen.o
+ 0001:000161f0       _pic_begin_job             6cdd71f0 f   libgvc:picgen.o
+ 0001:000162a0       _unsupported               6cdd72a0 f   libgvc:picgen.o
+ 0001:000162c0       _pic_begin_graph           6cdd72c0 f   libgvc:picgen.o
+ 0001:00016310       _pic_end_graph             6cdd7310 f   libgvc:picgen.o
+ 0001:00016330       _pic_begin_page            6cdd7330 f   libgvc:picgen.o
+ 0001:00016800       _pic_end_page              6cdd7800 f   libgvc:picgen.o
+ 0001:00016850       _pic_begin_node            6cdd7850 f   libgvc:picgen.o
+ 0001:00016880       _pic_begin_edge            6cdd7880 f   libgvc:picgen.o
+ 0001:000168c0       _pic_begin_context         6cdd78c0 f   libgvc:picgen.o
+ 0001:00016950       _warn                      6cdd7950 f   libgvc:picgen.o
+ 0001:00016970       _pic_end_context           6cdd7970 f   libgvc:picgen.o
+ 0001:00016ad0       _picfontname               6cdd7ad0 f   libgvc:picgen.o
+ 0001:00016b90       _pic_set_font              6cdd7b90 f   libgvc:picgen.o
+ 0001:00016c70       _pic_textpara              6cdd7c70 f   libgvc:picgen.o
+ 0001:00016e30       _pic_string                6cdd7e30 f   libgvc:picgen.o
+ 0001:00016f50       _pic_set_color             6cdd7f50 f   libgvc:picgen.o
+ 0001:00016fb0       _pic_set_style             6cdd7fb0 f   libgvc:picgen.o
+ 0001:00017140       _pic_ellipse               6cdd8140 f   libgvc:picgen.o
+ 0001:00017200       _pic_polygon               6cdd8200 f   libgvc:picgen.o
+ 0001:00017410       _point_list_out            6cdd8410 f   libgvc:picgen.o
+ 0001:00017520       _pic_coord                 6cdd8520 f   libgvc:picgen.o
+ 0001:00017570       _pic_fcoord                6cdd8570 f   libgvc:picgen.o
+ 0001:000175b0       _pic_polyline              6cdd85b0 f   libgvc:picgen.o
+ 0001:000175d0       _pic_usershape             6cdd85d0 f   libgvc:picgen.o
+ 0001:00017610       _pic_bezier                6cdd8610 f   libgvc:picgen.o
+ 0001:000178c0       _pic_comment               6cdd88c0 f   libgvc:picgen.o
+ 0001:00017d00       _printptf                  6cdd8d00 f   libgvc:output.o
+ 0001:00017d60       _setYInvert                6cdd8d60 f   libgvc:output.o
+ 0001:00017da0       _writenodeandport          6cdd8da0 f   libgvc:output.o
+ 0001:00018c50       _set_record_rects          6cdd9c50 f   libgvc:output.o
+ 0001:00018d80       _rec_attach_bb             6cdd9d80 f   libgvc:output.o
+ 0001:00019270       _init_rank                 6cdda270 f   libgvc:ns.o
+ 0001:00019470       _leave_edge                6cdda470 f   libgvc:ns.o
+ 0001:000195c0       _enter_edge                6cdda5c0 f   libgvc:ns.o
+ 0001:00019660       _dfs_enter_outedge         6cdda660 f   libgvc:ns.o
+ 0001:000197b0       _dfs_enter_inedge          6cdda7b0 f   libgvc:ns.o
+ 0001:00019900       _feasible_tree             6cdda900 f   libgvc:ns.o
+ 0001:00019ac0       _incident                  6cddaac0 f   libgvc:ns.o
+ 0001:00019b10       _tight_tree                6cddab10 f   libgvc:ns.o
+ 0001:00019c10       _treesearch                6cddac10 f   libgvc:ns.o
+ 0001:00019d60       _add_tree_edge             6cddad60 f   libgvc:ns.o
+ 0001:00019f00       _init_cutvalues            6cddaf00 f   libgvc:ns.o
+ 0001:00019f40       _update                    6cddaf40 f   libgvc:ns.o
+ 0001:0001a0d0       _exchange_tree_edges       6cddb0d0 f   libgvc:ns.o
+ 0001:0001a2d0       _treeupdate                6cddb2d0 f   libgvc:ns.o
+ 0001:0001a3a0       _rerank                    6cddb3a0 f   libgvc:ns.o
+ 0001:0001a460       _scan_and_normalize        6cddb460 f   libgvc:ns.o
+ 0001:0001a580       _freeTreeList              6cddb580 f   libgvc:ns.o
+ 0001:0001a600       _LR_balance                6cddb600 f   libgvc:ns.o
+ 0001:0001a700       _TB_balance                6cddb700 f   libgvc:ns.o
+ 0001:0001aa00       _init_graph                6cddba00 f   libgvc:ns.o
+ 0001:0001aca0       _dfs_cutval                6cddbca0 f   libgvc:ns.o
+ 0001:0001ad50       _x_cutval                  6cddbd50 f   libgvc:ns.o
+ 0001:0001ae30       _x_val                     6cddbe30 f   libgvc:ns.o
+ 0001:0001af30       _dfs_range                 6cddbf30 f   libgvc:ns.o
+ 0001:0001b010       _mp_reset                  6cddc010 f   libgvc:mpgen.o
+ 0001:0001b020       _mp_begin_job              6cddc020 f   libgvc:mpgen.o
+ 0001:0001b0d0       _mp_end_job                6cddc0d0 f   libgvc:mpgen.o
+ 0001:0001b100       _mp_comment                6cddc100 f   libgvc:mpgen.o
+ 0001:0001b120       _mp_begin_graph            6cddc120 f   libgvc:mpgen.o
+ 0001:0001b180       _mp_begin_page             6cddc180 f   libgvc:mpgen.o
+ 0001:0001b1e0       _mp_begin_context          6cddc1e0 f   libgvc:mpgen.o
+ 0001:0001b250       _mp_end_context            6cddc250 f   libgvc:mpgen.o
+ 0001:0001b280       _mp_set_font               6cddc280 f   libgvc:mpgen.o
+ 0001:0001b310       _mp_set_color              6cddc310 f   libgvc:mpgen.o
+ 0001:0001b3b0       _mp_set_style              6cddc3b0 f   libgvc:mpgen.o
+ 0001:0001b460       _mp_textpara               6cddc460 f   libgvc:mpgen.o
+ 0001:0001b4a0       _mp_string                 6cddc4a0 f   libgvc:mpgen.o
+ 0001:0001b5a0       _mp_bezier                 6cddc5a0 f   libgvc:mpgen.o
+ 0001:0001b680       _mp_polygon                6cddc680 f   libgvc:mpgen.o
+ 0001:0001b7b0       _mp_ellipse                6cddc7b0 f   libgvc:mpgen.o
+ 0001:0001b820       _mp_polyline               6cddc820 f   libgvc:mpgen.o
+ 0001:0001b8c0       _mp_usershape              6cddc8c0 f   libgvc:mpgen.o
+ 0001:0001b990       _mif_reset                 6cddc990 f   libgvc:mifgen.o
+ 0001:0001b9a0       _mif_comment               6cddc9a0 f   libgvc:mifgen.o
+ 0001:0001b9c0       _mif_begin_job             6cddc9c0 f   libgvc:mifgen.o
+ 0001:0001c600       _mif_end_job               6cddd600 f   libgvc:mifgen.o
+ 0001:0001c620       _mif_begin_graph           6cddd620 f   libgvc:mifgen.o
+ 0001:0001c6a0       _init_mif                  6cddd6a0 f   libgvc:mifgen.o
+ 0001:0001c6e0       _mif_begin_page            6cddd6e0 f   libgvc:mifgen.o
+ 0001:0001c720       _mif_begin_context         6cddd720 f   libgvc:mifgen.o
+ 0001:0001c7a0       _mif_end_context           6cddd7a0 f   libgvc:mifgen.o
+ 0001:0001c860       _mif_font                  6cddd860 f   libgvc:mifgen.o
+ 0001:0001c8e0       _mif_color                 6cddd8e0 f   libgvc:mifgen.o
+ 0001:0001c930       _mif_style                 6cddd930 f   libgvc:mifgen.o
+ 0001:0001c970       _mif_set_font              6cddd970 f   libgvc:mifgen.o
+ 0001:0001ca30       _mif_set_color             6cddda30 f   libgvc:mifgen.o
+ 0001:0001cac0       _mif_set_style             6cdddac0 f   libgvc:mifgen.o
+ 0001:0001cc90       _mif_textpara              6cdddc90 f   libgvc:mifgen.o
+ 0001:0001cd70       _mifpt                     6cdddd70 f   libgvc:mifgen.o
+ 0001:0001cdf0       _mif_string                6cddddf0 f   libgvc:mifgen.o
+ 0001:0001cf90       _mif_bezier                6cdddf90 f   libgvc:mifgen.o
+ 0001:0001cfd0       _mifptarray                6cdddfd0 f   libgvc:mifgen.o
+ 0001:0001d080       _mif_polygon               6cdde080 f   libgvc:mifgen.o
+ 0001:0001d0e0       _mif_ellipse               6cdde0e0 f   libgvc:mifgen.o
+ 0001:0001d1c0       _mif_polyline              6cdde1c0 f   libgvc:mifgen.o
+ 0001:0001d200       _mif_usershape             6cdde200 f   libgvc:mifgen.o
+ 0001:0001d400       _label_size                6cdde400 f   libgvc:labels.o
+ 0001:0001d640       _storeline                 6cdde640 f   libgvc:labels.o
+ 0001:0001d840       _free_textpara             6cdde840 f   libgvc:labels.o
+ 0001:0001e0f0       _xml_isentity              6cddf0f0 f   libgvc:labels.o
+ 0001:0001eb90       _getFlagOpt                6cddfb90 f   libgvc:input.o
+ 0001:0001ec10       _dotneato_basename         6cddfc10 f   libgvc:input.o
+ 0001:0001ed50       _use_library               6cddfd50 f   libgvc:input.o
+ 0001:0001fbd0       _getdoubles2pt             6cde0bd0 f   libgvc:input.o
+ 0001:0001fd00       _findCharset               6cde0d00 f   libgvc:input.o
+ 0001:0001fe60       _setRatio                  6cde0e60 f   libgvc:input.o
+ 0001:00020500       _emit_html_txt             6cde1500 f   libgvc:htmltable.o
+ 0001:00020600       _emit_htextparas           6cde1600 f   libgvc:htmltable.o
+ 0001:00020900       _emit_html_tbl             6cde1900 f   libgvc:htmltable.o
+ 0001:00020b30       _pushFontInfo              6cde1b30 f   libgvc:htmltable.o
+ 0001:00020bf0       _popFontInfo               6cde1bf0 f   libgvc:htmltable.o
+ 0001:00020c40       _doBorder                  6cde1c40 f   libgvc:htmltable.o
+ 0001:00020e00       _doSide                    6cde1e00 f   libgvc:htmltable.o
+ 0001:00020e60       _doFill                    6cde1e60 f   libgvc:htmltable.o
+ 0001:00020ed0       _initAnchor                6cde1ed0 f   libgvc:htmltable.o
+ 0001:00020ff0       _endAnchor                 6cde1ff0 f   libgvc:htmltable.o
+ 0001:00021130       _emit_html_cell            6cde2130 f   libgvc:htmltable.o
+ 0001:00021360       _emit_html_img             6cde2360 f   libgvc:htmltable.o
+ 0001:00021420       _allocObj                  6cde2420 f   libgvc:htmltable.o
+ 0001:00021540       _freeObj                   6cde2540 f   libgvc:htmltable.o
+ 0001:00021820       _free_html_tbl             6cde2820 f   libgvc:htmltable.o
+ 0001:000218d0       _free_html_cell            6cde28d0 f   libgvc:htmltable.o
+ 0001:00021960       _portToTbl                 6cde2960 f   libgvc:htmltable.o
+ 0001:000219e0       _portToCell                6cde29e0 f   libgvc:htmltable.o
+ 0001:000223f0       _checkChain                6cde33f0 f   libgvc:htmltable.o
+ 0001:000227a0       _closeGraphs               6cde37a0 f   libgvc:htmltable.o
+ 0001:00022b80       _size_html_txt             6cde3b80 f   libgvc:htmltable.o
+ 0001:00022f80       _pos_html_tbl              6cde3f80 f   libgvc:htmltable.o
+ 0001:00023370       _pos_html_cell             6cde4370 f   libgvc:htmltable.o
+ 0001:000236d0       _pos_html_img              6cde46d0 f   libgvc:htmltable.o
+ 0001:000236f0       _pos_html_txt              6cde46f0 f   libgvc:htmltable.o
+ 0001:00023740       _size_html_tbl             6cde4740 f   libgvc:htmltable.o
+ 0001:00023950       _processTbl                6cde4950 f   libgvc:htmltable.o
+ 0001:00023b60       _size_html_cell            6cde4b60 f   libgvc:htmltable.o
+ 0001:00023d80       _size_html_img             6cde4d80 f   libgvc:htmltable.o
+ 0001:00023e20       _findCol                   6cde4e20 f   libgvc:htmltable.o
+ 0001:00023f00       _nameOf                    6cde4f00 f   libgvc:htmltable.o
+ 0001:00024020       _getPenColor               6cde5020 f   libgvc:htmltable.o
+ 0001:00024080       _free_ritem                6cde5080 f   libgvc:htmlparse.o
+ 0001:000240a0       _free_item                 6cde50a0 f   libgvc:htmlparse.o
+ 0001:00024b90       _dupFont                   6cde5b90 f   libgvc:htmlparse.o
+ 0001:00024bb0       _appendFItemList           6cde5bb0 f   libgvc:htmlparse.o
+ 0001:00024c60       _appendFLineList           6cde5c60 f   libgvc:htmlparse.o
+ 0001:00024d40       _mkText                    6cde5d40 f   libgvc:htmlparse.o
+ 0001:00024e50       _addRow                    6cde5e50 f   libgvc:htmlparse.o
+ 0001:00024eb0       _setCell                   6cde5eb0 f   libgvc:htmlparse.o
+ 0001:00024f50       _mkLabel                   6cde5f50 f   libgvc:htmlparse.o
+ 0001:00024f90       _cleanup                   6cde5f90 f   libgvc:htmlparse.o
+ 0001:00025060       _cleanTbl                  6cde6060 f   libgvc:htmlparse.o
+ 0001:00025090       _free_citem                6cde6090 f   libgvc:htmlparse.o
+ 0001:000250b0       _cleanCell                 6cde60b0 f   libgvc:htmlparse.o
+ 0001:00025110       _free_fitem                6cde6110 f   libgvc:htmlparse.o
+ 0001:00025160       _free_fpara                6cde6160 f   libgvc:htmlparse.o
+ 0001:000251f0       _freeFontstack             6cde61f0 f   libgvc:htmlparse.o
+ 0001:00025240       _nonSpace                  6cde6240 f   libgvc:htmlparse.o
+ 0001:00025280       _pushFont                  6cde6280 f   libgvc:htmlparse.o
+ 0001:00025350       _popFont                   6cde6350 f   libgvc:htmlparse.o
+ 0001:00025390       _htmldestruct              6cde6390 f   libgvc:htmlparse.o
+ 0001:00025540       _error_context             6cde6540 f   libgvc:htmllex.o
+ 0001:00025610       _bgcolorfn                 6cde6610 f   libgvc:htmllex.o
+ 0001:00025630       _pencolorfn                6cde6630 f   libgvc:htmllex.o
+ 0001:00025650       _hreffn                    6cde6650 f   libgvc:htmllex.o
+ 0001:00025670       _titlefn                   6cde6670 f   libgvc:htmllex.o
+ 0001:00025690       _portfn                    6cde6690 f   libgvc:htmllex.o
+ 0001:000256b0       _targetfn                  6cde66b0 f   libgvc:htmllex.o
+ 0001:000256d0       _borderfn                  6cde66d0 f   libgvc:htmllex.o
+ 0001:00025720       _doInt                     6cde6720 f   libgvc:htmllex.o
+ 0001:000257e0       _cellpaddingfn             6cde67e0 f   libgvc:htmllex.o
+ 0001:00025830       _cellspacingfn             6cde6830 f   libgvc:htmllex.o
+ 0001:00025880       _cellborderfn              6cde6880 f   libgvc:htmllex.o
+ 0001:000258c0       _fixedsizefn               6cde68c0 f   libgvc:htmllex.o
+ 0001:00025960       _valignfn                  6cde6960 f   libgvc:htmllex.o
+ 0001:00025a30       _halignfn                  6cde6a30 f   libgvc:htmllex.o
+ 0001:00025b00       _cell_halignfn             6cde6b00 f   libgvc:htmllex.o
+ 0001:00025c10       _balignfn                  6cde6c10 f   libgvc:htmllex.o
+ 0001:00025cf0       _heightfn                  6cde6cf0 f   libgvc:htmllex.o
+ 0001:00025d30       _widthfn                   6cde6d30 f   libgvc:htmllex.o
+ 0001:00025d70       _rowspanfn                 6cde6d70 f   libgvc:htmllex.o
+ 0001:00025dd0       _colspanfn                 6cde6dd0 f   libgvc:htmllex.o
+ 0001:00025e30       _fontcolorfn               6cde6e30 f   libgvc:htmllex.o
+ 0001:00025e50       _facefn                    6cde6e50 f   libgvc:htmllex.o
+ 0001:00025e70       _ptsizefn                  6cde6e70 f   libgvc:htmllex.o
+ 0001:00025eb0       _srcfn                     6cde6eb0 f   libgvc:htmllex.o
+ 0001:00025ed0       _scalefn                   6cde6ed0 f   libgvc:htmllex.o
+ 0001:00025ef0       _alignfn                   6cde6ef0 f   libgvc:htmllex.o
+ 0001:00026070       _startElement              6cde7070 f   libgvc:htmllex.o
+ 0001:000261f0       _lexerror                  6cde71f0 f   libgvc:htmllex.o
+ 0001:00026220       _mkBR                      6cde7220 f   libgvc:htmllex.o
+ 0001:00026250       _doAttrs                   6cde7250 f   libgvc:htmllex.o
+ 0001:00026300       _icmp                      6cde7300 f   libgvc:htmllex.o
+ 0001:00026320       _mkImg                     6cde7320 f   libgvc:htmllex.o
+ 0001:00026360       _mkFont                    6cde7360 f   libgvc:htmllex.o
+ 0001:000263a0       _mkCell                    6cde73a0 f   libgvc:htmllex.o
+ 0001:000263f0       _mkTbl                     6cde73f0 f   libgvc:htmllex.o
+ 0001:00026440       _endElement                6cde7440 f   libgvc:htmllex.o
+ 0001:000265a0       _characterData             6cde75a0 f   libgvc:htmllex.o
+ 0001:000268d0       _findNext                  6cde78d0 f   libgvc:htmllex.o
+ 0001:00026a80       _eatComment                6cde7a80 f   libgvc:htmllex.o
+ 0001:00026b40       _hpgl_reset                6cde7b40 f   libgvc:hpglgen.o
+ 0001:00026b50       _hpgl_begin_job            6cde7b50 f   libgvc:hpglgen.o
+ 0001:00026b70       _hpgl_begin_graph          6cde7b70 f   libgvc:hpglgen.o
+ 0001:00026be0       _hpgl_begin_page           6cde7be0 f   libgvc:hpglgen.o
+ 0001:00026e90       _output                    6cde7e90 f   libgvc:hpglgen.o
+ 0001:00026f30       _setFont                   6cde7f30 f   libgvc:hpglgen.o
+ 0001:00027120       _eqFontInfo                6cde8120 f   libgvc:hpglgen.o
+ 0001:000271a0       _initGC                    6cde81a0 f   libgvc:hpglgen.o
+ 0001:00027230       _initColors                6cde8230 f   libgvc:hpglgen.o
+ 0001:00027290       _makeGC                    6cde8290 f   libgvc:hpglgen.o
+ 0001:00027310       _saveGC                    6cde8310 f   libgvc:hpglgen.o
+ 0001:00027340       _restoreGC                 6cde8340 f   libgvc:hpglgen.o
+ 0001:00027400       _eqColor                   6cde8400 f   libgvc:hpglgen.o
+ 0001:00027450       _set_color                 6cde8450 f   libgvc:hpglgen.o
+ 0001:00027580       _setPen                    6cde8580 f   libgvc:hpglgen.o
+ 0001:000275d0       _set_line_bold             6cde85d0 f   libgvc:hpglgen.o
+ 0001:00027670       _set_line_style            6cde8670 f   libgvc:hpglgen.o
+ 0001:00027700       _hpgl_set_scale            6cde8700 f   libgvc:hpglgen.o
+ 0001:00027790       _hpgl_end_page             6cde8790 f   libgvc:hpglgen.o
+ 0001:000277f0       _destroyGC                 6cde87f0 f   libgvc:hpglgen.o
+ 0001:00027870       _destroyColors             6cde8870 f   libgvc:hpglgen.o
+ 0001:00027890       _hpgl_begin_context        6cde8890 f   libgvc:hpglgen.o
+ 0001:000278a0       _hpgl_end_context          6cde88a0 f   libgvc:hpglgen.o
+ 0001:000278b0       _hpgl_set_font             6cde88b0 f   libgvc:hpglgen.o
+ 0001:000278e0       _mkFontInfo                6cde88e0 f   libgvc:hpglgen.o
+ 0001:000279e0       _mkFontCanon               6cde89e0 f   libgvc:hpglgen.o
+ 0001:00027a60       _hpgl_set_color            6cde8a60 f   libgvc:hpglgen.o
+ 0001:00027aa0       _hpgl_set_style            6cde8aa0 f   libgvc:hpglgen.o
+ 0001:00027c40       _hpgl_textpara             6cde8c40 f   libgvc:hpglgen.o
+ 0001:00027d00       _output_text               6cde8d00 f   libgvc:hpglgen.o
+ 0001:00027df0       _isInvis                   6cde8df0 f   libgvc:hpglgen.o
+ 0001:00027e10       _hpgl_bezier               6cde8e10 f   libgvc:hpglgen.o
+ 0001:00027f70       _Bzier                     6cde8f70 f   libgvc:hpglgen.o
+ 0001:000281e0       _isFlat                    6cde91e0 f   libgvc:hpglgen.o
+ 0001:000282d0       _hpgl_polygon              6cde92d0 f   libgvc:hpglgen.o
+ 0001:00028480       _hpgl_ellipse              6cde9480 f   libgvc:hpglgen.o
+ 0001:000285e0       _hpgl_polyline             6cde95e0 f   libgvc:hpglgen.o
+ 0001:000286d0       _hpgl_usershape            6cde96d0 f   libgvc:hpglgen.o
+ 0001:000292b0       _rotatep                   6cdea2b0 f   libgvc:geom.o
+ 0001:00029370       _rotatepf                  6cdea370 f   libgvc:geom.o
+ 0001:00029c00       _dot                       6cdeac00 f   libgvc:geom.o
+ 0001:00029d00       _estimate_textlayout       6cdead00 f   libgvc:fontmetrics.o
+ 0001:00029e30       _translate_postscript_fontname 6cdeae30 f   libgvc:fontmetrics.o
+ 0001:00029e90       _fontcmpf                  6cdeae90 f   libgvc:fontmetrics.o
+ 0001:0002a790       _firstlayer                6cdeb790 f   libgvc:emit.o
+ 0001:0002a800       _validlayer                6cdeb800 f   libgvc:emit.o
+ 0001:0002a820       _nextlayer                 6cdeb820 f   libgvc:emit.o
+ 0001:0002a840       _firstpage                 6cdeb840 f   libgvc:emit.o
+ 0001:0002a870       _validpage                 6cdeb870 f   libgvc:emit.o
+ 0001:0002a8d0       _nextpage                  6cdeb8d0 f   libgvc:emit.o
+ 0001:0002a990       _emit_colors               6cdeb990 f   libgvc:emit.o
+ 0001:0002ace0       _emit_begin_graph          6cdebce0 f   libgvc:emit.o
+ 0001:0002ad50       _initObjMapData            6cdebd50 f   libgvc:emit.o
+ 0001:0002ae00       _emit_end_graph            6cdebe00 f   libgvc:emit.o
+ 0001:0002ae30       _emit_page                 6cdebe30 f   libgvc:emit.o
+ 0001:0002b250       _setup_page                6cdec250 f   libgvc:emit.o
+ 0001:0002b650       _emit_view                 6cdec650 f   libgvc:emit.o
+ 0001:0002ba30       _write_edge_test           6cdeca30 f   libgvc:emit.o
+ 0001:0002ba90       _write_node_test           6cdeca90 f   libgvc:emit.o
+ 0001:0002baf0       _emit_node                 6cdecaf0 f   libgvc:emit.o
+ 0001:0002bc00       _node_in_layer             6cdecc00 f   libgvc:emit.o
+ 0001:0002bd00       _selectedlayer             6cdecd00 f   libgvc:emit.o
+ 0001:0002bf20       _layer_index               6cdecf20 f   libgvc:emit.o
+ 0001:0002c000       _is_natural_number         6cded000 f   libgvc:emit.o
+ 0001:0002c050       _node_in_box               6cded050 f   libgvc:emit.o
+ 0001:0002c090       _emit_begin_node           6cded090 f   libgvc:emit.o
+ 0001:0002c6a0       _isRect                    6cded6a0 f   libgvc:emit.o
+ 0001:0002c730       _ifFilled                  6cded730 f   libgvc:emit.o
+ 0001:0002c7b0       _pEllipse                  6cded7b0 f   libgvc:emit.o
+ 0001:0002c850       _emit_end_node             6cded850 f   libgvc:emit.o
+ 0001:0002c890       _emit_edge                 6cded890 f   libgvc:emit.o
+ 0001:0002caa0       _edge_in_layer             6cdedaa0 f   libgvc:emit.o
+ 0001:0002cb80       _emit_edge_graphics        6cdedb80 f   libgvc:emit.o
+ 0001:0002d980       _computeoffset_p           6cdee980 f   libgvc:emit.o
+ 0001:0002d9f0       _computeoffset_qr          6cdee9f0 f   libgvc:emit.o
+ 0001:0002daa0       _default_pencolor          6cdeeaa0 f   libgvc:emit.o
+ 0001:0002db80       _edge_in_box               6cdeeb80 f   libgvc:emit.o
+ 0001:0002dc10       _emit_begin_edge           6cdeec10 f   libgvc:emit.o
+ 0001:0002e6c0       _map_output_bspline        6cdef6c0 f   libgvc:emit.o
+ 0001:0002e970       _map_bspline_poly          6cdef970 f   libgvc:emit.o
+ 0001:0002ea90       _approx_bezier             6cdefa90 f   libgvc:emit.o
+ 0001:0002eb60       _check_control_points      6cdefb60 f   libgvc:emit.o
+ 0001:0002ec70       _appendSeg                 6cdefc70 f   libgvc:emit.o
+ 0001:0002ecc0       _mkSegPts                  6cdefcc0 f   libgvc:emit.o
+ 0001:0002ee00       _bisect                    6cdefe00 f   libgvc:emit.o
+ 0001:0002ee80       _emit_end_edge             6cdefe80 f   libgvc:emit.o
+ 0001:0002f240       _emit_edge_label           6cdf0240 f   libgvc:emit.o
+ 0001:0002f320       _map_label                 6cdf0320 f   libgvc:emit.o
+ 0001:0002f470       _emit_attachment           6cdf0470 f   libgvc:emit.o
+ 0001:0002f5c0       _nodeIntersect             6cdf05c0 f   libgvc:emit.o
+ 0001:0002f6b0       _map_point                 6cdf06b0 f   libgvc:emit.o
+ 0001:0002f7e0       _free_string_entry         6cdf07e0 f   libgvc:emit.o
+ 0001:00030040       _clust_in_layer            6cdf1040 f   libgvc:emit.o
+ 0001:00030100       _checkClusterStyle         6cdf1100 f   libgvc:emit.o
+ 0001:000301f0       _emit_begin_cluster        6cdf11f0 f   libgvc:emit.o
+ 0001:00030260       _emit_end_cluster          6cdf1260 f   libgvc:emit.o
+ 0001:000305d0       _style_token               6cdf15d0 f   libgvc:emit.o
+ 0001:000306e0       _is_style_delim            6cdf16e0 f   libgvc:emit.o
+ 0001:00030a50       _chkOrder                  6cdf1a50 f   libgvc:emit.o
+ 0001:00030ad0       _init_layering             6cdf1ad0 f   libgvc:emit.o
+ 0001:00030b70       _parse_layers              6cdf1b70 f   libgvc:emit.o
+ 0001:00030ce0       _init_job_pagination       6cdf1ce0 f   libgvc:emit.o
+ 0001:000315c0       _pagecode                  6cdf25c0 f   libgvc:emit.o
+ 0001:00031680       _init_gvc                  6cdf2680 f   libgvc:emit.o
+ 0001:00031950       _init_job_pad              6cdf2950 f   libgvc:emit.o
+ 0001:00031a00       _init_job_margin           6cdf2a00 f   libgvc:emit.o
+ 0001:00031b10       _init_job_dpi              6cdf2b10 f   libgvc:emit.o
+ 0001:00031c00       _init_job_viewport         6cdf2c00 f   libgvc:emit.o
+ 0001:00031e90       _init_bb                   6cdf2e90 f   libgvc:emit.o
+ 0001:00031ee0       _init_bb_node              6cdf2ee0 f   libgvc:emit.o
+ 0001:00031f90       _init_bb_edge              6cdf2f90 f   libgvc:emit.o
+ 0001:00031fc0       _init_splines_bb           6cdf2fc0 f   libgvc:emit.o
+ 0001:000323e0       _bezier_bb                 6cdf33e0 f   libgvc:emit.o
+ 0001:000325f0       _dia_reset                 6cdf35f0 f   libgvc:diagen.o
+ 0001:00032600       _dia_comment               6cdf3600 f   libgvc:diagen.o
+ 0001:00032640       _dia_fputs                 6cdf3640 f   libgvc:diagen.o
+ 0001:00032670       _dia_begin_job             6cdf3670 f   libgvc:diagen.o
+ 0001:000326e0       _dia_printf                6cdf36e0 f   libgvc:diagen.o
+ 0001:00032760       _dia_end_job               6cdf3760 f   libgvc:diagen.o
+ 0001:00032770       _dia_begin_graph           6cdf3770 f   libgvc:diagen.o
+ 0001:00032b10       _init_dia                  6cdf3b10 f   libgvc:diagen.o
+ 0001:00032b70       _dia_end_graph             6cdf3b70 f   libgvc:diagen.o
+ 0001:00032b90       _dia_begin_page            6cdf3b90 f   libgvc:diagen.o
+ 0001:00032bc0       _dia_end_page              6cdf3bc0 f   libgvc:diagen.o
+ 0001:00032be0       _dia_begin_cluster         6cdf3be0 f   libgvc:diagen.o
+ 0001:00032c00       _dia_end_cluster           6cdf3c00 f   libgvc:diagen.o
+ 0001:00032c20       _dia_begin_node            6cdf3c20 f   libgvc:diagen.o
+ 0001:00032c40       _dia_end_node              6cdf3c40 f   libgvc:diagen.o
+ 0001:00032c60       _dia_begin_edge            6cdf3c60 f   libgvc:diagen.o
+ 0001:00032c70       _dia_end_edge              6cdf3c70 f   libgvc:diagen.o
+ 0001:00032c80       _dia_begin_context         6cdf3c80 f   libgvc:diagen.o
+ 0001:00032cf0       _dia_end_context           6cdf3cf0 f   libgvc:diagen.o
+ 0001:00032d30       _dia_set_font              6cdf3d30 f   libgvc:diagen.o
+ 0001:00032d80       _dia_set_pencolor          6cdf3d80 f   libgvc:diagen.o
+ 0001:00032da0       _dia_set_fillcolor         6cdf3da0 f   libgvc:diagen.o
+ 0001:00032dc0       _dia_set_style             6cdf3dc0 f   libgvc:diagen.o
+ 0001:00032fd0       _dia_textpara              6cdf3fd0 f   libgvc:diagen.o
+ 0001:00033290       _dia_resolve_color         6cdf4290 f   libgvc:diagen.o
+ 0001:00033340       _diapt                     6cdf4340 f   libgvc:diagen.o
+ 0001:000333f0       _dia_ellipse               6cdf43f0 f   libgvc:diagen.o
+ 0001:00033630       _dia_grstyle               6cdf4630 f   libgvc:diagen.o
+ 0001:00033710       _dia_grstylefill           6cdf4710 f   libgvc:diagen.o
+ 0001:00033d60       _dia_bezier                6cdf4d60 f   libgvc:diagen.o
+ 0001:000345b0       _dia_polygon               6cdf55b0 f   libgvc:diagen.o
+ 0001:00034830       _dia_polyline              6cdf5830 f   libgvc:diagen.o
+ 0001:00034a40       _dia_usershape             6cdf5a40 f   libgvc:diagen.o
+ 0001:00035830       _hsv2rgb                   6cdf6830 f   libgvc:colxlate.o
+ 0001:00035990       _rgb2hsv                   6cdf6990 f   libgvc:colxlate.o
+ 0001:00035b50       _rgb2cmyk                  6cdf6b50 f   libgvc:colxlate.o
+ 0001:00035c00       _colorcmpf                 6cdf6c00 f   libgvc:colxlate.o
+ 0001:00035c20       _resolveColor              6cdf6c20 f   libgvc:colxlate.o
+ 0001:00035d80       _fullColor                 6cdf6d80 f   libgvc:colxlate.o
+ 0001:00035fa0       _arrow_match_name          6cdf6fa0 f   libgvc:arrows.o
+ 0001:00035ff0       _arrow_match_shape         6cdf6ff0 f   libgvc:arrows.o
+ 0001:00036090       _arrow_match_name_frag     6cdf7090 f   libgvc:arrows.o
+ 0001:00036510       _inside                    6cdf7510 f   libgvc:arrows.o
+ 0001:000368a0       _arrow_type_normal         6cdf78a0 f   libgvc:arrows.o
+ 0001:00036a30       _arrow_type_crow           6cdf7a30 f   libgvc:arrows.o
+ 0001:00036d30       _arrow_type_tee            6cdf7d30 f   libgvc:arrows.o
+ 0001:00036e70       _arrow_type_box            6cdf7e70 f   libgvc:arrows.o
+ 0001:00036fa0       _arrow_type_diamond        6cdf7fa0 f   libgvc:arrows.o
+ 0001:000370d0       _arrow_type_dot            6cdf80d0 f   libgvc:arrows.o
+ 0001:00037880       _arrow_gen_type            6cdf8880 f   libgvc:arrows.o
+ 0001:00037a50       _neato_extra_args          6cdf8a50 f   libgvc:args.o
+ 0001:00037b90       _memtest_extra_args        6cdf8b90 f   libgvc:args.o
+ 0001:00037c60       _config_extra_args         6cdf8c60 f   libgvc:args.o
+ 0001:00037d80       _fdp_extra_args            6cdf8d80 f   libgvc:args.o
+ 0001:00037e50       _setAttr                   6cdf8e50 f   libgvc:args.o
+ 0001:00037fd0       _setDouble                 6cdf8fd0 f   libgvc:args.o
+ 0001:00038020       _setInt                    6cdf9020 f   libgvc:args.o
+ 0001:000387c0       _usershape_close           6cdf97c0 f   libgvc:gvusershape.o
+ 0001:00038aa0       _gvusershape_open          6cdf9aa0 f   libgvc:gvusershape.o
+ 0001:00038c30       _imagetype                 6cdf9c30 f   libgvc:gvusershape.o
+ 0001:00038d80       _svg_size                  6cdf9d80 f   libgvc:gvusershape.o
+ 0001:00038f50       _svg_units_convert         6cdf9f50 f   libgvc:gvusershape.o
+ 0001:000391d0       _png_size                  6cdfa1d0 f   libgvc:gvusershape.o
+ 0001:00039250       _get_int_msb_first         6cdfa250 f   libgvc:gvusershape.o
+ 0001:000392c0       _gif_size                  6cdfa2c0 f   libgvc:gvusershape.o
+ 0001:00039340       _get_int_lsb_first         6cdfa340 f   libgvc:gvusershape.o
+ 0001:000393b0       _bmp_size                  6cdfa3b0 f   libgvc:gvusershape.o
+ 0001:00039470       _jpeg_size                 6cdfa470 f   libgvc:gvusershape.o
+ 0001:00039600       _ps_size                   6cdfa600 f   libgvc:gvusershape.o
+ 0001:0003a1f0       _re_match_2_internal       6cdfb1f0 f   libgvc:gvconfig.o
+ 0001:0003d540       _group_match_null_string_p 6cdfe540 f   libgvc:gvconfig.o
+ 0001:0003d720       _alt_match_null_string_p   6cdfe720 f   libgvc:gvconfig.o
+ 0001:0003d7d0       _common_op_match_null_string_p 6cdfe7d0 f   libgvc:gvconfig.o
+ 0001:0003d9e0       _bcmp_translate            6cdfe9e0 f   libgvc:gvconfig.o
+ 0001:0003dab0       _regex_compile             6cdfeab0 f   libgvc:gvconfig.o
+ 0001:00041820       _init_syntax_once          6ce02820 f   libgvc:gvconfig.o
+ 0001:000418d0       _store_op1                 6ce028d0 f   libgvc:gvconfig.o
+ 0001:00041900       _store_op2                 6ce02900 f   libgvc:gvconfig.o
+ 0001:00041950       _insert_op1                6ce02950 f   libgvc:gvconfig.o
+ 0001:000419b0       _insert_op2                6ce029b0 f   libgvc:gvconfig.o
+ 0001:00041a10       _at_begline_loc_p          6ce02a10 f   libgvc:gvconfig.o
+ 0001:00041aa0       _at_endline_loc_p          6ce02aa0 f   libgvc:gvconfig.o
+ 0001:00041ba0       _group_in_compile_stack    6ce02ba0 f   libgvc:gvconfig.o
+ 0001:00041be0       _compile_range             6ce02be0 f   libgvc:gvconfig.o
+ 0001:00042470       _stat                      6ce03470 f   libgvc:gvconfig.o
+ 0001:00042490       _gvconfig_plugin_install_from_config 6ce03490 f   libgvc:gvconfig.o
+ 0001:000425f0       _separator                 6ce035f0 f   libgvc:gvconfig.o
+ 0001:000426d0       _token                     6ce036d0 f   libgvc:gvconfig.o
+ 0001:00042760       _gvconfig_plugin_install_builtins 6ce03760 f   libgvc:gvconfig.o
+ 0001:000427d0       _gvconfig_plugin_install_from_library 6ce037d0 f   libgvc:gvconfig.o
+ 0001:00042870       _config_rescan             6ce03870 f   libgvc:gvconfig.o
+ 0001:00042ba0       _gvconfig_write_library_config 6ce03ba0 f   libgvc:gvconfig.o
+ 0001:00042cc0       _glob                      6ce03cc0 f   libgvc:gvconfig.o
+ 0001:00042eb0       _globfree                  6ce03eb0 f   libgvc:gvconfig.o
+ 0001:00043710       _gvplugin_activate         6ce04710 f   libgvc:gvplugin.o
+ 0001:000439c0       _append_buf                6ce049c0 f   libgvc:gvplugin.o
+ 0001:00043bb0       _gvevent_refresh           6ce04bb0 f   libgvc:gvevent.o
+ 0001:00043c20       _gv_graph_state            6ce04c20 f   libgvc:gvevent.o
+ 0001:00043e50       _gvevent_button_press      6ce04e50 f   libgvc:gvevent.o
+ 0001:000441b0       _gvevent_find_current_obj  6ce051b0 f   libgvc:gvevent.o
+ 0001:00044290       _gvevent_find_obj          6ce05290 f   libgvc:gvevent.o
+ 0001:000443b0       _gvevent_find_cluster      6ce053b0 f   libgvc:gvevent.o
+ 0001:00044480       _gvevent_leave_obj         6ce05480 f   libgvc:gvevent.o
+ 0001:00044500       _gvevent_enter_obj         6ce05500 f   libgvc:gvevent.o
+ 0001:000446b0       _pointer2graph             6ce056b0 f   libgvc:gvevent.o
+ 0001:00044770       _gvevent_select_current_obj 6ce05770 f   libgvc:gvevent.o
+ 0001:000448f0       _gv_node_state             6ce058f0 f   libgvc:gvevent.o
+ 0001:00044aa0       _gv_edge_state             6ce05aa0 f   libgvc:gvevent.o
+ 0001:00044db0       _gvevent_button_release    6ce05db0 f   libgvc:gvevent.o
+ 0001:00044dd0       _gvevent_motion            6ce05dd0 f   libgvc:gvevent.o
+ 0001:00044f40       _quit_cb                   6ce05f40 f   libgvc:gvevent.o
+ 0001:00044f50       _left_cb                   6ce05f50 f   libgvc:gvevent.o
+ 0001:00044f90       _right_cb                  6ce05f90 f   libgvc:gvevent.o
+ 0001:00044fd0       _up_cb                     6ce05fd0 f   libgvc:gvevent.o
+ 0001:00045010       _down_cb                   6ce06010 f   libgvc:gvevent.o
+ 0001:00045050       _zoom_in_cb                6ce06050 f   libgvc:gvevent.o
+ 0001:00045090       _zoom_out_cb               6ce06090 f   libgvc:gvevent.o
+ 0001:000450d0       _toggle_fit_cb             6ce060d0 f   libgvc:gvevent.o
+ 0001:000451d0       _gvevent_modify            6ce061d0 f   libgvc:gvevent.o
+ 0001:000451e0       _gvevent_delete            6ce061e0 f   libgvc:gvevent.o
+ 0001:000451f0       _gvevent_read              6ce061f0 f   libgvc:gvevent.o
+ 0001:00045320       _gvevent_layout            6ce06320 f   libgvc:gvevent.o
+ 0001:00045340       _gvevent_render            6ce06340 f   libgvc:gvevent.o
+ 0001:000458c0       _gvloadimage_select        6ce068c0 f   libgvc:gvloadimage.o
+ 0001:00045b60       _gvprintnum                6ce06b60 f   libgvc:gvdevice.o
+ 0001:00045f40       _auto_output_filename      6ce06f40 f   libgvc:gvdevice.o
+ 0001:00046aa0       _gvrender_resolve_color    6ce07aa0 f   libgvc:gvrender.o
+ 0001:00046ba0       _gvrender_comparestr       6ce07ba0 f   libgvc:gvrender.o
+ 0001:00048930       _get_imagescale            6ce09930 f   libgvc:gvrender.o
+ 0001:00048b9c       _pre_c_init                6ce09b9c f   msvcrt:crtdll.obj
+ 0001:00048d88       ___DllMainCRTStartup       6ce09d88 f   msvcrt:crtdll.obj
+ 0001:00049348       _has_osfxsr_set            6ce0a348 f   msvcrt:cpu_disp.obj

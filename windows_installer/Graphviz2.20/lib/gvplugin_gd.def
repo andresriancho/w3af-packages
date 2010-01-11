@@ -1,0 +1,211 @@
+LIBRARY gvplugin_gd.dll
+
+EXPORTS
+
+Putchar
+Putword
+_gdGetColors
+_gdImageFillTiled
+_gdPutColors
+any2eucjp
+createwbmp
+empty_output_buffer
+fill_input_buffer
+freewbmp
+gdAlphaBlend
+gdCacheCreate
+gdCacheDelete
+gdCacheGet
+gdCalloc
+gdCosT DATA
+gdDPExtractData
+gdFTUseFontConfig
+gdFontCacheSetup
+gdFontCacheShutdown
+gdFontGetGiant
+gdFontGetLarge
+gdFontGetMediumBold
+gdFontGetSmall
+gdFontGetTiny
+gdFontGiant DATA
+gdFontGiantData DATA
+gdFontGiantRep DATA
+gdFontLarge DATA
+gdFontLargeData DATA
+gdFontLargeRep DATA
+gdFontMediumBold DATA
+gdFontMediumBoldData DATA
+gdFontMediumBoldRep DATA
+gdFontSmall DATA
+gdFontSmallData DATA
+gdFontSmallRep DATA
+gdFontTiny DATA
+gdFontTinyData DATA
+gdFontTinyRep DATA
+gdFree
+gdFreeFontCache
+gdGetBuf
+gdGetByte
+gdGetC
+gdGetInt
+gdGetWord
+gdImageAABlend
+gdImageAlphaBlending
+gdImageArc
+gdImageBoundsSafe
+gdImageChar
+gdImageCharUp
+gdImageColorAllocate
+gdImageColorAllocateAlpha
+gdImageColorClosest
+gdImageColorClosestAlpha
+gdImageColorClosestHWB
+gdImageColorDeallocate
+gdImageColorExact
+gdImageColorExactAlpha
+gdImageColorResolve
+gdImageColorResolveAlpha
+gdImageColorTransparent
+gdImageCompare
+gdImageCopy
+gdImageCopyMerge
+gdImageCopyMergeGray
+gdImageCopyResampled
+gdImageCopyResized
+gdImageCopyRotated
+gdImageCreate
+gdImageCreateFromGd
+gdImageCreateFromGd2
+gdImageCreateFromGd2Ctx
+gdImageCreateFromGd2Part
+gdImageCreateFromGd2PartCtx
+gdImageCreateFromGd2PartPtr
+gdImageCreateFromGd2Ptr
+gdImageCreateFromGdCtx
+gdImageCreateFromGdPtr
+gdImageCreateFromGif
+gdImageCreateFromGifCtx
+gdImageCreateFromGifPtr
+gdImageCreateFromJpeg
+gdImageCreateFromJpegCtx
+gdImageCreateFromJpegPtr
+gdImageCreateFromPng
+gdImageCreateFromPngCtx
+gdImageCreateFromPngPtr
+gdImageCreateFromPngSource
+gdImageCreateFromWBMP
+gdImageCreateFromWBMPCtx
+gdImageCreateFromWBMPPtr
+gdImageCreateFromXbm
+gdImageCreateFromXpm
+gdImageCreatePaletteFromTrueColor
+gdImageCreateTrueColor
+gdImageDashedLine
+gdImageDestroy
+gdImageFill
+gdImageFillToBorder
+gdImageFilledArc
+gdImageFilledEllipse
+gdImageFilledPolygon
+gdImageFilledRectangle
+gdImageGd
+gdImageGd2
+gdImageGd2Ptr
+gdImageGdPtr
+gdImageGetClip
+gdImageGetPixel
+gdImageGetTrueColorPixel
+gdImageGif
+gdImageGifAnimAdd
+gdImageGifAnimAddCtx
+gdImageGifAnimAddPtr
+gdImageGifAnimBegin
+gdImageGifAnimBeginCtx
+gdImageGifAnimBeginPtr
+gdImageGifAnimEnd
+gdImageGifAnimEndCtx
+gdImageGifAnimEndPtr
+gdImageGifCtx
+gdImageGifPtr
+gdImageInterlace
+gdImageJpeg
+gdImageJpegCtx
+gdImageJpegPtr
+gdImageLine
+gdImageOpenPolygon
+gdImagePaletteCopy
+gdImagePng
+gdImagePngCtx
+gdImagePngCtxEx
+gdImagePngEx
+gdImagePngPtr
+gdImagePngPtrEx
+gdImagePngToSink
+gdImagePolygon
+gdImageRectangle
+gdImageSaveAlpha
+gdImageSetAntiAliased
+gdImageSetAntiAliasedDontBlend
+gdImageSetBrush
+gdImageSetClip
+gdImageSetPixel
+gdImageSetStyle
+gdImageSetThickness
+gdImageSetTile
+gdImageSharpen
+gdImageSquareToCircle
+gdImageString
+gdImageString16
+gdImageStringFT
+gdImageStringFTCircle
+gdImageStringFTEx
+gdImageStringTTF
+gdImageStringUp
+gdImageStringUp16
+gdImageSubSharpen
+gdImageTrueColorToPalette
+gdImageWBMP
+gdImageWBMPCtx
+gdImageWBMPPtr
+gdMalloc
+gdNewDynamicCtx
+gdNewDynamicCtxEx
+gdNewFileCtx
+gdNewSSCtx
+gdPutBuf
+gdPutC
+gdPutInt
+gdPutWord
+gdRealloc
+gdSeek
+gdSinT DATA
+gdTell
+gd_getin
+gd_putout
+gd_strtok_r
+gdgen_text
+getmbi
+gvdevice_gd_putBuf
+gvdevice_gd_putC
+gvdevice_gd_types DATA
+gvdevice_gd_types2 DATA
+gvdevice_vrml_types DATA
+gvloadimage_gd_types DATA
+gvplugin_gd_LTX_library DATA
+gvrender_gd_types DATA
+gvrender_vrml_types DATA
+gvtextlayout_gd_types DATA
+init_destination
+init_source
+jpeg_gdIOCtx_dest
+jpeg_gdIOCtx_src
+lsqrt
+overflow2
+printwbmp
+putmbi
+readwbmp
+skip_input_data
+skipheader
+term_destination
+term_source
+writewbmp

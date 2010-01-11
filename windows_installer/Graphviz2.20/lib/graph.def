@@ -1,0 +1,115 @@
+LIBRARY graph.dll
+
+EXPORTS
+
+AG DATA
+Line_number DATA
+TrieStateTbl DATA
+TrieTransTbl DATA
+agDELedge
+agDELnode
+agEdgedisc DATA
+agFREEdict
+agFREEedge
+agFREEnode
+agINSedge
+agINSgraph
+agINSnode
+agIndisc DATA
+agNEWdict
+agNEWedge
+agNEWnode
+agNEWsym
+agNamedisc DATA
+agNodedisc DATA
+agOutdisc DATA
+agattr
+agcanon
+agcanonical
+agchar DATA
+agclose
+agcmpid
+agcmpin
+agcmpout
+agcontains
+agcopyattr
+agcopydict
+agdelete
+agdictof
+agedge
+agedgeattr
+agerr
+agerrno DATA
+agerror
+agerrorf
+agerrors
+agfindattr
+agfindedge
+agfindnode
+agfindsubg
+agfstattr
+agfstedge
+agfstin
+agfstnode
+agfstout
+agget
+aghtmlstr
+agidnode
+agindex
+aginitlib
+aginsert
+aglasterr
+aglex
+aglexinit
+aglinenumber
+aglstattr
+aglstnode
+aglval DATA
+agmemread
+agnedges
+agnerrs DATA
+agnnodes
+agnode
+agnodeattr
+agnxtattr
+agnxtedge
+agnxtin
+agnxtnode
+agnxtout
+agopen
+agparse
+agpopproto
+agprotoedge
+agprotograph
+agprotonode
+agprvattr
+agprvnode
+agpushproto
+agraphattr
+agread
+agread_usergets
+agreadline
+agsafeset
+agset
+agseterr
+agsetfile
+agstrcanon
+agstrdup
+agstrdup_html
+agstrfree
+agsubg
+agtoken
+agusergraph
+agwarningf
+agwredge
+agwrite
+agwrnode
+agxbfree
+agxbinit
+agxbmore
+agxbpop
+agxbput
+agxbput_n
+agxget
+agxset
+myaglex

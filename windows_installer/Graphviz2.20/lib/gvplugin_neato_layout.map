@@ -1,0 +1,1015 @@
+ gvplugin_neato_layout
+
+ Timestamp is 48752c77 (Wed Jul 09 17:24:07 2008)
+
+ Preferred load address is 69e40000
+
+ Start         Length     Name                   Class
+ 0001:00000000 0002912eH .text                   CODE
+ 0002:00000000 000002b8H .idata$5                DATA
+ 0002:000002b8 00000004H .CRT$XCA                DATA
+ 0002:000002bc 00000004H .CRT$XCZ                DATA
+ 0002:000002c0 00000004H .CRT$XIA                DATA
+ 0002:000002c4 00000004H .CRT$XIAA               DATA
+ 0002:000002c8 00000004H .CRT$XIC                DATA
+ 0002:000002cc 00000004H .CRT$XIZ                DATA
+ 0002:000002d0 000001e0H .rdata                  DATA
+ 0002:000004b0 00000004H .rdata$sxdata           DATA
+ 0002:000004b4 00000004H .rtc$IAA                DATA
+ 0002:000004b8 00000004H .rtc$IZZ                DATA
+ 0002:000004bc 00000004H .rtc$TAA                DATA
+ 0002:000004c0 00000004H .rtc$TZZ                DATA
+ 0002:000004c8 00000084H .xdata$x                DATA
+ 0002:0000054c 00000078H .idata$2                DATA
+ 0002:000005c4 00000014H .idata$3                DATA
+ 0002:000005d8 000002b8H .idata$4                DATA
+ 0002:00000890 000008d0H .idata$6                DATA
+ 0002:00001160 00001ac0H .edata                  DATA
+ 0003:00000000 000017d8H .data                   DATA
+ 0003:000017d8 00000a80H .bss                    DATA
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0000:00000000       __except_list              00000000     <absolute>
+ 0000:00000001       ___safe_se_handler_count   00000001     <absolute>
+ 0000:00009876       __ldused                   00009876     <absolute>
+ 0000:00009876       __fltused                  00009876     <absolute>
+ 0000:00000000       ___ImageBase               69e40000     <linker-defined>
+ 0001:00000000       _mkStack                   69e41000 f   libgvplugin_neato_layout:stack.o
+ 0001:00000030       _freeStack                 69e41030 f   libgvplugin_neato_layout:stack.o
+ 0001:00000050       _stackPush                 69e41050 f   libgvplugin_neato_layout:stack.o
+ 0001:00000090       _stackPop                  69e41090 f   libgvplugin_neato_layout:stack.o
+ 0001:00000120       _stackSize                 69e41120 f   libgvplugin_neato_layout:stack.o
+ 0001:00000130       _stackCheck                69e41130 f   libgvplugin_neato_layout:stack.o
+ 0001:000001d0       _mkNodeset                 69e411d0 f   libgvplugin_neato_layout:nodeset.o
+ 0001:00000200       _freeNodeset               69e41200 f   libgvplugin_neato_layout:nodeset.o
+ 0001:00000220       _clearNodeset              69e41220 f   libgvplugin_neato_layout:nodeset.o
+ 0001:00000240       _insertNodeset             69e41240 f   libgvplugin_neato_layout:nodeset.o
+ 0001:00000270       _removeNodeset             69e41270 f   libgvplugin_neato_layout:nodeset.o
+ 0001:000002a0       _sizeNodeset               69e412a0 f   libgvplugin_neato_layout:nodeset.o
+ 0001:000002c0       _printNodeset              69e412c0 f   libgvplugin_neato_layout:nodeset.o
+ 0001:00000340       _mkNodelist                69e41340 f   libgvplugin_neato_layout:nodelist.o
+ 0001:00000360       _freeNodelist              69e41360 f   libgvplugin_neato_layout:nodelist.o
+ 0001:000003b0       _appendNodelist            69e413b0 f   libgvplugin_neato_layout:nodelist.o
+ 0001:00000480       _reverseNodelist           69e41480 f   libgvplugin_neato_layout:nodelist.o
+ 0001:000004f0       _realignNodelist           69e414f0 f   libgvplugin_neato_layout:nodelist.o
+ 0001:00000560       _cloneNodelist             69e41560 f   libgvplugin_neato_layout:nodelist.o
+ 0001:000005c0       _insertNodelist            69e415c0 f   libgvplugin_neato_layout:nodelist.o
+ 0001:00000760       _sizeNodelist              69e41760 f   libgvplugin_neato_layout:nodelist.o
+ 0001:00000770       _node_position             69e41770 f   libgvplugin_neato_layout:nodelist.o
+ 0001:00000780       _reverseAppend             69e41780 f   libgvplugin_neato_layout:nodelist.o
+ 0001:000008b0       _init_edgelist             69e418b0 f   libgvplugin_neato_layout:edgelist.o
+ 0001:000008e0       _free_edgelist             69e418e0 f   libgvplugin_neato_layout:edgelist.o
+ 0001:00000900       _add_edge                  69e41900 f   libgvplugin_neato_layout:edgelist.o
+ 0001:00000930       _remove_edge               69e41930 f   libgvplugin_neato_layout:edgelist.o
+ 0001:00000960       _size_edgelist             69e41960 f   libgvplugin_neato_layout:edgelist.o
+ 0001:00000a00       _mkDeglist                 69e41a00 f   libgvplugin_neato_layout:deglist.o
+ 0001:00000a30       _freeDeglist               69e41a30 f   libgvplugin_neato_layout:deglist.o
+ 0001:00000a50       _insertDeglist             69e41a50 f   libgvplugin_neato_layout:deglist.o
+ 0001:00000aa0       _removeDeglist             69e41aa0 f   libgvplugin_neato_layout:deglist.o
+ 0001:00000b70       _firstDeglist              69e41b70 f   libgvplugin_neato_layout:deglist.o
+ 0001:00000be0       _circo_init_graph          69e41be0 f   libgvplugin_neato_layout:circularinit.o
+ 0001:00000d80       _circomps                  69e41d80 f   libgvplugin_neato_layout:circularinit.o
+ 0001:00001090       _circoLayout               69e42090 f   libgvplugin_neato_layout:circularinit.o
+ 0001:00001270       _circo_layout              69e42270 f   libgvplugin_neato_layout:circularinit.o
+ 0001:000012d0       _circo_cleanup             69e422d0 f   libgvplugin_neato_layout:circularinit.o
+ 0001:00001450       _circularLayout            69e42450 f   libgvplugin_neato_layout:circular.o
+ 0001:00001640       _circPos                   69e42640 f   libgvplugin_neato_layout:circpos.o
+ 0001:00002020       _createBlocktree           69e43020 f   libgvplugin_neato_layout:blocktree.o
+ 0001:00002620       _freeBlocktree             69e43620 f   libgvplugin_neato_layout:blocktree.o
+ 0001:00002670       _layout_block              69e43670 f   libgvplugin_neato_layout:blockpath.o
+ 0001:00003cf0       _initBlocklist             69e44cf0 f   libgvplugin_neato_layout:block.o
+ 0001:00003d10       _mkBlock                   69e44d10 f   libgvplugin_neato_layout:block.o
+ 0001:00003d40       _freeBlock                 69e44d40 f   libgvplugin_neato_layout:block.o
+ 0001:00003d70       _appendBlock               69e44d70 f   libgvplugin_neato_layout:block.o
+ 0001:00003db0       _insertBlock               69e44db0 f   libgvplugin_neato_layout:block.o
+ 0001:00003df0       _fdp_xLayout               69e44df0 f   libgvplugin_neato_layout:xlayout.o
+ 0001:000048e0       _fdp_initParams            69e458e0 f   libgvplugin_neato_layout:tlayout.o
+ 0001:00004ac0       _dumpstat                  69e45ac0 f   libgvplugin_neato_layout:tlayout.o
+ 0001:00004cb0       _fdp_tLayout               69e45cb0 f   libgvplugin_neato_layout:tlayout.o
+ 0001:00006370       _layout                    69e47370 f   libgvplugin_neato_layout:layout.o
+ 0001:00007ef0       _init_info                 69e48ef0 f   libgvplugin_neato_layout:layout.o
+ 0001:00007f80       _fdp_init_graph            69e48f80 f   libgvplugin_neato_layout:layout.o
+ 0001:00008230       _fdpLayout                 69e49230 f   libgvplugin_neato_layout:layout.o
+ 0001:00008770       _fdp_layout                69e49770 f   libgvplugin_neato_layout:layout.o
+ 0001:000089e0       _mkGrid                    69e499e0 f   libgvplugin_neato_layout:grid.o
+ 0001:00008a50       _adjustGrid                69e49a50 f   libgvplugin_neato_layout:grid.o
+ 0001:00008ad0       _clearGrid                 69e49ad0 f   libgvplugin_neato_layout:grid.o
+ 0001:00008b20       _delGrid                   69e49b20 f   libgvplugin_neato_layout:grid.o
+ 0001:00008ba0       _addGrid                   69e49ba0 f   libgvplugin_neato_layout:grid.o
+ 0001:00008c70       _walkGrid                  69e49c70 f   libgvplugin_neato_layout:grid.o
+ 0001:00008c90       _findGrid                  69e49c90 f   libgvplugin_neato_layout:grid.o
+ 0001:00008cc0       _gLength                   69e49cc0 f   libgvplugin_neato_layout:grid.o
+ 0001:00008d00       _fdp_init_node_edge        69e49d00 f   libgvplugin_neato_layout:fdpinit.o
+ 0001:00009060       _fdp_cleanup               69e4a060 f   libgvplugin_neato_layout:fdpinit.o
+ 0001:00009210       _findCComp                 69e4a210 f   libgvplugin_neato_layout:comp.o
+ 0001:000096d0       _compoundEdges             69e4a6d0 f   libgvplugin_neato_layout:clusteredges.o
+ 0001:00009e40       _twopi_init_graph          69e4ae40 f   libgvplugin_neato_layout:twopiinit.o
+ 0001:00009fe0       _twopi_layout              69e4afe0 f   libgvplugin_neato_layout:twopiinit.o
+ 0001:0000a220       _twopi_cleanup             69e4b220 f   libgvplugin_neato_layout:twopiinit.o
+ 0001:0000a2f0       _circleLayout              69e4b2f0 f   libgvplugin_neato_layout:circle.o
+ 0001:0000abe0       _voronoi                   69e4bbe0 f   libgvplugin_neato_layout:voronoi.o
+ 0001:0000afc0       _drand48                   69e4bfc0 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000aff0       _fpow32                    69e4bff0 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000b020       _distvec                   69e4c020 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000b0a0       _new_array                 69e4c0a0 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000b140       _free_array                69e4c140 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000b170       _doubleattr                69e4c170 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000b1c0       _scan_graph_mode           69e4c1c0 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000b920       _scan_graph                69e4c920 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000b940       _free_scan_graph           69e4c940 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000ba50       _jitter_d                  69e4ca50 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000baa0       _jitter3d                  69e4caa0 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000bac0       _randompos                 69e4cac0 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000bb20       _initial_positions         69e4cb20 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000bbe0       _diffeq_model              69e4cbe0 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000bf20       _solve_model               69e4cf20 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000c190       _update_arrays             69e4d190 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000c3d0       _D2E                       69e4d3d0 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000c680       _final_energy              69e4d680 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000c6c0       _choose_node               69e4d6c0 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000c840       _move_node                 69e4d840 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000ca60       _heapup                    69e4da60 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000caf0       _heapdown                  69e4daf0 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000cbd0       _neato_enqueue             69e4dbd0 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000cc40       _neato_dequeue             69e4dc40 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000ccc0       _shortest_path             69e4dcc0 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000cd90       _s1                        69e4dd90 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000cf10       _make_spring               69e4df10 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000cf60       _allow_edits               69e4df60 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000cf70       _initLayout                69e4df70 f   libgvplugin_neato_layout:stress.o
+ 0001:0000d100       _circuitModel              69e4e100 f   libgvplugin_neato_layout:stress.o
+ 0001:0000d390       _compute_apsp_packed       69e4e390 f   libgvplugin_neato_layout:stress.o
+ 0001:0000d470       _compute_apsp_artifical_weights_packed 69e4e470 f   libgvplugin_neato_layout:stress.o
+ 0001:0000d8f0       _stress_majorization_kD_mkernel 69e4e8f0 f   libgvplugin_neato_layout:stress.o
+ 0001:0000fb60       _solve                     69e50b60 f   libgvplugin_neato_layout:solve.o
+ 0001:0000ff90       _IMDS_given_dim            69e50f90 f   libgvplugin_neato_layout:smart_ini_x.o
+ 0001:00011120       _siteinit                  69e52120 f   libgvplugin_neato_layout:site.o
+ 0001:00011140       _getsite                   69e52140 f   libgvplugin_neato_layout:site.o
+ 0001:00011160       _dist                      69e52160 f   libgvplugin_neato_layout:site.o
+ 0001:000111b0       _makevertex                69e521b0 f   libgvplugin_neato_layout:site.o
+ 0001:000111d0       _deref                     69e521d0 f   libgvplugin_neato_layout:site.o
+ 0001:00011200       _ref                       69e52200 f   libgvplugin_neato_layout:site.o
+ 0001:00011220       _unpackMatrix              69e52220 f   libgvplugin_neato_layout:quad_prog_solve.o
+ 0001:00011330       _constrained_majorization_new 69e52330 f   libgvplugin_neato_layout:quad_prog_solve.o
+ 0001:00011d80       _constrained_majorization_new_with_gaps 69e52d80 f   libgvplugin_neato_layout:quad_prog_solve.o
+ 0001:00012a30       _deleteCMajEnv             69e53a30 f   libgvplugin_neato_layout:quad_prog_solve.o
+ 0001:00012b00       _initConstrainedMajorization 69e53b00 f   libgvplugin_neato_layout:quad_prog_solve.o
+ 0001:00012ca0       _printvis                  69e53ca0 f   libgvplugin_neato_layout:printvis.o
+ 0001:00012dd0       _polyFree                  69e53dd0 f   libgvplugin_neato_layout:poly.o
+ 0001:00012e30       _breakPoly                 69e53e30 f   libgvplugin_neato_layout:poly.o
+ 0001:00012e50       _makeAddPoly               69e53e50 f   libgvplugin_neato_layout:poly.o
+ 0001:000136e0       _makePoly                  69e546e0 f   libgvplugin_neato_layout:poly.o
+ 0001:00013b90       _polyOverlap               69e54b90 f   libgvplugin_neato_layout:poly.o
+ 0001:00014730       _PCA_alloc                 69e55730 f   libgvplugin_neato_layout:pca.o
+ 0001:000149d0       _iterativePCA_1D           69e559d0 f   libgvplugin_neato_layout:pca.o
+ 0001:00014a80       _compute_y_coords          69e55a80 f   libgvplugin_neato_layout:opt_arrangement.o
+ 0001:00014e30       _makeSelfArcs              69e55e30 f   libgvplugin_neato_layout:neatosplines.o
+ 0001:00015010       _makeObstacle              69e56010 f   libgvplugin_neato_layout:neatosplines.o
+ 0001:00015a60       _getPath                   69e56a60 f   libgvplugin_neato_layout:neatosplines.o
+ 0001:00015b40       _makeSpline                69e56b40 f   libgvplugin_neato_layout:neatosplines.o
+ 0001:000166c0       _splineEdges               69e576c0 f   libgvplugin_neato_layout:neatosplines.o
+ 0001:000169a0       _spline_edges1             69e579a0 f   libgvplugin_neato_layout:neatosplines.o
+ 0001:00017450       _spline_edges0             69e58450 f   libgvplugin_neato_layout:neatosplines.o
+ 0001:000174e0       _spline_edges              69e584e0 f   libgvplugin_neato_layout:neatosplines.o
+ 0001:000175c0       _neato_set_aspect          69e585c0 f   libgvplugin_neato_layout:neatosplines.o
+ 0001:00017f60       _neato_init_node           69e58f60 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:00017fb0       _user_pos                  69e58fb0 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:00018280       _neato_cleanup             69e59280 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:00018360       _init_nop                  69e59360 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:000191f0       _setSeed                   69e5a1f0 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:000193a0       _checkStart                69e5a3a0 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:000194e0       _neatoLayout               69e5a4e0 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:0001a310       _neato_layout              69e5b310 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:0001aaf0       _freeinit                  69e5baf0 f   libgvplugin_neato_layout:memory.o
+ 0001:0001abe0       _getfree                   69e5bbe0 f   libgvplugin_neato_layout:memory.o
+ 0001:0001ac90       _makefree                  69e5bc90 f   libgvplugin_neato_layout:memory.o
+ 0001:0001acb0       _power_iteration           69e5bcb0 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001b1e0       _mult_dense_mat            69e5c1e0 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001b340       _mult_dense_mat_d          69e5c340 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001b490       _mult_sparse_dense_mat_transpose 69e5c490 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001b620       _cpvec                     69e5c620 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001b680       _dot                       69e5c680 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001b6f0       _scadd                     69e5c6f0 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001b760       _vecscale                  69e5c760 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001b7c0       _norm                      69e5c7c0 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001b7f0       _orthog1                   69e5c7f0 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001b870       _init_vec_orth1            69e5c870 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001b8d0       _right_mult_with_vector    69e5c8d0 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001b960       _right_mult_with_vector_f  69e5c960 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001b9e0       _vectors_subtraction       69e5c9e0 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001ba30       _vectors_addition          69e5ca30 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001ba80       _vectors_scalar_mult       69e5ca80 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001bac0       _copy_vector               69e5cac0 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001bb00       _vectors_inner_product     69e5cb00 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001bb50       _max_abs                   69e5cb50 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001bbc0       _right_mult_with_vector_transpose 69e5cbc0 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001bc40       _right_mult_with_vector_d  69e5cc40 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001bcc0       _orthog1f                  69e5ccc0 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001bd40       _right_mult_with_vector_ff 69e5cd40 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001be40       _vectors_substractionf     69e5ce40 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001be80       _vectors_additionf         69e5ce80 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001bec0       _vectors_mult_additionf    69e5cec0 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001bf10       _vectors_scalar_multf      69e5cf10 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001bf50       _copy_vectorf              69e5cf50 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001bf90       _vectors_inner_productf    69e5cf90 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001bfe0       _set_vector_val            69e5cfe0 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001c010       _set_vector_valf           69e5d010 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001c040       _max_absf                  69e5d040 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001c0b0       _square_vec                69e5d0b0 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001c0f0       _invert_vec                69e5d0f0 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001c150       _sqrt_vec                  69e5d150 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001c1a0       _sqrt_vecf                 69e5d1a0 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001c210       _invert_sqrt_vec           69e5d210 f   libgvplugin_neato_layout:matrix_ops.o
+ 0001:0001c280       _matinv                    69e5d280 f   libgvplugin_neato_layout:matinv.o
+ 0001:0001c3b0       _lu_decompose              69e5d3b0 f   libgvplugin_neato_layout:lu.o
+ 0001:0001c750       _lu_solve                  69e5d750 f   libgvplugin_neato_layout:lu.o
+ 0001:0001c880       _Plegal_arrangement        69e5d880 f   libgvplugin_neato_layout:legal.o
+ 0001:0001cfe0       _common_neighbors          69e5dfe0 f   libgvplugin_neato_layout:kkutils.o
+ 0001:0001d050       _fill_neighbors_vec_unweighted 69e5e050 f   libgvplugin_neato_layout:kkutils.o
+ 0001:0001d0a0       _empty_neighbors_vec       69e5e0a0 f   libgvplugin_neato_layout:kkutils.o
+ 0001:0001d0f0       _compute_apsp              69e5e0f0 f   libgvplugin_neato_layout:kkutils.o
+ 0001:0001d2b0       _compute_apsp_artifical_weights 69e5e2b0 f   libgvplugin_neato_layout:kkutils.o
+ 0001:0001d300       _distance_kD               69e5e300 f   libgvplugin_neato_layout:kkutils.o
+ 0001:0001d390       _quicksort_placef          69e5e390 f   libgvplugin_neato_layout:kkutils.o
+ 0001:0001d430       _quicksort_place           69e5e430 f   libgvplugin_neato_layout:kkutils.o
+ 0001:0001d6f0       _compute_new_weights       69e5e6f0 f   libgvplugin_neato_layout:kkutils.o
+ 0001:0001d890       _restore_old_weights       69e5e890 f   libgvplugin_neato_layout:kkutils.o
+ 0001:0001d900       _find_intersection         69e5e900 f   libgvplugin_neato_layout:intersect.o
+ 0001:0001e200       _infoinit                  69e5f200 f   libgvplugin_neato_layout:info.o
+ 0001:0001e220       _addVertex                 69e5f220 f   libgvplugin_neato_layout:info.o
+ 0001:0001e560       _ELcleanup                 69e5f560 f   libgvplugin_neato_layout:hedges.o
+ 0001:0001e590       _ELinitialize              69e5f590 f   libgvplugin_neato_layout:hedges.o
+ 0001:0001e680       _hintersect                69e5f680 f   libgvplugin_neato_layout:hedges.o
+ 0001:0001e820       _right_of                  69e5f820 f   libgvplugin_neato_layout:hedges.o
+ 0001:0001ead0       _HEcreate                  69e5fad0 f   libgvplugin_neato_layout:hedges.o
+ 0001:0001eb20       _ELinsert                  69e5fb20 f   libgvplugin_neato_layout:hedges.o
+ 0001:0001eb50       _ELleftbnd                 69e5fb50 f   libgvplugin_neato_layout:hedges.o
+ 0001:0001eda0       _ELdelete                  69e5fda0 f   libgvplugin_neato_layout:hedges.o
+ 0001:0001edd0       _ELright                   69e5fdd0 f   libgvplugin_neato_layout:hedges.o
+ 0001:0001ede0       _ELleft                    69e5fde0 f   libgvplugin_neato_layout:hedges.o
+ 0001:0001edf0       _leftreg                   69e5fdf0 f   libgvplugin_neato_layout:hedges.o
+ 0001:0001ee30       _rightreg                  69e5fe30 f   libgvplugin_neato_layout:hedges.o
+ 0001:0001ee70       _PQinsert                  69e5fe70 f   libgvplugin_neato_layout:heap.o
+ 0001:0001efb0       _PQdelete                  69e5ffb0 f   libgvplugin_neato_layout:heap.o
+ 0001:0001f030       _PQempty                   69e60030 f   libgvplugin_neato_layout:heap.o
+ 0001:0001f050       _PQ_min                    69e60050 f   libgvplugin_neato_layout:heap.o
+ 0001:0001f0d0       _PQextractmin              69e600d0 f   libgvplugin_neato_layout:heap.o
+ 0001:0001f120       _PQcleanup                 69e60120 f   libgvplugin_neato_layout:heap.o
+ 0001:0001f140       _PQinitialize              69e60140 f   libgvplugin_neato_layout:heap.o
+ 0001:0001f1c0       _PQdump                    69e601c0 f   libgvplugin_neato_layout:heap.o
+ 0001:0001f2a0       _geominit                  69e602a0 f   libgvplugin_neato_layout:geometry.o
+ 0001:0001f2e0       _dist_2                    69e602e0 f   libgvplugin_neato_layout:geometry.o
+ 0001:0001f320       _subpt                     69e60320 f   libgvplugin_neato_layout:geometry.o
+ 0001:0001f340       _addpt                     69e60340 f   libgvplugin_neato_layout:geometry.o
+ 0001:0001f360       _area_2                    69e60360 f   libgvplugin_neato_layout:geometry.o
+ 0001:0001f390       _leftOf                    69e60390 f   libgvplugin_neato_layout:geometry.o
+ 0001:0001f420       _intersection              69e60420 f   libgvplugin_neato_layout:geometry.o
+ 0001:0001f520       _find_ints                 69e60520 f   libgvplugin_neato_layout:find_ints.o
+ 0001:0001f8c0       _embed_graph               69e608c0 f   libgvplugin_neato_layout:embed_graph.o
+ 0001:0001fb60       _center_coordinate         69e60b60 f   libgvplugin_neato_layout:embed_graph.o
+ 0001:0001fc20       _edgeinit                  69e60c20 f   libgvplugin_neato_layout:edges.o
+ 0001:0001fc40       _bisect                    69e60c40 f   libgvplugin_neato_layout:edges.o
+ 0001:0001fda0       _clip_line                 69e60da0 f   libgvplugin_neato_layout:edges.o
+ 0001:00020310       _endpoint                  69e61310 f   libgvplugin_neato_layout:edges.o
+ 0001:00020380       _dijkstra                  69e61380 f   libgvplugin_neato_layout:dijkstra.o
+ 0001:000208a0       _dijkstra_bounded          69e618a0 f   libgvplugin_neato_layout:dijkstra.o
+ 0001:00020b90       _dijkstra_f                69e61b90 f   libgvplugin_neato_layout:dijkstra.o
+ 0001:00021050       _delaunay_triangulation    69e62050 f   libgvplugin_neato_layout:delaunay.o
+ 0001:00021070       _delaunay_tri              69e62070 f   libgvplugin_neato_layout:delaunay.o
+ 0001:00021090       _UG_graph                  69e62090 f   libgvplugin_neato_layout:delaunay.o
+ 0001:00021660       _freeGraph                 69e62660 f   libgvplugin_neato_layout:delaunay.o
+ 0001:000216b0       _freeGraphData             69e626b0 f   libgvplugin_neato_layout:delaunay.o
+ 0001:00021730       _cAdjust                   69e62730 f   libgvplugin_neato_layout:constraint.o
+ 0001:00022fd0       _scAdjust                  69e63fd0 f   libgvplugin_neato_layout:constraint.o
+ 0001:00023940       _stress_majorization_with_hierarchy 69e64940 f   libgvplugin_neato_layout:constrained_majorization.o
+ 0001:00024c50       _conjugate_gradient        69e65c50 f   libgvplugin_neato_layout:conjgrad.o
+ 0001:00024f20       _conjugate_gradient_f      69e65f20 f   libgvplugin_neato_layout:conjgrad.o
+ 0001:000251f0       _conjugate_gradient_mkernel 69e661f0 f   libgvplugin_neato_layout:conjgrad.o
+ 0001:000254a0       _compute_hierarchy         69e664a0 f   libgvplugin_neato_layout:compute_hierarchy.o
+ 0001:00025790       _closest_pairs2graph       69e66790 f   libgvplugin_neato_layout:closest.o
+ 0001:000263d0       _solveCircuit              69e673d0 f   libgvplugin_neato_layout:circuit.o
+ 0001:00026490       _circuit_model             69e67490 f   libgvplugin_neato_layout:circuit.o
+ 0001:00026660       _bfs                       69e67660 f   libgvplugin_neato_layout:bfs.o
+ 0001:00026860       _bfs_bounded               69e67860 f   libgvplugin_neato_layout:bfs.o
+ 0001:000269a0       _mkQueue                   69e679a0 f   libgvplugin_neato_layout:bfs.o
+ 0001:000269e0       _newQueue                  69e679e0 f   libgvplugin_neato_layout:bfs.o
+ 0001:00026a10       _freeQueue                 69e67a10 f   libgvplugin_neato_layout:bfs.o
+ 0001:00026a30       _delQueue                  69e67a30 f   libgvplugin_neato_layout:bfs.o
+ 0001:00026a60       _initQueue                 69e67a60 f   libgvplugin_neato_layout:bfs.o
+ 0001:00026a90       _deQueue                   69e67a90 f   libgvplugin_neato_layout:bfs.o
+ 0001:00026ad0       _enQueue                   69e67ad0 f   libgvplugin_neato_layout:bfs.o
+ 0001:00026b10       _normalize                 69e67b10 f   libgvplugin_neato_layout:adjust.o
+ 0001:00026d40       _graphAdjustMode           69e67d40 f   libgvplugin_neato_layout:adjust.o
+ 0001:00026e00       _removeOverlapAs           69e67e00 f   libgvplugin_neato_layout:adjust.o
+ 0001:00028270       _removeOverlap             69e69270 f   libgvplugin_neato_layout:adjust.o
+ 0001:000282a0       _adjustNodes               69e692a0 f   libgvplugin_neato_layout:adjust.o
+ 0001:000282e0       _sepFactor                 69e692e0 f   libgvplugin_neato_layout:adjust.o
+ 0001:00028490       _esepFactor                69e69490 f   libgvplugin_neato_layout:adjust.o
+ 0001:000285ac       _zmalloc                   69e695ac f   gvc:gvc.dll
+ 0001:000285b2       _gmalloc                   69e695b2 f   gvc:gvc.dll
+ 0001:000285b8       _setEdgeType               69e695b8 f   gvc:gvc.dll
+ 0001:000285be       _late_double               69e695be f   gvc:gvc.dll
+ 0001:000285c4       _common_init_edge          69e695c4 f   gvc:gvc.dll
+ 0001:000285ca       _ccomps                    69e695ca f   gvc:gvc.dll
+ 0001:000285d0       _packSubgraphs             69e695d0 f   gvc:gvc.dll
+ 0001:000285d6       _getPack                   69e695d6 f   gvc:gvc.dll
+ 0001:000285dc       _getPackMode               69e695dc f   gvc:gvc.dll
+ 0001:000285e2       _dotneato_postprocess      69e695e2 f   gvc:gvc.dll
+ 0001:000285e8       _gv_cleanup_node           69e695e8 f   gvc:gvc.dll
+ 0001:000285ee       _gv_cleanup_edge           69e695ee f   gvc:gvc.dll
+ 0001:000285f4       _late_bool                 69e695f4 f   gvc:gvc.dll
+ 0001:000285fa       _late_int                  69e695fa f   gvc:gvc.dll
+ 0001:00028600       _compute_bb                69e69600 f   gvc:gvc.dll
+ 0001:00028606       _putGraphs                 69e69606 f   gvc:gvc.dll
+ 0001:0002860c       _cvt2pt                    69e6960c f   gvc:gvc.dll
+ 0001:00028612       _cvt2ptf                   69e69612 f   gvc:gvc.dll
+ 0001:00028618       _do_graph_label            69e69618 f   gvc:gvc.dll
+ 0001:0002861e       _grealloc                  69e6961e f   gvc:gvc.dll
+ 0001:00028624       _processClusterEdges       69e69624 f   gvc:gvc.dll
+ 0001:0002862a       _mapbool                   69e6962a f   gvc:gvc.dll
+ 0001:00028630       _free_label                69e69630 f   gvc:gvc.dll
+ 0001:00028636       _nodeInduce                69e69636 f   gvc:gvc.dll
+ 0001:0002863c       _late_string               69e6963c f   gvc:gvc.dll
+ 0001:00028642       _getdouble                 69e69642 f   gvc:gvc.dll
+ 0001:00028648       _elapsed_sec               69e69648 f   gvc:gvc.dll
+ 0001:0002864e       _start_timer               69e6964e f   gvc:gvc.dll
+ 0001:00028654       _test_toggle               69e69654 f   gvc:gvc.dll
+ 0001:0002865a       _shapeOf                   69e6965a f   gvc:gvc.dll
+ 0001:00028660       _updateBB                  69e69660 f   gvc:gvc.dll
+ 0001:00028666       _makeSelfEdge              69e69666 f   gvc:gvc.dll
+ 0001:0002866c       _place_portlabel           69e6966c f   gvc:gvc.dll
+ 0001:00028672       _add_points                69e69672 f   gvc:gvc.dll
+ 0001:00028678       _clip_and_install          69e69678 f   gvc:gvc.dll
+ 0001:0002867e       _dotneato_closest          69e6967e f   gvc:gvc.dll
+ 0001:00028684       _gv_nodesize               69e69684 f   gvc:gvc.dll
+ 0001:0002868a       _common_init_node          69e6968a f   gvc:gvc.dll
+ 0001:00028690       _new_spline                69e69690 f   gvc:gvc.dll
+ 0001:00028696       _gv_free_splines           69e69696 f   gvc:gvc.dll
+ 0001:0002869c       _arrow_flags               69e6969c f   gvc:gvc.dll
+ 0001:000286a2       _zrealloc                  69e696a2 f   gvc:gvc.dll
+ 0001:000286a8       _freePM                    69e696a8 f   gvc:gvc.dll
+ 0001:000286ae       _clearPM                   69e696ae f   gvc:gvc.dll
+ 0001:000286b4       _newPM                     69e696b4 f   gvc:gvc.dll
+ 0001:000286ba       _insertPM                  69e696ba f   gvc:gvc.dll
+ 0001:000286c0       _packGraphs                69e696c0 f   gvc:gvc.dll
+ 0001:000286c6       _pccomps                   69e696c6 f   gvc:gvc.dll
+ 0001:000286cc       _rank                      69e696cc f   gvc:gvc.dll
+ 0001:000286d2       _strcasecmp                69e696d2 f   gvc:gvc.dll
+ 0001:000286d8       _Pobsopen                  69e696d8 f   pathplan:pathplan.dll
+ 0001:000286de       _Pobspath                  69e696de f   pathplan:pathplan.dll
+ 0001:000286e4       _Proutespline              69e696e4 f   pathplan:pathplan.dll
+ 0001:000286ea       _in_poly                   69e696ea f   pathplan:pathplan.dll
+ 0001:000286f0       _Pobsclose                 69e696f0 f   pathplan:pathplan.dll
+ 0001:000286f6       _make_polyline             69e696f6 f   pathplan:pathplan.dll
+ 0001:000286fc       _agnxtout                  69e696fc f   graph:graph.dll
+ 0001:00028702       _agfstout                  69e69702 f   graph:graph.dll
+ 0001:00028708       _agnxtnode                 69e69708 f   graph:graph.dll
+ 0001:0002870e       _agfstnode                 69e6970e f   graph:graph.dll
+ 0001:00028714       _agnnodes                  69e69714 f   graph:graph.dll
+ 0001:0002871a       _aginsert                  69e6971a f   graph:graph.dll
+ 0001:00028720       _agedge                    69e69720 f   graph:graph.dll
+ 0001:00028726       _agopen                    69e69726 f   graph:graph.dll
+ 0001:0002872c       _agnode                    69e6972c f   graph:graph.dll
+ 0001:00028732       _agdelete                  69e69732 f   graph:graph.dll
+ 0001:00028738       _agclose                   69e69738 f   graph:graph.dll
+ 0001:0002873e       _agget                     69e6973e f   graph:graph.dll
+ 0001:00028744       _agfindattr                69e69744 f   graph:graph.dll
+ 0001:0002874a       _agfindnode                69e6974a f   graph:graph.dll
+ 0001:00028750       _agnxtedge                 69e69750 f   graph:graph.dll
+ 0001:00028756       _agfstedge                 69e69756 f   graph:graph.dll
+ 0001:0002875c       _agsubg                    69e6975c f   graph:graph.dll
+ 0001:00028762       _agfindedge                69e69762 f   graph:graph.dll
+ 0001:00028768       _agnxtin                   69e69768 f   graph:graph.dll
+ 0001:0002876e       _agfstin                   69e6976e f   graph:graph.dll
+ 0001:00028774       _agnedges                  69e69774 f   graph:graph.dll
+ 0001:0002877a       _agerr                     69e6977a f   graph:graph.dll
+ 0001:00028780       _agusergraph               69e69780 f   graph:graph.dll
+ 0001:00028786       _agxget                    69e69786 f   graph:graph.dll
+ 0001:0002878c       _agraphattr                69e6978c f   graph:graph.dll
+ 0001:00028792       _agxset                    69e69792 f   graph:graph.dll
+ 0001:00028798       _agcontains                69e69798 f   graph:graph.dll
+ 0001:0002879e       _agindex                   69e6979e f   graph:graph.dll
+ 0001:000287a4       _agset                     69e697a4 f   graph:graph.dll
+ 0001:000287aa       _dtopen                    69e697aa f   cdt:cdt.dll
+ 0001:000287b0       _dtclose                   69e697b0 f   cdt:cdt.dll
+ 0001:000287b6       _dtsize                    69e697b6 f   cdt:cdt.dll
+ 0001:000287bc       _dtwalk                    69e697bc f   cdt:cdt.dll
+ 0001:000287c2       _dtflatten                 69e697c2 f   cdt:cdt.dll
+ 0001:00028815       __CRT_INIT@12              69e69815 f   msvcrt:crtdll.obj
+ 0001:00028aca       __DllMainCRTStartup@12     69e69aca f   msvcrt:crtdll.obj
+ 0001:00028af0       _memset                    69e69af0 f   msvcrt:MSVCR80.dll
+ 0001:00028af6       _sin                       69e69af6 f   msvcrt:MSVCR80.dll
+ 0001:00028afc       _cos                       69e69afc f   msvcrt:MSVCR80.dll
+ 0001:00028b02       _asin                      69e69b02 f   msvcrt:MSVCR80.dll
+ 0001:00028b08       _atan2                     69e69b08 f   msvcrt:MSVCR80.dll
+ 0001:00028b0e       _sqrt                      69e69b0e f   msvcrt:MSVCR80.dll
+ 0001:00028b14       @__security_check_cookie@4 69e69b14 f   msvcrt:secchk.obj
+ 0001:00028b30       __ftol2_sse                69e69b30 f   msvcrt:ftol2.obj
+ 0001:00028b39       __ftol2_pentium4           69e69b39 f   msvcrt:ftol2.obj
+ 0001:00028b4c       __ftol2_sse_excpt          69e69b4c f   msvcrt:ftol2.obj
+ 0001:00028b66       __ftol2                    69e69b66 f   msvcrt:ftol2.obj
+ 0001:00028bdc       _strlen                    69e69bdc f   msvcrt:MSVCR80.dll
+ 0001:00028be2       _strcmp                    69e69be2 f   msvcrt:MSVCR80.dll
+ 0001:00028be8       _fabs                      69e69be8 f   msvcrt:MSVCR80.dll
+ 0001:00028bf0       __chkstk                   69e69bf0 f   msvcrt:chkstk.obj
+ 0001:00028bf0       __alloca_probe             69e69bf0     msvcrt:chkstk.obj
+ 0001:00028c1b       ___clean_type_info_names   69e69c1b f   msvcrt:tncleanup.obj
+ 0001:00028c27       __onexit                   69e69c27 f   msvcrt:atonexit.obj
+ 0001:00028cc6       _atexit                    69e69cc6 f   msvcrt:atonexit.obj
+ 0001:00028cd8       __RTC_Initialize           69e69cd8 f   msvcrt:initsect.obj
+ 0001:00028cfc       __RTC_Terminate            69e69cfc f   msvcrt:initsect.obj
+ 0001:00028d20       __ValidateImageBase        69e69d20 f   msvcrt:pesect.obj
+ 0001:00028d50       __FindPESection            69e69d50 f   msvcrt:pesect.obj
+ 0001:00028d92       __IsNonwritableInCurrentImage 69e69d92 f   msvcrt:pesect.obj
+ 0001:00028dfe       __initterm                 69e69dfe f   msvcrt:MSVCR80.dll
+ 0001:00028e04       __initterm_e               69e69e04 f   msvcrt:MSVCR80.dll
+ 0001:00028e0a       __amsg_exit                69e69e0a f   msvcrt:MSVCR80.dll
+ 0001:00028e10       ___CppXcptFilter           69e69e10 f   msvcrt:MSVCR80.dll
+ 0001:00028e16       _DllMain@12                69e69e16 f   msvcrt:dllmain.obj
+ 0001:00028e38       __SEH_prolog4              69e69e38 f   msvcrt:sehprolg4.obj
+ 0001:00028e7d       __SEH_epilog4              69e69e7d f   msvcrt:sehprolg4.obj
+ 0001:00028e91       __except_handler4          69e69e91 f   msvcrt:chandler4gs.obj
+ 0001:00028eb4       ___security_init_cookie    69e69eb4 f   msvcrt:gs_support.obj
+ 0001:00028f48       ___report_gsfailure        69e69f48 f   msvcrt:gs_report.obj
+ 0001:0002909c       __get_sse2_info            69e6a09c f   msvcrt:cpu_disp.obj
+ 0001:000290fc       ___sse2_available_init     69e6a0fc f   msvcrt:cpu_disp.obj
+ 0001:0002910a       ___clean_type_info_names_internal 69e6a10a f   msvcrt:MSVCR80.dll
+ 0001:00029110       __unlock                   69e6a110 f   msvcrt:MSVCR80.dll
+ 0001:00029116       ___dllonexit               69e6a116 f   msvcrt:MSVCR80.dll
+ 0001:0002911c       __lock                     69e6a11c f   msvcrt:MSVCR80.dll
+ 0001:00029122       __except_handler4_common   69e6a122 f   msvcrt:MSVCR80.dll
+ 0001:00029128       __crt_debugger_hook        69e6a128 f   msvcrt:MSVCR80.dll
+ 0002:00000000       __imp__IsDebuggerPresent@0 69e6b000     KERNEL32:KERNEL32.dll
+ 0002:00000004       __imp__SetUnhandledExceptionFilter@4 69e6b004     KERNEL32:KERNEL32.dll
+ 0002:00000008       __imp__UnhandledExceptionFilter@4 69e6b008     KERNEL32:KERNEL32.dll
+ 0002:0000000c       __imp__GetCurrentProcess@0 69e6b00c     KERNEL32:KERNEL32.dll
+ 0002:00000010       __imp__TerminateProcess@8  69e6b010     KERNEL32:KERNEL32.dll
+ 0002:00000014       __imp__GetSystemTimeAsFileTime@4 69e6b014     KERNEL32:KERNEL32.dll
+ 0002:00000018       __imp__GetCurrentProcessId@0 69e6b018     KERNEL32:KERNEL32.dll
+ 0002:0000001c       __imp__GetCurrentThreadId@0 69e6b01c     KERNEL32:KERNEL32.dll
+ 0002:00000020       __imp__GetTickCount@0      69e6b020     KERNEL32:KERNEL32.dll
+ 0002:00000024       __imp__QueryPerformanceCounter@4 69e6b024     KERNEL32:KERNEL32.dll
+ 0002:00000028       __imp__DisableThreadLibraryCalls@4 69e6b028     KERNEL32:KERNEL32.dll
+ 0002:0000002c       __imp__InterlockedCompareExchange@12 69e6b02c     KERNEL32:KERNEL32.dll
+ 0002:00000030       __imp__Sleep@4             69e6b030     KERNEL32:KERNEL32.dll
+ 0002:00000034       __imp__InterlockedExchange@8 69e6b034     KERNEL32:KERNEL32.dll
+ 0002:00000038       \177KERNEL32_NULL_THUNK_DATA 69e6b038     KERNEL32:KERNEL32.dll
+ 0002:0000003c       __imp___crt_debugger_hook  69e6b03c     msvcrt:MSVCR80.dll
+ 0002:00000040       __imp___except_handler4_common 69e6b040     msvcrt:MSVCR80.dll
+ 0002:00000044       __imp___onexit             69e6b044     msvcrt:MSVCR80.dll
+ 0002:00000048       __imp___lock               69e6b048     msvcrt:MSVCR80.dll
+ 0002:0000004c       __imp____dllonexit         69e6b04c     msvcrt:MSVCR80.dll
+ 0002:00000050       __imp___unlock             69e6b050     msvcrt:MSVCR80.dll
+ 0002:00000054       __imp____clean_type_info_names_internal 69e6b054     msvcrt:MSVCR80.dll
+ 0002:00000058       __imp____CppXcptFilter     69e6b058     msvcrt:MSVCR80.dll
+ 0002:0000005c       __imp___adjust_fdiv        69e6b05c     msvcrt:MSVCR80.dll
+ 0002:00000060       __imp___amsg_exit          69e6b060     msvcrt:MSVCR80.dll
+ 0002:00000064       __imp___initterm_e         69e6b064     msvcrt:MSVCR80.dll
+ 0002:00000068       __imp___initterm           69e6b068     msvcrt:MSVCR80.dll
+ 0002:0000006c       __imp___decode_pointer     69e6b06c     msvcrt:MSVCR80.dll
+ 0002:00000070       __imp___encoded_null       69e6b070     msvcrt:MSVCR80.dll
+ 0002:00000074       __imp___malloc_crt         69e6b074     msvcrt:MSVCR80.dll
+ 0002:00000078       __imp___encode_pointer     69e6b078     msvcrt:MSVCR80.dll
+ 0002:0000007c       __imp___HUGE               69e6b07c     msvcrt:MSVCR80.dll
+ 0002:00000080       __imp__realloc             69e6b080     msvcrt:MSVCR80.dll
+ 0002:00000084       __imp__malloc              69e6b084     msvcrt:MSVCR80.dll
+ 0002:00000088       __imp__isalpha             69e6b088     msvcrt:MSVCR80.dll
+ 0002:0000008c       __imp__isdigit             69e6b08c     msvcrt:MSVCR80.dll
+ 0002:00000090       __imp__isspace             69e6b090     msvcrt:MSVCR80.dll
+ 0002:00000094       __imp__printf              69e6b094     msvcrt:MSVCR80.dll
+ 0002:00000098       __imp__fabs                69e6b098     msvcrt:MSVCR80.dll
+ 0002:0000009c       __imp__atof                69e6b09c     msvcrt:MSVCR80.dll
+ 0002:000000a0       __imp__strncmp             69e6b0a0     msvcrt:MSVCR80.dll
+ 0002:000000a4       __imp__qsort               69e6b0a4     msvcrt:MSVCR80.dll
+ 0002:000000a8       __imp__strcmp              69e6b0a8     msvcrt:MSVCR80.dll
+ 0002:000000ac       __imp__sscanf              69e6b0ac     msvcrt:MSVCR80.dll
+ 0002:000000b0       __imp__strlen              69e6b0b0     msvcrt:MSVCR80.dll
+ 0002:000000b4       __imp__exit                69e6b0b4     msvcrt:MSVCR80.dll
+ 0002:000000b8       __imp___time64             69e6b0b8     msvcrt:MSVCR80.dll
+ 0002:000000bc       __imp__srand               69e6b0bc     msvcrt:MSVCR80.dll
+ 0002:000000c0       __imp__floor               69e6b0c0     msvcrt:MSVCR80.dll
+ 0002:000000c4       __imp__rand                69e6b0c4     msvcrt:MSVCR80.dll
+ 0002:000000c8       __imp__strchr              69e6b0c8     msvcrt:MSVCR80.dll
+ 0002:000000cc       __imp__atoi                69e6b0cc     msvcrt:MSVCR80.dll
+ 0002:000000d0       __imp__sprintf             69e6b0d0     msvcrt:MSVCR80.dll
+ 0002:000000d4       __imp__sqrt                69e6b0d4     msvcrt:MSVCR80.dll
+ 0002:000000d8       __imp__atan2               69e6b0d8     msvcrt:MSVCR80.dll
+ 0002:000000dc       __imp__asin                69e6b0dc     msvcrt:MSVCR80.dll
+ 0002:000000e0       __imp__cos                 69e6b0e0     msvcrt:MSVCR80.dll
+ 0002:000000e4       __imp__sin                 69e6b0e4     msvcrt:MSVCR80.dll
+ 0002:000000e8       __imp__memset              69e6b0e8     msvcrt:MSVCR80.dll
+ 0002:000000ec       __imp____iob_func          69e6b0ec     msvcrt:MSVCR80.dll
+ 0002:000000f0       __imp__fprintf             69e6b0f0     msvcrt:MSVCR80.dll
+ 0002:000000f4       __imp__fputs               69e6b0f4     msvcrt:MSVCR80.dll
+ 0002:000000f8       __imp___wassert            69e6b0f8     msvcrt:MSVCR80.dll
+ 0002:000000fc       __imp__free                69e6b0fc     msvcrt:MSVCR80.dll
+ 0002:00000100       \177MSVCR80_NULL_THUNK_DATA 69e6b100     msvcrt:MSVCR80.dll
+ 0002:00000104       __imp__dtflatten           69e6b104     cdt:cdt.dll
+ 0002:00000108       __imp__Dtobag              69e6b108     cdt:cdt.dll
+ 0002:0000010c       __imp__dtwalk              69e6b10c     cdt:cdt.dll
+ 0002:00000110       __imp__dtsize              69e6b110     cdt:cdt.dll
+ 0002:00000114       __imp__dtclose             69e6b114     cdt:cdt.dll
+ 0002:00000118       __imp__dtopen              69e6b118     cdt:cdt.dll
+ 0002:0000011c       __imp__Dtoset              69e6b11c     cdt:cdt.dll
+ 0002:00000120       \177cdt_NULL_THUNK_DATA    69e6b120     cdt:cdt.dll
+ 0002:00000124       __imp__agnxtnode           69e6b124     graph:graph.dll
+ 0002:00000128       __imp__agfstnode           69e6b128     graph:graph.dll
+ 0002:0000012c       __imp__agnnodes            69e6b12c     graph:graph.dll
+ 0002:00000130       __imp__aginsert            69e6b130     graph:graph.dll
+ 0002:00000134       __imp__agedge              69e6b134     graph:graph.dll
+ 0002:00000138       __imp__agopen              69e6b138     graph:graph.dll
+ 0002:0000013c       __imp__agnode              69e6b13c     graph:graph.dll
+ 0002:00000140       __imp__agdelete            69e6b140     graph:graph.dll
+ 0002:00000144       __imp__agclose             69e6b144     graph:graph.dll
+ 0002:00000148       __imp__agget               69e6b148     graph:graph.dll
+ 0002:0000014c       __imp__agfindattr          69e6b14c     graph:graph.dll
+ 0002:00000150       __imp__agfstout            69e6b150     graph:graph.dll
+ 0002:00000154       __imp__agnxtedge           69e6b154     graph:graph.dll
+ 0002:00000158       __imp__agfstedge           69e6b158     graph:graph.dll
+ 0002:0000015c       __imp__agsubg              69e6b15c     graph:graph.dll
+ 0002:00000160       __imp__agfindedge          69e6b160     graph:graph.dll
+ 0002:00000164       __imp__agnxtin             69e6b164     graph:graph.dll
+ 0002:00000168       __imp__agfstin             69e6b168     graph:graph.dll
+ 0002:0000016c       __imp__agnedges            69e6b16c     graph:graph.dll
+ 0002:00000170       __imp__agerr               69e6b170     graph:graph.dll
+ 0002:00000174       __imp__agusergraph         69e6b174     graph:graph.dll
+ 0002:00000178       __imp__agxget              69e6b178     graph:graph.dll
+ 0002:0000017c       __imp__agraphattr          69e6b17c     graph:graph.dll
+ 0002:00000180       __imp__agxset              69e6b180     graph:graph.dll
+ 0002:00000184       __imp__agcontains          69e6b184     graph:graph.dll
+ 0002:00000188       __imp__agindex             69e6b188     graph:graph.dll
+ 0002:0000018c       __imp__agset               69e6b18c     graph:graph.dll
+ 0002:00000190       __imp__agnxtout            69e6b190     graph:graph.dll
+ 0002:00000194       __imp__agfindnode          69e6b194     graph:graph.dll
+ 0002:00000198       \177graph_NULL_THUNK_DATA  69e6b198     graph:graph.dll
+ 0002:0000019c       __imp__Epsilon             69e6b19c     gvc:gvc.dll
+ 0002:000001a0       __imp__gmalloc             69e6b1a0     gvc:gvc.dll
+ 0002:000001a4       __imp__Ndim                69e6b1a4     gvc:gvc.dll
+ 0002:000001a8       __imp__setEdgeType         69e6b1a8     gvc:gvc.dll
+ 0002:000001ac       __imp__late_double         69e6b1ac     gvc:gvc.dll
+ 0002:000001b0       __imp__E_weight            69e6b1b0     gvc:gvc.dll
+ 0002:000001b4       __imp__common_init_edge    69e6b1b4     gvc:gvc.dll
+ 0002:000001b8       __imp__strcasecmp          69e6b1b8     gvc:gvc.dll
+ 0002:000001bc       __imp__rank                69e6b1bc     gvc:gvc.dll
+ 0002:000001c0       __imp__pccomps             69e6b1c0     gvc:gvc.dll
+ 0002:000001c4       __imp__packGraphs          69e6b1c4     gvc:gvc.dll
+ 0002:000001c8       __imp__insertPM            69e6b1c8     gvc:gvc.dll
+ 0002:000001cc       __imp__newPM               69e6b1cc     gvc:gvc.dll
+ 0002:000001d0       __imp__clearPM             69e6b1d0     gvc:gvc.dll
+ 0002:000001d4       __imp__freePM              69e6b1d4     gvc:gvc.dll
+ 0002:000001d8       __imp__zrealloc            69e6b1d8     gvc:gvc.dll
+ 0002:000001dc       __imp__arrow_flags         69e6b1dc     gvc:gvc.dll
+ 0002:000001e0       __imp__gv_free_splines     69e6b1e0     gvc:gvc.dll
+ 0002:000001e4       __imp__new_spline          69e6b1e4     gvc:gvc.dll
+ 0002:000001e8       __imp__N_z                 69e6b1e8     gvc:gvc.dll
+ 0002:000001ec       __imp__common_init_node    69e6b1ec     gvc:gvc.dll
+ 0002:000001f0       __imp__gv_nodesize         69e6b1f0     gvc:gvc.dll
+ 0002:000001f4       __imp__dotneato_closest    69e6b1f4     gvc:gvc.dll
+ 0002:000001f8       __imp__clip_and_install    69e6b1f8     gvc:gvc.dll
+ 0002:000001fc       __imp__add_points          69e6b1fc     gvc:gvc.dll
+ 0002:00000200       __imp__place_portlabel     69e6b200     gvc:gvc.dll
+ 0002:00000204       __imp__makeSelfEdge        69e6b204     gvc:gvc.dll
+ 0002:00000208       __imp__updateBB            69e6b208     gvc:gvc.dll
+ 0002:0000020c       __imp__shapeOf             69e6b20c     gvc:gvc.dll
+ 0002:00000210       __imp__test_toggle         69e6b210     gvc:gvc.dll
+ 0002:00000214       __imp__MaxIter             69e6b214     gvc:gvc.dll
+ 0002:00000218       __imp__start_timer         69e6b218     gvc:gvc.dll
+ 0002:0000021c       __imp__elapsed_sec         69e6b21c     gvc:gvc.dll
+ 0002:00000220       __imp__Reduce              69e6b220     gvc:gvc.dll
+ 0002:00000224       __imp__zmalloc             69e6b224     gvc:gvc.dll
+ 0002:00000228       __imp__getdouble           69e6b228     gvc:gvc.dll
+ 0002:0000022c       __imp__Damping             69e6b22c     gvc:gvc.dll
+ 0002:00000230       __imp__Initial_dist        69e6b230     gvc:gvc.dll
+ 0002:00000234       __imp__late_string         69e6b234     gvc:gvc.dll
+ 0002:00000238       __imp__nodeInduce          69e6b238     gvc:gvc.dll
+ 0002:0000023c       __imp__free_label          69e6b23c     gvc:gvc.dll
+ 0002:00000240       __imp__mapbool             69e6b240     gvc:gvc.dll
+ 0002:00000244       __imp__processClusterEdges 69e6b244     gvc:gvc.dll
+ 0002:00000248       __imp__Nop                 69e6b248     gvc:gvc.dll
+ 0002:0000024c       __imp__State               69e6b24c     gvc:gvc.dll
+ 0002:00000250       __imp__grealloc            69e6b250     gvc:gvc.dll
+ 0002:00000254       __imp__PSinputscale        69e6b254     gvc:gvc.dll
+ 0002:00000258       __imp__do_graph_label      69e6b258     gvc:gvc.dll
+ 0002:0000025c       __imp__cvt2ptf             69e6b25c     gvc:gvc.dll
+ 0002:00000260       __imp__cvt2pt              69e6b260     gvc:gvc.dll
+ 0002:00000264       __imp__putGraphs           69e6b264     gvc:gvc.dll
+ 0002:00000268       __imp__compute_bb          69e6b268     gvc:gvc.dll
+ 0002:0000026c       __imp__fdp_parms           69e6b26c     gvc:gvc.dll
+ 0002:00000270       __imp__late_int            69e6b270     gvc:gvc.dll
+ 0002:00000274       __imp__Verbose             69e6b274     gvc:gvc.dll
+ 0002:00000278       __imp__late_bool           69e6b278     gvc:gvc.dll
+ 0002:0000027c       __imp__gv_cleanup_edge     69e6b27c     gvc:gvc.dll
+ 0002:00000280       __imp__gv_cleanup_node     69e6b280     gvc:gvc.dll
+ 0002:00000284       __imp__dotneato_postprocess 69e6b284     gvc:gvc.dll
+ 0002:00000288       __imp__getPackMode         69e6b288     gvc:gvc.dll
+ 0002:0000028c       __imp__getPack             69e6b28c     gvc:gvc.dll
+ 0002:00000290       __imp__packSubgraphs       69e6b290     gvc:gvc.dll
+ 0002:00000294       __imp__ccomps              69e6b294     gvc:gvc.dll
+ 0002:00000298       \177gvc_NULL_THUNK_DATA    69e6b298     gvc:gvc.dll
+ 0002:0000029c       __imp__Pobspath            69e6b29c     pathplan:pathplan.dll
+ 0002:000002a0       __imp__Proutespline        69e6b2a0     pathplan:pathplan.dll
+ 0002:000002a4       __imp__in_poly             69e6b2a4     pathplan:pathplan.dll
+ 0002:000002a8       __imp__Pobsclose           69e6b2a8     pathplan:pathplan.dll
+ 0002:000002ac       __imp__make_polyline       69e6b2ac     pathplan:pathplan.dll
+ 0002:000002b0       __imp__Pobsopen            69e6b2b0     pathplan:pathplan.dll
+ 0002:000002b4       \177pathplan_NULL_THUNK_DATA 69e6b2b4     pathplan:pathplan.dll
+ 0002:000002b8       ___xc_a                    69e6b2b8     msvcrt:cinitexe.obj
+ 0002:000002bc       ___xc_z                    69e6b2bc     msvcrt:cinitexe.obj
+ 0002:000002c0       ___xi_a                    69e6b2c0     msvcrt:cinitexe.obj
+ 0002:000002cc       ___xi_z                    69e6b2cc     msvcrt:cinitexe.obj
+ 0002:000002d0       __real@3ff0000000000000    69e6b2d0     libgvplugin_neato_layout:circularinit.o
+ 0002:000002d8       __real@0000000000000000    69e6b2d8     libgvplugin_neato_layout:circularinit.o
+ 0002:000002e0       __real@401921fb54442d18    69e6b2e0     libgvplugin_neato_layout:circpos.o
+ 0002:000002e8       __real@400921fb54442d18    69e6b2e8     libgvplugin_neato_layout:circpos.o
+ 0002:000002f0       __real@4000000000000000    69e6b2f0     libgvplugin_neato_layout:circpos.o
+ 0002:000002f8       __real@bff0000000000000    69e6b2f8     libgvplugin_neato_layout:circpos.o
+ 0002:00000300       __real@3ff921fb54442d18    69e6b300     libgvplugin_neato_layout:circpos.o
+ 0002:00000308       __real@4052000000000000    69e6b308     libgvplugin_neato_layout:xlayout.o
+ 0002:00000310       __real@4014000000000000    69e6b310     libgvplugin_neato_layout:xlayout.o
+ 0002:00000318       __real@4008000000000000    69e6b318     libgvplugin_neato_layout:tlayout.o
+ 0002:00000320       __real@3fd3333333333333    69e6b320     libgvplugin_neato_layout:tlayout.o
+ 0002:00000328       __real@4024000000000000    69e6b328     libgvplugin_neato_layout:tlayout.o
+ 0002:00000330       __real@3fee666666666666    69e6b330     libgvplugin_neato_layout:tlayout.o
+ 0002:00000338       __real@3feccccccccccccd    69e6b338     libgvplugin_neato_layout:tlayout.o
+ 0002:00000340       __real@3fb999999999999a    69e6b340     libgvplugin_neato_layout:tlayout.o
+ 0002:00000348       __real@3fef5c28f5c28f5c    69e6b348     libgvplugin_neato_layout:tlayout.o
+ 0002:00000350       __real@4010000000000000    69e6b350     libgvplugin_neato_layout:tlayout.o
+ 0002:00000358       __real@3ff3333333333333    69e6b358     libgvplugin_neato_layout:tlayout.o
+ 0002:00000360       __real@3fe0000000000000    69e6b360     libgvplugin_neato_layout:layout.o
+ 0002:00000368       __real@ffefffffffffffff    69e6b368     libgvplugin_neato_layout:layout.o
+ 0002:00000370       __real@7fefffffffffffff    69e6b370     libgvplugin_neato_layout:layout.o
+ 0002:00000378       __real@3fa1df46a2529d39    69e6b378     libgvplugin_neato_layout:layout.o
+ 0002:00000380       __real@3f947ae147ae147b    69e6b380     libgvplugin_neato_layout:circle.o
+ 0002:00000388       __real@40dfffc000000000    69e6b388     libgvplugin_neato_layout:stuff.o
+ 0002:00000390       __real@3fefae147ae147ae    69e6b390     libgvplugin_neato_layout:stuff.o
+ 0002:00000398       __real@3f1a36e2eb1c432d    69e6b398     libgvplugin_neato_layout:stuff.o
+ 0002:000003a0       __real@00000000            69e6b3a0     libgvplugin_neato_layout:stress.o
+ 0002:000003a8       __real@47efffffe0000000    69e6b3a8     libgvplugin_neato_layout:stress.o
+ 0002:000003b0       __real@bf800000            69e6b3b0     libgvplugin_neato_layout:stress.o
+ 0002:000003b8       __real@3eb0c6f7a0b5ed8d    69e6b3b8     libgvplugin_neato_layout:stress.o
+ 0002:000003c0       __real@3f50624dd2f1a9fc    69e6b3c0     libgvplugin_neato_layout:stress.o
+ 0002:000003c8       __real@3ddb7cdfd9d7bdbb    69e6b3c8     libgvplugin_neato_layout:stress.o
+ 0002:000003d0       __real@39b4484bfeebc2a0    69e6b3d0     libgvplugin_neato_layout:stress.o
+ 0002:000003d8       __real@3ee4f8b588e368f1    69e6b3d8     libgvplugin_neato_layout:smart_ini_x.o
+ 0002:000003e0       __real@3f847ae147ae147b    69e6b3e0     libgvplugin_neato_layout:quad_prog_solve.o
+ 0002:000003e8       __real@4e6e6b28            69e6b3e8     libgvplugin_neato_layout:quad_prog_solve.o
+ 0002:000003ec       __real@ce6e6b28            69e6b3ec     libgvplugin_neato_layout:quad_prog_solve.o
+ 0002:000003f0       __real@3e112e0be826d695    69e6b3f0     libgvplugin_neato_layout:quad_prog_solve.o
+ 0002:000003f8       __real@c1cdcd6500000000    69e6b3f8     libgvplugin_neato_layout:quad_prog_solve.o
+ 0002:00000400       __real@3f800000            69e6b400     libgvplugin_neato_layout:opt_arrangement.o
+ 0002:00000408       __real@4042000000000000    69e6b408     libgvplugin_neato_layout:neatosplines.o
+ 0002:00000410       __real@ca511b0ec57e649a    69e6b410     libgvplugin_neato_layout:matrix_ops.o
+ 0002:00000418       __real@f149f2ca            69e6b418     libgvplugin_neato_layout:matrix_ops.o
+ 0002:00000420       __real@bddb7cdfd9d7bdbb    69e6b420     libgvplugin_neato_layout:hedges.o
+ 0002:00000428       __real@41dfffffffc00000    69e6b428     libgvplugin_neato_layout:dijkstra.o
+ 0002:00000430       __real@7f7fffff            69e6b430     libgvplugin_neato_layout:dijkstra.o
+ 0002:00000438       __real@40efffe000000000    69e6b438     libgvplugin_neato_layout:constraint.o
+ 0002:00000440       __real@bfe0000000000000    69e6b440     libgvplugin_neato_layout:bfs.o
+ 0002:00000448       __real@40800000            69e6b448     libgvplugin_neato_layout:adjust.o
+ 0002:0000044c       __real@3f4ccccd            69e6b44c     libgvplugin_neato_layout:adjust.o
+ 0002:00000450       __real@404ccccd            69e6b450     libgvplugin_neato_layout:adjust.o
+ 0002:00000454       __real@3fa00000            69e6b454     libgvplugin_neato_layout:adjust.o
+ 0002:00000458       __pRawDllMain              69e6b458     msvcrt:crtdll.obj
+ 0002:00000458       __pDefaultRawDllMain       69e6b458     msvcrt:crtdll.obj
+ 0002:00000468       __load_config_used         69e6b468     msvcrt:loadcfg.obj
+ 0002:000004b0       ___safe_se_handler_table   69e6b4b0     <linker-defined>
+ 0002:000004b4       ___rtc_iaa                 69e6b4b4     msvcrt:initsect.obj
+ 0002:000004b8       ___rtc_izz                 69e6b4b8     msvcrt:initsect.obj
+ 0002:000004bc       ___rtc_taa                 69e6b4bc     msvcrt:initsect.obj
+ 0002:000004c0       ___rtc_tzz                 69e6b4c0     msvcrt:initsect.obj
+ 0002:0000054c       __IMPORT_DESCRIPTOR_gvc    69e6b54c     gvc:gvc.dll
+ 0002:00000560       __IMPORT_DESCRIPTOR_pathplan 69e6b560     pathplan:pathplan.dll
+ 0002:00000574       __IMPORT_DESCRIPTOR_graph  69e6b574     graph:graph.dll
+ 0002:00000588       __IMPORT_DESCRIPTOR_cdt    69e6b588     cdt:cdt.dll
+ 0002:0000059c       __IMPORT_DESCRIPTOR_MSVCR80 69e6b59c     msvcrt:MSVCR80.dll
+ 0002:000005b0       __IMPORT_DESCRIPTOR_KERNEL32 69e6b5b0     KERNEL32:KERNEL32.dll
+ 0002:000005c4       __NULL_IMPORT_DESCRIPTOR   69e6b5c4     gvc:gvc.dll
+ 0003:00000a04       _edgeItemDisc              69e6ea04     libgvplugin_neato_layout:neatosplines.o
+ 0003:00001690       _neatogen_engine           69e6f690     libgvplugin_neato_layout:gvlayout_neato_layout.o
+ 0003:00001698       _fdpgen_engine             69e6f698     libgvplugin_neato_layout:gvlayout_neato_layout.o
+ 0003:000016a0       _twopigen_engine           69e6f6a0     libgvplugin_neato_layout:gvlayout_neato_layout.o
+ 0003:000016a8       _circogen_engine           69e6f6a8     libgvplugin_neato_layout:gvlayout_neato_layout.o
+ 0003:000016b0       _nop1gen_engine            69e6f6b0     libgvplugin_neato_layout:gvlayout_neato_layout.o
+ 0003:000016b8       _nop2gen_engine            69e6f6b8     libgvplugin_neato_layout:gvlayout_neato_layout.o
+ 0003:000016f0       _gvlayout_neato_types      69e6f6f0     libgvplugin_neato_layout:gvlayout_neato_layout.o
+ 0003:000017b0       _gvplugin_neato_layout_LTX_library 69e6f7b0     libgvplugin_neato_layout:gvplugin_neato_layout.o
+ 0003:000017c0       ___security_cookie         69e6f7c0     msvcrt:gs_cookie.obj
+ 0003:000017c4       ___security_cookie_complement 69e6f7c4     msvcrt:gs_cookie.obj
+ 0003:000017d0       ___native_dllmain_reason   69e6f7d0     msvcrt:natstart.obj
+ 0003:000017d4       ___native_vcclrit_reason   69e6f7d4     msvcrt:natstart.obj
+ 0003:00001df8       _origin                    69e6fdf8     libgvplugin_neato_layout:geometry.o
+ 0003:00001e8c       _neatogen_features         69e6fe8c     libgvplugin_neato_layout:gvlayout_neato_layout.o
+ 0003:00001e94       ?__type_info_root_node@@3U__type_info_node@@A 69e6fe94     msvcrt:tncleanup.obj
+ 0003:000021c8       _pymin                     69e701c8     <common>
+ 0003:000021d0       _pymax                     69e701d0     <common>
+ 0003:000021d8       _pxmin                     69e701d8     <common>
+ 0003:000021e0       _pxmax                     69e701e0     <common>
+ 0003:000021e8       _ymin                      69e701e8     <common>
+ 0003:000021f0       _deltay                    69e701f0     <common>
+ 0003:000021f8       _ymax                      69e701f8     <common>
+ 0003:00002200       _sqrt_nsites               69e70200     <common>
+ 0003:00002208       _xmax                      69e70208     <common>
+ 0003:00002210       _xmin                      69e70210     <common>
+ 0003:00002218       _nsites                    69e70218     <common>
+ 0003:00002220       _deltax                    69e70220     <common>
+ 0003:00002228       _ELleftend                 69e70228     <common>
+ 0003:0000222c       _ELrightend                69e7022c     <common>
+ 0003:00002230       _nodeInfo                  69e70230     <common>
+ 0003:00002234       _bottomsite                69e70234     <common>
+ 0003:00002238       _siteidx                   69e70238     <common>
+ 0003:0000223c       ___sse2_available          69e7023c     <common>
+ 0003:00002240       __adjust_fdiv              69e70240     <common>
+ 0003:00002244       ___native_startup_state    69e70244     <common>
+ 0003:00002248       ___native_startup_lock     69e70248     <common>
+ 0003:0000224c       ___onexitend               69e7024c     <common>
+ 0003:00002250       ___onexitbegin             69e70250     <common>
+ 0003:00002254       ___dyn_tls_init_callback   69e70254     <common>
+
+ entry point at        0001:00028aca
+
+ Static symbols
+
+ 0001:00000150       _mkItem                    69e41150 f   libgvplugin_neato_layout:nodeset.o
+ 0001:00000180       _freeItem                  69e41180 f   libgvplugin_neato_layout:nodeset.o
+ 0001:000001a0       _cmpItem                   69e411a0 f   libgvplugin_neato_layout:nodeset.o
+ 0001:00000460       _init_nodelistitem         69e41460 f   libgvplugin_neato_layout:nodelist.o
+ 0001:000007c0       _concatNodelist            69e417c0 f   libgvplugin_neato_layout:nodelist.o
+ 0001:00000830       _mkItem                    69e41830 f   libgvplugin_neato_layout:edgelist.o
+ 0001:00000860       _freeItem                  69e41860 f   libgvplugin_neato_layout:edgelist.o
+ 0001:00000880       _cmpItem                   69e41880 f   libgvplugin_neato_layout:edgelist.o
+ 0001:00000980       _mkItem                    69e41980 f   libgvplugin_neato_layout:deglist.o
+ 0001:000009b0       _freeItem                  69e419b0 f   libgvplugin_neato_layout:deglist.o
+ 0001:000009d0       _cmpDegree                 69e419d0 f   libgvplugin_neato_layout:deglist.o
+ 0001:00000c20       _circular_init_node_edge   69e41c20 f   libgvplugin_neato_layout:circularinit.o
+ 0001:00000d40       _circular_init_edge        69e41d40 f   libgvplugin_neato_layout:circularinit.o
+ 0001:00001000       _makeDerivedNode           69e42000 f   libgvplugin_neato_layout:circularinit.o
+ 0001:00001200       _copyPosns                 69e42200 f   libgvplugin_neato_layout:circularinit.o
+ 0001:000013a0       _closeDerivedGraph         69e423a0 f   libgvplugin_neato_layout:circularinit.o
+ 0001:000014f0       _initGraphAttrs            69e424f0 f   libgvplugin_neato_layout:circular.o
+ 0001:00001620       _cleanup                   69e42620 f   libgvplugin_neato_layout:circular.o
+ 0001:00001670       _doBlock                   69e42670 f   libgvplugin_neato_layout:circpos.o
+ 0001:00001780       _position                  69e42780 f   libgvplugin_neato_layout:circpos.o
+ 0001:000018e0       _applyDelta                69e428e0 f   libgvplugin_neato_layout:circpos.o
+ 0001:00001a20       _doParent                  69e42a20 f   libgvplugin_neato_layout:circpos.o
+ 0001:00001d40       _getRotation               69e42d40 f   libgvplugin_neato_layout:circpos.o
+ 0001:00002150       _find_blocks               69e43150 f   libgvplugin_neato_layout:blocktree.o
+ 0001:00002230       _dfs                       69e43230 f   libgvplugin_neato_layout:blocktree.o
+ 0001:00002510       _min_value                 69e43510 f   libgvplugin_neato_layout:blocktree.o
+ 0001:00002530       _addNode                   69e43530 f   libgvplugin_neato_layout:blocktree.o
+ 0001:00002570       _makeBlock                 69e43570 f   libgvplugin_neato_layout:blocktree.o
+ 0001:000025a0       _makeBlockGraph            69e435a0 f   libgvplugin_neato_layout:blocktree.o
+ 0001:00002850       _remove_pair_edges         69e43850 f   libgvplugin_neato_layout:blockpath.o
+ 0001:000029d0       _clone_graph               69e439d0 f   libgvplugin_neato_layout:blockpath.o
+ 0001:00002c60       _getList                   69e43c60 f   libgvplugin_neato_layout:blockpath.o
+ 0001:00002cc0       _find_pair_edges           69e43cc0 f   libgvplugin_neato_layout:blockpath.o
+ 0001:00003010       _find_longest_path         69e44010 f   libgvplugin_neato_layout:blockpath.o
+ 0001:00003250       _measure_distance          69e44250 f   libgvplugin_neato_layout:blockpath.o
+ 0001:00003370       _spanning_tree             69e44370 f   libgvplugin_neato_layout:blockpath.o
+ 0001:000034f0       _dfs                       69e444f0 f   libgvplugin_neato_layout:blockpath.o
+ 0001:000035a0       _block_graph               69e445a0 f   libgvplugin_neato_layout:blockpath.o
+ 0001:00003630       _reduce_edge_crossings     69e44630 f   libgvplugin_neato_layout:blockpath.o
+ 0001:000036b0       _count_all_crossings       69e446b0 f   libgvplugin_neato_layout:blockpath.o
+ 0001:000038b0       _reduce                    69e448b0 f   libgvplugin_neato_layout:blockpath.o
+ 0001:00003a00       _largest_nodesize          69e44a00 f   libgvplugin_neato_layout:blockpath.o
+ 0001:00003a70       _place_residual_nodes      69e44a70 f   libgvplugin_neato_layout:blockpath.o
+ 0001:00003ad0       _place_node                69e44ad0 f   libgvplugin_neato_layout:blockpath.o
+ 0001:00003f00       _x_layout                  69e44f00 f   libgvplugin_neato_layout:xlayout.o
+ 0001:00004090       _xinit_params              69e45090 f   libgvplugin_neato_layout:xlayout.o
+ 0001:00004130       _cool                      69e45130 f   libgvplugin_neato_layout:xlayout.o
+ 0001:00004160       _cntOverlaps               69e45160 f   libgvplugin_neato_layout:xlayout.o
+ 0001:000041f0       _overlap                   69e451f0 f   libgvplugin_neato_layout:xlayout.o
+ 0001:00004370       _adjust                    69e45370 f   libgvplugin_neato_layout:xlayout.o
+ 0001:000045a0       _applyRep                  69e455a0 f   libgvplugin_neato_layout:xlayout.o
+ 0001:00004620       _doRep                     69e45620 f   libgvplugin_neato_layout:xlayout.o
+ 0001:00004720       _applyAttr                 69e45720 f   libgvplugin_neato_layout:xlayout.o
+ 0001:00004840       _RAD                       69e45840 f   libgvplugin_neato_layout:xlayout.o
+ 0001:00004e80       _cool                      69e45e80 f   libgvplugin_neato_layout:tlayout.o
+ 0001:00004eb0       _reset_params              69e45eb0 f   libgvplugin_neato_layout:tlayout.o
+ 0001:00004ed0       _init_params               69e45ed0 f   libgvplugin_neato_layout:tlayout.o
+ 0001:00005000       _gAdjust                   69e46000 f   libgvplugin_neato_layout:tlayout.o
+ 0001:00005180       _gridRepulse               69e46180 f   libgvplugin_neato_layout:tlayout.o
+ 0001:000052e0       _applyRep                  69e462e0 f   libgvplugin_neato_layout:tlayout.o
+ 0001:00005360       _doRep                     69e46360 f   libgvplugin_neato_layout:tlayout.o
+ 0001:000054a0       _doNeighbor                69e464a0 f   libgvplugin_neato_layout:tlayout.o
+ 0001:000055a0       _applyAttr                 69e465a0 f   libgvplugin_neato_layout:tlayout.o
+ 0001:00005700       _updatePos                 69e46700 f   libgvplugin_neato_layout:tlayout.o
+ 0001:000058e0       _adjust                    69e468e0 f   libgvplugin_neato_layout:tlayout.o
+ 0001:00005a20       _initPositions             69e46a20 f   libgvplugin_neato_layout:tlayout.o
+ 0001:00006350       _time                      69e47350 f   libgvplugin_neato_layout:tlayout.o
+ 0001:00006780       _finalCC                   69e47780 f   libgvplugin_neato_layout:layout.o
+ 0001:00006c60       _freeDerivedGraph          69e47c60 f   libgvplugin_neato_layout:layout.o
+ 0001:00006d50       _freeDeriveNode            69e47d50 f   libgvplugin_neato_layout:layout.o
+ 0001:00006d80       _freeGData                 69e47d80 f   libgvplugin_neato_layout:layout.o
+ 0001:00006da0       _deriveGraph               69e47da0 f   libgvplugin_neato_layout:layout.o
+ 0001:000075a0       _mkDeriveNode              69e485a0 f   libgvplugin_neato_layout:layout.o
+ 0001:000075f0       _portName                  69e485f0 f   libgvplugin_neato_layout:layout.o
+ 0001:000076d0       _chkPos                    69e486d0 f   libgvplugin_neato_layout:layout.o
+ 0001:00007850       _addEdge                   69e48850 f   libgvplugin_neato_layout:layout.o
+ 0001:000078f0       _copyAttr                  69e488f0 f   libgvplugin_neato_layout:layout.o
+ 0001:00007970       _expandCluster             69e48970 f   libgvplugin_neato_layout:layout.o
+ 0001:00007a80       _getEdgeList               69e48a80 f   libgvplugin_neato_layout:layout.o
+ 0001:00007cf0       _ecmp                      69e48cf0 f   libgvplugin_neato_layout:layout.o
+ 0001:00007d80       _genPorts                  69e48d80 f   libgvplugin_neato_layout:layout.o
+ 0001:00008040       _mkClusters                69e49040 f   libgvplugin_neato_layout:layout.o
+ 0001:000081a0       _initCList                 69e491a0 f   libgvplugin_neato_layout:layout.o
+ 0001:000081d0       _addCluster                69e491d0 f   libgvplugin_neato_layout:layout.o
+ 0001:00008290       _evalPositions             69e49290 f   libgvplugin_neato_layout:layout.o
+ 0001:000083e0       _setClustNodes             69e493e0 f   libgvplugin_neato_layout:layout.o
+ 0001:000086c0       _setBB                     69e496c0 f   libgvplugin_neato_layout:layout.o
+ 0001:000087c0       _fdpSplines                69e497c0 f   libgvplugin_neato_layout:layout.o
+ 0001:00008870       _ijcmpf                    69e49870 f   libgvplugin_neato_layout:grid.o
+ 0001:000088a0       _newCell                   69e498a0 f   libgvplugin_neato_layout:grid.o
+ 0001:000088f0       _getCell                   69e498f0 f   libgvplugin_neato_layout:grid.o
+ 0001:00008980       _newBlock                  69e49980 f   libgvplugin_neato_layout:grid.o
+ 0001:00008b60       _freeBlock                 69e49b60 f   libgvplugin_neato_layout:grid.o
+ 0001:00008c30       _newNode                   69e49c30 f   libgvplugin_neato_layout:grid.o
+ 0001:00008e60       _initialPositions          69e49e60 f   libgvplugin_neato_layout:fdpinit.o
+ 0001:00008ff0       _init_edge                 69e49ff0 f   libgvplugin_neato_layout:fdpinit.o
+ 0001:00009100       _fdp_cleanup_graph         69e4a100 f   libgvplugin_neato_layout:fdpinit.o
+ 0001:00009160       _cleanup_subgs             69e4a160 f   libgvplugin_neato_layout:fdpinit.o
+ 0001:00009630       _dfs                       69e4a630 f   libgvplugin_neato_layout:comp.o
+ 0001:00009900       _freeObjlist               69e4a900 f   libgvplugin_neato_layout:clusteredges.o
+ 0001:00009930       _resetObjlist              69e4a930 f   libgvplugin_neato_layout:clusteredges.o
+ 0001:00009940       _objectList                69e4a940 f   libgvplugin_neato_layout:clusteredges.o
+ 0001:00009ae0       _addGraphObjs              69e4aae0 f   libgvplugin_neato_layout:clusteredges.o
+ 0001:00009bc0       _addObj                    69e4abc0 f   libgvplugin_neato_layout:clusteredges.o
+ 0001:00009c50       _makeClustObs              69e4ac50 f   libgvplugin_neato_layout:clusteredges.o
+ 0001:00009dd0       _raiseLevel                69e4add0 f   libgvplugin_neato_layout:clusteredges.o
+ 0001:00009e80       _twopi_init_node_edge      69e4ae80 f   libgvplugin_neato_layout:twopiinit.o
+ 0001:00009fa0       _twopi_init_edge           69e4afa0 f   libgvplugin_neato_layout:twopiinit.o
+ 0001:0000a2b0       _twopi_cleanup_graph       69e4b2b0 f   libgvplugin_neato_layout:twopiinit.o
+ 0001:0000a3d0       _initLayout                69e4b3d0 f   libgvplugin_neato_layout:circle.o
+ 0001:0000a470       _isLeaf                    69e4b470 f   libgvplugin_neato_layout:circle.o
+ 0001:0000a500       _findCenterNode            69e4b500 f   libgvplugin_neato_layout:circle.o
+ 0001:0000a5d0       _setNStepsToLeaf           69e4b5d0 f   libgvplugin_neato_layout:circle.o
+ 0001:0000a670       _setParentNodes            69e4b670 f   libgvplugin_neato_layout:circle.o
+ 0001:0000a700       _setNStepsToCenter         69e4b700 f   libgvplugin_neato_layout:circle.o
+ 0001:0000a800       _setSubtreeSize            69e4b800 f   libgvplugin_neato_layout:circle.o
+ 0001:0000a890       _setSubtreeSpans           69e4b890 f   libgvplugin_neato_layout:circle.o
+ 0001:0000a8c0       _setChildSubtreeSpans      69e4b8c0 f   libgvplugin_neato_layout:circle.o
+ 0001:0000a990       _setPositions              69e4b990 f   libgvplugin_neato_layout:circle.o
+ 0001:0000a9b0       _setChildPositions         69e4b9b0 f   libgvplugin_neato_layout:circle.o
+ 0001:0000aab0       _setAbsolutePos            69e4bab0 f   libgvplugin_neato_layout:circle.o
+ 0001:0000b5e0       _new_3array                69e4c5e0 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000b6d0       _degreeKind                69e4c6d0 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000b7b0       _prune                     69e4c7b0 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000b870       _setEdgeLen                69e4c870 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000b9c0       _free_3array               69e4c9c0 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000c030       _total_e                   69e4d030 f   libgvplugin_neato_layout:stuff.o
+ 0001:0000d810       _compute_weighted_apsp_packed 69e4e810 f   libgvplugin_neato_layout:stress.o
+ 0001:0000e5e0       _compute_stressf           69e4f5e0 f   libgvplugin_neato_layout:stress.o
+ 0001:0000e720       _sparse_stress_subspace_majorization_kD 69e4f720 f   libgvplugin_neato_layout:stress.o
+ 0001:0000fa30       _compute_stress1           69e50a30 f   libgvplugin_neato_layout:stress.o
+ 0001:000106e0       _standardize               69e516e0 f   libgvplugin_neato_layout:smart_ini_x.o
+ 0001:00010790       _CMDS_orthog               69e51790 f   libgvplugin_neato_layout:smart_ini_x.o
+ 0001:00010900       _power_iteration_orthog    69e51900 f   libgvplugin_neato_layout:smart_ini_x.o
+ 0001:00010e50       _mat_mult_vec_orthog       69e51e50 f   libgvplugin_neato_layout:smart_ini_x.o
+ 0001:00010f10       _compute_Bij               69e51f10 f   libgvplugin_neato_layout:smart_ini_x.o
+ 0001:00011040       _compute_avgs              69e52040 f   libgvplugin_neato_layout:smart_ini_x.o
+ 0001:00011cc0       _ensureMonotonicOrdering   69e52cc0 f   libgvplugin_neato_layout:quad_prog_solve.o
+ 0001:00011d30       _computeHierarchyBoundaries 69e52d30 f   libgvplugin_neato_layout:quad_prog_solve.o
+ 0001:00012940       _ensureMonotonicOrderingWithGaps 69e53940 f   libgvplugin_neato_layout:quad_prog_solve.o
+ 0001:000133e0       _bbox                      69e543e0 f   libgvplugin_neato_layout:poly.o
+ 0001:000134b0       _isBox                     69e544b0 f   libgvplugin_neato_layout:poly.o
+ 0001:00013590       _makeScaledTransPoint      69e54590 f   libgvplugin_neato_layout:poly.o
+ 0001:000135d0       _genRound                  69e545d0 f   libgvplugin_neato_layout:poly.o
+ 0001:00013af0       _inflatePts                69e54af0 f   libgvplugin_neato_layout:poly.o
+ 0001:00013b50       _makeScaledPoint           69e54b50 f   libgvplugin_neato_layout:poly.o
+ 0001:00013fb0       _pintersect                69e54fb0 f   libgvplugin_neato_layout:poly.o
+ 0001:00014000       _edgesIntersect            69e55000 f   libgvplugin_neato_layout:poly.o
+ 0001:000143f0       _inPoly                    69e553f0 f   libgvplugin_neato_layout:poly.o
+ 0001:00014680       _inBox                     69e55680 f   libgvplugin_neato_layout:poly.o
+ 0001:000146d0       _transCopy                 69e556d0 f   libgvplugin_neato_layout:poly.o
+ 0001:00014c30       _construct_b               69e55c30 f   libgvplugin_neato_layout:opt_arrangement.o
+ 0001:00014cd0       _spline_merge              69e55cd0 f   libgvplugin_neato_layout:neatosplines.o
+ 0001:00014ce0       _swap_ends_p               69e55ce0 f   libgvplugin_neato_layout:neatosplines.o
+ 0001:00014cf0       _newitem                   69e55cf0 f   libgvplugin_neato_layout:neatosplines.o
+ 0001:00014d60       _freeitem                  69e55d60 f   libgvplugin_neato_layout:neatosplines.o
+ 0001:00014d80       _cmpitems                  69e55d80 f   libgvplugin_neato_layout:neatosplines.o
+ 0001:00014f80       _makePortLabels            69e55f80 f   libgvplugin_neato_layout:neatosplines.o
+ 0001:000159f0       _genPt                     69e569f0 f   libgvplugin_neato_layout:neatosplines.o
+ 0001:00015a20       _recPt                     69e56a20 f   libgvplugin_neato_layout:neatosplines.o
+ 0001:00015f10       _make_barriers             69e56f10 f   libgvplugin_neato_layout:neatosplines.o
+ 0001:000160a0       _addEdgeLabels             69e570a0 f   libgvplugin_neato_layout:neatosplines.o
+ 0001:00016350       _endPoints                 69e57350 f   libgvplugin_neato_layout:neatosplines.o
+ 0001:000163e0       _polylineMidpoint          69e573e0 f   libgvplugin_neato_layout:neatosplines.o
+ 0001:000167f0       _equivEdge                 69e577f0 f   libgvplugin_neato_layout:neatosplines.o
+ 0001:000169c0       __spline_edges             69e579c0 f   libgvplugin_neato_layout:neatosplines.o
+ 0001:00016e00       _makeStraightEdge          69e57e00 f   libgvplugin_neato_layout:neatosplines.o
+ 0001:000171b0       _makePolyline              69e581b0 f   libgvplugin_neato_layout:neatosplines.o
+ 0001:000176e0       __neato_set_aspect         69e586e0 f   libgvplugin_neato_layout:neatosplines.o
+ 0001:00017a10       _scaleEdge                 69e58a10 f   libgvplugin_neato_layout:neatosplines.o
+ 0001:00017e60       _scaleBB                   69e58e60 f   libgvplugin_neato_layout:neatosplines.o
+ 0001:00018310       _neato_cleanup_graph       69e59310 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:00018620       _nop_init_edges            69e59620 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:00018710       _user_spline               69e59710 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:00018a50       _numFields                 69e59a50 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:00018af0       _set_elabel                69e59af0 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:00018b60       _chkBB                     69e59b60 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:00018bf0       _nop_init_graphs           69e59bf0 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:00018cc0       _dfs                       69e59cc0 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:00018d90       _add_cluster               69e59d90 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:00018e40       _translate                 69e59e40 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:00018f70       _translateE                69e59f70 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:00019120       _translateG                69e5a120 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:00019380       _time                      69e5a380 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:00019410       _initRegular               69e5a410 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:000195c0       _majorization              69e5a5c0 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:00019880       _makeGraphData             69e5a880 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:00019eb0       _checkEdge                 69e5aeb0 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:00019f10       _acyclic                   69e5af10 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:00019fa0       _dfsCycle                  69e5afa0 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:0001a130       _kkNeato                   69e5b130 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:0001a250       _subset_model              69e5b250 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:0001a5e0       _neato_init_graph          69e5b5e0 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:0001a600       _neato_init_graphn         69e5b600 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:0001a6a0       _neato_init_node_edge      69e5b6a0 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:0001a7b0       _neato_init_edge           69e5b7b0 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:0001a7f0       _neatoModel                69e5b7f0 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:0001a8e0       _neatoMode                 69e5b8e0 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:0001a9d0       _addZ                      69e5b9d0 f   libgvplugin_neato_layout:neatoinit.o
+ 0001:0001abb0       _gcd                       69e5bbb0 f   libgvplugin_neato_layout:memory.o
+ 0001:0001d130       _compute_apsp_dijkstra     69e5e130 f   libgvplugin_neato_layout:kkutils.o
+ 0001:0001d1e0       _compute_apsp_simple       69e5e1e0 f   libgvplugin_neato_layout:kkutils.o
+ 0001:0001d3d0       _fcmpf                     69e5e3d0 f   libgvplugin_neato_layout:kkutils.o
+ 0001:0001d510       _split_by_place            69e5e510 f   libgvplugin_neato_layout:kkutils.o
+ 0001:0001d680       _sorted_place              69e5e680 f   libgvplugin_neato_layout:kkutils.o
+ 0001:0001db20       _sgnarea                   69e5eb20 f   libgvplugin_neato_layout:intersect.o
+ 0001:0001dcd0       _online                    69e5ecd0 f   libgvplugin_neato_layout:intersect.o
+ 0001:0001ddf0       _between                   69e5edf0 f   libgvplugin_neato_layout:intersect.o
+ 0001:0001de70       _intpoint                  69e5ee70 f   libgvplugin_neato_layout:intersect.o
+ 0001:0001e330       _compare                   69e5f330 f   libgvplugin_neato_layout:info.o
+ 0001:0001ed20       _ELgethash                 69e5fd20 f   libgvplugin_neato_layout:hedges.o
+ 0001:0001ef30       _PQbucket                  69e5ff30 f   libgvplugin_neato_layout:heap.o
+ 0001:0001f230       _PQdumphe                  69e60230 f   libgvplugin_neato_layout:heap.o
+ 0001:0001f820       _gt                        69e60820 f   libgvplugin_neato_layout:find_ints.o
+ 0001:00020290       _doSeg                     69e61290 f   libgvplugin_neato_layout:edges.o
+ 0001:00020570       _freeHeap                  69e61570 f   libgvplugin_neato_layout:dijkstra.o
+ 0001:00020590       _initHeap                  69e61590 f   libgvplugin_neato_layout:dijkstra.o
+ 0001:00020660       _heapify                   69e61660 f   libgvplugin_neato_layout:dijkstra.o
+ 0001:00020770       _extractMax                69e61770 f   libgvplugin_neato_layout:dijkstra.o
+ 0001:000207e0       _increaseKey               69e617e0 f   libgvplugin_neato_layout:dijkstra.o
+ 0001:00020d30       _initHeap_f                69e61d30 f   libgvplugin_neato_layout:dijkstra.o
+ 0001:00020df0       _heapify_f                 69e61df0 f   libgvplugin_neato_layout:dijkstra.o
+ 0001:00020f10       _extractMax_f              69e61f10 f   libgvplugin_neato_layout:dijkstra.o
+ 0001:00020f80       _increaseKey_f             69e61f80 f   libgvplugin_neato_layout:dijkstra.o
+ 0001:000215c0       _remove_edge               69e625c0 f   libgvplugin_neato_layout:delaunay.o
+ 0001:00021720       _cmpitem                   69e62720 f   libgvplugin_neato_layout:constraint.o
+ 0001:00021aa0       _intersectX0               69e62aa0 f   libgvplugin_neato_layout:constraint.o
+ 0001:00021ba0       _distY                     69e62ba0 f   libgvplugin_neato_layout:constraint.o
+ 0001:00021bd0       _distX                     69e62bd0 f   libgvplugin_neato_layout:constraint.o
+ 0001:00021c00       _intersectY0               69e62c00 f   libgvplugin_neato_layout:constraint.o
+ 0001:00021d00       _intersectY                69e62d00 f   libgvplugin_neato_layout:constraint.o
+ 0001:00021d40       _intersectX                69e62d40 f   libgvplugin_neato_layout:constraint.o
+ 0001:00021d80       _constrainX                69e62d80 f   libgvplugin_neato_layout:constraint.o
+ 0001:00021ed0       _mkNConstraintG            69e62ed0 f   libgvplugin_neato_layout:constraint.o
+ 0001:000222d0       _mkConstraintG             69e632d0 f   libgvplugin_neato_layout:constraint.o
+ 0001:000227a0       _mapGraphs                 69e637a0 f   libgvplugin_neato_layout:constraint.o
+ 0001:00022a10       _closeGraph                69e63a10 f   libgvplugin_neato_layout:constraint.o
+ 0001:00022aa0       _constrainY                69e63aa0 f   libgvplugin_neato_layout:constraint.o
+ 0001:00022bf0       _overlaps                  69e63bf0 f   libgvplugin_neato_layout:constraint.o
+ 0001:00022ca0       _initItem                  69e63ca0 f   libgvplugin_neato_layout:constraint.o
+ 0001:000232b0       _compress                  69e642b0 f   libgvplugin_neato_layout:constraint.o
+ 0001:00023450       _mkOverlapSet              69e64450 f   libgvplugin_neato_layout:constraint.o
+ 0001:00023670       _computeScaleXY            69e64670 f   libgvplugin_neato_layout:constraint.o
+ 0001:00023840       _sortf                     69e64840 f   libgvplugin_neato_layout:constraint.o
+ 0001:000238b0       _computeScale              69e648b0 f   libgvplugin_neato_layout:constraint.o
+ 0001:000257f0       _initStack                 69e667f0 f   libgvplugin_neato_layout:closest.o
+ 0001:00025820       _freeStack                 69e66820 f   libgvplugin_neato_layout:closest.o
+ 0001:00025840       _find_closest_pairs        69e66840 f   libgvplugin_neato_layout:closest.o
+ 0001:00025bd0       _freeHeap                  69e66bd0 f   libgvplugin_neato_layout:closest.o
+ 0001:00025bf0       _initHeap                  69e66bf0 f   libgvplugin_neato_layout:closest.o
+ 0001:00025ce0       _heapify                   69e66ce0 f   libgvplugin_neato_layout:closest.o
+ 0001:00025e90       _extractMax                69e66e90 f   libgvplugin_neato_layout:closest.o
+ 0001:00025f10       _insert                    69e66f10 f   libgvplugin_neato_layout:closest.o
+ 0001:000260a0       _construct_graph           69e670a0 f   libgvplugin_neato_layout:closest.o
+ 0001:000262c0       _add_edge                  69e672c0 f   libgvplugin_neato_layout:closest.o
+ 0001:00026d80       _getAdjustMode             69e67d80 f   libgvplugin_neato_layout:adjust.o
+ 0001:00026fd0       _freeNodes                 69e67fd0 f   libgvplugin_neato_layout:adjust.o
+ 0001:00027040       _chkBoundBox               69e68040 f   libgvplugin_neato_layout:adjust.o
+ 0001:00027210       _setBoundBox               69e68210 f   libgvplugin_neato_layout:adjust.o
+ 0001:000272b0       _makeInfo                  69e682b0 f   libgvplugin_neato_layout:adjust.o
+ 0001:00027400       _vAdjust                   69e68400 f   libgvplugin_neato_layout:adjust.o
+ 0001:00027590       _geomUpdate                69e68590 f   libgvplugin_neato_layout:adjust.o
+ 0001:00027690       _sortSites                 69e68690 f   libgvplugin_neato_layout:adjust.o
+ 0001:00027760       _scomp                     69e68760 f   libgvplugin_neato_layout:adjust.o
+ 0001:000277e0       _nextOne                   69e687e0 f   libgvplugin_neato_layout:adjust.o
+ 0001:00027820       _rmEquality                69e68820 f   libgvplugin_neato_layout:adjust.o
+ 0001:00027a00       _countOverlap              69e68a00 f   libgvplugin_neato_layout:adjust.o
+ 0001:00027b70       _increaseBoundBox          69e68b70 f   libgvplugin_neato_layout:adjust.o
+ 0001:00027bf0       _newPos                    69e68bf0 f   libgvplugin_neato_layout:adjust.o
+ 0001:00027c50       _newpos                    69e68c50 f   libgvplugin_neato_layout:adjust.o
+ 0001:00027dc0       _areaOf                    69e68dc0 f   libgvplugin_neato_layout:adjust.o
+ 0001:00027e10       _centroidOf                69e68e10 f   libgvplugin_neato_layout:adjust.o
+ 0001:00027e40       _addCorners                69e68e40 f   libgvplugin_neato_layout:adjust.o
+ 0001:00028060       _cleanup                   69e69060 f   libgvplugin_neato_layout:adjust.o
+ 0001:00028080       _sAdjust                   69e69080 f   libgvplugin_neato_layout:adjust.o
+ 0001:00028190       _rePos                     69e69190 f   libgvplugin_neato_layout:adjust.o
+ 0001:00028200       _updateGraph               69e69200 f   libgvplugin_neato_layout:adjust.o
+ 0001:000283c0       _parseFactor               69e693c0 f   libgvplugin_neato_layout:adjust.o
+ 0001:00028570       _nop1_layout               69e69570 f   libgvplugin_neato_layout:gvlayout_neato_layout.o
+ 0001:00028590       _nop2_layout               69e69590 f   libgvplugin_neato_layout:gvlayout_neato_layout.o
+ 0001:000287c8       _pre_c_init                69e697c8 f   msvcrt:crtdll.obj
+ 0001:000289b4       ___DllMainCRTStartup       69e699b4 f   msvcrt:crtdll.obj
+ 0001:0002904c       _has_osfxsr_set            69e6a04c f   msvcrt:cpu_disp.obj

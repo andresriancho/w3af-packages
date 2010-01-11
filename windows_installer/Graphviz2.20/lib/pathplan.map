@@ -1,0 +1,239 @@
+ pathplan
+
+ Timestamp is 48752c57 (Wed Jul 09 17:23:35 2008)
+
+ Preferred load address is 6ca40000
+
+ Start         Length     Name                   Class
+ 0001:00000000 000068a0H .text                   CODE
+ 0002:00000000 000000b0H .idata$5                DATA
+ 0002:000000b0 00000004H .CRT$XCA                DATA
+ 0002:000000b4 00000004H .CRT$XCZ                DATA
+ 0002:000000b8 00000004H .CRT$XIA                DATA
+ 0002:000000bc 00000004H .CRT$XIAA               DATA
+ 0002:000000c0 00000004H .CRT$XIZ                DATA
+ 0002:000000c8 000000f8H .rdata                  DATA
+ 0002:000001c0 00000004H .rdata$sxdata           DATA
+ 0002:000001c4 00000004H .rtc$IAA                DATA
+ 0002:000001c8 00000004H .rtc$IZZ                DATA
+ 0002:000001cc 00000004H .rtc$TAA                DATA
+ 0002:000001d0 00000004H .rtc$TZZ                DATA
+ 0002:000001d8 00000064H .xdata$x                DATA
+ 0002:0000023c 00000028H .idata$2                DATA
+ 0002:00000264 00000014H .idata$3                DATA
+ 0002:00000278 000000b0H .idata$4                DATA
+ 0002:00000328 000002ceH .idata$6                DATA
+ 0002:00000600 00000221H .edata                  DATA
+ 0003:00000000 00000390H .data                   DATA
+ 0003:00000390 0000039cH .bss                    DATA
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0000:00000000       __except_list              00000000     <absolute>
+ 0000:00000001       ___safe_se_handler_count   00000001     <absolute>
+ 0000:00009876       __fltused                  00009876     <absolute>
+ 0000:00009876       __ldused                   00009876     <absolute>
+ 0000:00000000       ___ImageBase               6ca40000     <linker-defined>
+ 0001:00000000       _area2                     6ca41000 f   libpathplan:visibility.o
+ 0001:00000030       _wind                      6ca41030 f   libpathplan:visibility.o
+ 0001:000000a0       _inBetween                 6ca410a0 f   libpathplan:visibility.o
+ 0001:00000150       _intersect                 6ca41150 f   libpathplan:visibility.o
+ 0001:000003e0       _dist2                     6ca413e0 f   libpathplan:visibility.o
+ 0001:00000410       _visibility                6ca41410 f   libpathplan:visibility.o
+ 0001:00000b40       _ptVis                     6ca41b40 f   libpathplan:visibility.o
+ 0001:00001000       _directVis                 6ca42000 f   libpathplan:visibility.o
+ 0001:00001370       _copypoly                  6ca42370 f   libpathplan:util.o
+ 0001:000013e0       _freepoly                  6ca423e0 f   libpathplan:util.o
+ 0001:00001400       _Ppolybarriers             6ca42400 f   libpathplan:util.o
+ 0001:00001560       _make_polyline             6ca42560 f   libpathplan:util.o
+ 0001:00001770       _Ptriangulate              6ca42770 f   libpathplan:triang.o
+ 0001:00001e00       _solve3                    6ca42e00 f   libpathplan:solvers.o
+ 0001:00002190       _solve2                    6ca43190 f   libpathplan:solvers.o
+ 0001:00002280       _solve1                    6ca43280 f   libpathplan:solvers.o
+ 0001:00002300       _shortestPath              6ca43300 f   libpathplan:shortestpth.o
+ 0001:000024d0       _makePath                  6ca434d0 f   libpathplan:shortestpth.o
+ 0001:000025b0       _Pshortestpath             6ca435b0 f   libpathplan:shortest.o
+ 0001:00003cd0       _Proutespline              6ca44cd0 f   libpathplan:route.o
+ 0001:00005ab0       _in_poly                   6ca46ab0 f   libpathplan:inpoly.o
+ 0001:00005b80       _Pobsopen                  6ca46b80 f   libpathplan:cvt.o
+ 0001:00005d80       _Pobsclose                 6ca46d80 f   libpathplan:cvt.o
+ 0001:00005df0       _Pobspath                  6ca46df0 f   libpathplan:cvt.o
+ 0001:00006020       _Pobsbarriers              6ca47020 f   libpathplan:cvt.o
+ 0001:00006143       __CRT_INIT@12              6ca47143 f   msvcrt:crtdll.obj
+ 0001:000063f8       __DllMainCRTStartup@12     6ca473f8 f   msvcrt:crtdll.obj
+ 0001:00006420       _sqrt                      6ca47420 f   msvcrt:MSVCR80.dll
+ 0001:00006426       _cos                       6ca47426 f   msvcrt:MSVCR80.dll
+ 0001:0000642c       _pow                       6ca4742c f   msvcrt:MSVCR80.dll
+ 0001:00006432       _atan2                     6ca47432 f   msvcrt:MSVCR80.dll
+ 0001:00006438       ___clean_type_info_names   6ca47438 f   msvcrt:tncleanup.obj
+ 0001:00006444       __onexit                   6ca47444 f   msvcrt:atonexit.obj
+ 0001:000064e3       _atexit                    6ca474e3 f   msvcrt:atonexit.obj
+ 0001:000064f5       __RTC_Initialize           6ca474f5 f   msvcrt:initsect.obj
+ 0001:00006519       __RTC_Terminate            6ca47519 f   msvcrt:initsect.obj
+ 0001:00006540       __ValidateImageBase        6ca47540 f   msvcrt:pesect.obj
+ 0001:00006570       __FindPESection            6ca47570 f   msvcrt:pesect.obj
+ 0001:000065b2       __IsNonwritableInCurrentImage 6ca475b2 f   msvcrt:pesect.obj
+ 0001:0000661e       __initterm                 6ca4761e f   msvcrt:MSVCR80.dll
+ 0001:00006624       __initterm_e               6ca47624 f   msvcrt:MSVCR80.dll
+ 0001:0000662a       __amsg_exit                6ca4762a f   msvcrt:MSVCR80.dll
+ 0001:00006630       ___CppXcptFilter           6ca47630 f   msvcrt:MSVCR80.dll
+ 0001:00006636       _DllMain@12                6ca47636 f   msvcrt:dllmain.obj
+ 0001:00006658       __SEH_prolog4              6ca47658 f   msvcrt:sehprolg4.obj
+ 0001:0000669d       __SEH_epilog4              6ca4769d f   msvcrt:sehprolg4.obj
+ 0001:000066b1       __except_handler4          6ca476b1 f   msvcrt:chandler4gs.obj
+ 0001:000066d4       ___security_init_cookie    6ca476d4 f   msvcrt:gs_support.obj
+ 0001:00006768       ___clean_type_info_names_internal 6ca47768 f   msvcrt:MSVCR80.dll
+ 0001:0000676e       __unlock                   6ca4776e f   msvcrt:MSVCR80.dll
+ 0001:00006774       ___dllonexit               6ca47774 f   msvcrt:MSVCR80.dll
+ 0001:0000677a       __lock                     6ca4777a f   msvcrt:MSVCR80.dll
+ 0001:00006780       @__security_check_cookie@4 6ca47780 f   msvcrt:secchk.obj
+ 0001:00006790       __except_handler4_common   6ca47790 f   msvcrt:MSVCR80.dll
+ 0001:00006796       ___report_gsfailure        6ca47796 f   msvcrt:gs_report.obj
+ 0001:0000689a       __crt_debugger_hook        6ca4789a f   msvcrt:MSVCR80.dll
+ 0002:00000000       __imp__SetUnhandledExceptionFilter@4 6ca48000     KERNEL32:KERNEL32.dll
+ 0002:00000004       __imp__UnhandledExceptionFilter@4 6ca48004     KERNEL32:KERNEL32.dll
+ 0002:00000008       __imp__GetCurrentProcess@0 6ca48008     KERNEL32:KERNEL32.dll
+ 0002:0000000c       __imp__TerminateProcess@8  6ca4800c     KERNEL32:KERNEL32.dll
+ 0002:00000010       __imp__GetSystemTimeAsFileTime@4 6ca48010     KERNEL32:KERNEL32.dll
+ 0002:00000014       __imp__GetCurrentProcessId@0 6ca48014     KERNEL32:KERNEL32.dll
+ 0002:00000018       __imp__GetCurrentThreadId@0 6ca48018     KERNEL32:KERNEL32.dll
+ 0002:0000001c       __imp__GetTickCount@0      6ca4801c     KERNEL32:KERNEL32.dll
+ 0002:00000020       __imp__QueryPerformanceCounter@4 6ca48020     KERNEL32:KERNEL32.dll
+ 0002:00000024       __imp__DisableThreadLibraryCalls@4 6ca48024     KERNEL32:KERNEL32.dll
+ 0002:00000028       __imp__InterlockedCompareExchange@12 6ca48028     KERNEL32:KERNEL32.dll
+ 0002:0000002c       __imp__Sleep@4             6ca4802c     KERNEL32:KERNEL32.dll
+ 0002:00000030       __imp__InterlockedExchange@8 6ca48030     KERNEL32:KERNEL32.dll
+ 0002:00000034       __imp__IsDebuggerPresent@0 6ca48034     KERNEL32:KERNEL32.dll
+ 0002:00000038       \177KERNEL32_NULL_THUNK_DATA 6ca48038     KERNEL32:KERNEL32.dll
+ 0002:0000003c       __imp___decode_pointer     6ca4803c     msvcrt:MSVCR80.dll
+ 0002:00000040       __imp___initterm           6ca48040     msvcrt:MSVCR80.dll
+ 0002:00000044       __imp___initterm_e         6ca48044     msvcrt:MSVCR80.dll
+ 0002:00000048       __imp___amsg_exit          6ca48048     msvcrt:MSVCR80.dll
+ 0002:0000004c       __imp___adjust_fdiv        6ca4804c     msvcrt:MSVCR80.dll
+ 0002:00000050       __imp____CppXcptFilter     6ca48050     msvcrt:MSVCR80.dll
+ 0002:00000054       __imp___encoded_null       6ca48054     msvcrt:MSVCR80.dll
+ 0002:00000058       __imp___unlock             6ca48058     msvcrt:MSVCR80.dll
+ 0002:0000005c       __imp____dllonexit         6ca4805c     msvcrt:MSVCR80.dll
+ 0002:00000060       __imp___lock               6ca48060     msvcrt:MSVCR80.dll
+ 0002:00000064       __imp___onexit             6ca48064     msvcrt:MSVCR80.dll
+ 0002:00000068       __imp___except_handler4_common 6ca48068     msvcrt:MSVCR80.dll
+ 0002:0000006c       __imp___crt_debugger_hook  6ca4806c     msvcrt:MSVCR80.dll
+ 0002:00000070       __imp___malloc_crt         6ca48070     msvcrt:MSVCR80.dll
+ 0002:00000074       __imp___encode_pointer     6ca48074     msvcrt:MSVCR80.dll
+ 0002:00000078       __imp___HUGE               6ca48078     msvcrt:MSVCR80.dll
+ 0002:0000007c       __imp____iob_func          6ca4807c     msvcrt:MSVCR80.dll
+ 0002:00000080       __imp__fprintf             6ca48080     msvcrt:MSVCR80.dll
+ 0002:00000084       __imp__atan2               6ca48084     msvcrt:MSVCR80.dll
+ 0002:00000088       __imp__pow                 6ca48088     msvcrt:MSVCR80.dll
+ 0002:0000008c       __imp__cos                 6ca4808c     msvcrt:MSVCR80.dll
+ 0002:00000090       __imp__abort               6ca48090     msvcrt:MSVCR80.dll
+ 0002:00000094       __imp__realloc             6ca48094     msvcrt:MSVCR80.dll
+ 0002:00000098       __imp___wassert            6ca48098     msvcrt:MSVCR80.dll
+ 0002:0000009c       __imp__free                6ca4809c     msvcrt:MSVCR80.dll
+ 0002:000000a0       __imp__sqrt                6ca480a0     msvcrt:MSVCR80.dll
+ 0002:000000a4       __imp____clean_type_info_names_internal 6ca480a4     msvcrt:MSVCR80.dll
+ 0002:000000a8       __imp__malloc              6ca480a8     msvcrt:MSVCR80.dll
+ 0002:000000ac       \177MSVCR80_NULL_THUNK_DATA 6ca480ac     msvcrt:MSVCR80.dll
+ 0002:000000b0       ___xc_a                    6ca480b0     msvcrt:cinitexe.obj
+ 0002:000000b4       ___xc_z                    6ca480b4     msvcrt:cinitexe.obj
+ 0002:000000b8       ___xi_a                    6ca480b8     msvcrt:cinitexe.obj
+ 0002:000000c0       ___xi_z                    6ca480c0     msvcrt:cinitexe.obj
+ 0002:000000c8       __real@bf1a36e2eb1c432d    6ca480c8     libpathplan:visibility.o
+ 0002:000000d0       __real@3f1a36e2eb1c432d    6ca480d0     libpathplan:visibility.o
+ 0002:000000d8       __real@0000000000000000    6ca480d8     libpathplan:visibility.o
+ 0002:000000e0       __real@bfe0000000000000    6ca480e0     libpathplan:solvers.o
+ 0002:000000e8       __real@400921fb54442d18    6ca480e8     libpathplan:solvers.o
+ 0002:000000f0       __real@bff0000000000000    6ca480f0     libpathplan:solvers.o
+ 0002:000000f8       __real@3fd5555555555555    6ca480f8     libpathplan:solvers.o
+ 0002:00000100       __real@3fe0000000000000    6ca48100     libpathplan:solvers.o
+ 0002:00000108       __real@4010000000000000    6ca48108     libpathplan:solvers.o
+ 0002:00000110       __real@4000000000000000    6ca48110     libpathplan:solvers.o
+ 0002:00000118       __real@4008000000000000    6ca48118     libpathplan:solvers.o
+ 0002:00000120       __real@be7ad7f29abcaf48    6ca48120     libpathplan:solvers.o
+ 0002:00000128       __real@3e7ad7f29abcaf48    6ca48128     libpathplan:solvers.o
+ 0002:00000130       __real@c000000000000000    6ca48130     libpathplan:solvers.o
+ 0002:00000138       __real@3ff0000000000000    6ca48138     libpathplan:shortestpth.o
+ 0002:00000140       __real@3eb0c6f7a0b5ed8d    6ca48140     libpathplan:route.o
+ 0002:00000148       __real@3f847ae147ae147b    6ca48148     libpathplan:route.o
+ 0002:00000150       __real@3f50624dd2f1a9fc    6ca48150     libpathplan:route.o
+ 0002:00000158       __real@3feffffde7210be9    6ca48158     libpathplan:route.o
+ 0002:00000160       __real@4018000000000000    6ca48160     libpathplan:route.o
+ 0002:00000168       __pDefaultRawDllMain       6ca48168     msvcrt:crtdll.obj
+ 0002:00000168       __pRawDllMain              6ca48168     msvcrt:crtdll.obj
+ 0002:00000178       __load_config_used         6ca48178     msvcrt:loadcfg.obj
+ 0002:000001c0       ___safe_se_handler_table   6ca481c0     <linker-defined>
+ 0002:000001c4       ___rtc_iaa                 6ca481c4     msvcrt:initsect.obj
+ 0002:000001c8       ___rtc_izz                 6ca481c8     msvcrt:initsect.obj
+ 0002:000001cc       ___rtc_taa                 6ca481cc     msvcrt:initsect.obj
+ 0002:000001d0       ___rtc_tzz                 6ca481d0     msvcrt:initsect.obj
+ 0002:0000023c       __IMPORT_DESCRIPTOR_MSVCR80 6ca4823c     msvcrt:MSVCR80.dll
+ 0002:00000250       __IMPORT_DESCRIPTOR_KERNEL32 6ca48250     KERNEL32:KERNEL32.dll
+ 0002:00000264       __NULL_IMPORT_DESCRIPTOR   6ca48264     msvcrt:MSVCR80.dll
+ 0003:00000380       ___native_dllmain_reason   6ca49380     msvcrt:natstart.obj
+ 0003:00000384       ___native_vcclrit_reason   6ca49384     msvcrt:natstart.obj
+ 0003:00000388       ___security_cookie         6ca49388     msvcrt:gs_cookie.obj
+ 0003:0000038c       ___security_cookie_complement 6ca4938c     msvcrt:gs_cookie.obj
+ 0003:000003e8       ?__type_info_root_node@@3U__type_info_node@@A 6ca493e8     msvcrt:tncleanup.obj
+ 0003:00000714       __adjust_fdiv              6ca49714     <common>
+ 0003:00000718       ___native_startup_state    6ca49718     <common>
+ 0003:0000071c       ___native_startup_lock     6ca4971c     <common>
+ 0003:00000720       ___onexitend               6ca49720     <common>
+ 0003:00000724       ___onexitbegin             6ca49724     <common>
+ 0003:00000728       ___dyn_tls_init_callback   6ca49728     <common>
+
+ entry point at        0001:000063f8
+
+ Static symbols
+
+ 0001:00000440       _allocArray                6ca41440 f   libpathplan:visibility.o
+ 0001:00000500       _compVis                   6ca41500 f   libpathplan:visibility.o
+ 0001:00000740       _dist                      6ca41740 f   libpathplan:visibility.o
+ 0001:00000790       _inCone                    6ca41790 f   libpathplan:visibility.o
+ 0001:00000840       _in_cone                   6ca41840 f   libpathplan:visibility.o
+ 0001:000009b0       _clear                     6ca419b0 f   libpathplan:visibility.o
+ 0001:00000f60       _polyhit                   6ca41f60 f   libpathplan:visibility.o
+ 0001:000017f0       _triangulate               6ca427f0 f   libpathplan:triang.o
+ 0001:000019a0       _dpd_isdiagonal            6ca429a0 f   libpathplan:triang.o
+ 0001:00001b30       _dpd_ccw                   6ca42b30 f   libpathplan:triang.o
+ 0001:00001bb0       _dpd_intersects            6ca42bb0 f   libpathplan:triang.o
+ 0001:00001d40       _dpd_between               6ca42d40 f   libpathplan:triang.o
+ 0001:00002eb0       _triangulate               6ca43eb0 f   libpathplan:shortest.o
+ 0001:00002fb0       _isdiagonal                6ca43fb0 f   libpathplan:shortest.o
+ 0001:00003160       _loadtriangle              6ca44160 f   libpathplan:shortest.o
+ 0001:00003230       _connecttris               6ca44230 f   libpathplan:shortest.o
+ 0001:00003340       _marktripath               6ca44340 f   libpathplan:shortest.o
+ 0001:00003410       _add2dq                    6ca44410 f   libpathplan:shortest.o
+ 0001:000034a0       _splitdq                   6ca444a0 f   libpathplan:shortest.o
+ 0001:000034c0       _finddqsplit               6ca444c0 f   libpathplan:shortest.o
+ 0001:00003580       _ccw                       6ca44580 f   libpathplan:shortest.o
+ 0001:00003600       _intersects                6ca44600 f   libpathplan:shortest.o
+ 0001:00003790       _between                   6ca44790 f   libpathplan:shortest.o
+ 0001:00003850       _pointintri                6ca44850 f   libpathplan:shortest.o
+ 0001:000038f0       _growpnls                  6ca448f0 f   libpathplan:shortest.o
+ 0001:00003a60       _growtris                  6ca44a60 f   libpathplan:shortest.o
+ 0001:00003b30       _growdq                    6ca44b30 f   libpathplan:shortest.o
+ 0001:00003c00       _growops                   6ca44c00 f   libpathplan:shortest.o
+ 0001:00003e40       _reallyroutespline         6ca44e40 f   libpathplan:route.o
+ 0001:00004700       _mkspline                  6ca45700 f   libpathplan:route.o
+ 0001:00004c60       _splinefits                6ca45c60 f   libpathplan:route.o
+ 0001:00004eb0       _dist_n                    6ca45eb0 f   libpathplan:route.o
+ 0001:00004f80       _splineisinside            6ca45f80 f   libpathplan:route.o
+ 0001:00005190       _splineintersectsline      6ca46190 f   libpathplan:route.o
+ 0001:000056e0       _points2coeff              6ca466e0 f   libpathplan:route.o
+ 0001:00005750       _addroot                   6ca46750 f   libpathplan:route.o
+ 0001:00005790       _normv                     6ca46790 f   libpathplan:route.o
+ 0001:00005800       _growops                   6ca46800 f   libpathplan:route.o
+ 0001:000058d0       _add                       6ca468d0 f   libpathplan:route.o
+ 0001:00005900       _sub                       6ca46900 f   libpathplan:route.o
+ 0001:00005930       _dist                      6ca46930 f   libpathplan:route.o
+ 0001:00005970       _scale                     6ca46970 f   libpathplan:route.o
+ 0001:000059a0       _dot                       6ca469a0 f   libpathplan:route.o
+ 0001:000059c0       _B0                        6ca469c0 f   libpathplan:route.o
+ 0001:000059e0       _B1                        6ca469e0 f   libpathplan:route.o
+ 0001:00005a10       _B2                        6ca46a10 f   libpathplan:route.o
+ 0001:00005a40       _B3                        6ca46a40 f   libpathplan:route.o
+ 0001:00005a50       _B01                       6ca46a50 f   libpathplan:route.o
+ 0001:00005a80       _B23                       6ca46a80 f   libpathplan:route.o
+ 0001:00005d50       _mymalloc                  6ca46d50 f   libpathplan:cvt.o
+ 0001:000060f6       _pre_c_init                6ca470f6 f   msvcrt:crtdll.obj
+ 0001:000062e2       ___DllMainCRTStartup       6ca472e2 f   msvcrt:crtdll.obj

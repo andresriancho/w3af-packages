@@ -1,0 +1,43 @@
+LIBRARY gvplugin_core.dll
+
+EXPORTS
+
+core_loadimage_dot
+core_loadimage_xdot
+device_features_canon DATA
+device_features_dot DATA
+device_features_fig DATA
+device_features_svg DATA
+device_features_svgz DATA
+device_features_tk DATA
+device_features_vml DATA
+device_features_vmlz DATA
+dot_engine DATA
+fig_engine DATA
+graphcoords DATA
+gvdevice_dot_types DATA
+gvdevice_fig_types DATA
+gvdevice_map_types DATA
+gvdevice_ps_types DATA
+gvdevice_svg_types DATA
+gvdevice_tk_types DATA
+gvdevice_vml_types DATA
+gvloadimage_core_types DATA
+gvplugin_core_LTX_library DATA
+gvrender_dot_types DATA
+gvrender_fig_types DATA
+gvrender_map_types DATA
+gvrender_ps_types DATA
+gvrender_svg_types DATA
+gvrender_tk_types DATA
+gvrender_vml_types DATA
+render_features_dot DATA
+render_features_fig DATA
+render_features_svg DATA
+render_features_tk DATA
+render_features_vml DATA
+render_features_xdot DATA
+svg_engine DATA
+tkgen_engine DATA
+vml_engine DATA
+xdot_engine DATA

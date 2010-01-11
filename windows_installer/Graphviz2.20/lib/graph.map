@@ -1,0 +1,347 @@
+ graph
+
+ Timestamp is 48752c5a (Wed Jul 09 17:23:38 2008)
+
+ Preferred load address is 6ab00000
+
+ Start         Length     Name                   Class
+ 0001:00000000 000079f0H .text                   CODE
+ 0002:00000000 00000128H .idata$5                DATA
+ 0002:00000128 00000004H .CRT$XCA                DATA
+ 0002:0000012c 00000004H .CRT$XCZ                DATA
+ 0002:00000130 00000004H .CRT$XIA                DATA
+ 0002:00000134 00000004H .CRT$XIAA               DATA
+ 0002:00000138 00000004H .CRT$XIZ                DATA
+ 0002:00000140 00000410H .rdata                  DATA
+ 0002:00000550 00000004H .rdata$sxdata           DATA
+ 0002:00000554 00000004H .rtc$IAA                DATA
+ 0002:00000558 00000004H .rtc$IZZ                DATA
+ 0002:0000055c 00000004H .rtc$TAA                DATA
+ 0002:00000560 00000004H .rtc$TZZ                DATA
+ 0002:00000568 00000064H .xdata$x                DATA
+ 0002:000005cc 0000003cH .idata$2                DATA
+ 0002:00000608 00000014H .idata$3                DATA
+ 0002:0000061c 00000128H .idata$4                DATA
+ 0002:00000744 000003faH .idata$6                DATA
+ 0002:00000b40 000008acH .edata                  DATA
+ 0003:00000000 00000838H .data                   DATA
+ 0003:00000840 000004b4H .bss                    DATA
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0000:00000001       ___safe_se_handler_count   00000001     <absolute>
+ 0000:00000000       ___ImageBase               6ab00000     <linker-defined>
+ 0001:00000000       _agstrdup                  6ab01000 f   libgraph:refstr.o
+ 0001:00000100       _agstrdup_html             6ab01100 f   libgraph:refstr.o
+ 0001:000001d0       _agstrfree                 6ab011d0 f   libgraph:refstr.o
+ 0001:00000290       _aghtmlstr                 6ab01290 f   libgraph:refstr.o
+ 0001:000002d0       _agparse                   6ab012d0 f   libgraph:parser.o
+ 0001:00001bb0       _agfindnode                6ab02bb0 f   libgraph:node.o
+ 0001:00001c10       _agidnode                  6ab02c10 f   libgraph:node.o
+ 0001:00001c40       _agnode                    6ab02c40 f   libgraph:node.o
+ 0001:00001cc0       _agINSnode                 6ab02cc0 f   libgraph:node.o
+ 0001:00001d70       _agDELnode                 6ab02d70 f   libgraph:node.o
+ 0001:00001e90       _agfstnode                 6ab02e90 f   libgraph:node.o
+ 0001:00001eb0       _agnxtnode                 6ab02eb0 f   libgraph:node.o
+ 0001:00001ed0       _aglstnode                 6ab02ed0 f   libgraph:node.o
+ 0001:00001ef0       _agprvnode                 6ab02ef0 f   libgraph:node.o
+ 0001:00001f10       _agNEWnode                 6ab02f10 f   libgraph:node.o
+ 0001:00002050       _agFREEnode                6ab03050 f   libgraph:node.o
+ 0001:00002140       _agreadline                6ab03140 f   libgraph:lexer.o
+ 0001:00002150       _aglinenumber              6ab03150 f   libgraph:lexer.o
+ 0001:00002160       _agsetfile                 6ab03160 f   libgraph:lexer.o
+ 0001:00002180       _aglexinit                 6ab03180 f   libgraph:lexer.o
+ 0001:00002200       _myaglex                   6ab03200 f   libgraph:lexer.o
+ 0001:00002260       _agtoken                   6ab03260 f   libgraph:lexer.o
+ 0001:000023a0       _aglex                     6ab033a0 f   libgraph:lexer.o
+ 0001:00002f90       _agerror                   6ab03f90 f   libgraph:lexer.o
+ 0001:000030f0       _agseterr                  6ab040f0 f   libgraph:lexer.o
+ 0001:00003100       _aglasterr                 6ab04100 f   libgraph:lexer.o
+ 0001:000031b0       _agerr                     6ab041b0 f   libgraph:lexer.o
+ 0001:000032f0       _agerrorf                  6ab042f0 f   libgraph:lexer.o
+ 0001:00003310       _agwarningf                6ab04310 f   libgraph:lexer.o
+ 0001:00003330       _agread                    6ab04330 f   libgraph:graphio.o
+ 0001:00003360       _agmemread                 6ab04360 f   libgraph:graphio.o
+ 0001:00003470       _agread_usergets           6ab04470 f   libgraph:graphio.o
+ 0001:00003490       _agerrors                  6ab04490 f   libgraph:graphio.o
+ 0001:000034a0       _agstrcanon                6ab044a0 f   libgraph:graphio.o
+ 0001:000036f0       _agcanonical               6ab046f0 f   libgraph:graphio.o
+ 0001:000037b0       _agcanon                   6ab047b0 f   libgraph:graphio.o
+ 0001:000037d0       _agwrnode                  6ab047d0 f   libgraph:graphio.o
+ 0001:00003a40       _agwredge                  6ab04a40 f   libgraph:graphio.o
+ 0001:00003d40       _agwrite                   6ab04d40 f   libgraph:graphio.o
+ 0001:00004770       _agcmpid                   6ab05770 f   libgraph:graph.o
+ 0001:00004780       _agcmpin                   6ab05780 f   libgraph:graph.o
+ 0001:000048d0       _agcmpout                  6ab058d0 f   libgraph:graph.o
+ 0001:000049a0       _agpushproto               6ab059a0 f   libgraph:graph.o
+ 0001:00004a50       _agpopproto                6ab05a50 f   libgraph:graph.o
+ 0001:00004ac0       _agusergraph               6ab05ac0 f   libgraph:graph.o
+ 0001:00004af0       _agopen                    6ab05af0 f   libgraph:graph.o
+ 0001:00004ee0       _agsubg                    6ab05ee0 f   libgraph:graph.o
+ 0001:00004f90       _agfindsubg                6ab05f90 f   libgraph:graph.o
+ 0001:00004fd0       _agINSgraph                6ab05fd0 f   libgraph:graph.o
+ 0001:00005150       _agclose                   6ab06150 f   libgraph:graph.o
+ 0001:00005420       _agcontains                6ab06420 f   libgraph:graph.o
+ 0001:000054b0       _aginsert                  6ab064b0 f   libgraph:graph.o
+ 0001:00005510       _agdelete                  6ab06510 f   libgraph:graph.o
+ 0001:00005570       _agnnodes                  6ab06570 f   libgraph:graph.o
+ 0001:00005590       _agnedges                  6ab06590 f   libgraph:graph.o
+ 0001:000055b0       _agfindedge                6ab065b0 f   libgraph:edge.o
+ 0001:000056b0       _agINSedge                 6ab066b0 f   libgraph:edge.o
+ 0001:00005840       _agfstedge                 6ab06840 f   libgraph:edge.o
+ 0001:00005890       _agnxtedge                 6ab06890 f   libgraph:edge.o
+ 0001:000059e0       _agfstout                  6ab069e0 f   libgraph:edge.o
+ 0001:00005a50       _agnxtout                  6ab06a50 f   libgraph:edge.o
+ 0001:00005aa0       _agfstin                   6ab06aa0 f   libgraph:edge.o
+ 0001:00005b10       _agnxtin                   6ab06b10 f   libgraph:edge.o
+ 0001:00005b60       _agNEWedge                 6ab06b60 f   libgraph:edge.o
+ 0001:00005ca0       _agedge                    6ab06ca0 f   libgraph:edge.o
+ 0001:00005f20       _agFREEedge                6ab06f20 f   libgraph:edge.o
+ 0001:00005fd0       _agDELedge                 6ab06fd0 f   libgraph:edge.o
+ 0001:00006140       _agxbinit                  6ab07140 f   libgraph:agxbuf.o
+ 0001:000061b0       _agxbmore                  6ab071b0 f   libgraph:agxbuf.o
+ 0001:00006270       _agxbput_n                 6ab07270 f   libgraph:agxbuf.o
+ 0001:000062c0       _agxbput                   6ab072c0 f   libgraph:agxbuf.o
+ 0001:000062f0       _agxbfree                  6ab072f0 f   libgraph:agxbuf.o
+ 0001:00006310       _agxbpop                   6ab07310 f   libgraph:agxbuf.o
+ 0001:00006350       _agdictof                  6ab07350 f   libgraph:attribs.o
+ 0001:000063c0       _agNEWsym                  6ab073c0 f   libgraph:attribs.o
+ 0001:000064c0       _agattr                    6ab074c0 f   libgraph:attribs.o
+ 0001:000069f0       _agprotograph              6ab079f0 f   libgraph:attribs.o
+ 0001:00006a00       _agprotonode               6ab07a00 f   libgraph:attribs.o
+ 0001:00006a10       _agprotoedge               6ab07a10 f   libgraph:attribs.o
+ 0001:00006a20       _agraphattr                6ab07a20 f   libgraph:attribs.o
+ 0001:00006a60       _agnodeattr                6ab07a60 f   libgraph:attribs.o
+ 0001:00006aa0       _agedgeattr                6ab07aa0 f   libgraph:attribs.o
+ 0001:00006ae0       _agFREEdict                6ab07ae0 f   libgraph:attribs.o
+ 0001:00006ba0       _agNEWdict                 6ab07ba0 f   libgraph:attribs.o
+ 0001:00006bf0       _agcopydict                6ab07bf0 f   libgraph:attribs.o
+ 0001:00006c90       _agfindattr                6ab07c90 f   libgraph:attribs.o
+ 0001:00006cd0       _agfstattr                 6ab07cd0 f   libgraph:attribs.o
+ 0001:00006d10       _agnxtattr                 6ab07d10 f   libgraph:attribs.o
+ 0001:00006d50       _aglstattr                 6ab07d50 f   libgraph:attribs.o
+ 0001:00006d90       _agprvattr                 6ab07d90 f   libgraph:attribs.o
+ 0001:00006dd0       _aginitlib                 6ab07dd0 f   libgraph:attribs.o
+ 0001:00006f00       _agget                     6ab07f00 f   libgraph:attribs.o
+ 0001:00006f30       _agset                     6ab07f30 f   libgraph:attribs.o
+ 0001:00006f60       _agindex                   6ab07f60 f   libgraph:attribs.o
+ 0001:00006fa0       _agxget                    6ab07fa0 f   libgraph:attribs.o
+ 0001:00006fc0       _agxset                    6ab07fc0 f   libgraph:attribs.o
+ 0001:00007060       _agsafeset                 6ab08060 f   libgraph:attribs.o
+ 0001:00007130       _agcopyattr                6ab08130 f   libgraph:attribs.o
+ 0001:00007214       _dtopen                    6ab08214 f   cdt:cdt.dll
+ 0001:0000721a       _dtsize                    6ab0821a f   cdt:cdt.dll
+ 0001:00007220       _dtclose                   6ab08220 f   cdt:cdt.dll
+ 0001:00007226       _dtdisc                    6ab08226 f   cdt:cdt.dll
+ 0001:0000722c       _dtwalk                    6ab0822c f   cdt:cdt.dll
+ 0001:0000727f       __CRT_INIT@12              6ab0827f f   msvcrt:crtdll.obj
+ 0001:00007534       __DllMainCRTStartup@12     6ab08534 f   msvcrt:crtdll.obj
+ 0001:00007556       _strcpy                    6ab08556 f   msvcrt:MSVCR80.dll
+ 0001:0000755c       _malloc                    6ab0855c f   msvcrt:MSVCR80.dll
+ 0001:00007562       _strlen                    6ab08562 f   msvcrt:MSVCR80.dll
+ 0001:00007568       _free                      6ab08568 f   msvcrt:MSVCR80.dll
+ 0001:0000756e       @__security_check_cookie@4 6ab0856e f   msvcrt:secchk.obj
+ 0001:0000757e       _strcat                    6ab0857e f   msvcrt:MSVCR80.dll
+ 0001:00007584       _strcmp                    6ab08584 f   msvcrt:MSVCR80.dll
+ 0001:0000758a       _memcpy                    6ab0858a f   msvcrt:MSVCR80.dll
+ 0001:00007590       ___clean_type_info_names   6ab08590 f   msvcrt:tncleanup.obj
+ 0001:0000759c       __onexit                   6ab0859c f   msvcrt:atonexit.obj
+ 0001:0000763b       _atexit                    6ab0863b f   msvcrt:atonexit.obj
+ 0001:0000764d       __RTC_Initialize           6ab0864d f   msvcrt:initsect.obj
+ 0001:00007671       __RTC_Terminate            6ab08671 f   msvcrt:initsect.obj
+ 0001:000076a0       __ValidateImageBase        6ab086a0 f   msvcrt:pesect.obj
+ 0001:000076d0       __FindPESection            6ab086d0 f   msvcrt:pesect.obj
+ 0001:00007712       __IsNonwritableInCurrentImage 6ab08712 f   msvcrt:pesect.obj
+ 0001:0000777e       __initterm                 6ab0877e f   msvcrt:MSVCR80.dll
+ 0001:00007784       __initterm_e               6ab08784 f   msvcrt:MSVCR80.dll
+ 0001:0000778a       __amsg_exit                6ab0878a f   msvcrt:MSVCR80.dll
+ 0001:00007790       ___CppXcptFilter           6ab08790 f   msvcrt:MSVCR80.dll
+ 0001:00007796       _DllMain@12                6ab08796 f   msvcrt:dllmain.obj
+ 0001:000077b8       __SEH_prolog4              6ab087b8 f   msvcrt:sehprolg4.obj
+ 0001:000077fd       __SEH_epilog4              6ab087fd f   msvcrt:sehprolg4.obj
+ 0001:00007811       __except_handler4          6ab08811 f   msvcrt:chandler4gs.obj
+ 0001:00007834       ___security_init_cookie    6ab08834 f   msvcrt:gs_support.obj
+ 0001:000078c8       ___report_gsfailure        6ab088c8 f   msvcrt:gs_report.obj
+ 0001:000079cc       ___clean_type_info_names_internal 6ab089cc f   msvcrt:MSVCR80.dll
+ 0001:000079d2       __unlock                   6ab089d2 f   msvcrt:MSVCR80.dll
+ 0001:000079d8       ___dllonexit               6ab089d8 f   msvcrt:MSVCR80.dll
+ 0001:000079de       __lock                     6ab089de f   msvcrt:MSVCR80.dll
+ 0001:000079e4       __except_handler4_common   6ab089e4 f   msvcrt:MSVCR80.dll
+ 0001:000079ea       __crt_debugger_hook        6ab089ea f   msvcrt:MSVCR80.dll
+ 0002:00000000       __imp__IsDebuggerPresent@0 6ab09000     KERNEL32:KERNEL32.dll
+ 0002:00000004       __imp__SetUnhandledExceptionFilter@4 6ab09004     KERNEL32:KERNEL32.dll
+ 0002:00000008       __imp__UnhandledExceptionFilter@4 6ab09008     KERNEL32:KERNEL32.dll
+ 0002:0000000c       __imp__GetCurrentProcess@0 6ab0900c     KERNEL32:KERNEL32.dll
+ 0002:00000010       __imp__TerminateProcess@8  6ab09010     KERNEL32:KERNEL32.dll
+ 0002:00000014       __imp__GetSystemTimeAsFileTime@4 6ab09014     KERNEL32:KERNEL32.dll
+ 0002:00000018       __imp__GetCurrentThreadId@0 6ab09018     KERNEL32:KERNEL32.dll
+ 0002:0000001c       __imp__GetTickCount@0      6ab0901c     KERNEL32:KERNEL32.dll
+ 0002:00000020       __imp__QueryPerformanceCounter@4 6ab09020     KERNEL32:KERNEL32.dll
+ 0002:00000024       __imp__DisableThreadLibraryCalls@4 6ab09024     KERNEL32:KERNEL32.dll
+ 0002:00000028       __imp__InterlockedCompareExchange@12 6ab09028     KERNEL32:KERNEL32.dll
+ 0002:0000002c       __imp__Sleep@4             6ab0902c     KERNEL32:KERNEL32.dll
+ 0002:00000030       __imp__InterlockedExchange@8 6ab09030     KERNEL32:KERNEL32.dll
+ 0002:00000034       __imp__GetCurrentProcessId@0 6ab09034     KERNEL32:KERNEL32.dll
+ 0002:00000038       \177KERNEL32_NULL_THUNK_DATA 6ab09038     KERNEL32:KERNEL32.dll
+ 0002:0000003c       __imp__strcat              6ab0903c     msvcrt:MSVCR80.dll
+ 0002:00000040       __imp__fprintf             6ab09040     msvcrt:MSVCR80.dll
+ 0002:00000044       __imp____iob_func          6ab09044     msvcrt:MSVCR80.dll
+ 0002:00000048       __imp__islower             6ab09048     msvcrt:MSVCR80.dll
+ 0002:0000004c       __imp__tolower             6ab0904c     msvcrt:MSVCR80.dll
+ 0002:00000050       __imp__isupper             6ab09050     msvcrt:MSVCR80.dll
+ 0002:00000054       __imp__ispunct             6ab09054     msvcrt:MSVCR80.dll
+ 0002:00000058       __imp__strncmp             6ab09058     msvcrt:MSVCR80.dll
+ 0002:0000005c       __imp__iscntrl             6ab0905c     msvcrt:MSVCR80.dll
+ 0002:00000060       __imp__isspace             6ab09060     msvcrt:MSVCR80.dll
+ 0002:00000064       __imp__isalnum             6ab09064     msvcrt:MSVCR80.dll
+ 0002:00000068       __imp__isalpha             6ab09068     msvcrt:MSVCR80.dll
+ 0002:0000006c       __imp__isdigit             6ab0906c     msvcrt:MSVCR80.dll
+ 0002:00000070       __imp__sscanf              6ab09070     msvcrt:MSVCR80.dll
+ 0002:00000074       __imp__realloc             6ab09074     msvcrt:MSVCR80.dll
+ 0002:00000078       __imp__fread               6ab09078     msvcrt:MSVCR80.dll
+ 0002:0000007c       __imp__fseek               6ab0907c     msvcrt:MSVCR80.dll
+ 0002:00000080       __imp__ftell               6ab09080     msvcrt:MSVCR80.dll
+ 0002:00000084       __imp__abort               6ab09084     msvcrt:MSVCR80.dll
+ 0002:00000088       __imp__tmpfile             6ab09088     msvcrt:MSVCR80.dll
+ 0002:0000008c       __imp__vfprintf            6ab0908c     msvcrt:MSVCR80.dll
+ 0002:00000090       __imp__fgets               6ab09090     msvcrt:MSVCR80.dll
+ 0002:00000094       __imp__strcmp              6ab09094     msvcrt:MSVCR80.dll
+ 0002:00000098       __imp__putc                6ab09098     msvcrt:MSVCR80.dll
+ 0002:0000009c       __imp__strchr              6ab0909c     msvcrt:MSVCR80.dll
+ 0002:000000a0       __imp__ferror              6ab090a0     msvcrt:MSVCR80.dll
+ 0002:000000a4       __imp__memcpy              6ab090a4     msvcrt:MSVCR80.dll
+ 0002:000000a8       __imp___encode_pointer     6ab090a8     msvcrt:MSVCR80.dll
+ 0002:000000ac       __imp___malloc_crt         6ab090ac     msvcrt:MSVCR80.dll
+ 0002:000000b0       __imp___encoded_null       6ab090b0     msvcrt:MSVCR80.dll
+ 0002:000000b4       __imp___decode_pointer     6ab090b4     msvcrt:MSVCR80.dll
+ 0002:000000b8       __imp___initterm           6ab090b8     msvcrt:MSVCR80.dll
+ 0002:000000bc       __imp___initterm_e         6ab090bc     msvcrt:MSVCR80.dll
+ 0002:000000c0       __imp___amsg_exit          6ab090c0     msvcrt:MSVCR80.dll
+ 0002:000000c4       __imp___adjust_fdiv        6ab090c4     msvcrt:MSVCR80.dll
+ 0002:000000c8       __imp____CppXcptFilter     6ab090c8     msvcrt:MSVCR80.dll
+ 0002:000000cc       __imp____clean_type_info_names_internal 6ab090cc     msvcrt:MSVCR80.dll
+ 0002:000000d0       __imp___unlock             6ab090d0     msvcrt:MSVCR80.dll
+ 0002:000000d4       __imp____dllonexit         6ab090d4     msvcrt:MSVCR80.dll
+ 0002:000000d8       __imp___lock               6ab090d8     msvcrt:MSVCR80.dll
+ 0002:000000dc       __imp___onexit             6ab090dc     msvcrt:MSVCR80.dll
+ 0002:000000e0       __imp___except_handler4_common 6ab090e0     msvcrt:MSVCR80.dll
+ 0002:000000e4       __imp___crt_debugger_hook  6ab090e4     msvcrt:MSVCR80.dll
+ 0002:000000e8       __imp__calloc              6ab090e8     msvcrt:MSVCR80.dll
+ 0002:000000ec       __imp__sprintf             6ab090ec     msvcrt:MSVCR80.dll
+ 0002:000000f0       __imp__exit                6ab090f0     msvcrt:MSVCR80.dll
+ 0002:000000f4       __imp__free                6ab090f4     msvcrt:MSVCR80.dll
+ 0002:000000f8       __imp__strlen              6ab090f8     msvcrt:MSVCR80.dll
+ 0002:000000fc       __imp__malloc              6ab090fc     msvcrt:MSVCR80.dll
+ 0002:00000100       __imp__strcpy              6ab09100     msvcrt:MSVCR80.dll
+ 0002:00000104       __imp__fflush              6ab09104     msvcrt:MSVCR80.dll
+ 0002:00000108       \177MSVCR80_NULL_THUNK_DATA 6ab09108     msvcrt:MSVCR80.dll
+ 0002:0000010c       __imp__dtwalk              6ab0910c     cdt:cdt.dll
+ 0002:00000110       __imp__dtdisc              6ab09110     cdt:cdt.dll
+ 0002:00000114       __imp__dtclose             6ab09114     cdt:cdt.dll
+ 0002:00000118       __imp__dtsize              6ab09118     cdt:cdt.dll
+ 0002:0000011c       __imp__Dttree              6ab0911c     cdt:cdt.dll
+ 0002:00000120       __imp__dtopen              6ab09120     cdt:cdt.dll
+ 0002:00000124       \177cdt_NULL_THUNK_DATA    6ab09124     cdt:cdt.dll
+ 0002:00000128       ___xc_a                    6ab09128     msvcrt:cinitexe.obj
+ 0002:0000012c       ___xc_z                    6ab0912c     msvcrt:cinitexe.obj
+ 0002:00000130       ___xi_a                    6ab09130     msvcrt:cinitexe.obj
+ 0002:00000138       ___xi_z                    6ab09138     msvcrt:cinitexe.obj
+ 0002:000004fc       __pDefaultRawDllMain       6ab094fc     msvcrt:crtdll.obj
+ 0002:000004fc       __pRawDllMain              6ab094fc     msvcrt:crtdll.obj
+ 0002:00000508       __load_config_used         6ab09508     msvcrt:loadcfg.obj
+ 0002:00000550       ___safe_se_handler_table   6ab09550     <linker-defined>
+ 0002:00000554       ___rtc_iaa                 6ab09554     msvcrt:initsect.obj
+ 0002:00000558       ___rtc_izz                 6ab09558     msvcrt:initsect.obj
+ 0002:0000055c       ___rtc_taa                 6ab0955c     msvcrt:initsect.obj
+ 0002:00000560       ___rtc_tzz                 6ab09560     msvcrt:initsect.obj
+ 0002:000005cc       __IMPORT_DESCRIPTOR_cdt    6ab095cc     cdt:cdt.dll
+ 0002:000005e0       __IMPORT_DESCRIPTOR_MSVCR80 6ab095e0     msvcrt:MSVCR80.dll
+ 0002:000005f4       __IMPORT_DESCRIPTOR_KERNEL32 6ab095f4     KERNEL32:KERNEL32.dll
+ 0002:00000608       __NULL_IMPORT_DESCRIPTOR   6ab09608     cdt:cdt.dll
+ 0003:00000000       _TrieStateTbl              6ab0b000     libgraph:trie.o
+ 0003:00000110       _TrieTransTbl              6ab0b110     libgraph:trie.o
+ 0003:00000608       _agEdgedisc                6ab0b608     libgraph:graphio.o
+ 0003:0000069c       _agNamedisc                6ab0b69c     libgraph:graph.o
+ 0003:000006c0       _agNodedisc                6ab0b6c0     libgraph:graph.o
+ 0003:000006e4       _agIndisc                  6ab0b6e4     libgraph:graph.o
+ 0003:00000708       _agOutdisc                 6ab0b708     libgraph:graph.o
+ 0003:00000828       ___security_cookie         6ab0b828     msvcrt:gs_cookie.obj
+ 0003:0000082c       ___security_cookie_complement 6ab0b82c     msvcrt:gs_cookie.obj
+ 0003:00000830       ___native_dllmain_reason   6ab0b830     msvcrt:natstart.obj
+ 0003:00000834       ___native_vcclrit_reason   6ab0b834     msvcrt:natstart.obj
+ 0003:0000095c       ?__type_info_root_node@@3U__type_info_node@@A 6ab0b95c     msvcrt:tncleanup.obj
+ 0003:00000ca0       _AG                        6ab0bca0     <common>
+ 0003:00000cc0       _Line_number               6ab0bcc0     <common>
+ 0003:00000cc4       _agerrno                   6ab0bcc4     <common>
+ 0003:00000cc8       _agnerrs                   6ab0bcc8     <common>
+ 0003:00000cd0       _aglval                    6ab0bcd0     <common>
+ 0003:00000cd8       _agchar                    6ab0bcd8     <common>
+ 0003:00000cdc       __adjust_fdiv              6ab0bcdc     <common>
+ 0003:00000ce0       ___native_startup_state    6ab0bce0     <common>
+ 0003:00000ce4       ___native_startup_lock     6ab0bce4     <common>
+ 0003:00000ce8       ___onexitend               6ab0bce8     <common>
+ 0003:00000cec       ___onexitbegin             6ab0bcec     <common>
+ 0003:00000cf0       ___dyn_tls_init_callback   6ab0bcf0     <common>
+
+ entry point at        0001:00007534
+
+ Static symbols
+
+ 0001:000000c0       _initialize_strings        6ab010c0 f   libgraph:refstr.o
+ 0001:000011b0       _subgraph_warn             6ab021b0 f   libgraph:parser.o
+ 0001:00001210       _push_subg                 6ab02210 f   libgraph:parser.o
+ 0001:00001240       _pop_gobj                  6ab02240 f   libgraph:parser.o
+ 0001:00001260       _pop_subg                  6ab02260 f   libgraph:parser.o
+ 0001:000012d0       _begin_graph               6ab022d0 f   libgraph:parser.o
+ 0001:00001370       _anonname                  6ab02370 f   libgraph:parser.o
+ 0001:000013b0       _end_graph                 6ab023b0 f   libgraph:parser.o
+ 0001:000013c0       _bind_node                 6ab023c0 f   libgraph:parser.o
+ 0001:000013f0       _anonsubg                  6ab023f0 f   libgraph:parser.o
+ 0001:00001450       _begin_edgestmt            6ab02450 f   libgraph:parser.o
+ 0001:00001500       _mid_edgestmt              6ab02500 f   libgraph:parser.o
+ 0001:00001560       _end_edgestmt              6ab02560 f   libgraph:parser.o
+ 0001:00001800       _attr_set                  6ab02800 f   libgraph:parser.o
+ 0001:000019d0       _concat                    6ab029d0 f   libgraph:parser.o
+ 0001:00001aa0       _concat3                   6ab02aa0 f   libgraph:parser.o
+ 0001:00001b90       _agdestruct                6ab02b90 f   libgraph:parser.o
+ 0001:000026d0       _skip_wscomments           6ab036d0 f   libgraph:lexer.o
+ 0001:00002830       _scan_token                6ab03830 f   libgraph:lexer.o
+ 0001:000028a0       _scan_num                  6ab038a0 f   libgraph:lexer.o
+ 0001:00002aa0       _quoted_string             6ab03aa0 f   libgraph:lexer.o
+ 0001:00002ba0       _lex_gets                  6ab03ba0 f   libgraph:lexer.o
+ 0001:00002dc0       _storeFileName             6ab03dc0 f   libgraph:lexer.o
+ 0001:00002e40       _html_string               6ab03e40 f   libgraph:lexer.o
+ 0001:00002e80       _html_pair                 6ab03e80 f   libgraph:lexer.o
+ 0001:00003000       _error_context             6ab04000 f   libgraph:lexer.o
+ 0001:000031e0       _agerr_va                  6ab041e0 f   libgraph:lexer.o
+ 0001:00003380       _memgets                   6ab04380 f   libgraph:graphio.o
+ 0001:00003530       __agstrcanon               6ab04530 f   libgraph:graphio.o
+ 0001:00003710       _getoutputbuffer           6ab04710 f   libgraph:graphio.o
+ 0001:00003990       _tabover                   6ab04990 f   libgraph:graphio.o
+ 0001:000039c0       _writeattr                 6ab049c0 f   libgraph:graphio.o
+ 0001:00003c10       _writenodeandport          6ab04c10 f   libgraph:graphio.o
+ 0001:00003e90       _write_dict                6ab04e90 f   libgraph:graphio.o
+ 0001:00003f90       _write_subg                6ab04f90 f   libgraph:graphio.o
+ 0001:00004460       _write_diffattr            6ab05460 f   libgraph:graphio.o
+ 0001:000045d0       _new_printdict_t           6ab055d0 f   libgraph:graphio.o
+ 0001:000046c0       _copydict                  6ab056c0 f   libgraph:graphio.o
+ 0001:000046e0       _copydictf                 6ab056e0 f   libgraph:graphio.o
+ 0001:00004710       _free_printdict_t          6ab05710 f   libgraph:graphio.o
+ 0001:00004850       _keycmp                    6ab05850 f   libgraph:graph.o
+ 0001:000049c0       _dup_proto                 6ab059c0 f   libgraph:graph.o
+ 0001:00004b70       _agNEWgraph                6ab05b70 f   libgraph:graph.o
+ 0001:00004e10       _agnewdata                 6ab05e10 f   libgraph:graph.o
+ 0001:00005030       _reach                     6ab06030 f   libgraph:graph.o
+ 0001:00005080       _reach0                    6ab06080 f   libgraph:graph.o
+ 0001:000053b0       _agfreedata                6ab063b0 f   libgraph:graph.o
+ 0001:00005610       _esearch                   6ab06610 f   libgraph:edge.o
+ 0001:000056f0       _install_edge              6ab066f0 f   libgraph:edge.o
+ 0001:00006100       _printedge                 6ab07100 f   libgraph:edge.o
+ 0001:000065d0       _add_graph_attr            6ab075d0 f   libgraph:attribs.o
+ 0001:00006650       _obj_init_attr             6ab07650 f   libgraph:attribs.o
+ 0001:000067c0       _add_node_attr             6ab077c0 f   libgraph:attribs.o
+ 0001:000068c0       _add_edge_attr             6ab078c0 f   libgraph:attribs.o
+ 0001:00006b60       _agfreesym                 6ab07b60 f   libgraph:attribs.o
+ 0001:00006e40       _initproto                 6ab07e40 f   libgraph:attribs.o
+ 0001:00007232       _pre_c_init                6ab08232 f   msvcrt:crtdll.obj
+ 0001:0000741e       ___DllMainCRTStartup       6ab0841e f   msvcrt:crtdll.obj

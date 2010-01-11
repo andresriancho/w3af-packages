@@ -1,0 +1,613 @@
+ gvplugin_dot_layout
+
+ Timestamp is 48752c72 (Wed Jul 09 17:24:02 2008)
+
+ Preferred load address is 6f740000
+
+ Start         Length     Name                   Class
+ 0001:00000000 0001675eH .text                   CODE
+ 0002:00000000 00000254H .idata$5                DATA
+ 0002:00000254 00000004H .CRT$XCA                DATA
+ 0002:00000258 00000004H .CRT$XCZ                DATA
+ 0002:0000025c 00000004H .CRT$XIA                DATA
+ 0002:00000260 00000004H .CRT$XIAA               DATA
+ 0002:00000264 00000004H .CRT$XIC                DATA
+ 0002:00000268 00000004H .CRT$XIZ                DATA
+ 0002:00000270 000000b0H .rdata                  DATA
+ 0002:00000320 00000004H .rdata$sxdata           DATA
+ 0002:00000324 00000004H .rtc$IAA                DATA
+ 0002:00000328 00000004H .rtc$IZZ                DATA
+ 0002:0000032c 00000004H .rtc$TAA                DATA
+ 0002:00000330 00000004H .rtc$TZZ                DATA
+ 0002:00000338 00000084H .xdata$x                DATA
+ 0002:000003bc 00000050H .idata$2                DATA
+ 0002:0000040c 00000014H .idata$3                DATA
+ 0002:00000420 00000254H .idata$4                DATA
+ 0002:00000674 00000816H .idata$6                DATA
+ 0002:00000e90 0000060bH .edata                  DATA
+ 0003:00000000 00000df0H .data                   DATA
+ 0003:00000df0 00004230H .bss                    DATA
+
+  Address         Publics by Value              Rva+Base       Lib:Object
+
+ 0000:00000000       __except_list              00000000     <absolute>
+ 0000:00000001       ___safe_se_handler_count   00000001     <absolute>
+ 0000:00009876       __fltused                  00009876     <absolute>
+ 0000:00009876       __ldused                   00009876     <absolute>
+ 0000:00000000       ___ImageBase               6f740000     <linker-defined>
+ 0001:00000000       _dot_sameports             6f741000 f   libgvplugin_dot_layout:sameport.o
+ 0001:00000bf0       _dot_scan_ranks            6f741bf0 f   libgvplugin_dot_layout:rank.o
+ 0001:00000cd0       _expand_ranksets           6f741cd0 f   libgvplugin_dot_layout:rank.o
+ 0001:00001320       _dot_rank                  6f742320 f   libgvplugin_dot_layout:rank.o
+ 0001:00001cb0       _is_cluster                6f742cb0 f   libgvplugin_dot_layout:rank.o
+ 0001:00001ce0       _dot_position              6f742ce0 f   libgvplugin_dot_layout:position.o
+ 0001:00002080       _make_aux_edge             6f743080 f   libgvplugin_dot_layout:position.o
+ 0001:000044e0       _ports_eq                  6f7454e0 f   libgvplugin_dot_layout:position.o
+ 0001:00005070       _dot_mincross              6f746070 f   libgvplugin_dot_layout:mincross.o
+ 0001:00006430       _save_vlist                6f747430 f   libgvplugin_dot_layout:mincross.o
+ 0001:000064a0       _rec_save_vlists           6f7474a0 f   libgvplugin_dot_layout:mincross.o
+ 0001:000064f0       _rec_reset_vlists          6f7474f0 f   libgvplugin_dot_layout:mincross.o
+ 0001:00006890       _flat_rev                  6f747890 f   libgvplugin_dot_layout:mincross.o
+ 0001:00006e60       _allocate_ranks            6f747e60 f   libgvplugin_dot_layout:mincross.o
+ 0001:00007070       _install_in_rank           6f748070 f   libgvplugin_dot_layout:mincross.o
+ 0001:00007210       _build_ranks               6f748210 f   libgvplugin_dot_layout:mincross.o
+ 0001:000074c0       _enqueue_neighbors         6f7484c0 f   libgvplugin_dot_layout:mincross.o
+ 0001:00007ef0       _ncross                    6f748ef0 f   libgvplugin_dot_layout:mincross.o
+ 0001:000088a0       _virtual_weight            6f7498a0 f   libgvplugin_dot_layout:mincross.o
+ 0001:00008a10       _flat_edges                6f749a10 f   libgvplugin_dot_layout:flat.o
+ 0001:00009730       _find_fast_edge            6f74a730 f   libgvplugin_dot_layout:fastgr.o
+ 0001:00009810       _find_flat_edge            6f74a810 f   libgvplugin_dot_layout:fastgr.o
+ 0001:00009850       _fast_edge                 6f74a850 f   libgvplugin_dot_layout:fastgr.o
+ 0001:00009a00       _zapinlist                 6f74aa00 f   libgvplugin_dot_layout:fastgr.o
+ 0001:00009a80       _delete_fast_edge          6f74aa80 f   libgvplugin_dot_layout:fastgr.o
+ 0001:00009ad0       _other_edge                6f74aad0 f   libgvplugin_dot_layout:fastgr.o
+ 0001:00009bb0       _safe_other_edge           6f74abb0 f   libgvplugin_dot_layout:fastgr.o
+ 0001:00009c90       _new_virtual_edge          6f74ac90 f   libgvplugin_dot_layout:fastgr.o
+ 0001:00009e10       _virtual_edge              6f74ae10 f   libgvplugin_dot_layout:fastgr.o
+ 0001:00009e40       _fast_node                 6f74ae40 f   libgvplugin_dot_layout:fastgr.o
+ 0001:00009ec0       _fast_nodeapp              6f74aec0 f   libgvplugin_dot_layout:fastgr.o
+ 0001:00009f60       _delete_fast_node          6f74af60 f   libgvplugin_dot_layout:fastgr.o
+ 0001:0000a030       _virtual_node              6f74b030 f   libgvplugin_dot_layout:fastgr.o
+ 0001:0000a100       _flat_edge                 6f74b100 f   libgvplugin_dot_layout:fastgr.o
+ 0001:0000a2c0       _delete_flat_edge          6f74b2c0 f   libgvplugin_dot_layout:fastgr.o
+ 0001:0000a340       _merge_oneway              6f74b340 f   libgvplugin_dot_layout:fastgr.o
+ 0001:0000a450       _unmerge_oneway            6f74b450 f   libgvplugin_dot_layout:fastgr.o
+ 0001:0000a710       _portcmp                   6f74b710 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000a750       _dot_splines               6f74b750 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:00010340       _closest                   6f751340 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:00010df0       _dot_init_node_edge        6f751df0 f   libgvplugin_dot_layout:dotinit.o
+ 0001:000110d0       _dot_cleanup               6f7520d0 f   libgvplugin_dot_layout:dotinit.o
+ 0001:000114d0       _dot_layout                6f7524d0 f   libgvplugin_dot_layout:dotinit.o
+ 0001:00011570       _decompose                 6f752570 f   libgvplugin_dot_layout:decomp.o
+ 0001:000118f0       _dot_concentrate           6f7528f0 f   libgvplugin_dot_layout:conc.o
+ 0001:000124c0       _dot_compoundEdges         6f7534c0 f   libgvplugin_dot_layout:compound.o
+ 0001:00013940       _interclexp                6f754940 f   libgvplugin_dot_layout:cluster.o
+ 0001:00014200       _expand_cluster            6f755200 f   libgvplugin_dot_layout:cluster.o
+ 0001:00014540       _mark_clusters             6f755540 f   libgvplugin_dot_layout:cluster.o
+ 0001:000146f0       _build_skeleton            6f7556f0 f   libgvplugin_dot_layout:cluster.o
+ 0001:00014920       _install_cluster           6f755920 f   libgvplugin_dot_layout:cluster.o
+ 0001:000149f0       _mark_lowclusters          6f7559f0 f   libgvplugin_dot_layout:cluster.o
+ 0001:00014bf0       _merge_chain               6f755bf0 f   libgvplugin_dot_layout:class2.o
+ 0001:00014d60       _mergeable                 6f755d60 f   libgvplugin_dot_layout:class2.o
+ 0001:00014dc0       _class2                    6f755dc0 f   libgvplugin_dot_layout:class2.o
+ 0001:00015740       _nonconstraint_edge        6f756740 f   libgvplugin_dot_layout:class1.o
+ 0001:000157a0       _class1                    6f7567a0 f   libgvplugin_dot_layout:class1.o
+ 0001:00015a40       _reverse_edge              6f756a40 f   libgvplugin_dot_layout:acyclic.o
+ 0001:00015aa0       _acyclic                   6f756aa0 f   libgvplugin_dot_layout:acyclic.o
+ 0001:00015c00       _arrow_length              6f756c00 f   gvc:gvc.dll
+ 0001:00015c06       _arrow_flags               6f756c06 f   gvc:gvc.dll
+ 0001:00015c0c       _zmalloc                   6f756c0c f   gvc:gvc.dll
+ 0001:00015c12       _gmalloc                   6f756c12 f   gvc:gvc.dll
+ 0001:00015c18       _grealloc                  6f756c18 f   gvc:gvc.dll
+ 0001:00015c1e       _shape_clip                6f756c1e f   gvc:gvc.dll
+ 0001:00015c24       _UF_singleton              6f756c24 f   gvc:gvc.dll
+ 0001:00015c2a       _UF_find                   6f756c2a f   gvc:gvc.dll
+ 0001:00015c30       _do_graph_label            6f756c30 f   gvc:gvc.dll
+ 0001:00015c36       _zrealloc                  6f756c36 f   gvc:gvc.dll
+ 0001:00015c3c       _UF_union                  6f756c3c f   gvc:gvc.dll
+ 0001:00015c42       _maptoken                  6f756c42 f   gvc:gvc.dll
+ 0001:00015c48       _rank                      6f756c48 f   gvc:gvc.dll
+ 0001:00015c4e       _selfRightSpace            6f756c4e f   gvc:gvc.dll
+ 0001:00015c54       _dot_nodesize              6f756c54 f   gvc:gvc.dll
+ 0001:00015c5a       _sub_points                6f756c5a f   gvc:gvc.dll
+ 0001:00015c60       _mapbool                   6f756c60 f   gvc:gvc.dll
+ 0001:00015c66       _elapsed_sec               6f756c66 f   gvc:gvc.dll
+ 0001:00015c6c       _start_timer               6f756c6c f   gvc:gvc.dll
+ 0001:00015c72       _free_queue                6f756c72 f   gvc:gvc.dll
+ 0001:00015c78       _dequeue                   6f756c78 f   gvc:gvc.dll
+ 0001:00015c7e       _enqueue                   6f756c7e f   gvc:gvc.dll
+ 0001:00015c84       _new_queue                 6f756c84 f   gvc:gvc.dll
+ 0001:00015c8a       _routesplinesterm          6f756c8a f   gvc:gvc.dll
+ 0001:00015c90       _place_portlabel           6f756c90 f   gvc:gvc.dll
+ 0001:00015c96       _updateBB                  6f756c96 f   gvc:gvc.dll
+ 0001:00015c9c       _makeSelfEdge              6f756c9c f   gvc:gvc.dll
+ 0001:00015ca2       _routesplinesinit          6f756ca2 f   gvc:gvc.dll
+ 0001:00015ca8       _clip_and_install          6f756ca8 f   gvc:gvc.dll
+ 0001:00015cae       _routepolylines            6f756cae f   gvc:gvc.dll
+ 0001:00015cb4       _routesplines              6f756cb4 f   gvc:gvc.dll
+ 0001:00015cba       _add_box                   6f756cba f   gvc:gvc.dll
+ 0001:00015cc0       _pointof                   6f756cc0 f   gvc:gvc.dll
+ 0001:00015cc6       _add_points                6f756cc6 f   gvc:gvc.dll
+ 0001:00015ccc       _update_bb                 6f756ccc f   gvc:gvc.dll
+ 0001:00015cd2       _new_spline                6f756cd2 f   gvc:gvc.dll
+ 0001:00015cd8       _dotneato_postprocess      6f756cd8 f   gvc:gvc.dll
+ 0001:00015cde       _setEdgeType               6f756cde f   gvc:gvc.dll
+ 0001:00015ce4       _shapeOf                   6f756ce4 f   gvc:gvc.dll
+ 0001:00015cea       _endpath                   6f756cea f   gvc:gvc.dll
+ 0001:00015cf0       _beginpath                 6f756cf0 f   gvc:gvc.dll
+ 0001:00015cf6       _getsplinepoints           6f756cf6 f   gvc:gvc.dll
+ 0001:00015cfc       _boxof                     6f756cfc f   gvc:gvc.dll
+ 0001:00015d02       _Bezier                    6f756d02 f   gvc:gvc.dll
+ 0001:00015d08       _common_init_node          6f756d08 f   gvc:gvc.dll
+ 0001:00015d0e       _late_int                  6f756d0e f   gvc:gvc.dll
+ 0001:00015d14       _late_string               6f756d14 f   gvc:gvc.dll
+ 0001:00015d1a       _late_double               6f756d1a f   gvc:gvc.dll
+ 0001:00015d20       _common_init_edge          6f756d20 f   gvc:gvc.dll
+ 0001:00015d26       _gv_cleanup_edge           6f756d26 f   gvc:gvc.dll
+ 0001:00015d2c       _free_label                6f756d2c f   gvc:gvc.dll
+ 0001:00015d32       _arrowStartClip            6f756d32 f   gvc:gvc.dll
+ 0001:00015d38       _arrowEndClip              6f756d38 f   gvc:gvc.dll
+ 0001:00015d3e       _UF_setname                6f756d3e f   gvc:gvc.dll
+ 0001:00015d44       _agxget                    6f756d44 f   graph:graph.dll
+ 0001:00015d4a       _agnxtedge                 6f756d4a f   graph:graph.dll
+ 0001:00015d50       _agfstedge                 6f756d50 f   graph:graph.dll
+ 0001:00015d56       _agnxtnode                 6f756d56 f   graph:graph.dll
+ 0001:00015d5c       _agfstnode                 6f756d5c f   graph:graph.dll
+ 0001:00015d62       _agfindattr                6f756d62 f   graph:graph.dll
+ 0001:00015d68       _agerr                     6f756d68 f   graph:graph.dll
+ 0001:00015d6e       _agusergraph               6f756d6e f   graph:graph.dll
+ 0001:00015d74       _agnxtout                  6f756d74 f   graph:graph.dll
+ 0001:00015d7a       _agfstout                  6f756d7a f   graph:graph.dll
+ 0001:00015d80       _aginsert                  6f756d80 f   graph:graph.dll
+ 0001:00015d86       _agcontains                6f756d86 f   graph:graph.dll
+ 0001:00015d8c       _agdelete                  6f756d8c f   graph:graph.dll
+ 0001:00015d92       _agget                     6f756d92 f   graph:graph.dll
+ 0001:00015d98       _agnnodes                  6f756d98 f   graph:graph.dll
+ 0001:00015d9e       _agnxtin                   6f756d9e f   graph:graph.dll
+ 0001:00015da4       _agfstin                   6f756da4 f   graph:graph.dll
+ 0001:00015daa       _agnedges                  6f756daa f   graph:graph.dll
+ 0001:00015db0       _agxset                    6f756db0 f   graph:graph.dll
+ 0001:00015db6       _agedge                    6f756db6 f   graph:graph.dll
+ 0001:00015dbc       _agset                     6f756dbc f   graph:graph.dll
+ 0001:00015dc2       _agsubg                    6f756dc2 f   graph:graph.dll
+ 0001:00015dc8       _agedgeattr                6f756dc8 f   graph:graph.dll
+ 0001:00015dce       _agnodeattr                6f756dce f   graph:graph.dll
+ 0001:00015dd4       _agraphattr                6f756dd4 f   graph:graph.dll
+ 0001:00015dda       _agopen                    6f756dda f   graph:graph.dll
+ 0001:00015de0       _agclose                   6f756de0 f   graph:graph.dll
+ 0001:00015de6       _agcopyattr                6f756de6 f   graph:graph.dll
+ 0001:00015dec       _agnode                    6f756dec f   graph:graph.dll
+ 0001:00015df2       _agfindsubg                6f756df2 f   graph:graph.dll
+ 0001:00015df8       _agfindedge                6f756df8 f   graph:graph.dll
+ 0001:00015e4b       __CRT_INIT@12              6f756e4b f   msvcrt:crtdll.obj
+ 0001:00016100       __DllMainCRTStartup@12     6f757100 f   msvcrt:crtdll.obj
+ 0001:00016130       _strcmp                    6f757130 f   msvcrt:MSVCR80.dll
+ 0001:00016140       __ftol2_sse                6f757140 f   msvcrt:ftol2.obj
+ 0001:00016149       __ftol2_pentium4           6f757149 f   msvcrt:ftol2.obj
+ 0001:0001615c       __ftol2_sse_excpt          6f75715c f   msvcrt:ftol2.obj
+ 0001:00016176       __ftol2                    6f757176 f   msvcrt:ftol2.obj
+ 0001:000161ec       _strlen                    6f7571ec f   msvcrt:MSVCR80.dll
+ 0001:00016200       __alloca_probe             6f757200     msvcrt:chkstk.obj
+ 0001:00016200       __chkstk                   6f757200 f   msvcrt:chkstk.obj
+ 0001:0001622c       _fabs                      6f75722c f   msvcrt:MSVCR80.dll
+ 0001:00016232       _memset                    6f757232 f   msvcrt:MSVCR80.dll
+ 0001:00016238       @__security_check_cookie@4 6f757238 f   msvcrt:secchk.obj
+ 0001:00016247       ___clean_type_info_names   6f757247 f   msvcrt:tncleanup.obj
+ 0001:00016253       __onexit                   6f757253 f   msvcrt:atonexit.obj
+ 0001:000162f2       _atexit                    6f7572f2 f   msvcrt:atonexit.obj
+ 0001:00016304       __RTC_Initialize           6f757304 f   msvcrt:initsect.obj
+ 0001:00016328       __RTC_Terminate            6f757328 f   msvcrt:initsect.obj
+ 0001:00016350       __ValidateImageBase        6f757350 f   msvcrt:pesect.obj
+ 0001:00016380       __FindPESection            6f757380 f   msvcrt:pesect.obj
+ 0001:000163c2       __IsNonwritableInCurrentImage 6f7573c2 f   msvcrt:pesect.obj
+ 0001:0001642e       __initterm                 6f75742e f   msvcrt:MSVCR80.dll
+ 0001:00016434       __initterm_e               6f757434 f   msvcrt:MSVCR80.dll
+ 0001:0001643a       __amsg_exit                6f75743a f   msvcrt:MSVCR80.dll
+ 0001:00016440       ___CppXcptFilter           6f757440 f   msvcrt:MSVCR80.dll
+ 0001:00016446       _DllMain@12                6f757446 f   msvcrt:dllmain.obj
+ 0001:00016468       __SEH_prolog4              6f757468 f   msvcrt:sehprolg4.obj
+ 0001:000164ad       __SEH_epilog4              6f7574ad f   msvcrt:sehprolg4.obj
+ 0001:000164c1       __except_handler4          6f7574c1 f   msvcrt:chandler4gs.obj
+ 0001:000164e4       ___security_init_cookie    6f7574e4 f   msvcrt:gs_support.obj
+ 0001:000165c8       __get_sse2_info            6f7575c8 f   msvcrt:cpu_disp.obj
+ 0001:00016628       ___sse2_available_init     6f757628 f   msvcrt:cpu_disp.obj
+ 0001:00016635       ___report_gsfailure        6f757635 f   msvcrt:gs_report.obj
+ 0001:0001673a       ___clean_type_info_names_internal 6f75773a f   msvcrt:MSVCR80.dll
+ 0001:00016740       __unlock                   6f757740 f   msvcrt:MSVCR80.dll
+ 0001:00016746       ___dllonexit               6f757746 f   msvcrt:MSVCR80.dll
+ 0001:0001674c       __lock                     6f75774c f   msvcrt:MSVCR80.dll
+ 0001:00016752       __except_handler4_common   6f757752 f   msvcrt:MSVCR80.dll
+ 0001:00016758       __crt_debugger_hook        6f757758 f   msvcrt:MSVCR80.dll
+ 0002:00000000       __imp__GetCurrentProcessId@0 6f758000     KERNEL32:KERNEL32.dll
+ 0002:00000004       __imp__IsDebuggerPresent@0 6f758004     KERNEL32:KERNEL32.dll
+ 0002:00000008       __imp__SetUnhandledExceptionFilter@4 6f758008     KERNEL32:KERNEL32.dll
+ 0002:0000000c       __imp__UnhandledExceptionFilter@4 6f75800c     KERNEL32:KERNEL32.dll
+ 0002:00000010       __imp__GetCurrentProcess@0 6f758010     KERNEL32:KERNEL32.dll
+ 0002:00000014       __imp__TerminateProcess@8  6f758014     KERNEL32:KERNEL32.dll
+ 0002:00000018       __imp__GetSystemTimeAsFileTime@4 6f758018     KERNEL32:KERNEL32.dll
+ 0002:0000001c       __imp__InterlockedExchange@8 6f75801c     KERNEL32:KERNEL32.dll
+ 0002:00000020       __imp__GetCurrentThreadId@0 6f758020     KERNEL32:KERNEL32.dll
+ 0002:00000024       __imp__GetTickCount@0      6f758024     KERNEL32:KERNEL32.dll
+ 0002:00000028       __imp__QueryPerformanceCounter@4 6f758028     KERNEL32:KERNEL32.dll
+ 0002:0000002c       __imp__DisableThreadLibraryCalls@4 6f75802c     KERNEL32:KERNEL32.dll
+ 0002:00000030       __imp__InterlockedCompareExchange@12 6f758030     KERNEL32:KERNEL32.dll
+ 0002:00000034       __imp__Sleep@4             6f758034     KERNEL32:KERNEL32.dll
+ 0002:00000038       \177KERNEL32_NULL_THUNK_DATA 6f758038     KERNEL32:KERNEL32.dll
+ 0002:0000003c       __imp__hypot               6f75803c     msvcrt:MSVCR80.dll
+ 0002:0000003c       __imp___hypot              6f75803c     msvcrt:MSVCR80.dll
+ 0002:00000040       __imp___crt_debugger_hook  6f758040     msvcrt:MSVCR80.dll
+ 0002:00000044       __imp___except_handler4_common 6f758044     msvcrt:MSVCR80.dll
+ 0002:00000048       __imp___onexit             6f758048     msvcrt:MSVCR80.dll
+ 0002:0000004c       __imp___lock               6f75804c     msvcrt:MSVCR80.dll
+ 0002:00000050       __imp____dllonexit         6f758050     msvcrt:MSVCR80.dll
+ 0002:00000054       __imp___unlock             6f758054     msvcrt:MSVCR80.dll
+ 0002:00000058       __imp____clean_type_info_names_internal 6f758058     msvcrt:MSVCR80.dll
+ 0002:0000005c       __imp____CppXcptFilter     6f75805c     msvcrt:MSVCR80.dll
+ 0002:00000060       __imp___adjust_fdiv        6f758060     msvcrt:MSVCR80.dll
+ 0002:00000064       __imp___amsg_exit          6f758064     msvcrt:MSVCR80.dll
+ 0002:00000068       __imp___initterm_e         6f758068     msvcrt:MSVCR80.dll
+ 0002:0000006c       __imp___initterm           6f75806c     msvcrt:MSVCR80.dll
+ 0002:00000070       __imp___decode_pointer     6f758070     msvcrt:MSVCR80.dll
+ 0002:00000074       __imp___encoded_null       6f758074     msvcrt:MSVCR80.dll
+ 0002:00000078       __imp___malloc_crt         6f758078     msvcrt:MSVCR80.dll
+ 0002:0000007c       __imp___encode_pointer     6f75807c     msvcrt:MSVCR80.dll
+ 0002:00000080       __imp__memset              6f758080     msvcrt:MSVCR80.dll
+ 0002:00000084       __imp__fabs                6f758084     msvcrt:MSVCR80.dll
+ 0002:00000088       __imp__strlen              6f758088     msvcrt:MSVCR80.dll
+ 0002:0000008c       __imp__sprintf             6f75808c     msvcrt:MSVCR80.dll
+ 0002:00000090       __imp__abort               6f758090     msvcrt:MSVCR80.dll
+ 0002:00000094       __imp____iob_func          6f758094     msvcrt:MSVCR80.dll
+ 0002:00000098       __imp__fprintf             6f758098     msvcrt:MSVCR80.dll
+ 0002:0000009c       __imp__qsort               6f75809c     msvcrt:MSVCR80.dll
+ 0002:000000a0       __imp__ceil                6f7580a0     msvcrt:MSVCR80.dll
+ 0002:000000a4       __imp__exit                6f7580a4     msvcrt:MSVCR80.dll
+ 0002:000000a8       __imp__strncmp             6f7580a8     msvcrt:MSVCR80.dll
+ 0002:000000ac       __imp__atof                6f7580ac     msvcrt:MSVCR80.dll
+ 0002:000000b0       __imp___wassert            6f7580b0     msvcrt:MSVCR80.dll
+ 0002:000000b4       __imp__strcmp              6f7580b4     msvcrt:MSVCR80.dll
+ 0002:000000b8       __imp__free                6f7580b8     msvcrt:MSVCR80.dll
+ 0002:000000bc       \177MSVCR80_NULL_THUNK_DATA 6f7580bc     msvcrt:MSVCR80.dll
+ 0002:000000c0       __imp__agfindedge          6f7580c0     graph:graph.dll
+ 0002:000000c4       __imp__agfindsubg          6f7580c4     graph:graph.dll
+ 0002:000000c8       __imp__agnode              6f7580c8     graph:graph.dll
+ 0002:000000cc       __imp__agcopyattr          6f7580cc     graph:graph.dll
+ 0002:000000d0       __imp__agclose             6f7580d0     graph:graph.dll
+ 0002:000000d4       __imp__agopen              6f7580d4     graph:graph.dll
+ 0002:000000d8       __imp__agraphattr          6f7580d8     graph:graph.dll
+ 0002:000000dc       __imp__agnodeattr          6f7580dc     graph:graph.dll
+ 0002:000000e0       __imp__agedgeattr          6f7580e0     graph:graph.dll
+ 0002:000000e4       __imp__agsubg              6f7580e4     graph:graph.dll
+ 0002:000000e8       __imp__agset               6f7580e8     graph:graph.dll
+ 0002:000000ec       __imp__agedge              6f7580ec     graph:graph.dll
+ 0002:000000f0       __imp__agxset              6f7580f0     graph:graph.dll
+ 0002:000000f4       __imp__agnedges            6f7580f4     graph:graph.dll
+ 0002:000000f8       __imp__agfstin             6f7580f8     graph:graph.dll
+ 0002:000000fc       __imp__agnxtin             6f7580fc     graph:graph.dll
+ 0002:00000100       __imp__agnnodes            6f758100     graph:graph.dll
+ 0002:00000104       __imp__agget               6f758104     graph:graph.dll
+ 0002:00000108       __imp__agdelete            6f758108     graph:graph.dll
+ 0002:0000010c       __imp__agcontains          6f75810c     graph:graph.dll
+ 0002:00000110       __imp__agxget              6f758110     graph:graph.dll
+ 0002:00000114       __imp__agnxtedge           6f758114     graph:graph.dll
+ 0002:00000118       __imp__agfstedge           6f758118     graph:graph.dll
+ 0002:0000011c       __imp__agnxtnode           6f75811c     graph:graph.dll
+ 0002:00000120       __imp__agfstnode           6f758120     graph:graph.dll
+ 0002:00000124       __imp__agfindattr          6f758124     graph:graph.dll
+ 0002:00000128       __imp__agerr               6f758128     graph:graph.dll
+ 0002:0000012c       __imp__agusergraph         6f75812c     graph:graph.dll
+ 0002:00000130       __imp__agnxtout            6f758130     graph:graph.dll
+ 0002:00000134       __imp__agfstout            6f758134     graph:graph.dll
+ 0002:00000138       __imp__aginsert            6f758138     graph:graph.dll
+ 0002:0000013c       \177graph_NULL_THUNK_DATA  6f75813c     graph:graph.dll
+ 0002:00000140       __imp__UF_setname          6f758140     gvc:gvc.dll
+ 0002:00000144       __imp__arrowEndClip        6f758144     gvc:gvc.dll
+ 0002:00000148       __imp__arrowStartClip      6f758148     gvc:gvc.dll
+ 0002:0000014c       __imp__free_label          6f75814c     gvc:gvc.dll
+ 0002:00000150       __imp__gv_cleanup_edge     6f758150     gvc:gvc.dll
+ 0002:00000154       __imp__common_init_edge    6f758154     gvc:gvc.dll
+ 0002:00000158       __imp__late_double         6f758158     gvc:gvc.dll
+ 0002:0000015c       __imp__late_string         6f75815c     gvc:gvc.dll
+ 0002:00000160       __imp__E_showboxes         6f758160     gvc:gvc.dll
+ 0002:00000164       __imp__late_int            6f758164     gvc:gvc.dll
+ 0002:00000168       __imp__common_init_node    6f758168     gvc:gvc.dll
+ 0002:0000016c       __imp__Bezier              6f75816c     gvc:gvc.dll
+ 0002:00000170       __imp__boxof               6f758170     gvc:gvc.dll
+ 0002:00000174       __imp__getsplinepoints     6f758174     gvc:gvc.dll
+ 0002:00000178       __imp__beginpath           6f758178     gvc:gvc.dll
+ 0002:0000017c       __imp__endpath             6f75817c     gvc:gvc.dll
+ 0002:00000180       __imp__shapeOf             6f758180     gvc:gvc.dll
+ 0002:00000184       __imp__E_constr            6f758184     gvc:gvc.dll
+ 0002:00000188       __imp__E_minlen            6f758188     gvc:gvc.dll
+ 0002:0000018c       __imp__N_group             6f75818c     gvc:gvc.dll
+ 0002:00000190       __imp__E_weight            6f758190     gvc:gvc.dll
+ 0002:00000194       __imp__setEdgeType         6f758194     gvc:gvc.dll
+ 0002:00000198       __imp__dotneato_postprocess 6f758198     gvc:gvc.dll
+ 0002:0000019c       __imp__new_spline          6f75819c     gvc:gvc.dll
+ 0002:000001a0       __imp__update_bb           6f7581a0     gvc:gvc.dll
+ 0002:000001a4       __imp__add_points          6f7581a4     gvc:gvc.dll
+ 0002:000001a8       __imp__pointof             6f7581a8     gvc:gvc.dll
+ 0002:000001ac       __imp__add_box             6f7581ac     gvc:gvc.dll
+ 0002:000001b0       __imp__routesplines        6f7581b0     gvc:gvc.dll
+ 0002:000001b4       __imp__routepolylines      6f7581b4     gvc:gvc.dll
+ 0002:000001b8       __imp__clip_and_install    6f7581b8     gvc:gvc.dll
+ 0002:000001bc       __imp__routesplinesinit    6f7581bc     gvc:gvc.dll
+ 0002:000001c0       __imp__makeSelfEdge        6f7581c0     gvc:gvc.dll
+ 0002:000001c4       __imp__updateBB            6f7581c4     gvc:gvc.dll
+ 0002:000001c8       __imp__E_headlabel         6f7581c8     gvc:gvc.dll
+ 0002:000001cc       __imp__E_taillabel         6f7581cc     gvc:gvc.dll
+ 0002:000001d0       __imp__place_portlabel     6f7581d0     gvc:gvc.dll
+ 0002:000001d4       __imp__routesplinesterm    6f7581d4     gvc:gvc.dll
+ 0002:000001d8       __imp__State               6f7581d8     gvc:gvc.dll
+ 0002:000001dc       __imp__new_queue           6f7581dc     gvc:gvc.dll
+ 0002:000001e0       __imp__enqueue             6f7581e0     gvc:gvc.dll
+ 0002:000001e4       __imp__dequeue             6f7581e4     gvc:gvc.dll
+ 0002:000001e8       __imp__free_queue          6f7581e8     gvc:gvc.dll
+ 0002:000001ec       __imp__start_timer         6f7581ec     gvc:gvc.dll
+ 0002:000001f0       __imp__elapsed_sec         6f7581f0     gvc:gvc.dll
+ 0002:000001f4       __imp__MaxIter             6f7581f4     gvc:gvc.dll
+ 0002:000001f8       __imp__Verbose             6f7581f8     gvc:gvc.dll
+ 0002:000001fc       __imp__mapbool             6f7581fc     gvc:gvc.dll
+ 0002:00000200       __imp__sub_points          6f758200     gvc:gvc.dll
+ 0002:00000204       __imp__dot_nodesize        6f758204     gvc:gvc.dll
+ 0002:00000208       __imp__selfRightSpace      6f758208     gvc:gvc.dll
+ 0002:0000020c       __imp__Concentrate         6f75820c     gvc:gvc.dll
+ 0002:00000210       __imp__rank                6f758210     gvc:gvc.dll
+ 0002:00000214       __imp__maptoken            6f758214     gvc:gvc.dll
+ 0002:00000218       __imp__UF_union            6f758218     gvc:gvc.dll
+ 0002:0000021c       __imp__zrealloc            6f75821c     gvc:gvc.dll
+ 0002:00000220       __imp__do_graph_label      6f758220     gvc:gvc.dll
+ 0002:00000224       __imp__UF_find             6f758224     gvc:gvc.dll
+ 0002:00000228       __imp__UF_singleton        6f758228     gvc:gvc.dll
+ 0002:0000022c       __imp__CL_type             6f75822c     gvc:gvc.dll
+ 0002:00000230       __imp__shape_clip          6f758230     gvc:gvc.dll
+ 0002:00000234       __imp__grealloc            6f758234     gvc:gvc.dll
+ 0002:00000238       __imp__gmalloc             6f758238     gvc:gvc.dll
+ 0002:0000023c       __imp__zmalloc             6f75823c     gvc:gvc.dll
+ 0002:00000240       __imp__arrow_flags         6f758240     gvc:gvc.dll
+ 0002:00000244       __imp__arrow_length        6f758244     gvc:gvc.dll
+ 0002:00000248       __imp__E_samehead          6f758248     gvc:gvc.dll
+ 0002:0000024c       __imp__E_sametail          6f75824c     gvc:gvc.dll
+ 0002:00000250       \177gvc_NULL_THUNK_DATA    6f758250     gvc:gvc.dll
+ 0002:00000254       ___xc_a                    6f758254     msvcrt:cinitexe.obj
+ 0002:00000258       ___xc_z                    6f758258     msvcrt:cinitexe.obj
+ 0002:0000025c       ___xi_a                    6f75825c     msvcrt:cinitexe.obj
+ 0002:00000268       ___xi_z                    6f758268     msvcrt:cinitexe.obj
+ 0002:00000270       __real@0000000000000000    6f758270     libgvplugin_dot_layout:sameport.o
+ 0002:00000278       __real@4008000000000000    6f758278     libgvplugin_dot_layout:sameport.o
+ 0002:00000280       __real@4000000000000000    6f758280     libgvplugin_dot_layout:sameport.o
+ 0002:00000288       __real@3fe0000000000000    6f758288     libgvplugin_dot_layout:sameport.o
+ 0002:00000290       __real@3ff0000000000000    6f758290     libgvplugin_dot_layout:position.o
+ 0002:00000298       __real@3fefd70a3d70a3d7    6f758298     libgvplugin_dot_layout:mincross.o
+ 0002:000002a0       __real@bff921fb54442d18    6f7582a0     libgvplugin_dot_layout:dotsplines.o
+ 0002:000002a8       __real@3ff921fb54442d18    6f7582a8     libgvplugin_dot_layout:dotsplines.o
+ 0002:000002b0       __real@3ee4f8b588e368f1    6f7582b0     libgvplugin_dot_layout:dotsplines.o
+ 0002:000002b8       __real@47d2ced32a16a1b1    6f7582b8     libgvplugin_dot_layout:dotsplines.o
+ 0002:000002c0       __real@bff0000000000000    6f7582c0     libgvplugin_dot_layout:compound.o
+ 0002:000002c8       __pDefaultRawDllMain       6f7582c8     msvcrt:crtdll.obj
+ 0002:000002c8       __pRawDllMain              6f7582c8     msvcrt:crtdll.obj
+ 0002:000002d8       __load_config_used         6f7582d8     msvcrt:loadcfg.obj
+ 0002:00000320       ___safe_se_handler_table   6f758320     <linker-defined>
+ 0002:00000324       ___rtc_iaa                 6f758324     msvcrt:initsect.obj
+ 0002:00000328       ___rtc_izz                 6f758328     msvcrt:initsect.obj
+ 0002:0000032c       ___rtc_taa                 6f75832c     msvcrt:initsect.obj
+ 0002:00000330       ___rtc_tzz                 6f758330     msvcrt:initsect.obj
+ 0002:000003bc       __IMPORT_DESCRIPTOR_gvc    6f7583bc     gvc:gvc.dll
+ 0002:000003d0       __IMPORT_DESCRIPTOR_graph  6f7583d0     graph:graph.dll
+ 0002:000003e4       __IMPORT_DESCRIPTOR_MSVCR80 6f7583e4     msvcrt:MSVCR80.dll
+ 0002:000003f8       __IMPORT_DESCRIPTOR_KERNEL32 6f7583f8     KERNEL32:KERNEL32.dll
+ 0002:0000040c       __NULL_IMPORT_DESCRIPTOR   6f75840c     gvc:gvc.dll
+ 0003:00000d84       _dotgen_engine             6f75ad84     libgvplugin_dot_layout:gvlayout_dot_layout.o
+ 0003:00000d8c       _dotgen_features           6f75ad8c     libgvplugin_dot_layout:gvlayout_dot_layout.o
+ 0003:00000d94       _gvlayout_dot_layout       6f75ad94     libgvplugin_dot_layout:gvlayout_dot_layout.o
+ 0003:00000dd8       _gvplugin_dot_layout_LTX_library 6f75add8     libgvplugin_dot_layout:gvplugin_dot_layout.o
+ 0003:00000de0       ___security_cookie         6f75ade0     msvcrt:gs_cookie.obj
+ 0003:00000de4       ___security_cookie_complement 6f75ade4     msvcrt:gs_cookie.obj
+ 0003:00000de8       ___native_dllmain_reason   6f75ade8     msvcrt:natstart.obj
+ 0003:00000dec       ___native_vcclrit_reason   6f75adec     msvcrt:natstart.obj
+ 0003:00004cd8       ?__type_info_root_node@@3U__type_info_node@@A 6f75ecd8     msvcrt:tncleanup.obj
+ 0003:00005004       ___sse2_available          6f75f004     <common>
+ 0003:00005008       __adjust_fdiv              6f75f008     <common>
+ 0003:0000500c       ___native_startup_state    6f75f00c     <common>
+ 0003:00005010       ___native_startup_lock     6f75f010     <common>
+ 0003:00005014       ___onexitend               6f75f014     <common>
+ 0003:00005018       ___onexitbegin             6f75f018     <common>
+ 0003:0000501c       ___dyn_tls_init_callback   6f75f01c     <common>
+
+ entry point at        0001:00016100
+
+ Static symbols
+
+ 0001:00000210       _sameedge                  6f741210 f   libgvplugin_dot_layout:sameport.o
+ 0001:000004e0       _sameport                  6f7414e0 f   libgvplugin_dot_layout:sameport.o
+ 0001:00000e60       _find_clusters             6f741e60 f   libgvplugin_dot_layout:rank.o
+ 0001:00000ee0       _collapse_cluster          6f741ee0 f   libgvplugin_dot_layout:rank.o
+ 0001:00000f70       _make_new_cluster          6f741f70 f   libgvplugin_dot_layout:rank.o
+ 0001:00001020       _node_induce               6f742020 f   libgvplugin_dot_layout:rank.o
+ 0001:00001180       _cluster_leader            6f742180 f   libgvplugin_dot_layout:rank.o
+ 0001:00001290       _set_minmax                6f742290 f   libgvplugin_dot_layout:rank.o
+ 0001:000013d0       _cleanup1                  6f7423d0 f   libgvplugin_dot_layout:rank.o
+ 0001:00001590       _renewlist                 6f742590 f   libgvplugin_dot_layout:rank.o
+ 0001:000015d0       _edgelabel_ranks           6f7425d0 f   libgvplugin_dot_layout:rank.o
+ 0001:00001680       _collapse_sets             6f742680 f   libgvplugin_dot_layout:rank.o
+ 0001:00001790       _collapse_rankset          6f742790 f   libgvplugin_dot_layout:rank.o
+ 0001:000018e0       _rank_set_class            6f7428e0 f   libgvplugin_dot_layout:rank.o
+ 0001:00001940       _minmax_edges              6f742940 f   libgvplugin_dot_layout:rank.o
+ 0001:00001ad0       _minmax_edges2             6f742ad0 f   libgvplugin_dot_layout:rank.o
+ 0001:00001bf0       _rank1                     6f742bf0 f   libgvplugin_dot_layout:rank.o
+ 0001:00001de0       _connectGraph              6f742de0 f   libgvplugin_dot_layout:position.o
+ 0001:00002020       _nsiter2                   6f743020 f   libgvplugin_dot_layout:position.o
+ 0001:000020f0       _largeMinlen               6f7430f0 f   libgvplugin_dot_layout:position.o
+ 0001:00002120       _create_aux_edges          6f743120 f   libgvplugin_dot_layout:position.o
+ 0001:00002170       _allocate_aux_edges        6f743170 f   libgvplugin_dot_layout:position.o
+ 0001:00002290       _make_LR_constraints       6f743290 f   libgvplugin_dot_layout:position.o
+ 0001:00002770       _canreach                  6f743770 f   libgvplugin_dot_layout:position.o
+ 0001:00002790       _go                        6f743790 f   libgvplugin_dot_layout:position.o
+ 0001:00002800       _make_edge_pairs           6f743800 f   libgvplugin_dot_layout:position.o
+ 0001:00002970       _pos_clusters              6f743970 f   libgvplugin_dot_layout:position.o
+ 0001:000029c0       _contain_clustnodes        6f7439c0 f   libgvplugin_dot_layout:position.o
+ 0001:00002a80       _keepout_othernodes        6f743a80 f   libgvplugin_dot_layout:position.o
+ 0001:00002c60       _vnode_not_related_to      6f743c60 f   libgvplugin_dot_layout:position.o
+ 0001:00002ce0       _contain_subclust          6f743ce0 f   libgvplugin_dot_layout:position.o
+ 0001:00002da0       _separate_subclust         6f743da0 f   libgvplugin_dot_layout:position.o
+ 0001:00002f40       _compress_graph            6f743f40 f   libgvplugin_dot_layout:position.o
+ 0001:00002fd0       _remove_aux_edges          6f743fd0 f   libgvplugin_dot_layout:position.o
+ 0001:00003150       _set_xcoords               6f744150 f   libgvplugin_dot_layout:position.o
+ 0001:000031f0       _set_ycoords               6f7441f0 f   libgvplugin_dot_layout:position.o
+ 0001:00003640       _adjustRanks               6f744640 f   libgvplugin_dot_layout:position.o
+ 0001:000038d0       _adjustEqual               6f7448d0 f   libgvplugin_dot_layout:position.o
+ 0001:00003ab0       _adjustSimple              6f744ab0 f   libgvplugin_dot_layout:position.o
+ 0001:00003c30       _clust_ht                  6f744c30 f   libgvplugin_dot_layout:position.o
+ 0001:00003e40       _set_aspect                6f744e40 f   libgvplugin_dot_layout:position.o
+ 0001:00004100       _rec_bb                    6f745100 f   libgvplugin_dot_layout:position.o
+ 0001:00004160       _dot_compute_bb            6f745160 f   libgvplugin_dot_layout:position.o
+ 0001:00004430       _scale_bb                  6f745430 f   libgvplugin_dot_layout:position.o
+ 0001:00004560       _expand_leaves             6f745560 f   libgvplugin_dot_layout:position.o
+ 0001:00004690       _make_leafslots            6f745690 f   libgvplugin_dot_layout:position.o
+ 0001:00004880       _do_leaves                 6f745880 f   libgvplugin_dot_layout:position.o
+ 0001:00004bf0       _resize_leaf               6f745bf0 f   libgvplugin_dot_layout:position.o
+ 0001:00004c50       _place_leaf                6f745c50 f   libgvplugin_dot_layout:position.o
+ 0001:00004cf0       _make_lrvn                 6f745cf0 f   libgvplugin_dot_layout:position.o
+ 0001:00004dc0       _contain_nodes             6f745dc0 f   libgvplugin_dot_layout:position.o
+ 0001:00004ef0       _idealsize                 6f745ef0 f   libgvplugin_dot_layout:position.o
+ 0001:000051a0       _init_mccomp               6f7461a0 f   libgvplugin_dot_layout:mincross.o
+ 0001:00005250       _mincross_clust            6f746250 f   libgvplugin_dot_layout:mincross.o
+ 0001:000052f0       _ordered_edges             6f7462f0 f   libgvplugin_dot_layout:mincross.o
+ 0001:00005420       _do_ordering               6f746420 f   libgvplugin_dot_layout:mincross.o
+ 0001:00005610       _betweenclust              6f746610 f   libgvplugin_dot_layout:mincross.o
+ 0001:00005650       _mincross                  6f746650 f   libgvplugin_dot_layout:mincross.o
+ 0001:00005890       _transpose                 6f746890 f   libgvplugin_dot_layout:mincross.o
+ 0001:00005940       _transpose_step            6f746940 f   libgvplugin_dot_layout:mincross.o
+ 0001:00005b90       _left2right                6f746b90 f   libgvplugin_dot_layout:mincross.o
+ 0001:00005cc0       _in_cross                  6f746cc0 f   libgvplugin_dot_layout:mincross.o
+ 0001:00005d90       _out_cross                 6f746d90 f   libgvplugin_dot_layout:mincross.o
+ 0001:00005e60       _exchange                  6f746e60 f   libgvplugin_dot_layout:mincross.o
+ 0001:00005ef0       _restore_best              6f746ef0 f   libgvplugin_dot_layout:mincross.o
+ 0001:00005fb0       _save_best                 6f746fb0 f   libgvplugin_dot_layout:mincross.o
+ 0001:00005ff0       _merge2                    6f746ff0 f   libgvplugin_dot_layout:mincross.o
+ 0001:00006140       _merge_components          6f747140 f   libgvplugin_dot_layout:mincross.o
+ 0001:00006220       _cleanup2                  6f747220 f   libgvplugin_dot_layout:mincross.o
+ 0001:00006400       _free_matrix               6f747400 f   libgvplugin_dot_layout:mincross.o
+ 0001:00006620       _furthestnode              6f747620 f   libgvplugin_dot_layout:mincross.o
+ 0001:00006690       _neighbor                  6f747690 f   libgvplugin_dot_layout:mincross.o
+ 0001:00006710       _is_a_normal_node_of       6f747710 f   libgvplugin_dot_layout:mincross.o
+ 0001:00006750       _is_a_vnode_of_an_edge_of  6f747750 f   libgvplugin_dot_layout:mincross.o
+ 0001:000067c0       _init_mincross             6f7477c0 f   libgvplugin_dot_layout:mincross.o
+ 0001:00006a40       _flat_breakcycles          6f747a40 f   libgvplugin_dot_layout:mincross.o
+ 0001:00006bc0       _new_matrix                6f747bc0 f   libgvplugin_dot_layout:mincross.o
+ 0001:00006c00       _flat_search               6f747c00 f   libgvplugin_dot_layout:mincross.o
+ 0001:000075a0       _flat_reorder              6f7485a0 f   libgvplugin_dot_layout:mincross.o
+ 0001:00007a00       _inside_cluster            6f748a00 f   libgvplugin_dot_layout:mincross.o
+ 0001:00007a30       _postorder                 6f748a30 f   libgvplugin_dot_layout:mincross.o
+ 0001:00007b70       _mincross_step             6f748b70 f   libgvplugin_dot_layout:mincross.o
+ 0001:00007cf0       _reorder                   6f748cf0 f   libgvplugin_dot_layout:mincross.o
+ 0001:00007fd0       _rcross                    6f748fd0 f   libgvplugin_dot_layout:mincross.o
+ 0001:000082e0       _local_cross               6f7492e0 f   libgvplugin_dot_layout:mincross.o
+ 0001:00008420       _medians                   6f749420 f   libgvplugin_dot_layout:mincross.o
+ 0001:00008710       _ordercmpf                 6f749710 f   libgvplugin_dot_layout:mincross.o
+ 0001:00008720       _flat_mval                 6f749720 f   libgvplugin_dot_layout:mincross.o
+ 0001:00008860       _nodeposcmpf               6f749860 f   libgvplugin_dot_layout:mincross.o
+ 0001:00008880       _edgeidcmpf                6f749880 f   libgvplugin_dot_layout:mincross.o
+ 0001:000088f0       _endpoint_class            6f7498f0 f   libgvplugin_dot_layout:mincross.o
+ 0001:00008930       _mincross_options          6f749930 f   libgvplugin_dot_layout:mincross.o
+ 0001:00008d50       _flat_node                 6f749d50 f   libgvplugin_dot_layout:flat.o
+ 0001:00008fb0       _make_vn_slot              6f749fb0 f   libgvplugin_dot_layout:flat.o
+ 0001:00009140       _flat_limits               6f74a140 f   libgvplugin_dot_layout:flat.o
+ 0001:00009270       _findlr                    6f74a270 f   libgvplugin_dot_layout:flat.o
+ 0001:000092c0       _setbounds                 6f74a2c0 f   libgvplugin_dot_layout:flat.o
+ 0001:00009480       _abomination               6f74a480 f   libgvplugin_dot_layout:flat.o
+ 0001:00009650       _flatAdjacent              6f74a650 f   libgvplugin_dot_layout:flat.o
+ 0001:00009770       _ffe                       6f74a770 f   libgvplugin_dot_layout:fastgr.o
+ 0001:00009bd0       _safe_list_append          6f74abd0 f   libgvplugin_dot_layout:fastgr.o
+ 0001:00009ff0       _find_fast_node            6f74aff0 f   libgvplugin_dot_layout:fastgr.o
+ 0001:0000a3b0       _basic_merge               6f74b3b0 f   libgvplugin_dot_layout:fastgr.o
+ 0001:0000a510       _safe_delete_fast_edge     6f74b510 f   libgvplugin_dot_layout:fastgr.o
+ 0001:0000a5e0       _unrep                     6f74b5e0 f   libgvplugin_dot_layout:fastgr.o
+ 0001:0000a640       _spline_merge              6f74b640 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000a690       _swap_ends_p               6f74b690 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000a770       __dot_splines              6f74b770 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000b720       _getmainedge               6f74c720 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000b760       _edge_normalize            6f74c760 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000b800       _swap_spline               6f74c800 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000b8e0       _swap_bezier               6f74c8e0 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000b9b0       _place_vnlabel             6f74c9b0 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000ba60       _setflags                  6f74ca60 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000bb70       _edgecmp                   6f74cb70 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000c0c0       _make_flat_edge            6f74d0c0 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000c790       _makeSimpleFlat            6f74d790 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000cae0       _make_flat_adj_edges       6f74dae0 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000d1c0       _cloneGraph                6f74e1c0 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000d420       _cleanupCloneGraph         6f74e420 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000d4a0       _cloneNode                 6f74e4a0 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000d540       _cloneEdge                 6f74e540 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000d590       _transform                 6f74e590 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000d5d0       _makeFlatEnd               6f74e5d0 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000d750       _make_flat_labeled_edge    6f74e750 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000dcb0       _make_flat_bottom_edges    6f74ecb0 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000e180       _makeBottomFlatEnd         6f74f180 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000e300       _make_regular_edge         6f74f300 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000f590       _makeLineEdge              6f750590 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000f870       _leftOf                    6f750870 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000f8b0       _completeregularpath       6f7508b0 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000fb60       _makeregularend            6f750b60 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000fc10       _adjustregularpath         6f750c10 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000fe00       _rank_box                  6f750e00 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000ff00       _straight_len              6f750f00 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:0000ff80       _straight_path             6f750f80 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:00010030       _recover_slack             6f751030 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:00010190       _resize_vn                 6f751190 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:000101c0       _top_bound                 6f7511c0 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:00010280       _bot_bound                 6f751280 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:000106f0       _maximal_bbox              6f7516f0 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:00010970       _cl_bound                  6f751970 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:00010ab0       _cl_vninside               6f751ab0 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:00010b10       _neighbor                  6f751b10 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:00010be0       _pathscross                6f751be0 f   libgvplugin_dot_layout:dotsplines.o
+ 0001:00010ea0       _dot_init_node             6f751ea0 f   libgvplugin_dot_layout:dotinit.o
+ 0001:00010f90       _dot_init_edge             6f751f90 f   libgvplugin_dot_layout:dotinit.o
+ 0001:00011170       _dot_cleanup_node          6f752170 f   libgvplugin_dot_layout:dotinit.o
+ 0001:00011270       _free_virtual_node_list    6f752270 f   libgvplugin_dot_layout:dotinit.o
+ 0001:00011310       _free_virtual_edge_list    6f752310 f   libgvplugin_dot_layout:dotinit.o
+ 0001:000113c0       _dot_cleanup_graph         6f7523c0 f   libgvplugin_dot_layout:dotinit.o
+ 0001:00011670       _begin_component           6f752670 f   libgvplugin_dot_layout:decomp.o
+ 0001:00011690       _end_component             6f752690 f   libgvplugin_dot_layout:decomp.o
+ 0001:00011750       _search_component          6f752750 f   libgvplugin_dot_layout:decomp.o
+ 0001:00011860       _add_to_component          6f752860 f   libgvplugin_dot_layout:decomp.o
+ 0001:00011b80       _downcandidate             6f752b80 f   libgvplugin_dot_layout:conc.o
+ 0001:00011bd0       _bothdowncandidates        6f752bd0 f   libgvplugin_dot_layout:conc.o
+ 0001:00011c80       _samedir                   6f752c80 f   libgvplugin_dot_layout:conc.o
+ 0001:00011d30       _upcandidate               6f752d30 f   libgvplugin_dot_layout:conc.o
+ 0001:00011d80       _bothupcandidates          6f752d80 f   libgvplugin_dot_layout:conc.o
+ 0001:00011e30       _mergevirtual              6f752e30 f   libgvplugin_dot_layout:conc.o
+ 0001:00012120       _rebuild_vlists            6f753120 f   libgvplugin_dot_layout:conc.o
+ 0001:00012460       _infuse                    6f753460 f   libgvplugin_dot_layout:conc.o
+ 0001:00012540       _makeCompoundEdge          6f753540 f   libgvplugin_dot_layout:compound.o
+ 0001:00012d60       _midPt                     6f753d60 f   libgvplugin_dot_layout:compound.o
+ 0001:00012d90       _boxIntersect              6f753d90 f   libgvplugin_dot_layout:compound.o
+ 0001:00012fa0       _p2s                       6f753fa0 f   libgvplugin_dot_layout:compound.o
+ 0001:00012fd0       _inBox                     6f753fd0 f   libgvplugin_dot_layout:compound.o
+ 0001:00013020       _getCluster                6f754020 f   libgvplugin_dot_layout:compound.o
+ 0001:00013070       _splineIntersect           6f754070 f   libgvplugin_dot_layout:compound.o
+ 0001:00013450       _findVertical              6f754450 f   libgvplugin_dot_layout:compound.o
+ 0001:000135c0       _countVertCross            6f7545c0 f   libgvplugin_dot_layout:compound.o
+ 0001:000136c0       _findHorizontal            6f7546c0 f   libgvplugin_dot_layout:compound.o
+ 0001:00013830       _countHorzCross            6f754830 f   libgvplugin_dot_layout:compound.o
+ 0001:00013b80       _make_interclust_chain     6f754b80 f   libgvplugin_dot_layout:cluster.o
+ 0001:00013bf0       _map_interclust_node       6f754bf0 f   libgvplugin_dot_layout:cluster.o
+ 0001:00013c50       _map_path                  6f754c50 f   libgvplugin_dot_layout:cluster.o
+ 0001:00013fb0       _clone_vn                  6f754fb0 f   libgvplugin_dot_layout:cluster.o
+ 0001:00014060       _make_slots                6f755060 f   libgvplugin_dot_layout:cluster.o
+ 0001:00014270       _merge_ranks               6f755270 f   libgvplugin_dot_layout:cluster.o
+ 0001:00014480       _remove_rankleaders        6f755480 f   libgvplugin_dot_layout:cluster.o
+ 0001:00014ad0       _mark_lowcluster_basic     6f755ad0 f   libgvplugin_dot_layout:cluster.o
+ 0001:00014d20       _incr_width                6f755d20 f   libgvplugin_dot_layout:class2.o
+ 0001:00015370       _make_chain                6f756370 f   libgvplugin_dot_layout:class2.o
+ 0001:000154a0       _label_vnode               6f7564a0 f   libgvplugin_dot_layout:class2.o
+ 0001:00015550       _plain_vnode               6f756550 f   libgvplugin_dot_layout:class2.o
+ 0001:00015580       _interclrep                6f756580 f   libgvplugin_dot_layout:class2.o
+ 0001:000156a0       _leader_of                 6f7566a0 f   libgvplugin_dot_layout:class2.o
+ 0001:00015700       _is_cluster_edge           6f756700 f   libgvplugin_dot_layout:class2.o
+ 0001:000158f0       _interclust1               6f7568f0 f   libgvplugin_dot_layout:class1.o
+ 0001:00015b50       _dfs                       6f756b50 f   libgvplugin_dot_layout:acyclic.o
+ 0001:00015dfe       _pre_c_init                6f756dfe f   msvcrt:crtdll.obj
+ 0001:00015fea       ___DllMainCRTStartup       6f756fea f   msvcrt:crtdll.obj
+ 0001:00016578       _has_osfxsr_set            6f757578 f   msvcrt:cpu_disp.obj
