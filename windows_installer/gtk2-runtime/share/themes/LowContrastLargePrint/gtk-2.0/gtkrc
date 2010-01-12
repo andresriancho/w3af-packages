@@ -9,7 +9,7 @@
 #
 # email: bill.haneman@sun.com
 
-pixmap_path "/tmp/build/share/themes/LowContrastLargePrint/pixmaps"
+# pixmap_path "/tmp/build/share/themes/LowContrastLargePrint/pixmaps"
 
 gtk-icon-sizes = "mini-commander-icon=24,24:print-manager=64,64:panel-button=32,32:gtk-dnd=48,48:gtk-menu=32,32:panel-menu=48,48:gtk-large-toolbar=48,48:gtk-small-toolbar=32,32:gtk-button=32,32:gtk-dialog=64,64"
 

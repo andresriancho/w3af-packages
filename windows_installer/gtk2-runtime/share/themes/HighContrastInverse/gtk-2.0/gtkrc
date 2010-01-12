@@ -9,13 +9,16 @@
 #Note: we just use the LargePrint icons for now, they will be scaled
 #to the correct size
 
-pixmap_path "/tmp/build/share/themes/HighContrastLargePrintInverse/pixmaps"
+# pixmap_path "/tmp/build/share/themes/HighContrastLargePrintInverse/pixmaps"
 
 style "default"   
 { 
   engine "hcengine" {
-  # edge_thickness = 2
+    edge_thickness = 2
   }
+
+  xthickness = 2
+  ythickness = 2
 
 # For Java Desktop System
   PanelMenu::stripe-gradient-top = "#000033"
@@ -23,8 +26,8 @@ style "default"
   
   GtkWidget::link-color = "#FFFFFF"
   GtkWidget::visited-link-color = "#FFCCFF"
-  GtkWidget::focus-line-pattern = "\2\1"
-  GtkWidget::focus-line-width = 1
+  GtkWidget::focus-line-pattern = "\4\2"
+  GtkWidget::focus-line-width = 2
   GtkHSV::focus-line-pattern = "\0"
   GtkWidget::interior_focus = 1
   GtkWidget::focus-padding = 0

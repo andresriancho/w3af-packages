@@ -34,9 +34,6 @@ style "fedora-default"
 	xthickness			= 1
 	ythickness			= 1
 
-  	GtkTreeView::odd_row_color 	= shade (0.929458256, @base_color)
-#  	GtkTreeView::even_row_color 	= @base_color
-
 	fg[NORMAL]       	=  @fg_color
 	fg[ACTIVE]       	=  @fg_color
 	fg[PRELIGHT]     	=  @fg_color
@@ -87,6 +84,11 @@ style "fedora-default"
 style "evolution-hack" = "fedora-default"
 {	
 	bg[ACTIVE]	= @bg_color
+}
+
+style "evolution-hack-tree" = "fedora-default"
+{	
+	bg[ACTIVE]	= shade (0.8, @bg_color)
 	bg[SELECTED]	= shade (1.040897799, @selected_bg_color)
 	fg[ACTIVE]	= @text_color
 	fg[SELECTED]	= @selected_fg_color
@@ -125,7 +127,7 @@ style "fedora-menubar" = "fedora-default"
 	text[PRELIGHT] =  @selected_fg_color
 }
 
-style "fedora-panel-menubar" = "fedora-default"
+style "fedora-panel-menubar" = "fedora-menubar"
 {
 	fg[PRELIGHT]	= @selected_fg_color
 	text[PRELIGHT]	= @selected_fg_color
@@ -255,13 +257,29 @@ widget_class "*.GtkFrame.GtkLabel"	style "fedora-frame-title"
 # notebook stuff
 widget_class "*.GtkNotebook.*.GtkEventBox"	style "fedora-notebook"
 widget_class "*.GtkNotebook.*.GtkViewport"	style "fedora-notebook"
+widget_class "*<GtkNotebook>*<GtkDrawingArea>"  style "fedora-notebook"
+widget_class "*<GtkNotebook>*<GtkLayout>"       style "fedora-notebook"
 
 # these should really use base and text colors instead
-widget_class "*GtkCTree*"	style "evolution-hack"
-widget_class "*GtkList*"	style "evolution-hack"
-widget_class "*GtkCList*"	style "evolution-hack"
-widget_class "*.ETree.*"	style "evolution-hack"
+widget_class "*GtkCTree*"	style "evolution-hack-tree"
+widget_class "*GtkList*"	style "evolution-hack-tree"
+widget_class "*GtkCList*"	style "evolution-hack-tree"
+widget_class "*.ETree.*"	style "evolution-hack-tree"
 widget_class "*EInfoLabel*"	style "evolution-hack"
 
-#panel menubar bg hack
+#panel bg hack
 widget "*Panel*Menu*"		style "fedora-panel-menubar"
+
+#evolution new button workaround (should be fixed in Evo 2.24)
+style "fedora-evo-new-button-workaround"
+{
+	engine "nodoka"
+	{
+		toolbarstyle = 0
+	}
+}
+
+widget_class "EShellWindow.GtkVBox.BonoboDock.BonoboDockBand.BonoboDockItem*" style "fedora-evo-new-button-workaround"
+
+widget_class "*.<GtkProgress>"   	style "fedora-progressbar"
+

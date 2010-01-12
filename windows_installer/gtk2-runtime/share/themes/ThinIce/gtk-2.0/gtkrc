@@ -2,6 +2,7 @@
 style "default"
 {
   GtkOptionMenu::indicator_spacing = { 3, 2, 1, 1 }
+  GtkEntry::progress-border = { 1, 1, 1, 1 }
   GtkRange::slider_width = 11
   GtkRange::stepper_size = 11
   GtkScrollbar::min_slider_length = 14
@@ -71,10 +72,16 @@ style "menu-item" {
   text[PRELIGHT] = "#FFFFFF"
 }
 
+style "entry" {
+  bg[SELECTED] = "#C9D2F5"
+  fg[SELECTED] = "#000000"
+}
+
 class "GtkWidget" style "default"
 widget "gtk-tooltip*" style "tooltips"
 class "GtkProgressBar" style "progress-bar"
 class "*MenuItem*" style "menu-item"
+class "GtkEntry" style "entry"
 widget_class "*MenuItem*" style "menu-item"
 widget_class "*.GtkAccelMenuItem.*" style "menu-item"
 widget_class "*.GtkRadioMenuItem.*" style "menu-item"

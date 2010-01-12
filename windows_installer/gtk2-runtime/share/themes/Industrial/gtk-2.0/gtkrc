@@ -29,9 +29,16 @@ style "industrial-default"
   GtkButton::child_displacement_x = 0
   GtkButton::child_displacement_y = 1
 
+  GtkEntry::progress-border = { 0, 0, 0, 0 }
+
   GtkMenuItem::selected_shadow_type = GTK_SHADOW_IN
 
   GtkRange::activate-slider = 1
+
+  # The following line hints to gecko (and possibly other appliations)  
+  # that the entry should be drawn transparently on the canvas.
+  # Without this, gecko will fill in the background of the entry.           
+  GtkEntry::honors-transparent-bg-hint = 1
 
 
   # color definitions
@@ -76,7 +83,11 @@ style "industrial-default"
 #  #base[NORMAL]  = "#b6c9cf"
 #  #text[NORMAL]  = "#000000"
 #
-  engine "industrial" {}
+  engine "industrial"
+  {
+    # Set a hint to disable backward compatibility fallbacks.
+    hint = "use-hints"
+  }
 }
 
 # Style to apply an exterior forcus to GtkEntry
@@ -90,6 +101,16 @@ style "industrial-exterior-focus"
 style "industrial-scale"
 {
 	GtkRange::trough-side-details = 1
+}
+
+# Style for the entry progress bar -- ie. change the colors
+style "industrial-entry"
+{
+  xthickness = 2
+  ythickness = 2
+
+  bg[SELECTED] = mix (0.4, @selected_bg_color, @base_color)
+  fg[SELECTED] = @text_color
 }
 
 # generic squared buttons style, used for the tasklist (treeview is in the extra treeview style)
@@ -130,7 +151,6 @@ style "industrial-menuitem"
   bg[SELECTED]  = @selected_bg_color
   fg[PRELIGHT]  = @selected_fg_color
   fg[SELECTED]  = @selected_fg_color
-  text[PRELIGHT]  = @selected_fg_color
 }
 
 style "industrial-menubar"
@@ -143,7 +163,7 @@ style "industrial-tree-header"
 {
   engine "industrial" 
   {
-    rounded_buttons = FALSE
+    hint = "treeview-header"
   }
   xthickness = 2
   ythickness = 2
@@ -184,6 +204,22 @@ style "metacity-frame"
 	fg[SELECTED]	= @selected_fg_color
 }
 
+style "industrial-spinbutton"
+{
+	engine "industrial"
+	{
+		hint	= "spinbutton"
+	}
+}
+
+style "industrial-comboboxentry"
+{
+	engine "industrial"
+	{
+		hint	= "comboboxentry"
+	}
+}
+
 # default style
 class "GtkWidget" style "industrial-default"
 
@@ -194,25 +230,29 @@ class "GtkRange"      style "industrial-wide"
 class "GtkMenu"       style "industrial-wide"
 class "GtkFrame"      style "industrial-wide"
 class "GtkStatusbar"  style "industrial-wide"
-class "GtkEntry"      style "industrial-wide"
+class "GtkEntry"      style "industrial-entry"
 
-class "GtkEntry"    style "industrial-exterior-focus"
-class "GtkProgress" style "industrial-progress"
-class "GtkScale"    style "industrial-scale"
+class "GtkEntry"      style "industrial-exterior-focus"
+class "GtkSpinButton" style "industrial-spinbutton"
+class "GtkScale"      style "industrial-scale"
 
 class "GtkVScrollbar" style "industrial-arrows"
 class "GtkHScrollbar" style "industrial-arrows"
 
+widget_class "*<GtkComboBoxEntry>.*" style "industrial-comboboxentry"
+widget_class "*<GtkCombo>.*" style "industrial-comboboxentry"
 
 # treeview
-widget_class "*.GtkTreeView.*" style "industrial-tree-header"
-widget_class "*.GtkList.*"     style "industrial-tree-header"
-widget_class "*.GtkCList.*"    style "industrial-tree-header"
-widget_class "*.ETree.*"       style "industrial-tree-header"
-widget_class "*.ETable.*"      style "industrial-tree-header"
+widget_class "*.<GtkTreeView>.GtkButton" style "industrial-tree-header"
+widget_class "*.<GtkList>.GtkButton"     style "industrial-tree-header"
+widget_class "*.<GtkCList>.GtkButton"    style "industrial-tree-header"
+widget_class "*.<ETree>.*"               style "industrial-tree-header"
+widget_class "*.<ETable>.*"              style "industrial-tree-header"
 
 # menuitems and interior
 widget_class "*<GtkMenuItem>*" style "industrial-menuitem"
+
+widget_class "*.<GtkProgress>"   style "industrial-progress"
 
 # druide
 widget_class "*GnomeDruidPage*" style "industrial-druid"
@@ -222,4 +262,47 @@ widget "gtk-tooltip*" style "industrial-tooltips"
 widget "*.tasklist-button" style "industrial-squared"
 
 class "MetaFrames" style "metacity-frame"
+
+
+# Work around for http://bugzilla.gnome.org/show_bug.cgi?id=382646
+# Note that the work around assumes that the combobox is _not_ in
+# appears-as-list mode.
+# This style does not affect GtkComboBoxEntry, it does have an effect
+# on comboboxes in appears-as-list mode though.
+style "industrial-text-is-fg-color-workaround"
+{
+	text[NORMAL]        = @fg_color
+	text[PRELIGHT]      = @fg_color
+	text[SELECTED]      = @selected_fg_color
+	text[ACTIVE]        = @fg_color
+	text[INSENSITIVE]   = darker (@bg_color)
+}
+widget_class "*.<GtkComboBox>.<GtkCellView>"   style "industrial-text-is-fg-color-workaround"
+
+style "industrial-menuitem-text-is-fg-color-workaround"
+{
+	text[NORMAL]        = @fg_color
+	text[PRELIGHT]      = @selected_fg_color
+	text[SELECTED]      = @selected_fg_color
+	text[ACTIVE]        = @fg_color
+	text[INSENSITIVE]   = darker (@bg_color)
+}
+widget "*.gtk-combobox-popup-menu.*"   style "industrial-menuitem-text-is-fg-color-workaround"
+
+# Work around the usage of GtkLabel inside GtkListItems to display text.
+# This breaks because the label is shown on a background that is based on the
+# base color set.
+style "industrial-fg-is-text-color-workaround"
+{
+	fg[NORMAL]      = @text_color
+	fg[PRELIGHT]    = @text_color
+	fg[ACTIVE]      = @selected_fg_color
+	fg[SELECTED]    = @selected_fg_color
+	fg[INSENSITIVE] = darker (@bg_color)
+}
+widget_class "*<GtkListItem>*" style "industrial-fg-is-text-color-workaround"
+# The same problem also exists for GtkCList and GtkCTree
+# Only match GtkCList and not the parent widgets, because that would also change the headers.
+widget_class "*<GtkCList>" style "industrial-fg-is-text-color-workaround"
+
 

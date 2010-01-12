@@ -1,50 +1,94 @@
 # Created July 2006
 # Modified Dec. 2006
 # Modified Jan. 2007
+# Modified Jul. 2008 for xfce 4.6
+# Modified Feb. 2009 for xfce 4.6
 # Olivier Fourdan <fourdan@xfce.org>
-# Based on Tango color scheme http://tango-project.org 
 # Released under the GPL license
 
 style "default"
 {
     GtkWidget::focus-line-width                  = 1
-    GtkWidget::focus_padding                     = 4
-    GtkWidget::interior_focus                    = 5
-    GtkWidget::internal_padding                  = 4
-    GtkButton::default_border                    = {0, 0, 0, 0}
-    GtkButton::default_outside_border            = {0, 0, 0, 0}
+    GtkWidget::focus_padding                     = 0
+    GtkWidget::interior_focus                    = 0
+    GtkWidget::internal_padding                  = 0
+
     GtkButton::child_displacement_x              = 0
     GtkButton::child_displacement_y              = 1
-    GtkButton::default_spacing                   = 5
-    GtkButton::focus-padding                     = 1
+    GtkButton::default_border                    = {0, 0, 0, 0}
+    GtkButton::default_outside_border            = {0, 0, 0, 0}
+    GtkButton::focus-line-pattern                = "\0"
+
+    GtkButtonBox::child_internal_pad_x           = 0
+    GtkButtonBox::child_internal_pad_y           = 0
+    GtkButtonBox::child_min_heigth               = 0
+    GtkButtonBox::child_min_width                = 0
+
     GtkCheckButton::indicator_size               = 12
+    GtkCheckButton::focus-line-pattern           = "\1\1"
+
+    GtkEntry::focus-line-pattern                 = "\0"
+
+    GtkRadioButton::indicator_size               = 12
+    GtkRadioButton::focus-line-pattern           = "\1\1"
+
+    GtkExpander::expander-size                   = 11
+    GtkExpander::expander_spacing                = 0
+
+    GtkMenuBar::internal-padding                 = 0
+
+    GtkMenu::horizontal-padding                  = 0
+    GtkMenu::vertical-padding                    = 0
+
+    GtkMenuItem::internal_padding                = 2
     GtkMenuItem::selected_shadow_type            = etched-in
-    GtkMenuItem::internal_padding                = 5
+
+    GtkOptionMenu::indicator_size                = 0
+    GtkOptionMenu::indicator_spacing             = 0
+
     GtkPaned::handle_full_size                   = 1
-    GtkPaned::handle_size                        = 7
-    GtkRadioButton::indicator_size               = 15
+    GtkPaned::handle_size                        = 3
+
     GtkRange::slider_width                       = 15
     GtkRange::stepper_size                       = 15
     GtkRange::stepper_spacing                    = 0
+    GtkRange::stepper_spacing                    = 0
     GtkRange::trough_border                      = 0
+    GtkRange::trough-border                      = 0
+
+    GtkScale::trough-side-details                = 1
+    GtkScale::value_spacing                      = 0
+
     GtkScrollbar::has_backward_stepper           = 1
     GtkScrollbar::min_slider_length              = 20
-    ExoIconBar::focus_padding                    = 2 
+
+    GtkScrolledWindow::scrollbar_spacing         = 0
+
+    GtkTextView::focus-line-pattern              = "\0"
+
+    GtkToolbar::internal-padding                 = 0
+    GtkToolbar::space-size                       = 10
+    GtkTreeView::expander-size                   = 11
+
+    GtkTreeView::horizontal-separator            = 0
+    GtkTreeView::vertical-separator              = 0
+
+    ExoIconBar::focus_padding                    = 1
 
     xthickness = 2
     ythickness = 2
 
-    base[ACTIVE]      = "#d3d7cf"
+    base[ACTIVE]      = "#d9d7d6"
     base[INSENSITIVE] = "#eeeeec"
     base[NORMAL]      = "#ffffff"
     base[PRELIGHT]    = "#eeeeec"
-    base[SELECTED]    = "#3465a4"
+    base[SELECTED]    = "#bad8ff"
 
-    bg[ACTIVE]        = "#d3d7cf"
+    bg[ACTIVE]        = "#d9d7d6"
     bg[INSENSITIVE]   = "#eeeeec"
     bg[NORMAL]        = "#eeeeec"
     bg[PRELIGHT]      = "#eeeeec"
-    bg[SELECTED]      = "#d3d7cf"
+    bg[SELECTED]      = "#d9d7d6"
 
     fg[ACTIVE]        = "#000000"
     fg[INSENSITIVE]   = "#888a85"
@@ -56,7 +100,7 @@ style "default"
     text[INSENSITIVE] = "#101010"
     text[NORMAL]      = "#101010"
     text[PRELIGHT]    = "#101010"
-    text[SELECTED]    = "#ffffff"
+    text[SELECTED]    = "#101010"
 
     engine "xfce"
     {
@@ -79,28 +123,30 @@ style "gradient" = "default"
             fill_style = gradient
             orientation = vertical
             shade_start = 1.10
-            shade_end = 0.95
+            shade_end = 0.90
         }
     }
 }
 
 style "menu" = "gradient"
 {
-    bg[INSENSITIVE]   = "#ffffff"
-    bg[NORMAL]        = "#ffffff"
-    bg[PRELIGHT]      = "#d3d7cf"
-    fg[SELECTED]      = "#000000"
-    text[SELECTED]    = "#000000"
+    bg[PRELIGHT]      = "#cce2ff"
+    bg[INSENSITIVE]   = "#fafaf7"
+    bg[NORMAL]        = "#fafaf7"
+    fg[ACTIVE]        = "#101010"
+    fg[PRELIGHT]      = "#101010"
+    fg[SELECTED]      = "#101010"
+    text[PRELIGHT]    = "#101010"
 
     engine "xfce"
     {
         smooth_edge = true
         boxfill
         {
-            fill_style = gradient
+            fill_style = plain
             orientation = vertical
             shade_start = 1.10
-            shade_end = 0.95
+            shade_end = 0.90
         }
     }
 }
@@ -115,10 +161,10 @@ style "menuitem" = "menu"
         smooth_edge = true
         boxfill
         {
-            fill_style = gradient
+            fill_style = plain
             orientation = vertical
-            shade_start = 1.10
-            shade_end = 0.95
+            shade_start = 0.90
+            shade_end = 1.10
         }
     }
 }
@@ -126,7 +172,7 @@ style "menuitem" = "menu"
 style "menubar" = "menu"
 {
     xthickness = 1
-    ythickness = 3
+    ythickness = 2
 
     bg[INSENSITIVE]   = "#eeeeec"
     bg[NORMAL]        = "#eeeeec"
@@ -138,7 +184,7 @@ style "menubar" = "menu"
         {
             fill_style = gradient
             orientation = vertical
-            shade_start = 1.20
+            shade_start = 1.00
             shade_end = 0.90
         }
     }
@@ -146,10 +192,10 @@ style "menubar" = "menu"
 
 style "pager" = "gradient"
 {
-    xthickness = 1
-    ythickness = 1
+    xthickness = 0
+    ythickness = 0
 
-    bg[SELECTED]      = "#3465a4"
+    bg[SELECTED]      = "#5e98e3"
     fg[SELECTED]      = "#ffffff"
 
     engine "xfce"
@@ -160,10 +206,10 @@ style "pager" = "gradient"
 
 style "button" = "default"
 {
-    bg[ACTIVE]        = "#d3d7cf"
+    bg[ACTIVE]        = "#d9d7d6"
     bg[NORMAL]        = "#eeeeec"
-    bg[PRELIGHT]      = "#d3d7cf"
-    bg[SELECTED]      = "#3465a4"
+    bg[PRELIGHT]      = "#cce2ff"
+    bg[SELECTED]      = "#4e627d"
 
     fg[ACTIVE]        = "#000000"
     fg[SELECTED]      = "#ffffff"
@@ -177,13 +223,16 @@ style "button" = "default"
             fill_style = gradient
             orientation = vertical
             shade_start = 1.10
-            shade_end = 0.95
+            shade_end = 0.90
         }
     }
 }
 
 style "notebook" = "default"
 {
+    xthickness = 1
+    ythickness = 1
+
     bg[ACTIVE]        = "#e8e8e6"
     bg[NORMAL]        = "#ffffff"
     fg[NORMAL]        = "#101010"
@@ -192,8 +241,8 @@ style "notebook" = "default"
 style "scrollbar" = "default"
 {
     bg[ACTIVE]        = "#e8e8e6"
-    bg[NORMAL]        = "#d3d7cf"
-    bg[PRELIGHT]      = "#d3d7cf"
+    bg[NORMAL]        = "#d9d7d6"
+    bg[PRELIGHT]      = "#cce2ff"
 
     engine "xfce"
     {
@@ -204,7 +253,7 @@ style "scrollbar" = "default"
             fill_style = gradient
             orientation = automatic
             shade_start = 1.10
-            shade_end = 0.95
+            shade_end = 0.90
         }
     }
 }
@@ -220,7 +269,7 @@ style "scale" = "scrollbar"
             fill_style = gradient
             orientation = automatic
             shade_start = 1.10
-            shade_end = 0.95
+            shade_end = 0.90
         }
     }
 }
@@ -230,9 +279,9 @@ style "progress" = "gradient"
     xthickness = 0
     ythickness = 0
 
-    bg[ACTIVE]        = "#d3d7cf"
+    bg[ACTIVE]        = "#d9d7d6"
     bg[NORMAL]        = "#e8e8e6"
-    bg[PRELIGHT]      = "#8ae234"
+    bg[PRELIGHT]      = "#cce2ff"
 
     fg[PRELIGHT]      = "#4e9a06"
 
@@ -245,7 +294,7 @@ style "progress" = "gradient"
             fill_style = gradient
             orientation = automatic
             shade_start = 1.10
-            shade_end = 0.95
+            shade_end = 0.90
         }
     }
 }
@@ -277,10 +326,10 @@ style "rox" = "default"
 
 style "titlebar" = "default"
 {
-    bg[INSENSITIVE]   = "#eeeeec"
-    bg[SELECTED]      = "#888a85"
-    fg[INSENSITIVE]   = "#888a85"
+    bg[SELECTED]      = "#5e98e3"
     fg[SELECTED]      = "#ffffff"
+    bg[INSENSITIVE]   = "#eeeeec"
+    fg[INSENSITIVE]   = "#888a85"
 }
 
 

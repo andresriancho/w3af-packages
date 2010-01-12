@@ -8,20 +8,23 @@
 #
 # email: bill.haneman@sun.com
 
-pixmap_path "/tmp/build/share/themes/HighContrastLargePrint/pixmaps"
+# pixmap_path "/tmp/build/share/themes/HighContrastLargePrint/pixmaps"
 
 style "default"
 {
   engine "hcengine" {
-  # edge_thickness = 2
+    edge_thickness = 2
   }
+
+  xthickness = 2
+  ythickness = 2
 
 # For Java Desktop System
   PanelMenu::stripe-gradient-top = "#000000"
   PanelMenu::stripe-gradient-bottom = "#000000"
 
-  GtkWidget::focus-line-pattern = "\2\1"
-  GtkWidget::focus-line-width = 1
+  GtkWidget::focus-line-pattern = "\4\2"
+  GtkWidget::focus-line-width = 2
   GtkHSV::focus-line-pattern = "\0"
   GtkWidget::interior_focus = 1
   GtkWidget::focus-padding = 0

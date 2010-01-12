@@ -6,8 +6,6 @@
 # primarily the one for the metal theme.
 # email: bill.haneman@sun.com
 
-pixmap_path "/tmp/build/share/themes/HighContrastLargePrintInverse/pixmaps"
-
 gtk-icon-sizes = "mini-commander-icon=24,24:print-manager=64,64:panel-button=32,32:gtk-dnd=48,48:gtk-menu=32,32:panel-menu=48,48:gtk-large-toolbar=48,48:gtk-small-toolbar=32,32:gtk-button=32,32:gtk-dialog=64,64"
 
 style "default"
@@ -20,13 +18,16 @@ style "default"
 	cell_indicator_size = 18
   }
 
+  xthickness = 3
+  ythickness = 3
+
 # For Java Desktop System
   PanelMenu::stripe-gradient-top = "#000033"
   PanelMenu::stripe-gradient-bottom = "#000033"
 
   GtkWidget::link-color = "#FFFFFF"
   GtkWidget::visited-link-color = "#FFCCFF"
-  GtkWidget::focus-line-pattern = "\10\2"
+  GtkWidget::focus-line-pattern = "\10\3"
   GtkWidget::interior_focus = 1
   GtkWidget::focus-padding = 0
   GtkWidget::focus-line-width = 3
@@ -37,6 +38,7 @@ style "default"
   GtkEntry::cursor_color    = "#00cccc"
   GtkEntry::cursor_aspect_ratio = 0.1
   GtkTreeView::expander_size = 20
+  GtkTreeView::grid-line-width = 2
   GtkTextView::cursor_aspect_ratio = 0.1
   GtkTextView::cursor_color    = "#00cccc"
   EelEditableLabel::cursor_color    = "#00cccc"
