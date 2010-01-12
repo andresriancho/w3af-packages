@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
-<assemblyIdentity processorArchitecture="x86" version="5.1.0.0" name="w3af_update" type="win32" />
+<assemblyIdentity processorArchitecture="x86" version="5.1.0.0" name="w3af_gui" type="win32" />
 <description>w3af GUI</description>
 	<trustInfo xmlns="urn:schemas-microsoft-com:asm.v3">
 		<security>
