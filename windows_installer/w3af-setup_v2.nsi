@@ -22,7 +22,7 @@
 
 ; Define your application name
 !define APPNAME "w3af"
-!define APPNAMEANDVERSION "w3af 1.0 rc3"
+!define APPNAMEANDVERSION "w3af 1.0 rc3 (testing) - 2"
 !define REGKEY "Software\${APPNAME}"
 
 
@@ -53,8 +53,6 @@ RequestExecutionLevel admin
 ;Variables
 
 Var StartMenuFolder
-Var PYTHON_DIR
-Var Label2k
 
 
 ;--------------------------------
@@ -72,11 +70,10 @@ Var Label2k
 !define MUI_STARTMENUPAGE_REGISTRY_KEY "${REGKEY}"
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME "Start Menu Folder"
 
-;!define MUI_FINISHPAGE_RUN "$SMPROGRAMS\$StartMenuFolder\w3af GUI.lnk"
+
 !define MUI_FINISHPAGE_RUN
 !define MUI_FINISHPAGE_RUN_TEXT "Run w3af GUI"
 !define MUI_FINISHPAGE_RUN_FUNCTION RunW3afGUI
-;!define MUI_FINISHPAGE_SHOWREADME "$SMPROGRAMS\$StartMenuFolder\w3af Users Guide (HTML).lnk"
 !define MUI_FINISHPAGE_SHOWREADME
 !define MUI_FINISHPAGE_SHOWREADME_TEXT "Show User Guide"
 !define MUI_FINISHPAGE_SHOWREADME_FUNCTION ShowReleaseNotes
@@ -89,7 +86,7 @@ Var Label2k
 !define MEMENTO_REGISTRY_ROOT ${MUI_STARTMENUPAGE_REGISTRY_ROOT}
 !define MEMENTO_REGISTRY_KEY ${MUI_STARTMENUPAGE_REGISTRY_KEY}
 
-!define LINK_PYTHON "http://www.python.org/download/releases/2.5.4/"
+
 
 
 ;--------------------------------
@@ -107,7 +104,6 @@ Var Label2k
 
 ; Installer pages
 !insertmacro MUI_PAGE_WELCOME
-Page custom WindowDetectPython
 !insertmacro MUI_PAGE_LICENSE "GPL.txt"
 !insertmacro MUI_PAGE_COMPONENTS
 !insertmacro MUI_PAGE_DIRECTORY
@@ -118,7 +114,6 @@ Page custom WindowDetectPython
 ; Uninstall Pages
 !insertmacro MUI_UNPAGE_WELCOME
 !insertmacro MUI_UNPAGE_CONFIRM
-;!insertmacro MUI_UNPAGE_COMPONENTS
 !insertmacro MUI_UNPAGE_INSTFILES
 !insertmacro MUI_UNPAGE_FINISH
 
@@ -128,19 +123,12 @@ Page custom WindowDetectPython
 !insertmacro RefreshShellIcons
 
 ;--------------------------------
-; Instalation Types
-
-;InstType "Full" #1
-InstType "Full"
-InstType "Minimal"
-
 ; Portable W3af
 !include "WinMessages.nsh"
 !include "FileFunc.nsh"
 
-!insertmacro GetParameters
-!insertmacro GetOptions
-
+;!insertmacro GetParameters
+;!insertmacro GetOptions
 
 ;--------------------------------
 ; Languages
@@ -148,15 +136,6 @@ InstType "Minimal"
 !insertmacro MUI_LANGUAGE "English"
 !insertmacro MUI_LANGUAGE "Spanish"
 !insertmacro MUI_RESERVEFILE_LANGDLL
-
-; (English)
-LangString PAGE_TITLE ${LANG_ENGLISH} "Prerequisite verification"
-LangString PAGE_SUBTITLE ${LANG_ENGLISH} "In this step the installer verifies if the system has the necessary prerequisites for the w3af installation."
-
-; (Spanish)
-LangString PAGE_TITLE ${LANG_SPANISH} "Verificación de pre-requisitos"
-LangString PAGE_SUBTITLE ${LANG_SPANISH} "En este paso el instalador verifica si el sistema tiene los pre-requisitos necesarios para la instalación de w3af"
-
 
 ;--------------------------------
 ; Version of installer
@@ -185,6 +164,7 @@ Function .onInit
 	
 	; Install W3af
 
+
 	; Select Language
 	!insertmacro MUI_LANGDLL_DISPLAY
 	
@@ -195,7 +175,7 @@ Function .onInit
 
 	;Uninstall before Install
 	ReadRegStr $R0 HKLM "${REGKEY}" ""
-	IfFileExists $R0\w3af_console 0 install
+	IfFileExists $R0\w3af_console.bat 0 install
 	MessageBox MB_YESNO|MB_ICONQUESTION "You have to uninstall the previously installed version of w3af before installing this version. Do you want to uninstall the old version of w3af?" IDYES Desinstalar IDNO end
 	Goto end
 	
@@ -218,27 +198,45 @@ Function .onInstSuccess
 FunctionEnd
 
 
-############## W3AF ##############
-${MementoSection} !"w3af" SectionW3af
+############## Section W3AF ##############
+${MementoSection} !"W3af-Console" SectionW3af
 
-	SectionIn 1 2 RO
+	SectionIn 1 RO
 	SetDetailsPrint both
 	SetOverwrite on
 	
-	SetOutPath "$INSTDIR\GTK\"
-	; Icons
-	File "image\w3af_gui_icon.ico"
-	File "image\w3af_script_icon.ico"
-	
-	
-	SetOutPath "$INSTDIR\"
+;	############## W3AF ##############
+	SetOutPath "$INSTDIR\w3af\"
 	
 	; SVN TRUNK
 	;File /r /x "*.pyc" /x "*.pyo" "..\..\trunk\*"
 	
-	File /r /x "*.pyc" /x "*.pyo" "..\..\tags\1.0-rc3\*"
+	File /r /x "*.pyc" /x "*.pyo" "..\..\tags\1.0-rc3\*.*"
 	
+
+;	############## GTK ##############
+	SetOutPath "$INSTDIR\GTK\"
+	File /r /x ".svn" "Graphviz220\*.*"
 	
+	File /r /x ".svn" "gtk2-runtime\*.*"
+	
+	; Icons
+	File "image\w3af_gui_icon.ico"
+	File "image\w3af_script_icon.ico"
+
+	
+;	############## SVN Client ##############
+	SetOutPath "$INSTDIR\svn-client\"
+	File /r /x ".svn" "svn-client\*.*"
+	
+
+;	############## Python2.5.4 + pre-requisites ##############
+	SetOutPath "$INSTDIR\python25\"
+	File /r /x ".svn" "python25\*.*"
+
+
+;	############## \ ##############
+	SetOutPath "$INSTDIR\"
 	
 	; Manifest (WinVista/Win7)
 	File "w3af_console.bat.manifest"
@@ -263,22 +261,7 @@ ${MementoSection} !"w3af" SectionW3af
   Call AddToPath
 	
 	
-	
-	############## GTK ##############
-	SetOutPath "$INSTDIR\GTK\"
-	File "Graphviz2.20\*"
-	
-	File /x ".svn" "GTK2-Runtime\*"
-	
-
-	
-	############## SVN Client ##############
-	SetOutPath "$INSTDIR\svn-client\"
-	File /x ".svn" "svn-client\*"
-	
-	
 ${MementoSectionEnd}
-
 
 
 Section -AsociationExtW3af
@@ -290,7 +273,7 @@ Section -AsociationExtW3af
 		
 	WriteRegStr HKCR ".w3af" "" "W3AF.Script"
 	WriteRegStr HKCR "W3AF.Script" "" "W3AF Script File"
-	WriteRegStr HKCR "W3AF.Script\DefaultIcon" "" "$INSTDIR\w3af_script_icon.ico,0"
+	WriteRegStr HKCR "W3AF.Script\DefaultIcon" "" "$INSTDIR\GTK\w3af_script_icon.ico,0"
 
 	; Open .w3af with w3af_console
 	WriteRegStr HKCR "W3AF.Script\shell" "" "open"	;Default
@@ -307,7 +290,7 @@ Section -AsociationExtW3af
 
 	WriteRegStr HKCR ".pw3af" "" "W3AF.Profile"
 	WriteRegStr HKCR "W3AF.Profile" "" "W3AF Profile File"
-	WriteRegStr HKCR "W3AF.Profile\DefaultIcon" "" "$INSTDIR\w3af_gui_icon.ico,0"
+	WriteRegStr HKCR "W3AF.Profile\DefaultIcon" "" "$INSTDIR\GTK\w3af_gui_icon.ico,0"
 
 	; Open .pw3af with w3af_gui
 	WriteRegStr HKCR "W3AF.Profile\shell" "" "open"	; Default
@@ -331,11 +314,11 @@ Section -MakeShortCuts
 		
 		; Create shortcuts
 		CreateShortCut "$DESKTOP\w3af Console.lnk" "$INSTDIR\w3af_console.bat" ""
-		CreateShortCut "$DESKTOP\w3af GUI.lnk" "$INSTDIR\w3af_gui.bat" "" "$INSTDIR\w3af_gui_icon.ico" 0 SW_SHOWNORMAL
+		CreateShortCut "$DESKTOP\w3af GUI.lnk" "$INSTDIR\w3af_gui.bat" "" "$INSTDIR\GTK\w3af_gui_icon.ico" 0 SW_SHOWNORMAL
 		
 		CreateDirectory "$SMPROGRAMS\$StartMenuFolder"
 		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Console.lnk" "$INSTDIR\w3af_console.bat" ""
-		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af GUI.lnk" "$INSTDIR\w3af_gui.bat" "" "$INSTDIR\w3af_gui_icon.ico" 0 SW_SHOWNORMAL
+		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af GUI.lnk" "$INSTDIR\w3af_gui.bat" "" "$INSTDIR\GTK\w3af_gui_icon.ico" 0 SW_SHOWNORMAL
 		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af update.lnk" "$INSTDIR\w3af_update.bat" "" "$INSTDIR\svn-client\svn.exe" 0 SW_SHOWNORMAL
 
 		# Restore the old out path
@@ -346,16 +329,16 @@ Section -MakeShortCuts
 		;Readme EN
 		CreateDirectory "$SMPROGRAMS\$StartMenuFolder\readme"
 		CreateDirectory "$SMPROGRAMS\$StartMenuFolder\readme\EN"
-		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\EN\w3af Users Guide (PDF).lnk" "$INSTDIR\readme\EN\w3afUsersGuide.pdf"
-		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\EN\w3af Users Guide (HTML).lnk" "$INSTDIR\readme\EN\w3afUsersGuide.html"
-		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\EN\w3af gtkUi User Guide (HTML).lnk" "$INSTDIR\readme\EN\gtkUiHTML\gtkUiUsersGuide.html"
+		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\EN\w3af Users Guide (PDF).lnk" "$INSTDIR\w3af\readme\EN\w3afUsersGuide.pdf"
+		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\EN\w3af Users Guide (HTML).lnk" "$INSTDIR\w3af\readme\EN\w3afUsersGuide.html"
+		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\EN\w3af gtkUi User Guide (HTML).lnk" "$INSTDIR\w3af\readme\EN\gtkUiHTML\gtkUiUsersGuide.html"
 
 		;Readme FR
 		CreateDirectory "$SMPROGRAMS\$StartMenuFolder\readme\FR"
-		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\FR\w3af Users Guide (PDF).lnk" "$INSTDIR\readme\FR\w3afUsersGuide_fr.pdf"
-		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\FR\w3af Users Guide (HTML).lnk" "$INSTDIR\readme\FR\w3afUsersGuide_fr.html"
+		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\FR\w3af Users Guide (PDF).lnk" "$INSTDIR\w3af\readme\FR\w3afUsersGuide_fr.pdf"
+		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\FR\w3af Users Guide (HTML).lnk" "$INSTDIR\w3af\readme\FR\w3afUsersGuide_fr.html"
 		
-		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Uninstall w3af.lnk" "$INSTDIR\uninstall.exe"				
+		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Uninstall w3af.lnk" "$INSTDIR\uninstall.exe"
 	!insertmacro MUI_STARTMENU_WRITE_END
 	
 SectionEnd
@@ -364,7 +347,7 @@ Section -FinishSection
 	
 	WriteRegStr HKLM ${REGKEY} "" "$INSTDIR"
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "DisplayName" "${APPNAME}"
-	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "DisplayIcon" "$INSTDIR\w3af_gui_icon.ico"
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "DisplayIcon" "$INSTDIR\GTK\w3af_gui_icon.ico"
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "DisplayVersion" "${APPNAMEANDVERSION}"
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "URLInfoAbout" "http://w3af.sf.net/"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "HelpLink" "http://w3af.sf.net/"
@@ -389,7 +372,7 @@ ${MementoSectionDone}
 
 
 ; Uninstall section
-Section Uninstall
+Section un.Uninstall
 	
 	;ReadRegStr $StartMenuFolder HKCU ${REGKEY} MUI_STARTMENUPAGE_REGISTRY_VALUENAME
 	
@@ -427,7 +410,7 @@ SectionEnd
 
 
 Function ShowReleaseNotes	
-	ExecShell "open" "$INSTDIR\readme\EN\w3afUsersGuide.html"
+	ExecShell "open" "$INSTDIR\w3af\readme\EN\w3afUsersGuide.html"
 FunctionEnd
 
 Function RunW3afGUI
@@ -443,7 +426,7 @@ Function Writew3afConsole
 	FileOpen $R9 $R0 w
 	FileWrite $R9 "@echo off$\r$\n"
 	FileWrite $R9 "set PATH=%CD%;%CD%\svn-client;%CD%\GTK\bin;%CD%\Python25;%CD%\w3af;%CD%\Python25\DLLs;%PATH%$\r$\n"
-	FileWrite $R9 "$\"%CD%\Python25\python.exe$\" w3af_console $\"%1$\" $\"%2$\"$\r$\n"
+	FileWrite $R9 "$\"%CD%\Python25\python.exe$\" w3af\w3af_console $\"%1$\" $\"%2$\"$\r$\n"
 	FileClose $R9
 	Pop $R9
 FunctionEnd
@@ -456,7 +439,7 @@ Function Writew3afGUI
 	FileOpen $R9 $R0 w
 	FileWrite $R9 "@echo off$\r$\n"
 	FileWrite $R9 "set PATH=%CD%;%CD%\svn-client;%CD%\GTK\bin;%CD%\Python25;%CD%\w3af;%CD%\Python25\DLLs;%PATH%$\r$\n"
-	FileWrite $R9 "$\"%CD%\Python25\python.exe$\" w3af_gui $\"%1$\" $\"%2$\"$\r$\n"
+	FileWrite $R9 "$\"%CD%\Python25\python.exe$\" w3af\w3af_gui $\"%1$\" $\"%2$\"$\r$\n"
 	FileClose $R9
 	Pop $R9
 FunctionEnd
