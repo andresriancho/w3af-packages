@@ -369,8 +369,10 @@ Function Writew3afConsole
 	Push $R9
 	FileOpen $R9 $R0 w
 	FileWrite $R9 "@echo off$\r$\n"
-	FileWrite $R9 "set PATH=%CD%;%CD%\svn-client;%CD%\GTK\bin;%CD%\Python25;%CD%\w3af;%CD%\Python25\DLLs;%PATH%$\r$\n"
-	FileWrite $R9 "$\"%CD%\Python25\python.exe$\" w3af\w3af_console $\"%1$\" $\"%2$\"$\r$\n"
+	FileWrite $R9 "set DIR=$INSTDIR$\r$\n"
+	FileWrite $R9 "set PATH=%DIR%;%DIR%\svn-client;%DIR%\GTK\bin;%DIR%\Python25;%DIR%\w3af;%DIR%\Python25\DLLs;%PATH%$\r$\n"
+	FileWrite $R9 "cd $\"%DIR%$\"$\r$\n"
+	FileWrite $R9 "$\"%DIR%\Python25\python.exe$\" w3af\w3af_console %1 %2$\r$\n"
 	FileClose $R9
 	Pop $R9
 FunctionEnd
@@ -381,8 +383,10 @@ Function Writew3afGUI
 	Push $R9
 	FileOpen $R9 $R0 w
 	FileWrite $R9 "@echo off$\r$\n"
-	FileWrite $R9 "set PATH=%CD%;%CD%\svn-client;%CD%\GTK\bin;%CD%\Python25;%CD%\w3af;%CD%\Python25\DLLs;%PATH%$\r$\n"
-	FileWrite $R9 "$\"%CD%\Python25\python.exe$\" w3af\w3af_gui $\"%1$\" $\"%2$\"$\r$\n"
+	FileWrite $R9 "set DIR=$INSTDIR$\r$\n"
+	FileWrite $R9 "set PATH=%DIR%;%DIR%\svn-client;%DIR%\GTK\bin;%DIR%\Python25;%DIR%\w3af;%DIR%\Python25\DLLs;%PATH%$\r$\n"
+	FileWrite $R9 "cd $\"%DIR%$\"$\r$\n"
+	FileWrite $R9 "$\"%DIR%\Python25\python.exe$\" w3af\w3af_gui %1 %2$\r$\n"
 	FileClose $R9
 	Pop $R9
 FunctionEnd
