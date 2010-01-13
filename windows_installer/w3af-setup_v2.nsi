@@ -1,36 +1,29 @@
 ;Copyright 2008,2009,2010 Ulises U. Cuñé
-;
 ;This file is part of w3af Windows Installer.
-;
 ;w3af is free software; you can redistribute it and/or modify
 ;it under the terms of the GNU General Public License as published by
 ;the Free Software Foundation version 2 of the License.
-;
 ;w3ad windows installer is distributed in the hope that it will be useful,
 ;but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;GNU General Public License for more details.
-
+;
 ;You should have received a copy of the GNU General Public License
 ;along with w3af; if not, write to the Free Software
 ;Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-;
-;
 ;
 ; General
 !define /date RELEASE_VERSION "%d/%m/%Y"
 
 ; Define your application name
 !define APPNAME "w3af"
-!define APPNAMEANDVERSION "w3af 1.0 rc3 (testing) - 2"
+!define APPNAMEANDVERSION "w3af 1.0 rc3 (Testing_v2)"
 !define REGKEY "Software\${APPNAME}"
-
 
 ; Main Install settings
 Name "${APPNAME}"
 InstallDir "$PROGRAMFILES\${APPNAME}"
 InstallDirRegKey HKLM "${REGKEY}" ""
-
 
 OutFile "${APPNAMEANDVERSION} setup.exe"
 
@@ -43,17 +36,13 @@ SetDateSave on
 XPStyle off ; NO habilitar porque tiene problemas con la funcion SetCtlColors
 ShowInstDetails hide
 
-
 ; Request application privileges for Windows Vista
 RequestExecutionLevel admin
-
-
 
 ;--------------------------------
 ;Variables
 
 Var StartMenuFolder
-
 
 ;--------------------------------
 ;Interface Settings
@@ -70,7 +59,6 @@ Var StartMenuFolder
 !define MUI_STARTMENUPAGE_REGISTRY_KEY "${REGKEY}"
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME "Start Menu Folder"
 
-
 !define MUI_FINISHPAGE_RUN
 !define MUI_FINISHPAGE_RUN_TEXT "Run w3af GUI"
 !define MUI_FINISHPAGE_RUN_FUNCTION RunW3afGUI
@@ -81,13 +69,9 @@ Var StartMenuFolder
 !define MUI_FINISHPAGE_LINK "Visit the w3af site for the latest news, FAQs and support"
 !define MUI_FINISHPAGE_LINK_LOCATION "http://w3af.sf.net/"
 
-
 # MEMENTO
 !define MEMENTO_REGISTRY_ROOT ${MUI_STARTMENUPAGE_REGISTRY_ROOT}
 !define MEMENTO_REGISTRY_KEY ${MUI_STARTMENUPAGE_REGISTRY_KEY}
-
-
-
 
 ;--------------------------------
 ;Include
@@ -118,17 +102,9 @@ Var StartMenuFolder
 !insertmacro MUI_UNPAGE_FINISH
 
 ;--------------------------------
-; Asociation .w3af to w3af_console.bat
-;
-!insertmacro RefreshShellIcons
-
-;--------------------------------
 ; Portable W3af
 !include "WinMessages.nsh"
 !include "FileFunc.nsh"
-
-;!insertmacro GetParameters
-;!insertmacro GetOptions
 
 ;--------------------------------
 ; Languages
@@ -148,48 +124,35 @@ VIAddVersionKey  /LANG=${LANG_ENGLISH} "LegalCopyright" "GPL"
 VIAddVersionKey  /LANG=${LANG_ENGLISH} "FileDescription" "Web Application Attack and Audit Framework - Installer."
 VIAddVersionKey  /LANG=${LANG_ENGLISH} "FileVersion" "${APPNAMEANDVERSION}"
 
-
 Function .onInit
-	
 	File /oname=$TEMP\splash.bmp "image\splash.bmp"	
 	advsplash::show 3000 600 400 -1 $TEMP\splash
 
 	; Prevent Multiple Instances
 	System::Call 'kernel32::CreateMutexA(i 0, i 0, t "w3af_installer") i .r1 ?e'
-		Pop $R0
+	Pop $R0
 
 	StrCmp $R0 0 +3
 		MessageBox MB_OK|MB_ICONEXCLAMATION "The w3af installer is already running"
-		Abort
-	
-	; Install W3af
+	Abort
 
 
 	; Select Language
 	!insertmacro MUI_LANGDLL_DISPLAY
-	
 	StrCpy $StartMenuFolder ${APPNAME}
-	
 	${MementoSectionRestore}
-	
-
 	;Uninstall before Install
 	ReadRegStr $R0 HKLM "${REGKEY}" ""
 	IfFileExists $R0\w3af_console.bat 0 install
-	MessageBox MB_YESNO|MB_ICONQUESTION "You have to uninstall the previously installed version of w3af before installing this version. Do you want to uninstall the old version of w3af?" IDYES Desinstalar IDNO end
+		MessageBox MB_YESNO|MB_ICONQUESTION "You have to uninstall the previously installed version of w3af before installing this version. Do you want to uninstall the old version of w3af?" IDYES Desinstalar IDNO end
 	Goto end
-	
 desinstalar:
 	Exec $R0\uninstall.exe
-	
 end:
 	Quit
-	
 install:
 
-
 FunctionEnd
-
 
 Function .onInstSuccess
 	IfFileExists "$TEMP\splash.bmp" 0 +2
@@ -197,27 +160,20 @@ Function .onInstSuccess
 	${MementoSectionSave}
 FunctionEnd
 
-
 ############## Section W3AF ##############
-${MementoSection} !"W3af-Console" SectionW3af
+${MementoSection} !"W3AF" SectionW3af
 
 	SectionIn 1 RO
 	SetDetailsPrint both
 	SetOverwrite on
-	
 ;	############## W3AF ##############
 	SetOutPath "$INSTDIR\w3af\"
+	;File /r /x "*.pyc" /x "*.pyo" "..\..\tags\1.0-rc3\*.*"
+	File /r /x "*.pyc" /x "*.pyo" "..\..\trunk\*.*"
 	
-	; SVN TRUNK
-	;File /r /x "*.pyc" /x "*.pyo" "..\..\trunk\*"
-	
-	File /r /x "*.pyc" /x "*.pyo" "..\..\tags\1.0-rc3\*.*"
-	
-
 ;	############## GTK ##############
 	SetOutPath "$INSTDIR\GTK\"
-	File /r /x ".svn" "Graphviz220\*.*"
-	
+	File /r /x ".svn" "Graphviz2.20\*.*"
 	File /r /x ".svn" "gtk2-runtime\*.*"
 	
 	; Icons
@@ -228,12 +184,10 @@ ${MementoSection} !"W3af-Console" SectionW3af
 ;	############## SVN Client ##############
 	SetOutPath "$INSTDIR\svn-client\"
 	File /r /x ".svn" "svn-client\*.*"
-	
 
 ;	############## Python2.5.4 + pre-requisites ##############
 	SetOutPath "$INSTDIR\python25\"
 	File /r /x ".svn" "python25\*.*"
-
 
 ;	############## \ ##############
 	SetOutPath "$INSTDIR\"
@@ -255,22 +209,27 @@ ${MementoSection} !"W3af-Console" SectionW3af
 	; Create w3af Update
 	Push $INSTDIR\w3af_update.bat
 	Call Writew3afUpdate
+
+	; Create w3af Theme
+	Push $INSTDIR\w3af_theme.bat
+	Call Writew3afTheme
 	
 	; Add w3af install dir to %PATH% (CURRENT_USER)
-  Push $INSTDIR
-  Call AddToPath
+	Push $INSTDIR
+	Call AddToPath
 	
+	; Copy .gtkrc-2.0 to %USERPROFILE%
+	SetOutPath "$PROFILE"
+	File "gtk2-runtime\share\themes\ClearlooksClassic\gtk-2.0\gtkrc"
 	
 ${MementoSectionEnd}
 
-
 Section -AsociationExtW3af
-	
 	; Script .w3af
 	ReadRegStr $R0 HKCR ".w3af" ""
 	StrCmp $R0 "W3AF.Script" 0 +2
-		DeleteRegKey HKCR "W3AF.Script"
-		
+	DeleteRegKey HKCR "W3AF.Script"
+	
 	WriteRegStr HKCR ".w3af" "" "W3AF.Script"
 	WriteRegStr HKCR "W3AF.Script" "" "W3AF Script File"
 	WriteRegStr HKCR "W3AF.Script\DefaultIcon" "" "$INSTDIR\GTK\w3af_script_icon.ico,0"
@@ -282,11 +241,10 @@ Section -AsociationExtW3af
 	; Edit .w3af with notepad.exe
 	WriteRegStr HKCR "W3AF.Script\shell\edit\command" "" '"notepad.exe" "%1"'
 	
-	
 	; Profile .pw3af
 	ReadRegStr $R0 HKCR ".pw3af" ""
 	StrCmp $R0 "W3AF.Profile" 0 +2
-		DeleteRegKey HKCR "W3AF.Profile"
+	DeleteRegKey HKCR "W3AF.Profile"
 
 	WriteRegStr HKCR ".pw3af" "" "W3AF.Profile"
 	WriteRegStr HKCR "W3AF.Profile" "" "W3AF Profile File"
@@ -298,68 +256,60 @@ Section -AsociationExtW3af
 
 	; Edit .pw3af with notepad.exe	
 	WriteRegStr HKCR "W3AF.Profile\shell\edit\command" "" '"notepad.exe" "%1"'
-	
 	;After changing file associations, you can call this function to refresh the shell immediately.	
 	${RefreshShellIcons}
 
 SectionEnd
 
 Section -MakeShortCuts
-	
 	!insertmacro MUI_STARTMENU_WRITE_BEGIN Application
-		SetShellVarContext current
+	SetShellVarContext current
 
-		#SetShellVarContext current
-		SetOutPath "$INSTDIR"
-		
-		; Create shortcuts
-		CreateShortCut "$DESKTOP\w3af Console.lnk" "$INSTDIR\w3af_console.bat" ""
-		CreateShortCut "$DESKTOP\w3af GUI.lnk" "$INSTDIR\w3af_gui.bat" "" "$INSTDIR\GTK\w3af_gui_icon.ico" 0 SW_SHOWNORMAL
-		
-		CreateDirectory "$SMPROGRAMS\$StartMenuFolder"
-		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Console.lnk" "$INSTDIR\w3af_console.bat" ""
-		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af GUI.lnk" "$INSTDIR\w3af_gui.bat" "" "$INSTDIR\GTK\w3af_gui_icon.ico" 0 SW_SHOWNORMAL
-		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af update.lnk" "$INSTDIR\w3af_update.bat" "" "$INSTDIR\svn-client\svn.exe" 0 SW_SHOWNORMAL
+	#SetShellVarContext current
+	SetOutPath "$INSTDIR"
+	
+	; Create shortcuts
+	CreateShortCut "$DESKTOP\w3af Console.lnk" "$INSTDIR\w3af_console.bat" ""
+	CreateShortCut "$DESKTOP\w3af GUI.lnk" "$INSTDIR\w3af_gui.bat" "" "$INSTDIR\GTK\w3af_gui_icon.ico" 0 SW_SHOWNORMAL
+	
+	CreateDirectory "$SMPROGRAMS\$StartMenuFolder"
+	CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Console.lnk" "$INSTDIR\w3af_console.bat" ""
+	CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af GUI.lnk" "$INSTDIR\w3af_gui.bat" "" "$INSTDIR\GTK\w3af_gui_icon.ico" 0 SW_SHOWNORMAL
+	CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Update.lnk" "$INSTDIR\w3af_update.bat" "" "$INSTDIR\svn-client\svn.exe" 0 SW_SHOWNORMAL
+	CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Theme.lnk" "$INSTDIR\w3af_theme.bat" "" "$INSTDIR\GTK\gtk2-runtime\gtk.ico" 0 SW_SHOWNORMAL
 
-		# Restore the old out path
-		SetOutPath "$SMPROGRAMS\$StartMenuFolder"
+	# Restore the old out path
+	SetOutPath "$SMPROGRAMS\$StartMenuFolder"
 	
-	
-	
-		;Readme EN
-		CreateDirectory "$SMPROGRAMS\$StartMenuFolder\readme"
-		CreateDirectory "$SMPROGRAMS\$StartMenuFolder\readme\EN"
-		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\EN\w3af Users Guide (PDF).lnk" "$INSTDIR\w3af\readme\EN\w3afUsersGuide.pdf"
-		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\EN\w3af Users Guide (HTML).lnk" "$INSTDIR\w3af\readme\EN\w3afUsersGuide.html"
-		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\EN\w3af gtkUi User Guide (HTML).lnk" "$INSTDIR\w3af\readme\EN\gtkUiHTML\gtkUiUsersGuide.html"
+	;Readme EN
+	CreateDirectory "$SMPROGRAMS\$StartMenuFolder\readme"
+	CreateDirectory "$SMPROGRAMS\$StartMenuFolder\readme\EN"
+	CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\EN\w3af Users Guide (PDF).lnk" "$INSTDIR\w3af\readme\EN\w3afUsersGuide.pdf"
+	CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\EN\w3af Users Guide (HTML).lnk" "$INSTDIR\w3af\readme\EN\w3afUsersGuide.html"
+	CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\EN\w3af gtkUi User Guide (HTML).lnk" "$INSTDIR\w3af\readme\EN\gtkUiHTML\gtkUiUsersGuide.html"
 
-		;Readme FR
-		CreateDirectory "$SMPROGRAMS\$StartMenuFolder\readme\FR"
-		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\FR\w3af Users Guide (PDF).lnk" "$INSTDIR\w3af\readme\FR\w3afUsersGuide_fr.pdf"
-		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\FR\w3af Users Guide (HTML).lnk" "$INSTDIR\w3af\readme\FR\w3afUsersGuide_fr.html"
-		
-		CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Uninstall w3af.lnk" "$INSTDIR\uninstall.exe"
+	;Readme FR
+	CreateDirectory "$SMPROGRAMS\$StartMenuFolder\readme\FR"
+	CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\FR\w3af Users Guide (PDF).lnk" "$INSTDIR\w3af\readme\FR\w3afUsersGuide_fr.pdf"
+	CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\FR\w3af Users Guide (HTML).lnk" "$INSTDIR\w3af\readme\FR\w3afUsersGuide_fr.html"
+
+	CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Uninstall w3af.lnk" "$INSTDIR\uninstall.exe"
 	!insertmacro MUI_STARTMENU_WRITE_END
-	
-SectionEnd
+	SectionEnd
 
 Section -FinishSection
-	
 	WriteRegStr HKLM ${REGKEY} "" "$INSTDIR"
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "DisplayName" "${APPNAME}"
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "DisplayIcon" "$INSTDIR\GTK\w3af_gui_icon.ico"
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "DisplayVersion" "${APPNAMEANDVERSION}"
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "URLInfoAbout" "http://w3af.sf.net/"
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "HelpLink" "http://w3af.sf.net/"
-  WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "NoModify" "1"
-  WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "NoRepair" "1"
-	
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "HelpLink" "http://w3af.sf.net/"
+	WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "NoModify" "1"
+	WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "NoRepair" "1"
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "UninstallString" "$INSTDIR\uninstall.exe"
 	WriteUninstaller "$INSTDIR\uninstall.exe"
 
 SectionEnd
-
-
 
 ${MementoSectionDone}
 
@@ -370,12 +320,9 @@ ${MementoSectionDone}
 	!insertmacro MUI_DESCRIPTION_TEXT ${SectionW3af} "w3af - Web Application Attack and Audit Framework."
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
 
-
 ; Uninstall section
 Section un.Uninstall
-	
 	;ReadRegStr $StartMenuFolder HKCU ${REGKEY} MUI_STARTMENUPAGE_REGISTRY_VALUENAME
-	
 	!insertmacro MUI_STARTMENU_GETFOLDER Application $StartMenuFolder
 
 	; Delete self
@@ -401,13 +348,11 @@ Section un.Uninstall
 	; Remove .pw3af
 	DeleteRegKey HKCR ".pw3af"
 	DeleteRegKey HKCR "W3AF.Profile"
-	
-	; Likewise RemoveFromPath could be
-  Push $INSTDIR
-  Call un.RemoveFromPath
-	
-SectionEnd
 
+	; Likewise RemoveFromPath could be
+	Push $INSTDIR
+	Call un.RemoveFromPath
+SectionEnd
 
 Function ShowReleaseNotes	
 	ExecShell "open" "$INSTDIR\w3af\readme\EN\w3afUsersGuide.html"
@@ -417,7 +362,6 @@ Function RunW3afGUI
 	SetOutPath "$INSTDIR"
 	Exec '$INSTDIR\w3af_gui.bat'
 FunctionEnd
-
 
 ; Create w3af_console.bat
 Function Writew3afConsole
@@ -431,7 +375,6 @@ Function Writew3afConsole
 	Pop $R9
 FunctionEnd
 
-
 ; Create w3af_gui.bat
 Function Writew3afGUI
 	Pop $R0 ; Output file
@@ -443,7 +386,6 @@ Function Writew3afGUI
 	FileClose $R9
 	Pop $R9
 FunctionEnd
-
 
 ; Create w3af_update.bat
 Function Writew3afUpdate
@@ -461,6 +403,18 @@ Function Writew3afUpdate
 	FileClose $R9
 	Pop $R9
 FunctionEnd
+
+; Create w3af_theme.bat
+Function Writew3afTheme
+	Pop $R0 ; Output file
+	Push $R9
+	FileOpen $R9 $R0 w
+	FileWrite $R9 "@$\"%CD%\GTK\bin\gtk2_prefs.exe$\"$\r$\n"
+	FileClose $R9
+	Pop $R9
+FunctionEnd
+
+
 
 BrandingText "w3af - Andres Riancho / Installer - Ulises Cuñé (Ulises2k)"
 
