@@ -17,7 +17,7 @@
 
 ; Define your application name
 !define APPNAME "w3af"
-!define APPNAMEANDVERSION "w3af 1.0 rc3 (Testing_v2)"
+!define APPNAMEANDVERSION "w3af 1.0 rc3 (Testing_v3)"
 !define REGKEY "Software\${APPNAME}"
 
 ; Main Install settings
@@ -218,9 +218,9 @@ ${MementoSection} !"W3AF" SectionW3af
 	Push $INSTDIR
 	Call AddToPath
 	
-	; Copy .gtkrc-2.0 to %USERPROFILE%
-	SetOutPath "$PROFILE"
-	File "gtk2-runtime\share\themes\ClearlooksClassic\gtk-2.0\gtkrc"
+	; Copy .gtkrc-2.0 to %USERPROFILE%	
+	Push "$PROFILE\.gtkrc-2.0"
+	Call WriteGtkrc
 	
 ${MementoSectionEnd}
 
@@ -418,7 +418,21 @@ Function Writew3afTheme
 	Pop $R9
 FunctionEnd
 
-
+; Create .gtkrc-2.0
+Function WriteGtkrc
+	Pop $R0 ; Output file
+	Push $R9
+	FileOpen $R9 $R0 w
+	FileWrite $R9 "# Auto-written by gtk2_prefs. Do not edit.$\r$\n"
+	FileWrite $R9 "gtk-theme-name = $\"Clearlooks$\"$\r$\n"
+	FileWrite $R9 "style $\"user-font$\"$\r$\n"
+	FileWrite $R9 "{$\r$\n"
+	FileWrite $R9 "font_name=$\"Sans 10$\"$\r$\n"
+	FileWrite $R9 "}$\r$\n"
+	FileWrite $R9 "widget_class $\"*$\" style $\"user-font$\"$\r$\n"
+	FileClose $R9
+	Pop $R9
+FunctionEnd	
 
 BrandingText "w3af - Andres Riancho / Installer - Ulises Cuñé (Ulises2k)"
 
