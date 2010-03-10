@@ -1,67 +1,75 @@
 # New ports collection makefile for:	w3af
-#
-# Original creator
-# ================
-#
 # Date created:				Wed Aug 29 21:44:33 CEST 2007
 # Whom:					Stefan Esser <se@FreeBSD.org>
 #
-# Maintainer
-# ==========
-#
-# Date updated:				Sun Mar 1 2009
-# Whom:					sbrabez@gmail.com
-#
+# $FreeBSD: ports/security/w3af/Makefile,v 1.7 2010/03/10 11:35:22 gahr Exp $
 #
 
 PORTNAME=	w3af
-PORTVERSION=	0.1.20080922		# TODO: Upgrade port version?
+DISTVERSION=	1.0-rc2
 CATEGORIES=	security python www
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE}
-MASTER_SITE_SUBDIR=	w3af
-DISTNAME=	${PORTNAME}-beta7-r1813		# TODO: Remember to port rc1
+MASTER_SITE_SUBDIR=	${PORTNAME}/${PORTNAME}/${PORTNAME}%20${DISTVERSION}%20%5bshorty%5d
+DISTNAME=	${PORTNAME}_${DISTVERSION}
 
 MAINTAINER=	sbrabez@gmail.com
-COMMENT=	w3af - Web Application Attack and Audit Framework
+COMMENT=	Web Application Attack and Audit Framework
 
-#
-LIB_DEPENDS=	tidy-0.99.0:${PORTSDIR}/www/py-utidy		# TODO: utidy was removed from the dependency list
-BUILD_DEPENDS=	${PYTHON_SITELIBDIR}/SOAPpy:${PORTSDIR}/net/py-soappy-devel \
-		${PYTHON_SITELIBDIR}/BeautifulSoup.py:${PORTSDIR}/www/py-beautifulsoup \
+LIB_DEPENDS=	tidy-0.99.0:${PORTSDIR}/www/py-utidy
+BUILD_DEPENDS=	${PYTHON_SITELIBDIR}/BeautifulSoup.py:${PORTSDIR}/www/py-beautifulsoup \
+		${PYTHON_SITELIBDIR}/OpenSSL/SSL.so:${PORTSDIR}/security/py-openssl \
+		${PYTHON_SITELIBDIR}/SOAPpy:${PORTSDIR}/net/py-soappy \
+		${PYTHON_SITELIBDIR}/_sqlite3.so:${PORTSDIR}/databases/py-sqlite3 \
+		${PYTHON_SITELIBDIR}/fpconst.py:${PORTSDIR}/math/py-fpconst \
 		${PYTHON_SITELIBDIR}/json.py:${PORTSDIR}/devel/py-json-py \
-		${PYTHON_SITELIBDIR}/pyPdf/pdf.py:${PORTSDIR}/print/py-pdf\
-		${PYTHON_SITELIBDIR}/OpenSSL/SSL.so:${PORTSDIR}/security/py-openssl 
-		# TODO: To get a complete list of dependencies, read the dependencyCheck.py files. There is one for the console
-		# and one for the GUI. I think that it would be a good idea to have two different w3af packages in freebsd, one
-		# with the console (w3af-cli) and one with the console and the gui (w3af), each with it's dependencies.
+		${PYTHON_SITELIBDIR}/nltk/util.py:${PORTSDIR}/textproc/nltk \
+		${PYTHON_SITELIBDIR}/pyPdf/pdf.py:${PORTSDIR}/print/py-pdf \
+		${PYTHON_SITELIBDIR}/scapy/main.py:${PORTSDIR}/net/scapy \
+		${PYTHON_SITELIBDIR}/wordnet.py:${PORTSDIR}/textproc/py-wordnet \
+		${PYTHON_SITELIBDIR}/yaml/loader.py:${PORTSDIR}/devel/py-yaml
 RUN_DEPENDS=	${BUILD_DEPENDS}
 
 WRKSRC=		${WRKDIR}/${PORTNAME}
+USE_GETTEXT=	yes
 USE_BZIP2=	yes
-USE_PYTHON=	2.5+		# TODO: w3af only supports python 2.5, I havent tested it with 2.6, so installing with 2.5 (strict)
-				# not with >=2.5 would be better
+USE_PYTHON=	2.5+
 
 OPTIONS=	GUI "Support for graphical user interface" off
 
+.include <bsd.port.options.mk>
+
 .if defined(WITH_GUI)
-RUN_DEPENDS+=	${PYTHON_SITELIBDIR}/dot.py:${PORTSDIR}/graphics/py-pydot
+BUILD_DEPENDS+=	${PYTHON_SITELIBDIR}/pygraphviz/graphviz.py:${PORTSDIR}/graphics/py-graphviz \
+		${PYTHON_SITELIBDIR}/gtk-2.0/gtk/__init__.py:${PORTSDIR}/x11-toolkits/py-gtk2
+PLIST_SUB+=	GUI=""
+.else
+PLIST_SUB+=	GUI="@comment "
 .endif
 
-post-patch:
+do-patch:
+.for f in SOAPpy fpconst-0.7.2 jsonpy nltk nltk_contrib pyPdf scapy yaml
+	@${RM} -rf ${WRKSRC}/extlib/${f}
+.endfor
 	@${GREP} -lr '/usr/bin/python' ${WRKSRC} | \
 		${XARGS} ${REINPLACE_CMD} -i "" \
 			-E "s!/usr/bin/python2?!${PYTHON_CMD}!"
 
 do-build:
-	@${MKDIR} ${WRKDIR}/build
+	@${MKDIR} ${WRKSRC}/build/extlib
 	@${CP} -R ${WRKSRC}/w3af_console ${WRKDIR}/build/w3af_console.py
+.if defined(WITH_GUI)
 	@${CP} -R ${WRKSRC}/w3af_gui ${WRKDIR}/build/w3af_gui.py
-.for f in core plugins profiles scripts tools
+.endif
+.for f in core locales plugins profiles readme scripts tools
 	@${CP} -R ${WRKSRC}/${f} ${WRKDIR}/build/
 .endfor
+.for ext in cluster pygoogle socksipy xdot
+	@${CP} -R ${WRKSRC}/extlib/${ext} ${WRKDIR}/build/extlib/
+.endfor
+	@${CP} ${WRKSRC}/extlib/__init__.py ${WRKDIR}/build/extlib/
 	@${PYTHON_CMD} -m compileall ${WRKDIR}/build
 	@${PYTHON_CMD} -O -m compileall ${WRKDIR}/build
-.for f in w3af w3af_gui
+.for f in w3af_console w3af_gui
 	@${SED} -e 's:%%PATH%%:${PYTHON_SITELIBDIR}/${PORTNAME}/:' \
 		-e 's:%%PYTHON_CMD%%:${PYTHON_CMD}:' \
 		< ${FILESDIR}/${f}.sh > ${WRKDIR}/${f}.sh
@@ -70,7 +78,9 @@ do-build:
 do-install:
 	@${MKDIR} ${PYTHON_SITELIBDIR}/${PORTNAME}/
 	@${CP} -R ${WRKDIR}/build/* ${PYTHON_SITELIBDIR}/${PORTNAME}/
-	@${INSTALL_SCRIPT} ${WRKDIR}/w3af.sh ${LOCALBASE}/bin/w3af
+	@${INSTALL_SCRIPT} ${WRKDIR}/w3af_console.sh ${LOCALBASE}/bin/w3af_console
+.if defined(WITH_GUI)
 	@${INSTALL_SCRIPT} ${WRKDIR}/w3af_gui.sh ${LOCALBASE}/bin/w3af_gui
+.endif
 
 .include <bsd.port.mk>
