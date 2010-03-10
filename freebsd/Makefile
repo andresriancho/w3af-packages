@@ -2,7 +2,7 @@
 # Date created:				Wed Aug 29 21:44:33 CEST 2007
 # Whom:					Stefan Esser <se@FreeBSD.org>
 #
-# $FreeBSD: ports/security/w3af/Makefile,v 1.7 2010/03/10 11:35:22 gahr Exp $
+# $FreeBSD: ports/security/w3af/Makefile,v 1.4 2008/12/18 02:33:38 linimon Exp $
 #
 
 PORTNAME=	w3af
@@ -57,15 +57,17 @@ do-patch:
 do-build:
 	@${MKDIR} ${WRKDIR}/build
 	@${MKDIR} ${WRKSRC}/build/extlib
-	@${CP} -R ${WRKSRC}/w3af_console ${WRKDIR}/build/w3af_console.py
+	@${CP} ${WRKSRC}/w3af_console ${WRKDIR}/build/w3af_console.py
 .if defined(WITH_GUI)
-	@${CP} -R ${WRKSRC}/w3af_gui ${WRKDIR}/build/w3af_gui.py
+	@${CP} ${WRKSRC}/w3af_gui ${WRKDIR}/build/w3af_gui.py
 .endif
 .for f in core locales plugins profiles readme scripts tools
-	@${CP} -R ${WRKSRC}/${f} ${WRKDIR}/build/
+	@${MKDIR} ${WRKDIR}/build/${f}
+	@(cd ${WRKSRC}/${f}/ && ${COPYTREE_SHARE} \* ${WRKDIR}/build/${f})
 .endfor
 .for ext in cluster pygoogle socksipy xdot
-	@${CP} -R ${WRKSRC}/extlib/${ext} ${WRKDIR}/build/extlib/
+	@${MKDIR} ${WRKDIR}/build/extlib/${ext}
+	@(cd ${WRKSRC}/extlib/${ext}/ && ${COPYTREE_SHARE} \* ${WRKDIR}/build/extlib/${ext})
 .endfor
 	@${CP} ${WRKSRC}/extlib/__init__.py ${WRKDIR}/build/extlib/
 	@${PYTHON_CMD} -m compileall ${WRKDIR}/build
@@ -77,11 +79,11 @@ do-build:
 .endfor
 
 do-install:
-	@${MKDIR} ${PYTHON_SITELIBDIR}/${PORTNAME}/
-	@${CP} -R ${WRKDIR}/build/* ${PYTHON_SITELIBDIR}/${PORTNAME}/
-	@${INSTALL_SCRIPT} ${WRKDIR}/w3af_console.sh ${LOCALBASE}/bin/w3af_console
+	@${MKDIR} ${PYTHONPREFIX_SITELIBDIR}/${PORTNAME}/
+	@(cd ${WRKDIR}/build && ${COPYTREE_SHARE} \* ${PYTHONPREFIX_SITELIBDIR}/${PORTNAME}/)
+	@${INSTALL_SCRIPT} ${WRKDIR}/w3af_console.sh ${PREFIX}/bin/w3af_console
 .if defined(WITH_GUI)
-	@${INSTALL_SCRIPT} ${WRKDIR}/w3af_gui.sh ${LOCALBASE}/bin/w3af_gui
+	@${INSTALL_SCRIPT} ${WRKDIR}/w3af_gui.sh ${PREFIX}/bin/w3af_gui
 .endif
 
 .include <bsd.port.mk>
