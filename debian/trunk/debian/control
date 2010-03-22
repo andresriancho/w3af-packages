@@ -3,12 +3,13 @@ Section: net
 Priority: extra
 Maintainer: Luciano Bello <luciano@debian.org>
 Build-Depends: debhelper (>= 5), python-support, dpatch
-Standards-Version: 3.8.3
+Standards-Version: 3.8.4
 Homepage: http://w3af.sourceforge.net/
-XB-Python-Version: ${python:Versions}
+XS-Python-Version: 2.5
 
 Package: w3af
 Architecture: all
+XB-Python-Version: ${python:Versions}
 Depends: ${python:Depends}, ${misc:Depends}, w3af-console (>= ${binary:Version}), python-gtk2 (>= 2.12), graphviz
 Description: framework to find and exploit web application vulnerabilities
  w3af is a Web Application Attack and Audit Framework which aims
@@ -27,6 +28,7 @@ Description: framework to find and exploit web application vulnerabilities
 
 Package: w3af-console
 Architecture: all
+XB-Python-Version: ${python:Versions}
 Depends: ${python:Depends}, ${misc:Depends}, python-json, python-beautifulsoup, python-soappy, python-pypdf, python-openssl, python-pysqlite2
 Description: framework to find and exploit web application vulnerabilities (CLI only)
  w3af is a Web Application Attack and Audit Framework which aims
