@@ -1,11 +1,9 @@
 #!/bin/bash
  
-# Argument = -t test -r server -p password -v
-
 usage()
 {
 cat << EOF
-usage: $0 -d <diretory> -v <upstream_version>
+usage: $0 -d <diretory> -v <upstream_version> -m <manpages_dir>
 
 This script builds a deb package
 
@@ -58,7 +56,7 @@ else
 fi
 
 BASE_DIR="w3af-${VERSION}"
-echo ····· Building $BASE_DIR ·····
+echo --- Building $BASE_DIR  ----
 
 if test ! -x /usr/bin/dpkg  ; then echo "Is this a Debian-derivate? This scripts use specific tools like dpkg and debhelper, which are only available in a Debian-derivate. Sorry..." ; return 1; fi
 
@@ -66,16 +64,14 @@ echo "Checking if you have needed packages to build w3af.deb"
 installed=$(dpkg -l debhelper fakeroot make subversion python-support | grep ^ii |awk '{print $2}')
 
 # Just in case...
+rm tarballs/w3af_${VERSION}.orig.tar.gz > /dev/null 2>&1 && echo "removing w3af_${VERSION}.orig.tar.gz"
 rm -rf ${BASE_DIR} > /dev/null 2>&1 && echo "removing ${BASE_DIR}"
-rm w3af_${VERSION}.orig.tar.gz > /dev/null 2>&1 && echo "removing w3af_${VERSION}.orig.tar.gz"
 
-# copy trunk so we don't destroy our local copy
-echo "copying files to ${BASE_DIR}"
-cp -Rp $DIR ${BASE_DIR} && echo ""
+#new directory
+cp -Rp $DIR ${BASE_DIR} && echo "Creating base dir ${BASE_DIR}"
 
 # copy the manpages
-echo "copying the manpages from ${MAN_DIR} to ${BASE_DIR}/manpage"
-mkdir ${BASE_DIR}/manpage
+mkdir ${BASE_DIR}/manpage && echo "copying the manpages from ${MAN_DIR} to ${BASE_DIR}/manpage"
 cp -v ${MAN_DIR}/w3af ${BASE_DIR}/manpage/w3af.1
 cp -v ${MAN_DIR}/w3af_console ${BASE_DIR}/manpage/w3af_console.1
 cp -v ${MAN_DIR}/w3af_gui ${BASE_DIR}/manpage/w3af_gui.1
@@ -96,9 +92,6 @@ echo -n "Removing: "
 #(rm ${BASE_DIR}/sessions/* -rf) > /dev/null 2>&1 ||
 (rm ${BASE_DIR}/w3af.e3* -rf) > /dev/null 2>&1) && echo -n "paths created during the run, " 
 echo "-"
-
-# This is not ready for distribution yet
-#(rm ${BASE_DIR}/mozilla-extension/ -rf)  > /dev/null 2>&1 
 
 # sanitize oHalberd (Remove the documentation and leave only the useful code part)
 find ${BASE_DIR}/plugins/discovery/oHalberd/* -type d | grep -v "plugins/discovery/oHalberd/Halberd" | xargs rm -rf
@@ -145,23 +138,18 @@ find ${BASE_DIR} -type f -exec chmod 644 {} \;
 
 echo "creating w3af_${VERSION}.orig.tar.gz"
 tar zcf w3af_${VERSION}.orig.tar.gz ${BASE_DIR}
+mkdir tarballs > /dev/null 2>&1 
+mv w3af_${VERSION}.orig.tar.gz tarballs
 
-echo '~/debian'
-cp -r trunk/debian ${BASE_DIR}/
-(find ${BASE_DIR}/debian -name .svn | xargs rm -rf) > /dev/null 2>&1 && echo -n ".svn, "
+echo 'setting new changelog entry in trunk/debian/changelog'
+dch --changelog trunk/debian/changelog --newversion ${VERSION}-1 "New SVN export revision: ${REVISION}"
 
-echo 'setting changelog'
-# TODO chequear la existencia de DEBEMAIL y DEBFULLNAME
-DATE=$(date -R)
-sed -i "s/\[w3af_DEBEMAIL\]/$DEBEMAIL/" ${BASE_DIR}/debian/changelog
-sed -i "s/\[w3af_DEBFULLNAME\]/$DEBFULLNAME/" ${BASE_DIR}/debian/changelog
-sed -i "s/\[w3af_VERSION\]/$VERSION/" ${BASE_DIR}/debian/changelog
-sed -i "s/\[w3af_DATE\]/$DATE/" ${BASE_DIR}/debian/changelog
+echo "updating desktop file version to $VERSION"
+sed -i "s/Version=.*/Version=$VERSION/" ${BASE_DIR}/debian/desktop
 
-echo 'setting desktop'
-sed -i "s/\[w3af_VERSION\]/$VERSION/" ${BASE_DIR}/debian/desktop
-
-echo "The w3af directory inside ${BASE_DIR} contains all you need to create the .deb package."
+echo "The w3af orig file is ready. just:
+cd trunk
+svn-buildpackage --svn-ignore"
 
 #echo "Building the package..."
 #cd ${BASE_DIR} 
