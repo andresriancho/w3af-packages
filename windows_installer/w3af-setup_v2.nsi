@@ -284,14 +284,14 @@ Section -MakeShortCuts
 	;Readme EN
 	CreateDirectory "$SMPROGRAMS\$StartMenuFolder\readme"
 	CreateDirectory "$SMPROGRAMS\$StartMenuFolder\readme\EN"
-	CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\EN\w3af Users Guide (PDF).lnk" "$INSTDIR\w3af\readme\EN\w3afUsersGuide.pdf"
-	CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\EN\w3af Users Guide (HTML).lnk" "$INSTDIR\w3af\readme\EN\w3afUsersGuide.html"
+	CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\EN\w3af Users Guide (PDF).lnk" "$INSTDIR\w3af\readme\EN\w3af-users-guide.pdf"
+	CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\EN\w3af Users Guide (HTML).lnk" "$INSTDIR\w3af\readme\EN\w3af-users-guide.html"
 	CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\EN\w3af gtkUi User Guide (HTML).lnk" "$INSTDIR\w3af\readme\EN\gtkUiHTML\gtkUiUsersGuide.html"
 
 	;Readme FR
 	CreateDirectory "$SMPROGRAMS\$StartMenuFolder\readme\FR"
-	CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\FR\w3af Users Guide (PDF).lnk" "$INSTDIR\w3af\readme\FR\w3afUsersGuide_fr.pdf"
-	CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\FR\w3af Users Guide (HTML).lnk" "$INSTDIR\w3af\readme\FR\w3afUsersGuide_fr.html"
+	CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\FR\w3af Users Guide (PDF).lnk" "$INSTDIR\w3af\readme\FR\w3af-users-guide.pdf"
+	CreateShortCut "$SMPROGRAMS\$StartMenuFolder\readme\FR\w3af Users Guide (HTML).lnk" "$INSTDIR\w3af\readme\FR\w3af-users-guide.html"
 
 	CreateShortCut "$SMPROGRAMS\$StartMenuFolder\Uninstall w3af.lnk" "$INSTDIR\uninstall.exe"
 	!insertmacro MUI_STARTMENU_WRITE_END
@@ -355,7 +355,7 @@ Section un.Uninstall
 SectionEnd
 
 Function ShowReleaseNotes	
-	ExecShell "open" "$INSTDIR\w3af\readme\EN\w3afUsersGuide.html"
+	ExecShell "open" "$INSTDIR\w3af\readme\EN\w3af-users-guide.html"
 FunctionEnd
 
 Function RunW3afGUI
