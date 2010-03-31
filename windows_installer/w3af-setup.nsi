@@ -17,7 +17,7 @@
 
 ; Define your application name
 !define APPNAME "w3af"
-!define APPNAMEANDVERSION "w3af 1.0 rc3 (Testing_v3)"
+!define APPNAMEANDVERSION "w3af 1.0 rc3"
 !define REGKEY "Software\${APPNAME}"
 
 ; Main Install settings
