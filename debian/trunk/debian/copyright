@@ -96,3 +96,10 @@ xml-data-file-of-online-valid-phishes-from-phishtank
   HomePage: http://www.phishtank.com/blog/2006/10/17/xml-data-file-of-online-valid-phishes-from-phishtank/
   License: Creative Commons Attribution-ShareAlike 2.5 License
 
+DirBuster 
+---------
+  Files: plugins/discovery/dir_bruter/common_dirs_small.db
+  Copyright: © 2007 James Fisher
+  HomePage: http://www.owasp.org/index.php/Category:OWASP_DirBuster_Project
+  License: Creative Commons Attribution-ShareAlike 3.0 License
+

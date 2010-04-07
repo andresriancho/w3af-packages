@@ -1,3 +1,9 @@
+w3af (1.0~rc2svn3429-2) UNRELEASED; urgency=low
+
+  * dir_bruter/common_dirs_small.db license added to the copyright file. 
+
+ -- Luciano Bello <luciano@debian.org>  Wed, 07 Apr 2010 14:37:47 -0300
+
 w3af (1.0~rc2svn3429-1) unstable; urgency=low
 
   * Now, only for python2.5.
