@@ -5,14 +5,14 @@
 ## DP: (see http://bugs.debian.org/282313) and w3af works anyway without it.
 
 @DPATCH@
-diff -urNad w3af-0.0.0svn2707~/core/controllers/misc/dependencyCheck.py w3af-0.0.0svn2707/core/controllers/misc/dependencyCheck.py
---- w3af-0.0.0svn2707~/core/controllers/misc/dependencyCheck.py	2009-02-28 17:49:57.000000000 -0200
-+++ w3af-0.0.0svn2707/core/controllers/misc/dependencyCheck.py	2009-03-01 21:35:00.000000000 -0200
+diff -urNad trunk~/core/controllers/misc/dependencyCheck.py trunk/core/controllers/misc/dependencyCheck.py
+--- trunk~/core/controllers/misc/dependencyCheck.py	2010-05-10 20:39:58.000000000 -0300
++++ trunk/core/controllers/misc/dependencyCheck.py	2010-05-10 22:36:10.000000000 -0300
 @@ -64,9 +64,7 @@
          try:
              import google as pygoogle
          except Exception, e:
--            print 'You have to install pygoogle lib. Please read the users guide.'
+-            print 'You have to install pygoogle and fpconst libs. Please read the users guide.'
 -            print 'Error: ' + str(e)
 -            sys.exit( 1 )
 +	    pass
