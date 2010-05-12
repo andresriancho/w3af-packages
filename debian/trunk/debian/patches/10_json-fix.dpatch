@@ -1,8 +1,7 @@
 #! /bin/sh /usr/share/dpatch/dpatch-run
 ## json-fix.dpatch by Bernd Zeimetz <bzed@debian.org>
 ##
-## All lines beginning with `## DP:' are a description of the patch.
-## DP: No description.
+## DP: python-json is not available in Python2.6
 
 @DPATCH@
 diff -urNad '--exclude=CVS' '--exclude=.svn' '--exclude=.git' '--exclude=.arch' '--exclude=.hg' '--exclude=_darcs' '--exclude=.bzr' w3af-1.0~rc2svn3429~/core/controllers/misc/dependencyCheck.py w3af-1.0~rc2svn3429/core/controllers/misc/dependencyCheck.py

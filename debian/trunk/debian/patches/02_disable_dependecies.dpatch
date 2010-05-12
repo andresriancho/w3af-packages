@@ -7,7 +7,7 @@
 @DPATCH@
 diff -urNad trunk~/core/controllers/misc/dependencyCheck.py trunk/core/controllers/misc/dependencyCheck.py
 --- trunk~/core/controllers/misc/dependencyCheck.py	2010-05-10 20:39:58.000000000 -0300
-+++ trunk/core/controllers/misc/dependencyCheck.py	2010-05-10 22:36:10.000000000 -0300
++++ trunk/core/controllers/misc/dependencyCheck.py	2010-05-12 19:37:15.000000000 -0300
 @@ -64,9 +64,7 @@
          try:
              import google as pygoogle
@@ -19,3 +19,17 @@ diff -urNad trunk~/core/controllers/misc/dependencyCheck.py trunk/core/controlle
  
      try:
          import extlib.BeautifulSoup as BeautifulSoup
+diff -urNad trunk~/core/ui/consoleUi/help.py trunk/core/ui/consoleUi/help.py
+--- trunk~/core/ui/consoleUi/help.py	2010-05-10 20:39:59.000000000 -0300
++++ trunk/core/ui/consoleUi/help.py	2010-05-12 19:38:12.000000000 -0300
+@@ -27,10 +27,6 @@
+ try:
+     import xml.etree.ElementTree as ET
+ except ImportError:
+-    try:
+-        # we're using Python 2.4
+-        import elementtree.ElementTree as ET
+-    except ImportError:
+         import sys
+         print 'It seems that your python installation doesn\'t have element tree installed. Please install it and run w3af again.'
+         sys.exit(-9)

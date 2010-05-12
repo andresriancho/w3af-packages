@@ -3,7 +3,7 @@ w3af (1.0-rc3svn3489-1) UNRELEASED; urgency=low
   [ Luciano Bello ]
   * New SVN export revision: 3489
   * removed from the source
-    - nltk (closes: #571004)
+    - nltk (closes: #571004, #555346)
     - yalm
   * Licenses added to the copyright file:
     - dir_bruter/common_dirs_small.db: cc-by-sa 3.0
