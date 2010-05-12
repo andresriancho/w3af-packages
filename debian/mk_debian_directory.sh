@@ -100,7 +100,9 @@ rm ${BASE_DIR}/plugins/discovery/oHalberd/* > /dev/null 2>&1
 find ${BASE_DIR}/plugins/discovery/oHmap/ | grep -v ".py" | xargs rm > /dev/null 2>&1
 
 
-# Remove the debian offending stuff
+# Remove the debian policy offending stuff
+# There is some legal issues with nltk http://bugs.debian.org/571004 and w3af works anyway without it.
+rm -rf ${BASE_DIR}/extlib/nltk*/
 # There is some legal issues with pygoogle http://bugs.debian.org/282313 and w3af works anyway without it.
 rm -rf ${BASE_DIR}/extlib/pygoogle/
 # pywordnet is not maintained any more (see http://bugs.debian.org/369087). Probably python-nltk http://bugs.debian.org/279422 is a better option
@@ -117,6 +119,8 @@ rm -rf ${BASE_DIR}/tools/
 # And remove the things that are already inside debian as packages
 # python-cluster 
 rm -rf ${BASE_DIR}/extlib/cluster/
+# python-yaml 
+rm -rf ${BASE_DIR}/extlib/yaml/
 # python-socksipy 
 rm -rf ${BASE_DIR}/extlib/socksipy/
 # python-scapy

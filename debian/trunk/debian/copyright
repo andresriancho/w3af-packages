@@ -103,3 +103,20 @@ DirBuster
   HomePage: http://www.owasp.org/index.php/Category:OWASP_DirBuster_Project
   License: Creative Commons Attribution-ShareAlike 3.0 License
 
+ntlmaps 
+-------
+  Files: extlib/ntlm/*
+  Copyright: © 2001 Dmitry A. Rozmanov
+  HomePage: http://ntlmaps.sourceforge.net/
+  License: LGPL
+  On Debian systems, the complete text of the GNU Lesser General
+  Public License Version can be found in `/usr/share/common-licenses/LGPL'.
+
+gtkcodebuffer 
+-------------
+  Files: extlib/gtkcodebuffer/*
+  Copyright: © 2008 Hannes Matuschek
+  HomePage: http://code.google.com/p/pygtkcodebuffer/
+  License: LGPL
+  On Debian systems, the complete text of the GNU Lesser General
+  Public License Version can be found in `/usr/share/common-licenses/LGPL'.
