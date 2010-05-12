@@ -9,6 +9,7 @@ w3af (1.0-rc3svn3489-1) UNRELEASED; urgency=low
     - dir_bruter/common_dirs_small.db: cc-by-sa 3.0
     - extlib/ntlmaps: LGPL
     - extlib/gtkcodebuffer: LGPL
+    - core/data/url/handlers/keepalive.py: LGPL-2.1
 
   [ Bernd Zeimetz ]
   * Replace python-json by python-simplejson. (Closes: #571110, #580645)
