@@ -2,15 +2,15 @@
 # Date created:				Wed Aug 29 21:44:33 CEST 2007
 # Whom:					Stefan Esser <se@FreeBSD.org>
 #
-# $FreeBSD: ports/security/w3af/Makefile,v 1.4 2008/12/18 02:33:38 linimon Exp $
+# $FreeBSD: ports/security/w3af/Makefile,v 1.11 2010/10/21 07:29:56 jadawin Exp $
 #
 
 PORTNAME=	w3af
-DISTVERSION=	1.0-rc2
+DISTVERSION=	1.0-rc3
 CATEGORIES=	security python www
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE}
-MASTER_SITE_SUBDIR=	${PORTNAME}/${PORTNAME}/${PORTNAME}%20${DISTVERSION}%20%5bshorty%5d
-DISTNAME=	${PORTNAME}_${DISTVERSION}
+MASTER_SITE_SUBDIR=	${PORTNAME}/${PORTNAME}/${PORTNAME}%20${DISTVERSION}%20%5bmoyogui%5d
+DISTNAME=	${PORTNAME}-${DISTVERSION}
 
 MAINTAINER=	sbrabez@gmail.com
 COMMENT=	Web Application Attack and Audit Framework
@@ -28,6 +28,10 @@ BUILD_DEPENDS=	${PYTHON_SITELIBDIR}/BeautifulSoup.py:${PORTSDIR}/www/py-beautifu
 		${PYTHON_SITELIBDIR}/wordnet.py:${PORTSDIR}/textproc/py-wordnet \
 		${PYTHON_SITELIBDIR}/yaml/loader.py:${PORTSDIR}/devel/py-yaml
 RUN_DEPENDS=	${BUILD_DEPENDS}
+
+MAN1PREFIX=	${PYTHONPREFIX_SITELIBDIR}/${PORTNAME}/plugins/discovery/oHalberd/
+MAN1=	halberd.1
+MANCOMPRESSED=	no
 
 WRKSRC=		${WRKDIR}/${PORTNAME}
 USE_GETTEXT=	yes
@@ -50,10 +54,11 @@ do-patch:
 .for f in SOAPpy fpconst-0.7.2 jsonpy nltk nltk_contrib pyPdf scapy yaml
 	@${RM} -rf ${WRKSRC}/extlib/${f}
 .endfor
+	@${MV} ${WRKSRC}/extlib/pygoogle/build/lib/* ${WRKSRC}/extlib/pygoogle/
+	@${RM} -rf ${WRKSRC}/extlib/pygoogle/build
 	@${GREP} -lr '/usr/bin/python' ${WRKSRC} | \
 		${XARGS} ${REINPLACE_CMD} -i "" \
 			-E "s!/usr/bin/python2?!${PYTHON_CMD}!"
-
 do-build:
 	@${MKDIR} ${WRKDIR}/build
 	@${MKDIR} ${WRKSRC}/build/extlib
@@ -65,7 +70,7 @@ do-build:
 	@${MKDIR} ${WRKDIR}/build/${f}
 	@(cd ${WRKSRC}/${f}/ && ${COPYTREE_SHARE} \* ${WRKDIR}/build/${f})
 .endfor
-.for ext in cluster pygoogle socksipy xdot
+.for ext in cluster gtkcodebuffer ntlm pygoogle socksipy xdot
 	@${MKDIR} ${WRKDIR}/build/extlib/${ext}
 	@(cd ${WRKSRC}/extlib/${ext}/ && ${COPYTREE_SHARE} \* ${WRKDIR}/build/extlib/${ext})
 .endfor
@@ -73,7 +78,7 @@ do-build:
 	@${PYTHON_CMD} -m compileall ${WRKDIR}/build
 	@${PYTHON_CMD} -O -m compileall ${WRKDIR}/build
 .for f in w3af_console w3af_gui
-	@${SED} -e 's:%%PATH%%:${PYTHON_SITELIBDIR}/${PORTNAME}/:' \
+	@${SED} -e 's:%%PATH%%:${PYTHONPREFIX_SITELIBDIR}/${PORTNAME}/:' \
 		-e 's:%%PYTHON_CMD%%:${PYTHON_CMD}:' \
 		< ${FILESDIR}/${f}.sh > ${WRKDIR}/${f}.sh
 .endfor
