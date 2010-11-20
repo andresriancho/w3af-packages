@@ -6,27 +6,30 @@
 #
 
 PORTNAME=	w3af
-DISTVERSION=	1.0-rc3
+DISTVERSION=	1.0-rc4
 CATEGORIES=	security python www
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE}
-MASTER_SITE_SUBDIR=	${PORTNAME}/${PORTNAME}/${PORTNAME}%20${DISTVERSION}%20%5bmoyogui%5d
+MASTER_SITE_SUBDIR=	${PORTNAME}/${PORTNAME}/${PORTNAME}%20${DISTVERSION}
 DISTNAME=	${PORTNAME}-${DISTVERSION}
 
 MAINTAINER=	sbrabez@gmail.com
 COMMENT=	Web Application Attack and Audit Framework
 
 LIB_DEPENDS=	tidy-0.99.0:${PORTSDIR}/www/py-utidy
+
 BUILD_DEPENDS=	${PYTHON_SITELIBDIR}/BeautifulSoup.py:${PORTSDIR}/www/py-beautifulsoup \
 		${PYTHON_SITELIBDIR}/OpenSSL/SSL.so:${PORTSDIR}/security/py-openssl \
 		${PYTHON_SITELIBDIR}/SOAPpy:${PORTSDIR}/net/py-soappy \
 		${PYTHON_SITELIBDIR}/_sqlite3.so:${PORTSDIR}/databases/py-sqlite3 \
 		${PYTHON_SITELIBDIR}/fpconst.py:${PORTSDIR}/math/py-fpconst \
-		${PYTHON_SITELIBDIR}/json.py:${PORTSDIR}/devel/py-json-py \
+		${PYTHON_SITELIBDIR}/lxml/__init__.py:${PORTSDIR}/devel/py-lxml \
 		${PYTHON_SITELIBDIR}/nltk/util.py:${PORTSDIR}/textproc/nltk \
 		${PYTHON_SITELIBDIR}/pyPdf/pdf.py:${PORTSDIR}/print/py-pdf \
 		${PYTHON_SITELIBDIR}/scapy/main.py:${PORTSDIR}/net/scapy \
 		${PYTHON_SITELIBDIR}/wordnet.py:${PORTSDIR}/textproc/py-wordnet \
-		${PYTHON_SITELIBDIR}/yaml/loader.py:${PORTSDIR}/devel/py-yaml
+		${PYTHON_SITELIBDIR}/yaml/loader.py:${PORTSDIR}/devel/py-yaml \
+		py-simplejson:${PORTSDIR}/devel/py-simplejson
+
 RUN_DEPENDS=	${BUILD_DEPENDS}
 
 MAN1PREFIX=	${PYTHONPREFIX_SITELIBDIR}/${PORTNAME}/plugins/discovery/oHalberd/
@@ -51,11 +54,9 @@ PLIST_SUB+=	GUI="@comment "
 .endif
 
 do-patch:
-.for f in SOAPpy fpconst-0.7.2 jsonpy nltk nltk_contrib pyPdf scapy yaml
+.for f in SOAPpy fpconst-0.7.2 nltk nltk_contrib pyPdf scapy yaml
 	@${RM} -rf ${WRKSRC}/extlib/${f}
 .endfor
-	@${MV} ${WRKSRC}/extlib/pygoogle/build/lib/* ${WRKSRC}/extlib/pygoogle/
-	@${RM} -rf ${WRKSRC}/extlib/pygoogle/build
 	@${GREP} -lr '/usr/bin/python' ${WRKSRC} | \
 		${XARGS} ${REINPLACE_CMD} -i "" \
 			-E "s!/usr/bin/python2?!${PYTHON_CMD}!"
@@ -70,7 +71,7 @@ do-build:
 	@${MKDIR} ${WRKDIR}/build/${f}
 	@(cd ${WRKSRC}/${f}/ && ${COPYTREE_SHARE} \* ${WRKDIR}/build/${f})
 .endfor
-.for ext in cluster gtkcodebuffer ntlm pygoogle socksipy xdot
+.for ext in cluster gtkcodebuffer ntlm socksipy xdot
 	@${MKDIR} ${WRKDIR}/build/extlib/${ext}
 	@(cd ${WRKSRC}/extlib/${ext}/ && ${COPYTREE_SHARE} \* ${WRKDIR}/build/extlib/${ext})
 .endfor
