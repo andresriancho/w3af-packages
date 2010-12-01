@@ -16,20 +16,17 @@ MAINTAINER=	sbrabez@gmail.com
 COMMENT=	Web Application Attack and Audit Framework
 
 LIB_DEPENDS=	tidy-0.99.0:${PORTSDIR}/www/py-utidy
-
-BUILD_DEPENDS=	${PYTHON_SITELIBDIR}/BeautifulSoup.py:${PORTSDIR}/www/py-beautifulsoup \
+BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}lxml>=2.1:${PORTSDIR}/devel/py-lxml \
+		${PYTHON_PKGNAMEPREFIX}simplejson>=2.0:${PORTSDIR}/devel/py-simplejson \
 		${PYTHON_SITELIBDIR}/OpenSSL/SSL.so:${PORTSDIR}/security/py-openssl \
 		${PYTHON_SITELIBDIR}/SOAPpy:${PORTSDIR}/net/py-soappy \
 		${PYTHON_SITELIBDIR}/_sqlite3.so:${PORTSDIR}/databases/py-sqlite3 \
 		${PYTHON_SITELIBDIR}/fpconst.py:${PORTSDIR}/math/py-fpconst \
-		${PYTHON_SITELIBDIR}/lxml/__init__.py:${PORTSDIR}/devel/py-lxml \
 		${PYTHON_SITELIBDIR}/nltk/util.py:${PORTSDIR}/textproc/nltk \
 		${PYTHON_SITELIBDIR}/pyPdf/pdf.py:${PORTSDIR}/print/py-pdf \
 		${PYTHON_SITELIBDIR}/scapy/main.py:${PORTSDIR}/net/scapy \
 		${PYTHON_SITELIBDIR}/wordnet.py:${PORTSDIR}/textproc/py-wordnet \
-		${PYTHON_SITELIBDIR}/yaml/loader.py:${PORTSDIR}/devel/py-yaml \
-		py-simplejson:${PORTSDIR}/devel/py-simplejson
-
+		${PYTHON_SITELIBDIR}/yaml/loader.py:${PORTSDIR}/devel/py-yaml
 RUN_DEPENDS=	${BUILD_DEPENDS}
 
 MAN1PREFIX=	${PYTHONPREFIX_SITELIBDIR}/${PORTNAME}/plugins/discovery/oHalberd/
