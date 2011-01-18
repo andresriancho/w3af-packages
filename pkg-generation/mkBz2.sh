@@ -24,7 +24,12 @@ find -L ../../w3af -name *.pyc | xargs rm
 find -L ../../w3af -name '*~' | xargs rm
 
 # remove the svn stuff
-find -L ../../w3af -name .svn | xargs rm -rf
+#   AR:
+#       Since we're going to be shipping an "Auto-Update feature" based on SVN in the near future,
+#       I think that it's smart to keep the SVN metadata in the package. It won't hurt much in the
+#       package size since the metadata holds the same information as the file and that should be
+#       handled by tar.
+#find -L ../../w3af -name .svn | xargs rm -rf
 
 # remove some paths and files that are created during the run
 rm ../../w3af/.urllib2cache/ -rf
