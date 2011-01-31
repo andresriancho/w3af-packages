@@ -101,12 +101,6 @@ find ${BASE_DIR}/plugins/discovery/oHmap/ | grep -v ".py" | xargs rm > /dev/null
 
 
 # Remove the debian policy offending stuff
-# There is some legal issues with nltk http://bugs.debian.org/571004 and w3af works anyway without it.
-rm -rf ${BASE_DIR}/extlib/nltk*/
-# There is some legal issues with pygoogle http://bugs.debian.org/282313 and w3af works anyway without it.
-rm -rf ${BASE_DIR}/extlib/pygoogle/
-# pywordnet is not maintained any more (see http://bugs.debian.org/369087). Probably python-nltk http://bugs.debian.org/279422 is a better option
-rm -rf ${BASE_DIR}/extlib/pywordnet/
 # nikto's database is not free.  (see http://www.mail-archive.com/debian-legal@lists.debian.org/msg38622.html)
 rm -rf ${BASE_DIR}/plugins/discovery/pykto*
 rm -rf ${BASE_DIR}/scripts/script-pykto.w3af
@@ -127,8 +121,6 @@ rm -rf ${BASE_DIR}/extlib/socksipy/
 rm -rf ${BASE_DIR}/extlib/scapy/
 # python-pypdf
 rm -rf ${BASE_DIR}/extlib/pyPdf/
-# python-beautifulsoup
-rm -rf ${BASE_DIR}/extlib/BeautifulSoup.py
 # python-json
 rm -rf ${BASE_DIR}/extlib/jsonpy/
 # python-fpconst
