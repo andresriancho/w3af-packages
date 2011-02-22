@@ -1,0 +1,1 @@
+useful link: http://stackoverflow.com/questions/2968273/making-pygtksourceview-work-in-windows
