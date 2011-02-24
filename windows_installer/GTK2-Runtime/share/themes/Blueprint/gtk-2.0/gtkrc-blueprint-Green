@@ -1,0 +1,1304 @@
+include "iconrc"
+
+style "default"
+{
+  bg[NORMAL]      = "#edf4e9"
+  bg[PRELIGHT]    = "#e6e6e6"
+  bg[ACTIVE]      = "#edf4e9"
+  bg[SELECTED]    = "#73999b"
+  bg[INSENSITIVE] = "#edf4e9"
+
+  base[SELECTED]  = "#594fbf"
+  base[ACTIVE]    = "#888888"
+  base[INSENSITIVE] = "#f0f0f0"
+
+  text[SELECTED]  = "#ffffff"
+  text[ACTIVE]    = "#ffffff"
+
+  fg[NORMAL]      = "#000000"
+  fg[ACTIVE]      = "#000000"
+  fg[PRELIGHT]    = "#594fbf"
+  fg[SELECTED]    = "#ffffff"
+  fg[INSENSITIVE] = "#777777"
+
+  GtkMenuBar::internal-padding = 0 
+  GtkToolbar::internal-padding = 0 
+
+  PanelMenu::stripe-enabled = TRUE
+  PanelMenu::stripe-gradient-top = "#ced5e8"
+  PanelMenu::stripe-gradient-bottom = "#1e5d70"
+
+  engine "blueprint"
+    {
+      icon_colorize = TRUE 
+      icon_colorize_ancestor_type = { "BonoboUIToolbar", "GtkToolbar" }
+      colorize_color = { 89, 79, 191, 160}
+
+# begin combo box specs
+     image
+	{
+	  function	  = BOX
+	  file		  = "comboBoxButton.png"
+	  stretch	  = TRUE
+	  parent_type	  = { "GtkCombo", "GnomeEntry" }
+	  state		  = NORMAL
+	}
+     image
+	{
+	  function	  = BOX
+	  file		  = "comboBoxButtonInsensitive.png"
+	  stretch	  = TRUE
+	  parent_type	  = { "GtkCombo", "GnomeEntry" }
+	  state		  = INSENSITIVE
+          recolorable	  = TRUE
+	  colorize_color  = { 120, 130, 141, 127 } 
+	}
+      image
+	{
+	  function	  = BOX
+	  file		  = "comboBoxButtonPrelight.png"
+	  stretch	  = TRUE
+	  parent_type	  = { "GtkCombo", "GnomeEntry" }
+	  state		  = PRELIGHT
+	}
+      image
+	{
+	  function	  = BOX
+	  file		  = "comboBoxButtonActive.png"
+	  stretch	  = TRUE
+	  parent_type	  = { "GtkCombo", "GnomeEntry" }
+	  state		  = ACTIVE
+	}
+      image
+	{
+	  function	  = ARROW
+	  overlay_file    = "noArrow.png"
+	  parent_type	  = { "GtkCombo", "GnomeEntry" }
+	}
+	
+# end combo box specs
+      image
+	{
+	  function	  = BOX
+	  file		  = "noArrow.png"
+	  stretch	  = TRUE
+	  detail	  = "button"
+	  parent_type	  = { "GtkToolbar", "BonoboUIToolbarButtonItem" }
+	}
+
+      image
+	{
+	  function	  = BOX
+	  file		  = "generalButton.png"
+	  border	  = {3, 3, 3, 3}
+	  stretch	  = TRUE
+	  state		  = NORMAL
+	  detail	  = "button"
+#	  recolorable	  = TRUE
+#          colorize_color  = { 46, 114, 117, 127}
+	}
+      image
+	{
+	  function	  = BOX
+	  file		  = "generalButtonInsensitive.png"
+	  border	  = {3, 3, 3, 3}
+	  stretch	  = TRUE
+	  state		  = INSENSITIVE
+	  detail	  = "button"
+#	  recolorable	  = TRUE
+#          colorize_color  = { 0, 0, 0, 64}
+	}
+      image
+	{
+	  function	  = BOX
+	  file		  = "generalButton.png"
+	  border	  = {3, 3, 3, 3}
+	  stretch	  = TRUE
+	  overlay_file	  = "generalButtonPrelight.png"
+	  overlay_border  = {3, 3, 3, 3}
+	  overlay_stretch = TRUE
+#	  overlay_recolorable = TRUE
+#	  overlay_colorize_color	= { 255, 0, 0, 255}
+	  state		  = PRELIGHT
+	  detail	  = "button"
+	  shadow	  = OUT
+	}
+     image
+	{
+	  function	  = BOX
+	  file		  = "generalButtonDwn.png"
+	  border	  = {3, 3, 3, 3}
+	  stretch	  = TRUE
+	  state		  = PRELIGHT
+	  shadow	  = IN
+	  detail	  = "button"
+	}
+      image
+	{
+	  function	  = BOX
+	  file		  = "generalButton.png"
+	  border	  = {3, 3, 3, 3}
+	  stretch	  = TRUE
+	  state		  = PRELIGHT
+	  detail	  = "button"
+	}
+      image
+	{
+	  function	  = BOX
+	  file		  = "generalButtonDwn.png"
+	  border	  = {3, 3, 3, 3}
+	  stretch	  = TRUE
+	  state		  = ACTIVE 
+	  detail	  = "button"
+	  recolorable	  = TRUE
+          colorize_color  = "black"
+	}
+      image
+	{
+	  function	  = BOX
+	  file		  = "generalButton.png"
+	  border	  = {3, 3, 3, 3}
+	  stretch	  = TRUE
+	  state		  = NORMAL
+	  detail	  = "buttondefault"
+#	  recolorable	  = TRUE
+#          colorize_color  = { 46, 114, 117, 127}
+	}
+      image
+	{
+	  function	  = BOX
+	  file		  = "menuBorderButton.png"
+	  border	  = {3, 2, 5, 5}
+	  stretch	  = TRUE
+	  detail	  = "menubar"
+	  recolorable	  = TRUE
+	  colorize_color  = { 237, 244, 233, 127}
+	}
+      image
+	{
+	  function	  = BOX
+	  file		  = "horzScrollInd.png"
+	  border	  = {2, 2, 2, 2}
+	  stretch	  = TRUE
+	  detail	  = "bar"
+	  orientation	  = HORIZONTAL
+	}
+      image
+	{
+	  function	  = BOX
+	  file		  = "vertScrollInd.png"
+	  border	  = {2, 2, 2, 2}
+	  stretch	  = TRUE
+	  detail	  = "bar"
+	  orientation	  = VERTICAL
+	}
+      image
+	{
+	  function	  = SHADOW 
+	  file		  = "toolbar.png"
+	  border	  = {1, 1, 1, 1}
+	  stretch	  = TRUE
+	  detail	  = "toolbar"
+	  recolorable	  = TRUE
+	  colorize_color  = { 237, 244, 233, 127}
+	}
+      image
+	{
+	  function	  = SHADOW 
+	  file		  = "toolbar.png"
+	  border	  = {1, 1, 1, 1}
+	  stretch	  = TRUE
+	  detail	  = "dockitem_bin"
+	  recolorable	  = TRUE
+	  colorize_color  = { 237, 244, 233, 127}
+	}
+    }
+}
+
+class "GtkWidget" style "default"
+
+style "checkradiobutton" {
+  engine "blueprint" {
+#radio Button  
+    image 
+      {
+        function        = OPTION
+	overlay_file	= "radioPrelight.png"
+	shadow          = OUT
+	overlay_stretch = FALSE
+	state		= PRELIGHT
+      }
+    image 
+      {
+        function        = OPTION
+	overlay_file	= "radioActivePrelight.png"
+	shadow          = IN
+	overlay_stretch = FALSE
+	state		= PRELIGHT
+      }
+# insensitive
+    image 
+      {
+        function        = OPTION
+	file		= "radio.png"
+	recolorable	= TRUE
+	colorize_color  = { 0, 0, 0, 127}
+	state		= INSENSITIVE
+      }
+# inconsistent
+    image 
+      {
+        function        = OPTION
+	shadow          = ETCHED_IN
+	file		= "radio.png"
+	recolorable	= TRUE
+	colorize_color  = { 0, 0, 0, 127}
+      }
+
+    image 
+      {
+        function        = OPTION
+	shadow          = OUT
+	overlay_file    = "radio.png"
+	overlay_border  = { 0, 0, 0, 0 }
+	overlay_stretch = FALSE
+      }
+
+     image 
+      {
+        function        = OPTION
+	shadow          = IN
+	overlay_file    = "radioActive.png"
+	overlay_border  = { 0, 0, 0, 0 }
+	overlay_stretch = FALSE
+      }
+#Check Button
+    image 
+      {
+        function        = CHECK
+	overlay_file	= "checkPrelight.png"
+	shadow          = OUT
+	overlay_stretch = FALSE
+	state		= PRELIGHT
+      }
+    image 
+      {
+        function        = CHECK
+	overlay_file	= "checkActivePrelight.png"
+	shadow          = IN
+	overlay_stretch = FALSE
+	state		= PRELIGHT
+      }
+# insensitive
+    image 
+      {
+        function        = CHECK
+	shadow          = IN
+	file		= "checkActive.png"
+	recolorable	= TRUE
+	colorize_color  = { 0, 0, 0, 127}
+	state		= INSENSITIVE
+      }
+    image 
+      {
+        function        = CHECK
+	file		= "check.png"
+	recolorable	= TRUE
+	colorize_color  = { 0, 0, 0, 127}
+	state		= INSENSITIVE
+      }
+# inconsistent
+    image 
+      {
+        function        = CHECK
+	shadow          = ETCHED_IN
+	file		= "check.png"
+	recolorable	= TRUE
+	colorize_color  = { 0, 0, 0, 127}
+      }
+    image 
+      {
+        function        = CHECK
+	shadow          = OUT
+	overlay_file    = "check.png"
+	overlay_border  = { 0, 0, 0, 0 }
+	overlay_stretch = FALSE
+      }
+    image 
+      {
+        function        = CHECK
+	shadow          = IN
+	overlay_file    = "checkActive.png"
+	overlay_border  = { 0, 0, 0, 0 }
+	overlay_stretch = FALSE
+      }
+      
+  }
+}
+
+class "GtkRadioButton" style "checkradiobutton"
+class "GtkCheckButton" style "checkradiobutton"
+class "GtkTreeView" style "checkradiobutton"
+class "GtkCheckMenuItem" style "checkradiobutton"
+class "GtkRadioMenuItem" style "checkradiobutton"
+
+style "blueprint-scrollbar" 
+{
+  GtkRange::slider_width = 13
+  GtkRange::stepper_size = 13
+  GtkScrollbar::min_slider_length = 45
+
+  engine "blueprint" 
+    {
+    image
+      {
+	function	= BOX
+	file		= "vertScrollBkg.png"
+	border          = { 1, 1, 1, 1 }
+	stretch		= TRUE
+	orientation	= VERTICAL
+      }
+     image
+      {
+	function	= BOX
+	file		= "horzScrollBkg.png"
+	border          = { 1, 1, 1, 1 }
+	stretch		= TRUE
+	orientation	= HORIZONTAL
+      }
+    image 
+      {
+        function        = SLIDER
+	file            = "vertScrollInd.png"
+	border          = { 2, 2, 2, 2 }
+	stretch         = TRUE
+	orientation	= VERTICAL
+	overlay_file	= "vertScrollGrip.png"
+	overlay_stretch	= FALSE
+	state		= NORMAL
+      }
+    image 
+      {
+        function        = SLIDER
+	file            = "horzScrollInd.png"
+	border          = { 2, 2, 2, 2 }
+	stretch         = TRUE
+	orientation     = HORIZONTAL
+	overlay_file	= "horzScrollGrip.png"
+	overlay_stretch	= FALSE
+	state		= NORMAL
+      }
+    image 
+      {
+        function        = SLIDER
+	file            = "vertScrollInd.png"
+	border          = { 2, 2, 2, 2 }
+	stretch         = TRUE
+	orientation	= VERTICAL
+	overlay_file	= "vertScrollGrip.png"
+	overlay_stretch	= FALSE
+	state		= PRELIGHT
+	recolorable	= TRUE
+	colorize_color  = { 89, 79, 191, 255}
+      }
+    image 
+      {
+        function        = SLIDER
+	file            = "horzScrollInd.png"
+	border          = { 2, 2, 2, 2 }
+	stretch         = TRUE
+	orientation     = HORIZONTAL
+	overlay_file	= "horzScrollGrip.png"
+	overlay_stretch	= FALSE
+	state		= PRELIGHT
+	recolorable	= TRUE
+	colorize_color  = { 89, 79, 191, 255}
+      }
+    image 
+      {
+        function        = SLIDER
+	file            = "vertScrollInd.png"
+	border          = { 2, 2, 2, 2 }
+	stretch         = TRUE
+	orientation	= VERTICAL
+	overlay_file	= "vertScrollGrip.png"
+	overlay_stretch	= FALSE
+	state		= INSENSITIVE
+	recolorable	= TRUE
+	colorize_color  = { 0, 0, 0, 127}
+      }
+    image 
+      {
+        function        = SLIDER
+	file            = "horzScrollInd.png"
+	border          = { 2, 2, 2, 2 }
+	stretch         = TRUE
+	orientation     = HORIZONTAL
+	overlay_file	= "horzScrollGrip.png"
+	overlay_stretch	= FALSE
+	state		= INSENSITIVE
+	recolorable	= TRUE
+	colorize_color  = { 0, 0, 0, 127}
+      }
+
+    image 
+      {
+        function        = STEPPER
+	file		= "vertStepUp.png"
+	stretch		= TRUE
+	arrow_direction = UP
+	overlay_file	= "vertStepUpButton.png"
+	state		= NORMAL
+      }
+    image 
+      {
+        function        = STEPPER
+	file		= "vertStepUp.png"
+	stretch		= TRUE
+	overlay_file	= "vertStepUpButton.png"
+	arrow_direction = UP
+	state		= PRELIGHT
+	recolorable	= TRUE
+	colorize_color  = { 89, 79, 191, 255}
+      }      
+    image 
+      {
+        function        = STEPPER
+	file		= "vertStepUp.png"
+	stretch		= TRUE
+	overlay_file	= "vertStepUpButton.png"
+	arrow_direction = UP
+	state		= INSENSITIVE
+	recolorable	= TRUE
+	colorize_color  = { 0, 0, 0, 127}
+      }    
+    image 
+      {
+        function        = STEPPER
+	file		= "vertStepUpPress.png"
+	stretch		= TRUE
+	overlay_file	= "vertStepUpButtonPress.png"
+	arrow_direction = UP
+	state		= ACTIVE
+      }
+    image 
+      {
+        function        = STEPPER
+	file		= "vertStepDwn.png"
+	stretch		= TRUE
+	arrow_direction = DOWN
+	overlay_file	= "vertStepDwnButton.png"
+	state	        = NORMAL
+      }
+    image 
+      {
+        function        = STEPPER
+	file		= "vertStepDwn.png"
+	stretch		= TRUE
+	arrow_direction = DOWN
+	overlay_file	= "vertStepDwnButton.png"
+	state		= PRELIGHT
+	recolorable	= TRUE
+	colorize_color  = { 89, 79, 191, 255}
+      }
+    image 
+      {
+        function        = STEPPER
+	file		= "vertStepDwn.png"
+	stretch		= TRUE
+	arrow_direction = DOWN
+	overlay_file	= "vertStepDwnButton.png"
+	state		= INSENSITIVE
+	recolorable	= TRUE
+	colorize_color  = { 0, 0, 0, 127}
+      }    
+    image 
+      {
+        function        = STEPPER
+	file		= "vertStepDwnPress.png"
+	stretch		= TRUE
+	arrow_direction = DOWN
+	overlay_file	= "vertStepDwnButtonPress.png"
+	state		= ACTIVE
+      }
+    image 
+      {
+        function        = STEPPER
+	file		= "horzStepLft.png"
+	stretch		= TRUE
+	overlay_file	= "horzStepLftButton.png"
+	arrow_direction = LEFT
+	state		= NORMAL
+      }
+    image 
+      {
+        function        = STEPPER
+	file		= "horzStepLft.png"
+	stretch		= TRUE
+	overlay_file	= "horzStepLftButton.png"
+	arrow_direction = LEFT
+	state		= PRELIGHT
+	recolorable	= TRUE
+	colorize_color  = { 89, 79, 191, 255}
+      }
+    image 
+      {
+        function        = STEPPER
+	file		= "horzStepLft.png"
+	stretch		= TRUE
+	overlay_file	= "horzStepLftButton.png"
+	arrow_direction = LEFT
+	state		= INSENSITIVE
+	recolorable	= TRUE
+	colorize_color  = { 0, 0, 0, 127}
+      }
+    image 
+      {
+        function        = STEPPER
+	file		= "horzStepLftPress.png"
+	stretch		= TRUE
+	overlay_file	= "horzStepLftButtonPress.png"
+	arrow_direction = LEFT
+	state		= ACTIVE
+      }
+    image 
+      {
+        function        = STEPPER
+	file		= "horzStepRht.png"
+	overlay_file	= "horzStepRhtButton.png"
+	stretch		= TRUE
+	arrow_direction = RIGHT
+	state		= NORMAL
+      }
+    image 
+      {
+        function        = STEPPER
+	file		= "horzStepRht.png"
+	stretch		= TRUE
+	overlay_file	= "horzStepRhtButton.png"
+	arrow_direction = LEFT
+	arrow_direction = RIGHT
+	state		= PRELIGHT
+	recolorable	= TRUE
+	colorize_color  = { 89, 79, 191, 255}
+      }
+    image 
+      {
+        function        = STEPPER
+	file		= "horzStepRht.png"
+	stretch		= TRUE
+	overlay_file	= "horzStepRhtButton.png"
+	arrow_direction = LEFT
+	arrow_direction = RIGHT
+	state		= INSENSITIVE
+	recolorable	= TRUE
+	colorize_color  = { 0, 0, 0, 127}
+      }
+    image 
+      {
+        function        = STEPPER
+	file		= "horzStepRhtPress.png"
+	stretch		= TRUE
+	overlay_file	= "horzStepRhtButtonPress.png"
+	arrow_direction = RIGHT
+	state		= ACTIVE
+      }
+    }
+}
+
+class "GtkScrollbar" style "blueprint-scrollbar"
+
+style "blueprint-range" 
+{
+  GtkRange::slider_width = 10
+  GtkRange::stepper_size = 14
+
+  engine "blueprint" 
+    {
+    image
+      {
+	function	= BOX
+	file		= "vertRangeTrough.png"
+	border          = { 5, 5, 9, 9}
+	stretch		= TRUE
+	orientation	= VERTICAL
+      }
+    image 
+      {
+        function        = SLIDER
+	overlay_file	= "vertRangeKnobPrelight.png"
+	overlay_stretch	= FALSE
+	state		= PRELIGHT
+	orientation	= VERTICAL
+      }
+    image 
+      {
+        function        = SLIDER
+	overlay_file	= "vertRangeKnob.png"
+	overlay_stretch	= FALSE
+	orientation	= VERTICAL
+      }
+    image
+      {
+	function	= BOX
+	file		= "horzRangeTrough.png"
+	border          = { 9, 9, 5, 5}
+	stretch		= TRUE
+	orientation	= HORIZONTAL
+      }
+    image 
+      {
+        function        = SLIDER
+	overlay_file	= "horzRangeKnobPrelight.png"
+	overlay_stretch	= FALSE
+	state		= PRELIGHT
+	orientation	= HORIZONTAL
+      }
+    image 
+      {
+        function        = SLIDER
+	overlay_file	= "horzRangeKnob.png"
+	overlay_stretch	= FALSE
+	orientation	= HORIZONTAL
+      }
+    }
+}
+
+class "GtkRange" style "blueprint-range"
+
+style "blueprint-entry" = "default"
+{
+  engine "blueprint"
+  {
+      image
+	{
+	  function	  = SHADOW
+	  file		  = "comboBoxShadowMask.png"
+	  border	  = {10, 1, 2, 2}
+	  stretch	  = TRUE
+	  overlay_file	  = "comboBoxShadow.png"
+	  overlay_border  = {10, 1, 2, 2}
+	  overlay_stretch = TRUE
+	  use_as_bkg_mask = TRUE
+	  colorize_color  = {237, 244, 233, 255}
+	  parent_type	  = { "GtkCombo", "GnomeEntry"}
+	}
+      image
+	{
+	  function	  = FLAT_BOX
+	  detail	  = "entry_bg"
+	  file		  = "comboBoxTextFieldMask.png"
+	  border	  = {9, 0, 0, 0}
+	  stretch	  = TRUE
+	  overlay_file	  = "comboBoxTextField.png"
+	  overlay_border  = {9, 0, 0, 0}
+	  overlay_stretch = TRUE
+	  use_as_bkg_mask = TRUE
+	  colorize_color  = {237, 244, 233, 255}
+	  parent_type	  = { "GtkCombo", "GnomeEntry"}
+	}
+      image
+	{
+	  function	  = SHADOW
+	  detail	  = "entry"
+	  file		  = "textfieldShadowMask.png"
+	  border	  = {11, 11, 3, 3}
+	  stretch	  = TRUE
+	  overlay_file	  = "textfieldShadow.png"
+	  overlay_border  = {11, 11, 3, 3}
+	  overlay_stretch = TRUE
+	  use_as_bkg_mask = TRUE
+	  colorize_color  = {237, 244, 233, 255}
+	}
+      image
+	{
+	  function	  = FLAT_BOX
+	  detail	  = "entry_bg"
+	  file		  = "textfieldinnerfieldMask.png"
+	  border	  = {9, 9, 1, 1}
+	  stretch	  = TRUE
+	  overlay_file	  = "textfieldinnerfield.png"
+	  overlay_border  = {9, 9, 1, 1}
+	  overlay_stretch = TRUE
+	  use_as_bkg_mask = TRUE
+	  colorize_color  = {237, 244, 233, 255}
+	}
+  }
+}
+
+class "GtkEntry" style "blueprint-entry"
+
+style "blueprint-menu" = "default"
+{
+
+  bg[PRELIGHT]    = "#594fbf"
+  fg[PRELIGHT]    = "#ffffff"
+
+  engine "blueprint" 
+  {     
+#       image
+#	{
+#	  function	  = BACKGROUND
+#	  file		  = "menu.png"
+#	  border	  = {2, 2, 2, 2}
+#	  stretch	  = TRUE
+#	}
+       image
+	{
+	  function	  = SHADOW
+	  file		  = "menu.png"
+	  border	  = {2, 2, 2, 2}
+	  stretch	  = TRUE
+	  recolorable	  = TRUE
+	  colorize_color  = { 237, 244, 233, 127}
+	}
+       image
+	{
+	  function	  = BOX
+	  file		  = "generalButton.png"
+	  border	  = {3, 3, 3, 3}
+	  stretch	  = TRUE
+	  detail	  = "optionmenu"
+	}
+	image
+	{
+	  function	  = BOX
+	  file		  = "menuitembar.png"
+	  stretch	  = TRUE
+	  overlay_file	  = "menuitem.png"
+	  overlay_border  = { 9, 0, 8, 8 }
+	  overlay_stretch = TRUE
+	  parent_type	  = { "GtkMenuBar" }
+	}
+	image
+	{
+	  function	  = BOX
+	  file		  = "menuitem.png"
+	  border	  = { 9, 0, 8, 8 }
+	  stretch	  = TRUE
+	  parent_type	  = { "GtkMenu", "PanelMenu" }
+	}
+	image
+	{
+	  function	  = HLINE
+	  file		  = "menuSeparator.png"
+	  border	  = { 1, 1, 3, 0 }
+	  stretch	  = TRUE
+	  recolorable	  = TRUE
+	  colorize_color  = { 237, 244, 233, 127}
+	}
+	image 
+	{
+	  function	  = ARROW
+	  overlay_file	  = "vertStepUpButton.png"
+	  overlay_stretch = FALSE
+	  arrow_direction = UP
+	}
+	image 
+	{
+	  function	  = ARROW
+	  overlay_file	  = "vertStepDwnButton.png"
+	  overlay_stretch = FALSE
+	  arrow_direction = DOWN
+	}
+	image 
+	{
+	  function	  = ARROW
+	  overlay_file	  = "horzStepLftButton.png"
+	  overlay_stretch = FALSE
+	  arrow_direction = LEFT
+	}
+	image 
+	{
+	  function	  = ARROW
+	  overlay_file	  = "horzStepRhtButton.png"
+	  overlay_stretch = FALSE
+	  arrow_direction = RIGHT
+	}
+  }
+}
+
+class "GtkMenu" style "blueprint-menu"
+class "GtkOptionMenu" style "blueprint-menu"
+class "GtkMenuItem" style "blueprint-menu"
+
+style "blueprint-toolbar" 
+{
+  engine "blueprint" 
+  {
+      image
+	{
+	  function	  = BOX 
+	  file		  = "toolbar.png"
+	  border	  = {1, 1, 1, 1}
+	  stretch	  = TRUE
+	  detail	  = "toolbar"
+	}
+  }
+}
+
+#class "GtkToolbar" style "blueprint-toolbar"
+widget_class "BonoboUIToolbar" style "blueprint-toolbar"
+
+
+style "blueprint-spin" = "default"
+{
+  engine "blueprint"
+  {
+    image
+      {
+	function	    = BOX
+	file		    = "fullMask.png"
+	stretch		    = TRUE
+	detail		    = "spinbutton_up"
+	state		    = NORMAL
+	overlay_file	    = "spin_up.png"
+	overlay_stretch	    = TRUE
+	use_as_bkg_mask	    = TRUE
+	colorize_color	    = {237, 244, 233, 255}
+      }
+    image
+      {
+	function	    = BOX
+	file		    = "fullMask.png"
+	stretch		    = TRUE
+	overlay_file	    = "spin_upInsensitive.png"
+	overlay_stretch	    = TRUE
+	detail		    = "spinbutton_up"
+	state		    = INSENSITIVE
+#        overlay_recolorable = TRUE
+#        overlay_colorize_color	= { 120, 130, 141, 127}
+	use_as_bkg_mask	    = TRUE
+	colorize_color	    = {237, 244, 233, 255}
+      }
+    image
+      {
+	function	    = BOX
+	file		    = "fullMask.png"
+	stretch		    = TRUE
+	overlay_file	    = "spin_upPrelight.png"
+	overlay_stretch	    = TRUE
+	detail		    = "spinbutton_up"
+	state		    = PRELIGHT
+	use_as_bkg_mask	    = TRUE
+	colorize_color	    = {237, 244, 233, 255}
+      }
+    image
+      {
+	function	    = BOX
+	file		    = "fullMask.png"
+	stretch		    = TRUE
+	overlay_file	    = "spin_upActive.png"
+	overlay_stretch	    = TRUE
+	detail		    = "spinbutton_up"
+	state		    = ACTIVE
+	use_as_bkg_mask	    = TRUE
+	colorize_color	    = {237, 244, 233, 255}
+      }
+    image
+      {
+	function	    = BOX
+	file		    = "fullMask.png"
+	stretch		    = TRUE
+	overlay_file	    = "spin_down.png"
+	overlay_stretch	    = TRUE
+	detail		    = "spinbutton_down"
+	state		    = NORMAL
+	use_as_bkg_mask	    = TRUE
+	colorize_color	    = {237, 244, 233, 255}
+      }
+    image
+      {
+	function	    = BOX
+	file		    = "fullMask.png"
+	stretch		    = TRUE
+	overlay_file	    = "spin_downInsensitive.png"
+	overlay_stretch	    = TRUE
+	detail		    = "spinbutton_down"
+	state		    = INSENSITIVE
+#        overlay_recolorable = TRUE
+#        overlay_colorize_color = { 120, 130, 141, 127}
+	use_as_bkg_mask	    = TRUE
+	colorize_color	    = {237, 244, 233, 255}
+      }
+    image
+      {
+	function	    = BOX
+	file		    = "fullMask.png"
+	stretch		    = TRUE
+	overlay_file	    = "spin_downPrelight.png"
+	overlay_stretch	    = TRUE
+	detail		    = "spinbutton_down"
+	state		    = PRELIGHT
+	use_as_bkg_mask	    = TRUE
+	colorize_color	    = {237, 244, 233, 255}
+      }
+    image
+      {
+	function	    = BOX
+	file		    = "fullMask.png"
+	stretch		    = TRUE
+	overlay_file	    = "spin_downActive.png"
+	overlay_stretch	    = TRUE
+	detail		    = "spinbutton_down"
+	state		    = ACTIVE
+	use_as_bkg_mask	    = TRUE
+	colorize_color	    = {237, 244, 233, 255}
+      }
+    image
+      {
+	function	    = ARROW
+	overlay_file	    = "noArrow.png"
+      }
+    image
+      {
+	function	    = BOX
+	overlay_file	    = "noArrow.png"
+	detail		    = "spinbutton"
+      }
+    image
+      {
+	function	    = FLAT_BOX
+	detail		    = "entry_bg"
+	file		    = "comboBoxTextFieldMask.png"
+	border		    = {9, 0, 0, 0}
+	stretch		    = TRUE
+	overlay_file	    = "comboBoxTextField.png"
+	overlay_border	    = {9, 0, 0, 0}
+	overlay_stretch	    = TRUE
+	use_as_bkg_mask	    = TRUE
+	colorize_color	    = {237, 244, 233, 255}
+      }
+	
+    image
+      {
+	function	    = SHADOW
+	detail		    = "entry"
+	file		    = "comboBoxShadowMask.png"
+	border		    = {10, 1, 2, 2}
+	stretch		    = TRUE
+	overlay_file	    = "comboBoxShadow.png"
+	overlay_border	    = {10, 1, 2, 2}
+	overlay_stretch	    = TRUE
+	use_as_bkg_mask	    = TRUE
+	colorize_color	    = {237, 244, 233, 255}
+      }
+  }
+}
+  
+class "GtkSpinButton" style "blueprint-spin"
+  
+style "blueprint-handle-pane"
+{
+  GtkPaned::handle-size = 8
+  engine "blueprint"
+  {
+      image 
+	{
+	  function        = HANDLE
+	  file		  = "vertPaneBkg.png"
+#	  border          = { 2, 1, 2, 1 }
+	  stretch	  = TRUE
+	  overlay_file	  = "vertPaneGrip.png"
+	  overlay_stretch = FALSE
+	  orientation	  = VERTICAL
+	  state		  = NORMAL
+	  detail	  = "paned"
+	}
+      image 
+	{
+	  function        = HANDLE
+	  file		  = "horzPaneBkg.png"
+#	  border          = { 2, 1, 2, 1 }
+	  stretch	  = TRUE
+	  overlay_file	  = "horzPaneGrip.png"
+	  overlay_stretch = FALSE
+	  orientation	  = HORIZONTAL
+	  state		  = NORMAL
+	  detail	  = "paned"
+	}
+      image 
+	{
+	  function        = HANDLE
+	  file		  = "vertPaneBkg.png"
+#	  border          = { 2, 1, 2, 1 }
+	  stretch	  = TRUE
+	  overlay_file	  = "vertPaneGripPrelight.png"
+	  overlay_stretch = FALSE
+	  orientation	  = VERTICAL
+	  state		  = PRELIGHT
+	  detail	  = "paned"
+	}
+      image 
+	{
+	  function        = HANDLE
+	  file		  = "horzPaneBkg.png"
+#	  border          = { 2, 1, 2, 1 }
+	  stretch	  = TRUE
+	  overlay_file	  = "horzPaneGripPrelight.png"
+	  overlay_stretch = FALSE
+	  orientation	  = HORIZONTAL
+	  state		  = PRELIGHT
+	  detail	  = "paned"
+	}
+# dockitem and GtkHandle in the Panel are swapping their orientations
+# wrt to plain GtkHandle.
+       image 
+	{
+	  function        = HANDLE
+	  file		  = "vertHandle.png"
+	  border          = { 2, 1, 2, 1 }
+	  stretch	  = TRUE
+	  overlay_file	  = "vertHandleGrip.png"
+	  overlay_stretch = FALSE
+	  orientation	  = HORIZONTAL
+	  detail	  = "dockitem"
+	}
+      image 
+	{
+	  function        = HANDLE
+	  file		  = "horzHandle.png"
+	  border          = { 2, 1, 2, 1 }
+	  stretch	  = TRUE
+	  overlay_file	  = "horzHandleGrip.png"
+	  overlay_stretch = FALSE
+	  orientation	  = VERTICAL
+	  detail	  = "dockitem"
+	}
+      image 
+	{
+	  function        = HANDLE
+	  file		  = "vertHandle.png"
+	  border          = { 2, 1, 2, 1 }
+	  stretch	  = TRUE
+	  overlay_file	  = "vertHandleGrip.png"
+	  overlay_stretch = FALSE
+	  orientation	  = HORIZONTAL
+	  parent_type	  = { "PanelWidget" }
+	}
+      image 
+	{
+	  function        = HANDLE
+	  file		  = "horzHandle.png"
+	  border          = { 2, 1, 2, 1 }
+	  stretch	  = TRUE
+	  overlay_file	  = "horzHandleGrip.png"
+	  overlay_stretch = FALSE
+	  orientation	  = VERTICAL
+	  detail	  = "handlebox"
+	  parent_type	  = { "PanelWidget" }
+	}
+      image 
+	{
+	  function        = HANDLE
+	  file		  = "vertHandle.png"
+	  border          = { 2, 1, 2, 1 }
+	  stretch	  = TRUE
+	  overlay_file	  = "vertHandleGrip.png"
+	  overlay_stretch = FALSE
+	  orientation	  = VERTICAL
+	  detail	  = "handlebox"
+	}
+      image 
+	{
+	  function        = HANDLE
+	  file		  = "horzHandle.png"
+	  border          = { 2, 1, 2, 1 }
+	  stretch	  = TRUE
+	  overlay_file	  = "horzHandleGrip.png"
+	  overlay_stretch = FALSE
+	  orientation	  = HORIZONTAL
+	  detail	  = "handlebox"
+	}
+  }
+}
+
+
+class "GtkHandleBox" style "blueprint-handle-pane" 
+class "GtkPaned" style "blueprint-handle-pane" 
+widget_class "*.BonoboDockItemGrip" style "blueprint-handle-pane"
+widget_class "*.PanelAppletFrame" style "blueprint-handle-pane"
+
+style "blueprint-notebook" = "default"
+{
+  engine "blueprint" 
+    {
+    image 
+      {
+        function        = EXTENSION
+	state           = ACTIVE
+	file            = "tabTop.png"
+	border          = { 7, 7, 15, 3 }
+	stretch         = TRUE
+	gap_side        = BOTTOM
+	recolorable	= TRUE
+	colorize_color  = { 237, 244, 233, 127}
+      }
+    image 
+      {
+        function        = EXTENSION
+	file            = "tabTopActive.png"
+	border          = { 7, 7, 14, 3 }
+	stretch         = TRUE
+	gap_side        = BOTTOM
+	recolorable	= TRUE
+	colorize_color  = { 237, 244, 233, 127}
+      }
+    image 
+      {
+        function        = EXTENSION
+	state           = ACTIVE
+	file            = "tabBottom.png"
+	border          = { 7, 7, 3, 15 }
+	stretch         = TRUE
+	gap_side        = TOP
+	recolorable	= TRUE
+	colorize_color  = { 237, 244, 233, 127}
+      }
+    image 
+      {
+        function        = EXTENSION
+	file            = "tabBottomActive.png"
+	border          = { 7, 7, 3, 14 }
+	stretch         = TRUE
+	gap_side        = TOP
+	recolorable	= TRUE
+	colorize_color  = { 237, 244, 233, 127}
+      }
+    image 
+      {
+        function        = EXTENSION
+	state           = ACTIVE
+	file            = "tabLeft.png"
+	border          = { 15, 3, 7, 7 }
+	stretch         = TRUE
+	gap_side        = RIGHT
+	recolorable	= TRUE
+	colorize_color  = { 237, 244, 233, 127}
+      }
+    image 
+      {
+        function        = EXTENSION
+	file            = "tabLeftActive.png"
+	border          = { 14, 3, 7, 7 }
+	stretch         = TRUE
+	gap_side        = RIGHT
+	recolorable	= TRUE
+	colorize_color  = { 237, 244, 233, 127}
+      }
+    image 
+      {
+        function        = EXTENSION
+	state           = ACTIVE
+	file            = "tabRight.png"
+	border          = { 3, 15, 7, 7 }
+	stretch         = TRUE
+	gap_side        = LEFT
+	recolorable	= TRUE
+	colorize_color  = { 237, 244, 233, 127}
+      }
+    image 
+      {
+        function        = EXTENSION
+	file            = "tabRightActive.png"
+	border          = { 3, 14, 7, 7 }
+	stretch         = TRUE
+	gap_side        = LEFT
+	recolorable	= TRUE
+	colorize_color  = { 237, 244, 233, 127}
+      }
+#
+# How to draw boxes with a gap on one side (ie the page of a notebook)
+#
+    image 
+      {
+        function        = BOX_GAP
+	file            = "extensionTop.png"
+	border          = { 2, 3, 6, 1 }
+	stretch         = TRUE
+	gap_side        = TOP
+	recolorable	= TRUE
+	colorize_color  = { 237, 244, 233, 127}
+      }
+    image 
+      {
+        function        = BOX_GAP
+	file            = "extensionBottom.png"
+	border          = { 2, 3, 1, 6 }
+	stretch         = TRUE
+	gap_side        = BOTTOM
+	recolorable	= TRUE
+	colorize_color  = { 237, 244, 233, 127}
+      }
+    image 
+      {
+        function        = BOX_GAP
+	file            = "extensionLeft.png"
+	border          = { 6, 1, 3, 2 }
+	stretch         = TRUE
+	gap_side        = LEFT
+	recolorable	= TRUE
+	colorize_color  = { 237, 244, 233, 127}
+      }
+    image 
+      {
+        function        = BOX_GAP
+	file            = "extensionRight.png"
+	border          = { 1, 6, 2, 3 }
+	stretch         = TRUE
+	gap_side        = RIGHT
+	recolorable	= TRUE
+	colorize_color  = { 237, 244, 233, 127}
+      }
+  }
+}
+
+class "GtkNotebook" style "blueprint-notebook"
+
+style "lighter" = "default"
+{
+  bg[NORMAL] = "#c5c6cc"
+}
+style "tips" 
+{
+  bg[NORMAL] = "#ffffcc"
+}
+
+style "task"
+{
+  engine "blueprint"
+  {
+    image
+      {
+	  function	  = BOX
+	  file		  = "generalButton.png"
+	  border	  = {3, 3, 3, 3}
+	  stretch	  = TRUE
+	  detail	  = "button"
+	  recolorable	  = TRUE
+          colorize_color  = { 0, 0, 0, 64}
+      }
+  }
+}
+
+class "WnckPager" style "lighter"
+#widget_class "*.WnckTasklist.*" style "task"
+widget_class "*.tooltips.*.GtkToggleButton"  style "lighter"
+widget "gtk-tooltips" style "tips"
+
+style "my-test"
+{
+  engine "blueprint"
+  {
+    image 
+      {
+        function        = FLAT_BOX
+	file            = "generalButton.png"
+	border		= {3, 3, 3, 3}
+	stretch         = TRUE
+      }
+  }
+}
+
+#widget_class "*.BonoboPlug" style "my-test"
+
