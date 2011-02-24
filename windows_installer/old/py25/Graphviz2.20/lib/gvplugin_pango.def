@@ -1,9 +1,0 @@
-LIBRARY gvplugin_pango.dll
-
-EXPORTS
-
-gvdevice_pango_types DATA
-gvloadimage_pango_types DATA
-gvplugin_pango_LTX_library DATA
-gvrender_pango_types DATA
-gvtextlayout_pango_types DATA
