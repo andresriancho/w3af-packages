@@ -17,8 +17,11 @@
 
 ; Define your application name
 !define APPNAME "w3af"
-!define APPNAMEANDVERSION "w3af 1.0 rc4"
+!define APPNAMEANDVERSION "w3af 1.0 rc6"
 !define REGKEY "Software\${APPNAME}"
+
+; GUI Desktop link
+!define W3AFGUILINK "$DESKTOP\w3af GUI.lnk"
 
 ; Main Install settings
 Name "${APPNAME}"
@@ -168,26 +171,23 @@ ${MementoSection} !"W3AF" SectionW3af
 	SetOverwrite on
 ;	############## W3AF ##############
 	SetOutPath "$INSTDIR\w3af\"
-	;File /r /x "*.pyc" /x "*.pyo" "..\..\tags\1.0-rc3\*.*"
-	File /r /x "*.pyc" /x "*.pyo" "..\..\trunk\*.*"
+	File /r /x "*.pyc" /x "*.pyo" "..\w3af\*.*"
+;	File /r /x "*.pyc" /x "*.pyo" "..\..\trunk\*.*"
 	
 ;	############## GTK ##############
-	SetOutPath "$INSTDIR\GTK\"
-	File /r /x ".svn" "Graphviz2.20\*.*"
-	File /r /x ".svn" "gtk2-runtime\*.*"
+	SetOutPath "$INSTDIR\GTK\Graphviz"
+	File /r /x ".svn" "Graphviz2.24\*.*"
+	SetOutPath "$INSTDIR\GTK\GTK2-Runtime"
+	File /r /x ".svn" "GTK2-Runtime\*.*"
 	
 	; Icons
+	SetOutPath "$INSTDIR\GTK\"
 	File "image\w3af_gui_icon.ico"
 	File "image\w3af_script_icon.ico"
 
-	
-;	############## SVN Client ##############
-	SetOutPath "$INSTDIR\svn-client\"
-	File /r /x ".svn" "svn-client\*.*"
-
-;	############## Python2.5.4 + pre-requisites ##############
-	SetOutPath "$INSTDIR\python25\"
-	File /r /x ".svn" "python25\*.*"
+;	############## Python2.6.6 + pre-requisites ##############
+	SetOutPath "$INSTDIR\python26\"
+	File /r /x ".svn" "python26\*.*"
 
 ;	############## \ ##############
 	SetOutPath "$INSTDIR\"
@@ -195,7 +195,6 @@ ${MementoSection} !"W3AF" SectionW3af
 	; Manifest (WinVista/Win7)
 	File "w3af_console.bat.manifest"
 	File "w3af_gui.bat.manifest"
-	File "w3af_update.bat.manifest"
 
 	
 	; Create w3af commandline
@@ -205,10 +204,6 @@ ${MementoSection} !"W3AF" SectionW3af
 	; Create w3af GUI
 	Push $INSTDIR\w3af_gui.bat
 	Call Writew3afGUI
-	
-	; Create w3af Update
-	Push $INSTDIR\w3af_update.bat
-	Call Writew3afUpdate
 
 	; Create w3af Theme
 	Push $INSTDIR\w3af_theme.bat
@@ -270,13 +265,18 @@ Section -MakeShortCuts
 	
 	; Create shortcuts
 	CreateShortCut "$DESKTOP\w3af Console.lnk" "$INSTDIR\w3af_console.bat" ""
-	CreateShortCut "$DESKTOP\w3af GUI.lnk" "$INSTDIR\w3af_gui.bat" "" "$INSTDIR\GTK\w3af_gui_icon.ico" 0 SW_SHOWNORMAL
+	CreateShortCut "${W3AFGUILINK}" "$INSTDIR\w3af_gui.bat" "" "$INSTDIR\GTK\w3af_gui_icon.ico" 0 SW_SHOWNORMAL
 	
 	CreateDirectory "$SMPROGRAMS\$StartMenuFolder"
 	CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Console.lnk" "$INSTDIR\w3af_console.bat" ""
 	CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af GUI.lnk" "$INSTDIR\w3af_gui.bat" "" "$INSTDIR\GTK\w3af_gui_icon.ico" 0 SW_SHOWNORMAL
-	CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Update.lnk" "$INSTDIR\w3af_update.bat" "" "$INSTDIR\svn-client\svn.exe" 0 SW_SHOWNORMAL
 	CreateShortCut "$SMPROGRAMS\$StartMenuFolder\w3af Theme.lnk" "$INSTDIR\w3af_theme.bat" "" "$INSTDIR\GTK\gtk2-runtime\gtk.ico" 0 SW_SHOWNORMAL
+	
+	; Set Shortcut to Run As Administrator
+	ShellLink::SetRunAsAdministrator "${W3AFGUILINK}"
+	Pop $0
+	DetailPrint "SetRunAsAdministrator: $0"
+	DetailPrint ""
 
 	# Restore the old out path
 	SetOutPath "$SMPROGRAMS\$StartMenuFolder"
@@ -330,7 +330,7 @@ Section un.Uninstall
 	
 	; Delete Shortcuts
 	Delete "$DESKTOP\w3af Console.lnk"
-	Delete "$DESKTOP\w3af GUI.lnk"
+	Delete "${W3AFGUILINK}"
 
 	; Remove directories
 	RMDir /r "$SMPROGRAMS\$StartMenuFolder"
@@ -370,9 +370,9 @@ Function Writew3afConsole
 	FileOpen $R9 $R0 w
 	FileWrite $R9 "@echo off$\r$\n"
 	FileWrite $R9 "set DIR=$INSTDIR$\r$\n"
-	FileWrite $R9 "set PATH=%DIR%;%DIR%\svn-client;%DIR%\GTK\bin;%DIR%\Python25;%DIR%\w3af;%DIR%\Python25\DLLs;%PATH%$\r$\n"
+	FileWrite $R9 "set PATH=%DIR%;%DIR%\Python26;%DIR%\w3af;%DIR%\Python26\DLLs;%PATH%$\r$\n"
 	FileWrite $R9 "cd $\"%DIR%$\"$\r$\n"
-	FileWrite $R9 "$\"%DIR%\Python25\python.exe$\" w3af\w3af_console %1 %2$\r$\n"
+	FileWrite $R9 "$\"%DIR%\Python26\python.exe$\" w3af\w3af_console %1 %2$\r$\n"
 	FileClose $R9
 	Pop $R9
 FunctionEnd
@@ -384,26 +384,9 @@ Function Writew3afGUI
 	FileOpen $R9 $R0 w
 	FileWrite $R9 "@echo off$\r$\n"
 	FileWrite $R9 "set DIR=$INSTDIR$\r$\n"
-	FileWrite $R9 "set PATH=%DIR%;%DIR%\svn-client;%DIR%\GTK\bin;%DIR%\Python25;%DIR%\w3af;%DIR%\Python25\DLLs;%PATH%$\r$\n"
+	FileWrite $R9 "set PATH=%DIR%;%DIR%\GTK\GTK2-Runtime\bin;%DIR%\GTK\Graphviz\bin;%DIR%\Python26;%DIR%\w3af;%DIR%\Python26\DLLs;%PATH%$\r$\n"
 	FileWrite $R9 "cd $\"%DIR%$\"$\r$\n"
-	FileWrite $R9 "$\"%DIR%\Python25\python.exe$\" w3af\w3af_gui %1 %2$\r$\n"
-	FileClose $R9
-	Pop $R9
-FunctionEnd
-
-; Create w3af_update.bat
-Function Writew3afUpdate
-	Pop $R0 ; Output file
-	Push $R9
-	FileOpen $R9 $R0 w
-	FileWrite $R9 "@echo off$\r$\n"
-	FileWrite $R9 "echo Updating w3af to the latest SVN revision...$\r$\n"
-	FileWrite $R9 "echo svn cleanup$\r$\n"
-	FileWrite $R9 "svn-client\svn.exe cleanup w3af$\r$\n"
-	FileWrite $R9 "echo svn update$\r$\n"
-	FileWrite $R9 "svn-client\svn.exe update w3af$\r$\n"
-	FileWrite $R9 "svn-client\svn.exe info w3af$\r$\n"
-	FileWrite $R9 "pause$\r$\n"
+	FileWrite $R9 "$\"%DIR%\Python26\python.exe$\" w3af\w3af_gui %1 %2$\r$\n"
 	FileClose $R9
 	Pop $R9
 FunctionEnd
@@ -413,7 +396,7 @@ Function Writew3afTheme
 	Pop $R0 ; Output file
 	Push $R9
 	FileOpen $R9 $R0 w
-	FileWrite $R9 "@$\"%CD%\GTK\bin\gtk2_prefs.exe$\"$\r$\n"
+	FileWrite $R9 "@$\"%CD%\GTK\GTK2-Runtime\bin\gtk2_prefs.exe$\"$\r$\n"
 	FileClose $R9
 	Pop $R9
 FunctionEnd
@@ -434,6 +417,6 @@ Function WriteGtkrc
 	Pop $R9
 FunctionEnd	
 
-BrandingText "w3af - Andres Riancho / Installer - Ulises Cuñé (Ulises2k)"
+BrandingText "w3af - Andres Riancho / Installer - Ulises Cuñé, Javier Andalia"
 
 ; eof
