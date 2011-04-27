@@ -163,13 +163,13 @@ Function .onInstSuccess
 	${MementoSectionSave}
 FunctionEnd
 
-############## Section W3AF ##############
-${MementoSection} !"W3AF" SectionW3af
+############## Section w3af ##############
+${MementoSection} !"w3af" SectionW3af
 
 	SectionIn 1 RO
 	SetDetailsPrint both
 	SetOverwrite on
-;	############## W3AF ##############
+;	############## w3af ##############
 	SetOutPath "$INSTDIR\w3af\"
 	File /r /x "*.pyc" /x "*.pyo" "..\w3af\*.*"
 ;	File /r /x "*.pyc" /x "*.pyo" "..\..\trunk\*.*"
@@ -222,35 +222,35 @@ ${MementoSectionEnd}
 Section -AsociationExtW3af
 	; Script .w3af
 	ReadRegStr $R0 HKCR ".w3af" ""
-	StrCmp $R0 "W3AF.Script" 0 +2
-	DeleteRegKey HKCR "W3AF.Script"
+	StrCmp $R0 "w3af.Script" 0 +2
+	DeleteRegKey HKCR "w3af.Script"
 	
-	WriteRegStr HKCR ".w3af" "" "W3AF.Script"
-	WriteRegStr HKCR "W3AF.Script" "" "W3AF Script File"
-	WriteRegStr HKCR "W3AF.Script\DefaultIcon" "" "$INSTDIR\GTK\w3af_script_icon.ico,0"
+	WriteRegStr HKCR ".w3af" "" "w3af.Script"
+	WriteRegStr HKCR "w3af.Script" "" "w3af Script File"
+	WriteRegStr HKCR "w3af.Script\DefaultIcon" "" "$INSTDIR\GTK\w3af_script_icon.ico,0"
 
 	; Open .w3af with w3af_console
-	WriteRegStr HKCR "W3AF.Script\shell" "" "open"	;Default
-	WriteRegStr HKCR "W3AF.Script\shell\open\command" "" '"$INSTDIR\w3af_console.bat" -s "%1"'
+	WriteRegStr HKCR "w3af.Script\shell" "" "open"	;Default
+	WriteRegStr HKCR "w3af.Script\shell\open\command" "" '"$INSTDIR\w3af_console.bat" -s "%1"'
 
 	; Edit .w3af with notepad.exe
-	WriteRegStr HKCR "W3AF.Script\shell\edit\command" "" '"notepad.exe" "%1"'
+	WriteRegStr HKCR "w3af.Script\shell\edit\command" "" '"notepad.exe" "%1"'
 	
 	; Profile .pw3af
 	ReadRegStr $R0 HKCR ".pw3af" ""
-	StrCmp $R0 "W3AF.Profile" 0 +2
-	DeleteRegKey HKCR "W3AF.Profile"
+	StrCmp $R0 "w3af.Profile" 0 +2
+	DeleteRegKey HKCR "w3af.Profile"
 
-	WriteRegStr HKCR ".pw3af" "" "W3AF.Profile"
-	WriteRegStr HKCR "W3AF.Profile" "" "W3AF Profile File"
-	WriteRegStr HKCR "W3AF.Profile\DefaultIcon" "" "$INSTDIR\GTK\w3af_gui_icon.ico,0"
+	WriteRegStr HKCR ".pw3af" "" "w3af.Profile"
+	WriteRegStr HKCR "w3af.Profile" "" "w3af Profile File"
+	WriteRegStr HKCR "w3af.Profile\DefaultIcon" "" "$INSTDIR\GTK\w3af_gui_icon.ico,0"
 
 	; Open .pw3af with w3af_gui
-	WriteRegStr HKCR "W3AF.Profile\shell" "" "open"	; Default
-	WriteRegStr HKCR "W3AF.Profile\shell\open\command" "" '"$INSTDIR\w3af_gui.bat" -p "%1"'
+	WriteRegStr HKCR "w3af.Profile\shell" "" "open"	; Default
+	WriteRegStr HKCR "w3af.Profile\shell\open\command" "" '"$INSTDIR\w3af_gui.bat" -p "%1"'
 
 	; Edit .pw3af with notepad.exe	
-	WriteRegStr HKCR "W3AF.Profile\shell\edit\command" "" '"notepad.exe" "%1"'
+	WriteRegStr HKCR "w3af.Profile\shell\edit\command" "" '"notepad.exe" "%1"'
 	;After changing file associations, you can call this function to refresh the shell immediately.	
 	${RefreshShellIcons}
 
@@ -343,11 +343,11 @@ Section un.Uninstall
 	
 	; Remove .w3af
 	DeleteRegKey HKCR ".w3af"
-	DeleteRegKey HKCR "W3AF.Script"
+	DeleteRegKey HKCR "w3af.Script"
 	
 	; Remove .pw3af
 	DeleteRegKey HKCR ".pw3af"
-	DeleteRegKey HKCR "W3AF.Profile"
+	DeleteRegKey HKCR "w3af.Profile"
 
 	; Likewise RemoveFromPath could be
 	Push $INSTDIR
