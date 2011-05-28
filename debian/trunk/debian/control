@@ -3,7 +3,7 @@ Section: net
 Priority: extra
 Maintainer: Luciano Bello <luciano@debian.org>
 Build-Depends: debhelper (>= 5), python-support, dpatch
-Standards-Version: 3.8.4
+Standards-Version: 3.9.1
 Homepage: http://w3af.sourceforge.net/
 XS-Python-Version: all
 
