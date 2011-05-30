@@ -1,8 +1,10 @@
 w3af (1.0-1) experimental; urgency=low
 
-  * w3af-1.0 is stable!
+  * w3af-1.0 is stable! (closes: #614125)
+  * Rise exceptions, no strings (closes: #585367).
+  * Since nltk is not part of Debian, the wordnet plugin was disable.
 
- -- Luciano Bello <luciano@debian.org>  Sat, 28 May 2011 18:19:36 -0300
+ -- Luciano Bello <luciano@debian.org>  Mon, 30 May 2011 12:06:27 -0300
 
 w3af (1.0-rc3svn3489-1) unstable; urgency=low
 

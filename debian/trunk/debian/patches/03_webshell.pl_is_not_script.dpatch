@@ -4,9 +4,9 @@
 ## DP: this script won't ever be running by hand.
 
 @DPATCH@
-diff -urNad w3af-1.0~rc2svn3180~/plugins/attack/payloads/webshell/webshell.pl w3af-1.0~rc2svn3180/plugins/attack/payloads/webshell/webshell.pl
---- w3af-1.0~rc2svn3180~/plugins/attack/payloads/webshell/webshell.pl	2009-11-10 09:29:31.000000000 -0300
-+++ w3af-1.0~rc2svn3180/plugins/attack/payloads/webshell/webshell.pl	2009-11-14 20:00:30.000000000 -0300
+diff -urNad '--exclude=CVS' '--exclude=.svn' '--exclude=.git' '--exclude=.arch' '--exclude=.hg' '--exclude=_darcs' '--exclude=.bzr' trunk~/plugins/attack/payloads/webshell/webshell.pl trunk/plugins/attack/payloads/webshell/webshell.pl
+--- trunk~/plugins/attack/payloads/webshell/webshell.pl	2011-05-25 09:40:02.000000000 -0300
++++ trunk/plugins/attack/payloads/webshell/webshell.pl	2011-05-30 11:33:48.000000000 -0300
 @@ -1,4 +1,3 @@
 -#!/usr/bin/perl
  

@@ -6,9 +6,9 @@
 ## DP: TODO: include the Debian Package Version
 
 @DPATCH@
-diff -urNad w3af-0.0.0svn2722~/core/controllers/misc/get_w3af_version.py w3af-0.0.0svn2722/core/controllers/misc/get_w3af_version.py
---- w3af-0.0.0svn2722~/core/controllers/misc/get_w3af_version.py	2009-03-02 15:37:47.000000000 -0200
-+++ w3af-0.0.0svn2722/core/controllers/misc/get_w3af_version.py	2009-03-02 16:02:16.000000000 -0200
+diff -urNad '--exclude=CVS' '--exclude=.svn' '--exclude=.git' '--exclude=.arch' '--exclude=.hg' '--exclude=_darcs' '--exclude=.bzr' trunk~/core/controllers/misc/get_w3af_version.py trunk/core/controllers/misc/get_w3af_version.py
+--- trunk~/core/controllers/misc/get_w3af_version.py	2011-05-25 09:44:58.000000000 -0300
++++ trunk/core/controllers/misc/get_w3af_version.py	2011-05-30 11:33:29.000000000 -0300
 @@ -47,6 +47,8 @@
          res += ' (from SVN server)'
          res += '\nRevision: ' + str(revision)

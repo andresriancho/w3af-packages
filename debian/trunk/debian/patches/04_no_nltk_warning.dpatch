@@ -1,0 +1,31 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 04_no_nltk_warning.dpatch by Luciano Bello <luciano@debian.org>
+##
+## nltk is not part of debian yet (check #279422). The wordnet plugin was disable.
+
+@DPATCH@
+diff -urNad '--exclude=CVS' '--exclude=.svn' '--exclude=.git' '--exclude=.arch' '--exclude=.hg' '--exclude=_darcs' '--exclude=.bzr' trunk~/core/controllers/misc/dependencyCheck.py trunk/core/controllers/misc/dependencyCheck.py
+--- trunk~/core/controllers/misc/dependencyCheck.py	2011-05-25 09:41:24.000000000 -0300
++++ trunk/core/controllers/misc/dependencyCheck.py	2011-05-30 11:45:17.000000000 -0300
+@@ -62,8 +62,8 @@
+     try:
+         import nltk
+     except Exception, e:
+-        packages.append('nltk')
+-        packages_debian.append('python-nltk')
++        #packages.append('nltk')
++        #packages_debian.append('python-nltk')
+         #TODO
+         #packages_mac_port.append()
+         msg  = '    If you can not install nltk, please try the following:\n'
+@@ -76,8 +76,8 @@
+         msg += '        tar -xzvf nltk-2.0b9.tar.gz\n'
+         msg += '        cd nltk-2.0b9\n'
+         msg += '        python setup.py install'
+-        additional_information.append(msg)
+-        reasonForExit = True
++        #additional_information.append(msg)
++        #reasonForExit = True
+ 
+     try:
+         import extlib.SOAPpy.SOAPpy as SOAPpy
