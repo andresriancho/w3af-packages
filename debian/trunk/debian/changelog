@@ -1,4 +1,4 @@
-w3af (1.0-1) experimental; urgency=low
+w3af (1.0.0-1) experimental; urgency=low
 
   * w3af-1.0 is stable! (closes: #614125)
   * Rise exceptions, no strings (closes: #585367).
