@@ -128,6 +128,12 @@ rm -rf ${BASE_DIR}/extlib/fpconst*/
 # python-soappy
 rm -rf ${BASE_DIR}/extlib/SOAPpy/
 
+# removing ./plugins/discovery/wordnet, since uses nltk which is not in Debian
+rm -rf ${BASE_DIR}/plugins/discovery/wordnet*
+
+# removing netcat, why? https://bugs.gentoo.org/349780
+rm -rf ${BASE_DIR}/plugins/attack/payloads/code/netcat
+
 #fixing permitions
 find ${BASE_DIR} -type d -exec chmod 755 {} \;
 find ${BASE_DIR} -type f -exec chmod 644 {} \;
@@ -138,14 +144,15 @@ mkdir tarballs > /dev/null 2>&1
 mv w3af_${VERSION}.orig.tar.gz tarballs
 
 echo 'setting new changelog entry in trunk/debian/changelog'
-dch --changelog trunk/debian/changelog --newversion ${VERSION}-1 "New SVN export revision: ${REVISION}"
+dpkg-parsechangelog -ltrunk/debian/changelog | grep -q "^Distribution: UNRELEASED$" || dch --changelog trunk/debian/changelog --newversion ${VERSION}-1 "New SVN export revision: ${REVISION}"
 
 echo "updating desktop file version to $VERSION"
-sed -i "s/Version=.*/Version=$VERSION/" ${BASE_DIR}/debian/desktop
+sed -i "s/Version=.*/Version=$VERSION/" trunk/debian/desktop
 
 echo "The w3af orig file is ready. just:
 cd trunk
-svn-buildpackage --svn-ignore"
+DIST=sid svn-buildpackage --svn-builder='pdebuild' --svn-ignore
+"
 
 #echo "Building the package..."
 #cd ${BASE_DIR} 

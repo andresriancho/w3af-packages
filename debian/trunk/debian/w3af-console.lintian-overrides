@@ -1,4 +1,0 @@
-w3af-console: arch-independent-package-contains-binary-or-object usr/share/w3af/plugins/attack/payloads/code/netcat
-w3af-console: arch-dependent-file-in-usr-share usr/share/w3af/plugins/attack/payloads/code/netcat
-w3af-console: unstripped-binary-or-object usr/share/w3af/plugins/attack/payloads/code/netcat
-w3af-console: missing-dependency-on-libc needed by usr/share/w3af/plugins/attack/payloads/code/netcat
