@@ -1,0 +1,434 @@
+--- a/core/controllers/auto_update/auto_update.py
++++ b/core/controllers/auto_update/auto_update.py
+@@ -44,7 +44,7 @@
+     '''
+     cli = pysvn.Client()
+     revs = set()
+-    
++
+     for root, dirs, files in os.walk(path):
+         if ".svn" in dirs:
+             dirs.remove(".svn")
+@@ -54,14 +54,14 @@
+             info = None
+         if info:
+             revs.add(str(info['revision'].number))
+-    
++
+     if not revs:
+         raise SVNError, "Path '%s' is not a svn working copy" % path
+-    
++
+     revs = sorted(revs)
+     d = {True: (revs[0], ''), False: (revs[0], ':' + revs[-1])}
+     return '%s%s' % d[len(revs) == 1]
+-    
++
+ 
+ class SVNError(Exception):
+     pass
+@@ -87,7 +87,7 @@
+     def __init__(self, localpath):
+         self._localpath = localpath
+         self._repourl = self._get_repourl()
+-        # Action Locker! 
++        # Action Locker!
+         self._actionlock = threading.RLock()
+ 
+     def _get_repourl(self):
+@@ -100,7 +100,7 @@
+         '''
+         Update local repo to last revision if `rev` is None; otherwise update
+         to revision `rev`.
+-        
++
+         @param revision: Revision to update to. If None assume HEAD.
+         '''
+         raise NotImplementedError
+@@ -114,7 +114,7 @@
+     def status(self, localpath=None):
+         '''
+         Return a SVNFilesList object.
+-        
++
+         @param localpath: Path to get the status from. If None use project's
+             root.
+         '''
+@@ -133,7 +133,7 @@
+         `localpath`
+         '''
+         raise NotImplementedError
+-    
++
+     @staticmethod
+     def is_working_copy(localpath):
+         '''
+@@ -187,13 +187,13 @@
+         super(w3afSVNClient, self).__init__(localpath)
+         # Set callbacks
+         self._svnclient.callback_notify = self._register
+-        # Callback to be called when there's an error in the certificate 
++        # Callback to be called when there's an error in the certificate
+         # validation and svn doesn't know what to do.
+         self._svnclient.callback_ssl_server_trust_prompt = \
+             lambda trustdata: (True, trustdata['failures'], True)
+         # Events occurred in current action
+         self._events = []
+-    
++
+     def __getattribute__(self, name):
+         '''
+         Wrap all methods in order to be able to respond to Ctrl+C signals.
+@@ -224,7 +224,7 @@
+                     self._exc = self._result = None
+             except KeyboardInterrupt:
+                 raise
+-        
++
+         attr = SVNClient.__getattribute__(self, name)
+         if callable(attr):
+             meth = attr
+@@ -255,7 +255,7 @@
+                                            depth=pysvn.depth.infinity)[0]
+             except pysvn.ClientError, ce:
+                 raise SVNUpdateError(*ce.args)
+-            
++
+             updfiles = self._filter_files(self.UPD_ACTIONS)
+             updfiles.rev = Revision(pysvn_rev.number, pysvn_rev.date)
+             return updfiles
+@@ -263,7 +263,7 @@
+     def status(self, localpath=None):
+         with self._actionlock:
+             path = localpath or self._localpath
+-            entries = self._svnclient.status(path, recurse=False)            
++            entries = self._svnclient.status(path, recurse=False)
+             res = [(ent.path, pysvn_status_translator.get(ent.text_status,
+                                           ST_UNKNOWN)) for ent in entries]
+             return SVNFilesList(res)
+@@ -290,21 +290,21 @@
+         '''
+         Return SVNLogList of log messages between `start_rev`  and `end_rev`
+         revisions.
+-        
++
+         @param start_rev: Revision object
+         @param end_rev: Revision object
+         '''
+         with self._actionlock:
+             # Expected by pysvn.Client.log method
+-            _startrev = pysvn.Revision(pysvn.opt_revision_kind.number, 
++            _startrev = pysvn.Revision(pysvn.opt_revision_kind.number,
+                                start_rev.number)
+             _endrev = pysvn.Revision(pysvn.opt_revision_kind.number,
+                                          end_rev.number)
+-            logs = (l.message for l in self._svnclient.log(self._localpath, 
++            logs = (l.message for l in self._svnclient.log(self._localpath,
+                               revision_start=_startrev, revision_end=_endrev))
+             rev = end_rev if (end_rev.number > start_rev.number) else start_rev
+             return SVNLogList(logs, rev)
+-    
++
+     @staticmethod
+     def is_working_copy(localpath):
+         try:
+@@ -330,7 +330,7 @@
+     def get_revision(self, local=True):
+         '''
+         Return Revision object.
+-        
++
+         @param local: If true return local's revision data; otherwise use
+         repo's.
+         '''
+@@ -341,15 +341,15 @@
+     def _filter_files(self, filterbyactions=()):
+         '''
+         Filter... Return files-actions
+-        
+-        @param filterby: 
++
++        @param filterby:
+         '''
+         files = SVNFilesList()
+         for ev in self._events:
+             action = ev['action']
+             if action in filterbyactions:
+                 path = ev['path']
+-                # We're not interested on reporting directories unless a 
++                # We're not interested on reporting directories unless a
+                 # 'delete' has been performed on them
+                 if not os.path.isdir(path) or action == wcna.update_delete:
+                     files.append(path, pysvn_action_translator[action])
+@@ -374,7 +374,7 @@
+     def __eq__(self, rev):
+         return self._number == rev.number and \
+                 self._date == rev.date
+-    
++
+     def __ne__(self, rev):
+         return not self.__eq__(rev)
+ 
+@@ -396,7 +396,7 @@
+ class SVNList(list):
+     '''
+     Wrapper for python list type. It may contain the number of the current
+-    revision and do a custom list print. Child classes are encouraged to 
++    revision and do a custom list print. Child classes are encouraged to
+     redefine the __str__ method.
+     '''
+ 
+@@ -469,17 +469,17 @@
+     Perform SVN w3af code update and commit. When an instance is created loads
+     data from a .conf file that will be used when actions are executed.
+     Also provides some callbacks as well as events to register to.
+-    
++
+     Callbacks on:
+         UPDATE:
+             * callback_onupdate_confirm(msg)
+                 Return True/False
+-                
++
+             * callback_onupdate_show_log(msg, log_func)
+                 Displays 'msg' to the user and depending on user's answer
+                 call 'log_func()' which returns a string with the summary of
+                 the commit logs from the from local revision to repo's.
+-            
++
+             * callback_onupdate_error
+                 If an SVNError occurs this callback is called in order to the
+                 client class handles the error. Probably notify the user.
+@@ -498,26 +498,26 @@
+     ON_UPDATE_CHECK = 3
+     ON_ACTION_ERROR = 4
+     ON_COMMIT = 6
+-    
++
+     # Callbacks
+     callback_onupdate_confirm = None
+     callback_onupdate_show_log = None
+     callback_onupdate_error = None
+-    
++
+     # Revision constants
+     HEAD = 0
+     PREVIOUS = -1
+-    
++
+     def __init__(self, localpath=W3AF_LOCAL_PATH, log=None):
+         '''
+-        w3af version manager class. Handles the logic concerning the 
++        w3af version manager class. Handles the logic concerning the
+         automatic update/commit process of the code.
+-        
++
+         @param localpath: Working directory
+         @param log: Default output function
+         '''
+         self._localpath = localpath
+-        
++
+         if not log:
+             import core.controllers.outputManager as om
+             log = om.out.console
+@@ -536,7 +536,7 @@
+         msg = 'At least one new dependency was included in w3af. Please ' \
+         'update manually.'
+         self.register(VersionMgr.ON_UPDATE_ADDED_DEP, log, msg)
+-    
++
+     def __getattribute__(self, name):
+         def new_meth(*args, **kwargs):
+             try:
+@@ -544,27 +544,27 @@
+             except SVNError, err:
+                 msg = 'An error occurred while updating:\n%s' % err.args
+                 self._notify(VersionMgr.ON_ACTION_ERROR, msg)
+-        attr = object.__getattribute__(self, name)            
++        attr = object.__getattribute__(self, name)
+         if callable(attr):
+-            return new_meth                
++            return new_meth
+         return attr
+ 
+     def update(self, force=False, rev=HEAD, print_result=False):
+         '''
+         Perform code update if necessary. Return three elems tuple with the
+         SVNFilesList of the changed files, the local and the repo's revision.
+-        
++
+         @param force: Force update ignoring the startup config.
+         @param rev: Revision number. If != HEAD then update will be forced.
+             Also, if rev equals PREVIOUS (-1) assume revision number is the
+-            last that worked.        
++            last that worked.
+         @param print_result: If True print the result files using instance's
+             log function.
+         '''
+         client = self._client
+         rev = int(rev)
+         localrev = client.get_revision(local=True)
+-        files = SVNFilesList(rev=localrev)        
++        files = SVNFilesList(rev=localrev)
+         # If revision is not HEAD then force = True
+         if rev != VersionMgr.HEAD:
+             if rev == -1: # Use previous working revision
+@@ -586,7 +586,7 @@
+                     proceed_upd = callback(
+                         'Your current w3af installation is r%s. Do you want '
+                         'to update to r%s?' % (localrev.number, remrev.number))
+-    
++
+                 if proceed_upd:
+                     self._notify(VersionMgr.ON_UPDATE)
+                     # Find new deps.
+@@ -615,12 +615,12 @@
+                 callback('Do you want to see a summary of the new code ' \
+                          'commits log messages?', log)
+         return (files, localrev, remrev)
+-    
++
+     def show_summary(self, start_rev, end_rev):
+         '''
+         Return SVNLogList of log messages between `start_rev`  and `end_rev`
+         revisions.
+-        
++
+         @param start_rev: Start Revision object
+         @param end_rev: End Revision object
+         '''
+@@ -647,7 +647,7 @@
+         '''
+         Return tuple with the dependencies added to extlib/ in the repo if
+         any. Basically it compares local dirs under extlib/ to those in the
+-        repo as well as checks if at least a new sentence containing the 
++        repo as well as checks if at least a new sentence containing the
+         import keyword was added to the dependencyCheck.py file.
+         '''
+         #
+@@ -672,7 +672,7 @@
+ 
+         #
+         # Additional constraint: We should verify that at least an import
+-        # sentence was added inside a try-except block to the 
++        # sentence was added inside a try-except block to the
+         # dependencyCheck.py files
+         #
+         if deps:
+@@ -691,7 +691,7 @@
+                     elif nl.find('import') != -1 and try_counter:
+                         return deps
+         return ()
+-    
++
+     def _has_to_update(self):
+         '''
+         Helper method that figures out if an update should be performed
+@@ -707,10 +707,10 @@
+         # That's it!
+         if not startcfg.auto_upd:
+             return False
+-        else:        
++        else:
+             freq = startcfg.freq
+             diff_days = max((date.today()-startcfg.last_upd).days, 0)
+-            
++
+             if (freq == StartUpConfig.FREQ_DAILY and diff_days > 0) or \
+                 (freq == StartUpConfig.FREQ_WEEKLY and diff_days > 6) or \
+                 (freq == StartUpConfig.FREQ_MONTHLY and diff_days > 29):
+@@ -724,7 +724,7 @@
+     '''
+     Base class that provides an API for UI update workers.
+     '''
+-    
++
+     def __init__(self, force=False, ask=None, logger=None,
+                  rev=VersionMgr.HEAD, print_result=False):
+         self._force_upd = force
+@@ -734,24 +734,24 @@
+         self._print_res = print_result
+         self._callbacks = {'callback_onupdate_confirm': ask}
+         self._registries = {}
+-    
++
+     @property
+     def _vmngr(self):
+         vmngr = getattr(self, '__vmngr', None)
+         if vmngr is None:
+             vmngr = VersionMgr(log=self._logger)
+             [setattr(vmngr, n, c) for n, c in self._callbacks.items()]
+-            [vmngr.register(ev, val[0], val[1]) for ev, val in 
++            [vmngr.register(ev, val[0], val[1]) for ev, val in
+                                                 self._registries.items()]
+             setattr(self, '__vmngr', vmngr)
+         return vmngr
+-    
++
+     def _add_callback(self, callback_name, callback):
+         self._callbacks[callback_name] = callback
+-    
++
+     def _register(self, event, func, msg):
+         self._registries[event] = (func, msg)
+-        
++
+     def update(self):
+         if self._force_upd in (None, True) and is_working_copy() and \
+             verify_dir_has_perm(W3AF_LOCAL_PATH, os.W_OK, levels=1):
+@@ -762,7 +762,7 @@
+                 pass
+             except Exception, ex:
+                 print('An error occurred while updating: %s' % ex.args)
+-            
++
+             # Try to convert to int => a valid revision number. Otherwise the
+             # code is inconsistent => more than one revision is checked out
+             try:
+@@ -773,14 +773,14 @@
+                   "Please update manually by executing a regular 'svn update' "
+                   "in the w3af installation directory.\n")
+                 sys.exit(1)
+-    
++
+     def _call_update(self):
+         return self._vmngr.update(self._force_upd,
+                                   self._rev_upd, self._print_res)
+-    
++
+     def _handle_update_output(self, resp):
+         raise NotImplementedError, "Must be implemented by subclass"
+-    
++
+     def _log(self, msg):
+         print msg
+ 
+@@ -799,11 +799,11 @@
+     FREQ_WEEKLY = 'W' # [W]eekly
+     FREQ_MONTHLY = 'M' # [M]onthly
+     # DEFAULT VALUES
+-    DEFAULTS = {'auto-update': 'true', 'frequency': 'D',
++    DEFAULTS = {'auto-update': 'false', 'frequency': 'D',
+                 'last-update': 'None', 'last-rev': 0}
+ 
+     def __init__(self):
+-        
++
+         self._start_cfg_file = os.path.join(get_home_dir(), 'startup.conf')
+         self._start_section = 'STARTUP_CONFIG'
+         self._config = ConfigParser.ConfigParser()
+@@ -826,11 +826,11 @@
+         self._lastupd = datevalue
+         self._config.set(self._start_section, 'last-update',
+                          datevalue.isoformat())
+-    
++
+     @property
+     def last_rev(self):
+         return self._lastrev
+-    
++
+     @last_rev.setter
+     def last_rev(self, rev):
+         self._lastrev = rev.number
