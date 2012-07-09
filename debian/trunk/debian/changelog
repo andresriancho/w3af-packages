@@ -1,9 +1,3 @@
-w3af (1.1svn4473-1) UNRELEASED; urgency=low
-
-  * New SVN export revision: 4473
-
- -- Luciano Bello <luciano@debian.org>  Mon, 09 Jul 2012 18:53:53 +0200
-
 w3af (1.1-1) unstable; urgency=low
 
   * The Managua DebConf12 release!
@@ -16,6 +10,8 @@ w3af (1.1-1) unstable; urgency=low
     - Fix copyright-refers-to-symlink-license (Lintian).
     - Fix copyright-with-old-dh-make-debian-copyright (Lintian).
     - Fix debian-watch-file-is-missing (Lintian).
+  * Removing patches already included by upstream:
+    - 05-raise-exception-no-strings
 
  -- Luciano Bello <luciano@debian.org>  Mon, 09 Jul 2012 07:35:46 +0200
 
