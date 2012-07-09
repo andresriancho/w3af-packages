@@ -1,4 +1,0 @@
-01_report_bugs_as_debian.dpatch
-03_webshell.pl_is_not_script.dpatch
-04_no_nltk_warning.dpatch
-05_raise_exception_no_strings.dpatch

@@ -1,9 +1,6 @@
-#! /bin/sh /usr/share/dpatch/dpatch-run
-## 03_webshell.pl_is_not_script.dpatch by Luciano Bello <luciano@debian.org>
-##
-## DP: this script won't ever be running by hand.
+From: Luciano Bello <luciano@debian.org>
+Subject: this script won't ever be running by hand.
 
-@DPATCH@
 diff -urNad '--exclude=CVS' '--exclude=.svn' '--exclude=.git' '--exclude=.arch' '--exclude=.hg' '--exclude=_darcs' '--exclude=.bzr' trunk~/plugins/attack/payloads/webshell/webshell.pl trunk/plugins/attack/payloads/webshell/webshell.pl
 --- trunk~/plugins/attack/payloads/webshell/webshell.pl	2011-05-25 09:40:02.000000000 -0300
 +++ trunk/plugins/attack/payloads/webshell/webshell.pl	2011-05-30 11:33:48.000000000 -0300

@@ -5,19 +5,17 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-include /usr/share/dpatch/dpatch.make
-
-clean: unpatch
+clean:
 	dh_testdir
 	dh_testroot
 	rm -rf build-stamp configure-stamp
 
 	dh_clean
 
-install: build patch-stamp
+install: build
 	dh_testdir
 	dh_testroot
-	dh_clean -k
+	dh_prep
 	dh_installdirs
 
 	cp debian/desktop debian/w3af/usr/share/applications/w3af.desktop
@@ -31,6 +29,9 @@ install: build patch-stamp
 	cp debian/w3af_gui.sh debian/w3af/usr/bin/w3af_gui
 	mv debian/w3af-console/usr/share/w3af/core/ui/gtkUi debian/w3af/usr/share/w3af/core/ui/gtkUi
 	mv debian/w3af-console/usr/share/w3af/extlib/xdot debian/w3af/usr/share/w3af/extlib/
+
+build-arch: build
+build-indep: build
 
 # Build architecture-independent files here.
 binary-indep: install

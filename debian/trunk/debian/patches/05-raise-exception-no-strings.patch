@@ -1,7 +1,5 @@
-#! /bin/sh /usr/share/dpatch/dpatch-run
-## 05_raise_exception_no_strings.dpatch by Luciano Bello <luciano@debian.org>
-##
-## DP: Raise exceptions, no strings. More info (#585367)
+From: Luciano Bello <luciano@debian.org>
+Subject: Raise exceptions, no strings. More info (#585367)
 
 @DPATCH@
 diff -urNad '--exclude=CVS' '--exclude=.svn' '--exclude=.git' '--exclude=.arch' '--exclude=.hg' '--exclude=_darcs' '--exclude=.bzr' trunk~/core/ui/gtkUi/comparator/diffutil.py trunk/core/ui/gtkUi/comparator/diffutil.py

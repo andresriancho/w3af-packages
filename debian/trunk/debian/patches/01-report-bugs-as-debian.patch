@@ -1,11 +1,7 @@
-#! /bin/sh /usr/share/dpatch/dpatch-run
-## 01_report_bugs_as_debian.dpatch by Luciano Bello <luciano@debian.org>
-##
-## All lines beginning with `## DP:' are a description of the patch.
-## DP: Indicates that the version cames from a Debian Package 
-## DP: TODO: include the Debian Package Version
+From: Luciano Bello <luciano@debian.org>
+Subject: Indicates that the version cames from a Debian Package
+TODO: include the Debian Package Version
 
-@DPATCH@
 diff -urNad '--exclude=CVS' '--exclude=.svn' '--exclude=.git' '--exclude=.arch' '--exclude=.hg' '--exclude=_darcs' '--exclude=.bzr' trunk~/core/controllers/misc/get_w3af_version.py trunk/core/controllers/misc/get_w3af_version.py
 --- trunk~/core/controllers/misc/get_w3af_version.py	2011-05-25 09:44:58.000000000 -0300
 +++ trunk/core/controllers/misc/get_w3af_version.py	2011-05-30 11:33:29.000000000 -0300

@@ -1,5 +1,5 @@
 [Desktop Entry]
-Version=1.0
+Version=1.1svn4473
 Type=Application
 Exec=/usr/share/w3af/w3af_gui
 Icon=w3af
