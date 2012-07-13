@@ -2,3 +2,4 @@
 03-webshell.pl-is-not-script.patch
 04-no-nltk-warning.patch
 disable-auto-update.patch
+dependecies-a-la-debian.patch
