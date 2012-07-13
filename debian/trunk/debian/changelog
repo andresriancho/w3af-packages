@@ -2,6 +2,7 @@ w3af (1.1-1) UNRELEASED; urgency=low
 
   * The Managua DebConf12 release!
   * New upstream release (closes: #669939)
+    - Better error handling (closes: #675284)
   * Many improvements from Jari Aalto <jari.aalto@cante.net> thanks! (closes:
     #669941):
     - Remove deprecated dpatch and upgrade to packaging format "3.0 quilt".
