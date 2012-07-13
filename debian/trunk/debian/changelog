@@ -11,7 +11,7 @@ w3af (1.1-1) UNRELEASED; urgency=low
     - Fix copyright-with-old-dh-make-debian-copyright (Lintian).
     - Fix debian-watch-file-is-missing (Lintian).
   * Removing patches already included by upstream:
-    - 05_raise_exception_no_strings
+    - 05_raise_exception_no_strings (closes: #585368)
   * Disabling auto-update: disable-auto-update.patch
 
  -- Luciano Bello <luciano@debian.org>  Mon, 09 Jul 2012 07:35:46 +0200
