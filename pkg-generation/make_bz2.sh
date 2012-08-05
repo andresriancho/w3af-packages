@@ -14,8 +14,13 @@ svn up
 # now we copy the tag to a temp directory
 cd ../extras/pkg-generation/
 
-# copy trunk so we don't destroy our local copy
+# copy the tag so we don't destroy our local copy
 cp -Rp ../../tags/$1/ ../../w3af
+
+# change the SVN URL for the tag to the trunk so we properly update the user's installation
+cd ../../w3af
+svn switch https://w3af.svn.sourceforge.net/svnroot/w3af/trunk
+cd -
 
 # remove the compiled python modules
 find -L ../../w3af -name *.pyc | xargs rm
