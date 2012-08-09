@@ -1,4 +1,4 @@
-w3af (1.1-1) UNRELEASED; urgency=low
+w3af (1.1svn5547-1) unstable; urgency=low
 
   * The Managua DebConf12 release!
   * New upstream release (closes: #669939)
@@ -14,6 +14,7 @@ w3af (1.1-1) UNRELEASED; urgency=low
   * Removing patches already included by upstream:
     - 05_raise_exception_no_strings (closes: #585368)
   * Disabling auto-update: disable-auto-update.patch
+  * Reimplementing pybloomfiltermmap with disk_set.
 
  -- Luciano Bello <luciano@debian.org>  Mon, 09 Jul 2012 07:35:46 +0200
 
