@@ -458,7 +458,7 @@ if __name__ == '__main__':
         (set_release_version, (args,), {}),
         (update_changelog, (args,), {}),
         (create_bz2, (args,), {}),
-        #(unittest_bz2, (args,), {}),
+        (unittest_bz2, (args,), {}),
         (upload_files_to_site, (args,), {}),
         (remote_decompress_sphinx, (args,), {}),
         (git_flow_release, (args,), {}),
