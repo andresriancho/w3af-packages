@@ -30,6 +30,8 @@ from datetime import date
 try:
     from blessings import Terminal
     from hurry.filesize import size
+    from fabric.api import settings
+    from fabric.operations import put
 except ImportError:
     print 'Missing dependencies, please run:'
     print 'sudo pip install -r requirements.txt'
@@ -220,8 +222,9 @@ def update_changelog(args):
         * Fixed C
     
     '''
-    msg = 'Enter the milestone id for this release'\
-          ' (/andresriancho/w3af/issues?milestone=%s):'
+    msg = 'Enter the milestone id for this release, choose the correct one from'\
+          ' https://github.com/andresriancho/w3af/issues/milestones and enter'\
+          ' its id (/andresriancho/w3af/issues?milestone=%s):'
     bold(msg, newline=False)
     milestone = raw_input()
     milestone = milestone.strip()
@@ -272,7 +275,7 @@ def create_bz2(args):
     run_debug('tar -chpf w3af-%s.tar -C %s %s' % (args.release_version, parent, w3af))
     run_debug('pbzip2 -9 w3af-%s.tar' % (args.release_version,))
 
-    green("File created!")
+    green("File created,", newline=False)
 
     fname = 'w3af-%s.tar.bz2' % args.release_version
     fsize = size(os.path.getsize(fname))
@@ -297,6 +300,7 @@ def unittest_bz2(args):
     run_debug('rm -rf %s/w3af-%s.tar' %(target_path, args.release_version))
     parent, w3af = split_w3af_path(args.w3af_path)
     run_debug('rm -rf %s/%s' %(target_path, w3af))
+    run_debug('rm -rf %s/%s' %(target_path, fname))
 
     bold('Copy and extract generated package')
     run_debug('cp %s %s' %(fname, target_path))
@@ -318,7 +322,7 @@ def unittest_bz2(args):
     bold('Running unittests')
 
     nose_tests = [
-                 # '-a smoke plugins/',
+                  '-a smoke plugins/',
                   'core/controllers/tests/',
                   'core/data/'
                  ]
@@ -340,15 +344,26 @@ def upload_files_to_site(args):
     upload = upload.strip()
 
     if upload.lower() == 'y' or upload.lower() == 'yes' or upload == '':
-        path = '/var/www/w3af.org/webroot/wp-content/uploads/'
+        remote_path = '/var/www/w3af.org/webroot/wp-content/uploads/'
+        files = [
+                 'w3af-%s.tar.bz2.md5sum' % args.release_version,
+                 'w3af-%s.tar.bz2' % args.release_version,
+                 ]
 
-        run_debug('scp w3af-%s.tar.bz2 ubuntu@w3af.org:%s' % (args.release_version,
-                                                              path))
-        run_debug('scp w3af-%s.tar.bz2.md5sum ubuntu@w3af.org:%s' % (args.release_version,
-                                                                     path))
+        for filename in files:
 
-        green('Uploaded files to w3af.org!')
-        bold('Remember to add links to these files from wordpress.')
+            fsize = size(os.path.getsize(filename))
+            bold('Uploading %s with file size of %s' % (filename, fsize,))
+
+            with settings(host_string='ubuntu@direct.w3af.org'):
+                success = put(filename, remote_path, use_sudo=True)
+
+                if not success:
+                    red('File upload failed!')
+                    return False
+
+    green('Uploaded files to w3af.org!')
+    bold('Remember to add links to these files from wordpress.')
 
     return True
 
