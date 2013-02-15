@@ -177,7 +177,8 @@ def remove_external_files(args):
     #find -L ../../w3af -name .svn | xargs rm -rf
 
     # remove some paths and files that are created during the run
-    for filename in ['output*.*', '.noseids', '.coverage', 'nose.cfg']:
+    for filename in ['output*.*', '.noseids', '.coverage', 'nose.cfg', 'parse*',
+                     'report.html',]:
         result = run_debug('rm -rf %s/%s' % (args.w3af_path, filename))
         if not result:
             return False
