@@ -30,11 +30,15 @@ from datetime import date
 try:
     from blessings import Terminal
     from hurry.filesize import size
-    from fabric.api import settings
+    from fabric.api import settings, sudo
     from fabric.operations import put
 except ImportError:
     print 'Missing dependencies, please run:'
     print 'sudo pip install -r requirements.txt'
+
+
+UPLOAD_PATH = '/var/www/w3af.org/webroot/wp-content/uploads/'
+
 
 term = Terminal()
 
@@ -179,7 +183,7 @@ def remove_external_files(args):
     # remove some paths and files that are created during the run
     for filename in ['output*.*', '.noseids', '.coverage', 'nose.cfg', 'parse*',
                      'report.html',]:
-        result = run_debug('rm -rf %s/%s' % (args.w3af_path, filename))
+        result = run_debug('rm -rf %s/%s' % (args.w3af_path, filename), method='system')
         if not result:
             return False
 
@@ -251,8 +255,68 @@ def update_changelog(args):
 
     return True
 
-def run_sphinx(args):
+def create_source_doc(args):
+    bold('Creating source code documentation')
+
+    yellow('Removing previous source documentation packages')
+    run_debug('rm -rf w3af-sphinx-%s.tar' % args.release_version)
+    run_debug('rm -rf w3af-sphinx-%s.tar.bz2' % args.release_version)
+    run_debug('rm -rf apidoc/')
+
+    cmd = "sphinx-apidoc -H w3af -A 'Andres Riancho' -V %s -o apidoc/ %s"\
+          " --full -f --maxdepth=3 1>/dev/null"
+    result = run_debug(cmd % (args.release_version, args.w3af_path),
+                       method='system')
+
+    if not result:
+        red('Failed to "sphinx-apidoc" for source code documentation.')
+        return False
+
+    old_pp = os.environ.get('PYTHONPATH', '')
+    os.environ['PYTHONPATH'] = '%s:%s' % (old_pp, args.w3af_path)
+
+    current_wd = os.getcwd()
+    os.chdir('apidoc/')
+
+    result = run_debug('make html 2>/dev/null', method='system')
+
+    os.chdir(current_wd)
+
+    if not result:
+        red('Failed to "make html" for source code documentation.')
+        return False
+
+    # I had to do something about the 2>/dev/null
+    yellow('Warning: The "make html" raised too many warnings, ignoring.')
+    bold('Compressing source code documentation')
+    
+    run_debug('tar -chpf w3af-sphinx-%s.tar apidoc/' % args.release_version)
+    run_debug('pbzip2 -9 w3af-sphinx-%s.tar' % args.release_version)
+
+    green("File created,", newline=False)
+
+    fname = 'w3af-sphinx-%s.tar.bz2' % args.release_version
+    fsize = size(os.path.getsize(fname))
+    bold('%s file size is %s' % (fname, fsize,))
+
     return True
+
+def remote_decompress_sphinx(args):
+    '''
+    Sphinx's documentation was already uploaded, now move it to the right location
+    in the web server to make it accessible.
+    '''
+    SPHINX_WWW_PATH = '/var/www/w3af.org/webroot/'
+
+    with settings(host_string='ubuntu@direct.w3af.org'):
+        sudo('mv %s/w3af-sphinx-%s.tar.bz2 %s' % (UPLOAD_PATH,
+                                                  args.release_version,
+                                                  SPHINX_WWW_PATH))
+
+        with cd(SPHINX_WWW_PATH):
+            sudo('bunzip2 w3af-sphinx-%s.tar.bz2' % args.release_version)
+            sudo('rm -rf apidoc/')
+            sudo('tar -zxpf w3af-sphinx-%s.tar' % args.release_version)
 
 def split_w3af_path(user_provided_path):
     full_path = user_provided_path
@@ -309,16 +373,16 @@ def unittest_bz2(args):
     run_debug('tar -xpf %s/w3af-%s.tar -C %s' % (target_path, args.release_version,
                                                  target_path))
 
-    current_wd = os.getcwd()
-    os.chdir('%s/w3af/' % target_path)
-
-    run_debug('ls --color')
+    run_debug('ls --color %s/w3af/' % target_path)
     bold('Does the tar content look file to you? [Y/n]', newline=False)
     cc = content_correct = raw_input()
 
     if not(cc.lower() == 'y' or cc.lower() == 'yes' or cc == ''):
         red('The tar content is incorrect.')
         return False
+
+    current_wd = os.getcwd()
+    os.chdir('%s/w3af/' % target_path)
 
     bold('Running unittests')
 
@@ -345,10 +409,10 @@ def upload_files_to_site(args):
     upload = upload.strip()
 
     if upload.lower() == 'y' or upload.lower() == 'yes' or upload == '':
-        remote_path = '/var/www/w3af.org/webroot/wp-content/uploads/'
         files = [
                  'w3af-%s.tar.bz2.md5sum' % args.release_version,
                  'w3af-%s.tar.bz2' % args.release_version,
+                 'w3af-sphinx-%s.tar.bz2' % args.release_version,
                  ]
 
         for filename in files:
@@ -357,7 +421,7 @@ def upload_files_to_site(args):
             bold('Uploading %s with file size of %s' % (filename, fsize,))
 
             with settings(host_string='ubuntu@direct.w3af.org'):
-                success = put(filename, remote_path, use_sudo=True)
+                success = put(filename, UPLOAD_PATH, use_sudo=True)
 
                 if not success:
                     red('File upload failed!')
@@ -381,14 +445,22 @@ if __name__ == '__main__':
     # See: https://github.com/andresriancho/w3af/wiki/Creating-a-source-package
     result = run_all(
         (verify_w3af_path, (args,), {}),
+
+        # Note: calling remove_external_files is required since sphinx will
+        # import all modules and this might create files we don't want, AND
+        # we don't want some files in the sphinx documentation, which might be
+        # there before running sphinx
         (remove_external_files, (args,), {}),
+        (create_source_doc, (args,), {}),
+        (remove_external_files, (args,), {}),
+
         (create_release_branch, (args,), {}),
         (set_release_version, (args,), {}),
         (update_changelog, (args,), {}),
-        (run_sphinx, (args,), {}),
         (create_bz2, (args,), {}),
-        (unittest_bz2, (args,), {}),
+        #(unittest_bz2, (args,), {}),
         (upload_files_to_site, (args,), {}),
+        (remote_decompress_sphinx, (args,), {}),
         (git_flow_release, (args,), {}),
     )
 
