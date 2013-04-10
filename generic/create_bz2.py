@@ -30,7 +30,7 @@ from datetime import date
 try:
     from blessings import Terminal
     from hurry.filesize import size
-    from fabric.api import settings, sudo
+    from fabric.api import settings, sudo, cd
     from fabric.operations import put
 except ImportError:
     print 'Missing dependencies, please run:'
@@ -374,7 +374,7 @@ def unittest_bz2(args):
                                                  target_path))
 
     run_debug('ls --color %s/w3af/' % target_path)
-    bold('Does the tar content look file to you? [Y/n]', newline=False)
+    bold('Does the tar content look fine to you? [Y/n]', newline=False)
     cc = content_correct = raw_input()
 
     if not(cc.lower() == 'y' or cc.lower() == 'yes' or cc == ''):
@@ -383,6 +383,15 @@ def unittest_bz2(args):
 
     current_wd = os.getcwd()
     os.chdir('%s/w3af/' % target_path)
+
+    run_debug('git branch')
+    bold('Is the output of "git branch" correct? [Y/n]', newline=False)
+    cc = content_correct = raw_input()
+
+    if not(cc.lower() == 'y' or cc.lower() == 'yes' or cc == ''):
+        red('The branch is incorrect.')
+        os.chdir(current_wd)
+        return False
 
     bold('Running unittests')
 
